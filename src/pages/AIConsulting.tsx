@@ -3,10 +3,14 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
-import { Bot, AlertCircle, Brain, Zap, Glasses, Cpu } from 'lucide-react';
+import { Bot, AlertCircle, Brain, Zap, Glasses, Cpu, TrendingUp, Workflow, BarChart3, Clock, DollarSign, Shield } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Card, CardContent } from '@/components/ui/card';
+import { useIsMobile } from '@/hooks/use-mobile';
 
 const AIConsulting = () => {
+  const isMobile = useIsMobile();
+
   const benefits = [
     {
       icon: <Brain className="h-8 w-8 text-resgato-purple" />,
@@ -35,6 +39,39 @@ const AIConsulting = () => {
     }
   ];
 
+  const businessImpacts = [
+    {
+      icon: <DollarSign className="h-10 w-10 text-resgato-purple" />,
+      title: "Increased Profit Margins",
+      description: "AI-powered automation reduces operational costs by 25-40% while increasing output quality and consistency across business processes."
+    },
+    {
+      icon: <TrendingUp className="h-10 w-10 text-resgato-purple" />,
+      title: "Revenue Growth",
+      description: "Intelligent algorithms can identify new revenue streams, optimize pricing strategies, and personalize customer experiences to drive sales."
+    },
+    {
+      icon: <Clock className="h-10 w-10 text-resgato-purple" />,
+      title: "Time Efficiency",
+      description: "Automation of routine tasks frees up to 30% of employee time for higher-value creative and strategic work."
+    },
+    {
+      icon: <BarChart3 className="h-10 w-10 text-resgato-purple" />,
+      title: "Data-Driven Decisions",
+      description: "Transform raw data into actionable insights, allowing you to make decisions based on predictive analytics rather than intuition."
+    },
+    {
+      icon: <Workflow className="h-10 w-10 text-resgato-purple" />,
+      title: "Process Optimization",
+      description: "Identify and eliminate inefficiencies in your business processes through AI-powered analysis and continuous improvement."
+    },
+    {
+      icon: <Shield className="h-10 w-10 text-resgato-purple" />,
+      title: "Risk Reduction",
+      description: "Predictive analysis helps identify potential issues before they occur, reducing business risk and preventing costly mistakes."
+    }
+  ];
+
   const caseStudies = [
     {
       company: 'Retail Chain',
@@ -50,6 +87,11 @@ const AIConsulting = () => {
       company: 'Healthcare Provider',
       solution: 'Patient Care Optimization',
       result: 'Deployed AI triage systems that reduced wait times by 35% while improving diagnostic accuracy by 22%.'
+    },
+    {
+      company: 'Financial Services',
+      solution: 'Fraud Detection',
+      result: 'Implemented AI algorithms that identified fraudulent transactions with 95% accuracy, reducing losses by $2.3M annually.'
     }
   ];
 
@@ -58,39 +100,73 @@ const AIConsulting = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-resgato-navy to-resgato-blue text-white py-20">
+        <section className="bg-gradient-to-br from-resgato-navy to-resgato-blue text-white py-16 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
               <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl font-bold leading-tight">
+                <h1 className="text-3xl md:text-5xl font-bold leading-tight">
                   Transform Your Business with <span className="text-resgato-light-purple">AI Consulting</span>
                 </h1>
-                <p className="text-xl">
+                <p className="text-lg md:text-xl">
                   Navigate the complex world of artificial intelligence with expert guidance tailored to your unique business challenges and opportunities.
                 </p>
+                <div className="pt-4">
+                  <a 
+                    href="/contact" 
+                    className="inline-block bg-resgato-light-purple hover:bg-resgato-purple text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
+                  >
+                    Book a Free Consultation
+                  </a>
+                </div>
               </div>
               <div className="flex justify-center">
                 <div className="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
-                  <Bot className="h-32 w-32 text-resgato-light-purple mx-auto" />
+                  <Bot className="h-24 w-24 md:h-32 md:w-32 text-resgato-light-purple mx-auto" />
                 </div>
               </div>
             </div>
           </div>
         </section>
 
-        {/* Services Overview */}
-        <section className="py-20 bg-white">
+        {/* Business Impact Section - NEW */}
+        <section className="py-16 md:py-20 bg-gradient-to-br from-white via-white to-resgato-light-purple/20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Our AI Consulting Approach</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">How AI Transforms Business Performance</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                AI is not just a technology upgrade—it's a fundamental shift in how businesses operate, compete, and grow their bottom line.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+              {businessImpacts.map((impact, index) => (
+                <Card key={index} className="border border-resgato-light-purple/30 shadow-md hover:shadow-lg transition-all duration-300">
+                  <CardContent className="p-6">
+                    <div className="mb-4 flex items-center justify-center h-16 w-16 rounded-full bg-resgato-light-purple/20 text-resgato-deep-purple">
+                      {impact.icon}
+                    </div>
+                    <h3 className="text-xl font-bold mb-3">{impact.title}</h3>
+                    <p className="text-gray-600">{impact.description}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        {/* Services Overview */}
+        <section className="py-16 md:py-20 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">Our AI Consulting Approach</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 We help businesses at every stage of AI adoption—from initial exploration to advanced implementation and optimization.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               {benefits.map((benefit, index) => (
-                <div key={index} className="bg-gray-50 rounded-lg p-8 shadow-sm">
+                <div key={index} className="bg-gray-50 rounded-lg p-6 md:p-8 shadow-sm hover:shadow-md transition-shadow duration-300">
                   <div className="bg-resgato-light-purple/20 w-16 h-16 rounded-full flex items-center justify-center mb-6">
                     {benefit.icon}
                   </div>
@@ -103,19 +179,18 @@ const AIConsulting = () => {
         </section>
 
         {/* Process Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Our Consulting Process</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">Our Consulting Process</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 A structured approach to help you navigate the AI landscape and implement solutions that deliver real business value.
               </p>
             </div>
 
-            <div className="relative">
-              <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-resgato-light-purple/30 transform -translate-x-1/2"></div>
-              
-              <div className="space-y-12 md:space-y-0">
+            {isMobile ? (
+              // Mobile view: Stacked cards
+              <div className="space-y-6">
                 {[
                   {
                     step: 1,
@@ -143,39 +218,84 @@ const AIConsulting = () => {
                     description: "Once implemented, we help you measure results, refine your AI systems for better performance, and identify opportunities to scale successful solutions across your organization."
                   }
                 ].map((item, index) => (
-                  <div key={index} className={`flex md:items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'}`}>
-                    <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
-                      <div className={`bg-white p-6 rounded-lg shadow-md inline-block ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'}`}>
-                        <h3 className="text-xl font-bold mb-2">{item.title}</h3>
-                        <p className="text-gray-600">{item.description}</p>
-                      </div>
-                    </div>
-                    <div className="hidden md:flex items-center justify-center relative">
-                      <div className="w-12 h-12 bg-resgato-purple rounded-full flex items-center justify-center text-white font-bold z-10">
+                  <div key={index} className="bg-white p-6 rounded-lg shadow-md border-l-4 border-resgato-purple">
+                    <div className="flex items-center mb-3">
+                      <div className="w-8 h-8 bg-resgato-purple rounded-full flex items-center justify-center text-white font-bold mr-3">
                         {item.step}
                       </div>
+                      <h3 className="text-xl font-bold">{item.title}</h3>
                     </div>
-                    <div className="w-full md:w-1/2"></div>
+                    <p className="text-gray-600">{item.description}</p>
                   </div>
                 ))}
               </div>
-            </div>
+            ) : (
+              // Desktop view: Timeline
+              <div className="relative">
+                <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-0.5 bg-resgato-light-purple/30 transform -translate-x-1/2"></div>
+                
+                <div className="space-y-0">
+                  {[
+                    {
+                      step: 1,
+                      title: "Discovery & Assessment",
+                      description: "We begin by understanding your business goals, challenges, and current state of AI readiness. This includes evaluating existing systems, data quality, and team capabilities."
+                    },
+                    {
+                      step: 2,
+                      title: "Strategic Planning",
+                      description: "Based on the assessment, we develop a customized AI strategy that aligns with your business objectives and outlines specific use cases, expected outcomes, and implementation timelines."
+                    },
+                    {
+                      step: 3,
+                      title: "Solution Design",
+                      description: "Our team designs AI solutions tailored to your needs, including selecting appropriate technologies, data requirements, integration approaches, and governance frameworks."
+                    },
+                    {
+                      step: 4,
+                      title: "Implementation Support",
+                      description: "We guide you through the implementation process, providing technical expertise, vendor management assistance, and change management support to ensure successful adoption."
+                    },
+                    {
+                      step: 5,
+                      title: "Optimization & Scale",
+                      description: "Once implemented, we help you measure results, refine your AI systems for better performance, and identify opportunities to scale successful solutions across your organization."
+                    }
+                  ].map((item, index) => (
+                    <div key={index} className={`flex md:items-center ${index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} mb-12`}>
+                      <div className={`w-full md:w-1/2 ${index % 2 === 0 ? 'md:pr-12' : 'md:pl-12'} ${index % 2 === 0 ? 'text-right' : 'text-left'}`}>
+                        <div className={`bg-white p-6 rounded-lg shadow-md inline-block ${index % 2 === 0 ? 'md:ml-auto' : 'md:mr-auto'} hover:shadow-lg transition-shadow duration-300`}>
+                          <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                          <p className="text-gray-600">{item.description}</p>
+                        </div>
+                      </div>
+                      <div className="hidden md:flex items-center justify-center relative">
+                        <div className="w-12 h-12 bg-resgato-purple rounded-full flex items-center justify-center text-white font-bold z-10">
+                          {item.step}
+                        </div>
+                      </div>
+                      <div className="w-full md:w-1/2"></div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
         </section>
 
         {/* Case Studies Section */}
-        <section className="py-20 bg-white">
+        <section className="py-16 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Success Stories</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">Success Stories</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 See how our AI consulting services have helped organizations across industries achieve remarkable results.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {caseStudies.map((study, index) => (
-                <div key={index} className="bg-resgato-light-purple/10 rounded-lg p-8 border border-resgato-light-purple/30">
+                <div key={index} className="bg-resgato-light-purple/10 rounded-lg p-6 md:p-8 border border-resgato-light-purple/30 hover:shadow-md transition-shadow duration-300">
                   <h3 className="text-xl font-bold mb-4">{study.company}</h3>
                   <div className="mb-4">
                     <span className="text-sm font-semibold text-resgato-blue">Solution:</span>
@@ -192,20 +312,20 @@ const AIConsulting = () => {
         </section>
 
         {/* FAQ Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-16 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-6">Frequently Asked Questions</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+            <div className="text-center mb-12">
+              <h2 className="text-2xl md:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
                 Get answers to common questions about our AI consulting services.
               </p>
             </div>
 
             <Tabs defaultValue="general" className="w-full max-w-4xl mx-auto">
-              <TabsList className="grid grid-cols-3 mb-8">
-                <TabsTrigger value="general" className="text-lg py-3">General</TabsTrigger>
-                <TabsTrigger value="technical" className="text-lg py-3">Technical</TabsTrigger>
-                <TabsTrigger value="business" className="text-lg py-3">Business</TabsTrigger>
+              <TabsList className="grid w-full grid-cols-3 mb-8">
+                <TabsTrigger value="general" className="text-base md:text-lg py-2 md:py-3">General</TabsTrigger>
+                <TabsTrigger value="technical" className="text-base md:text-lg py-2 md:py-3">Technical</TabsTrigger>
+                <TabsTrigger value="business" className="text-base md:text-lg py-2 md:py-3">Business</TabsTrigger>
               </TabsList>
               
               <TabsContent value="general" className="space-y-6">
