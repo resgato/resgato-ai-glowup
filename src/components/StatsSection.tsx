@@ -17,7 +17,7 @@ const StatsSection = () => {
       label: 'Ad Impressions'
     },
     {
-      value: 'Thousands',
+      value: '25k+',
       label: 'Leads Generated'
     },
     {
