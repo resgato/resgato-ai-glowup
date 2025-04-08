@@ -25,7 +25,11 @@ serve(async (req) => {
     const { name, email, message, company, phone } = await req.json();
 
     console.log(`Received contact form submission from ${name} (${email})`);
-    console.log(`Using Resend API key: ${resendApiKey ? "API key is set" : "API key is missing"}`);
+    
+    // Validate required fields
+    if (!name || !email || !message) {
+      throw new Error("Missing required fields: name, email, and message are required");
+    }
     
     const emailResult = await resend.emails.send({
       from: "contact@resgato.com",
