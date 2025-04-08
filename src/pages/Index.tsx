@@ -19,6 +19,7 @@ const Index = () => {
           <meta name="description" content="Resgato is Utah's premier digital marketing and AI agency. Our Utah-based team specializes in SEO, PPC, email marketing and AI consultancy services since 2012." />
           <meta name="keywords" content="Utah marketing agency, Utah AI agency, digital marketing Utah, SEO services Utah, PPC campaigns Utah, email marketing Utah" />
           <link rel="canonical" href="https://resgato.com" />
+          <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
         </Helmet>
         
         <Navbar />
