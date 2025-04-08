@@ -16,7 +16,7 @@ const Blog = () => {
     excerpt: "Looking for a marketing agency near you? Discover how to choose the right partner for your business in the Salt Lake City area.",
     cover: "/lovable-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png",
     date: "April 8, 2025",
-    author: "Michael Chen",
+    author: "Taylor Brody",
     readTime: "7 min read",
     category: "Digital Marketing"
   };
@@ -29,7 +29,7 @@ const Blog = () => {
       excerpt: "Explore emerging trends in AI-driven marketing, privacy-first strategies, and immersive content experiences that will shape the marketing landscape over the next decade.",
       cover: "/placeholder.svg",
       date: "April 5, 2025",
-      author: "Sarah Johnson",
+      author: "Taylor Brody",
       readTime: "8 min read",
       category: "Digital Strategy"
     },
@@ -40,7 +40,7 @@ const Blog = () => {
       excerpt: "With search algorithms constantly evolving, these seven strategies have consistently delivered results for our clients across various industries.",
       cover: "/placeholder.svg",
       date: "April 1, 2025",
-      author: "Michael Chen",
+      author: "Taylor Brody",
       readTime: "6 min read",
       category: "SEO"
     },
@@ -51,7 +51,7 @@ const Blog = () => {
       excerpt: "Despite the rise of new channels, email marketing remains one of the highest-ROI activities. Learn our framework for creating email campaigns that engage and convert.",
       cover: "/placeholder.svg",
       date: "March 28, 2025",
-      author: "Alex Rivera",
+      author: "Taylor Brody",
       readTime: "5 min read",
       category: "Email Marketing"
     },
@@ -62,7 +62,7 @@ const Blog = () => {
       excerpt: "Understanding user psychology is crucial for designing landing pages that convert. Discover the principles that guide effective landing page design.",
       cover: "/placeholder.svg",
       date: "March 22, 2025",
-      author: "Emma Wilson",
+      author: "Taylor Brody",
       readTime: "7 min read",
       category: "Conversion Optimization"
     },
@@ -73,7 +73,7 @@ const Blog = () => {
       excerpt: "Choosing the right attribution model is essential for accurately measuring marketing effectiveness. This guide breaks down the options and helps you choose.",
       cover: "/placeholder.svg",
       date: "March 15, 2025",
-      author: "David Park",
+      author: "Taylor Brody",
       readTime: "9 min read",
       category: "Analytics"
     }

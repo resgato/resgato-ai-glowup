@@ -115,7 +115,7 @@ const blogPosts: Record<string, BlogPost> = {
     ),
     cover: "/lovable-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png",
     date: "April 8, 2025",
-    author: "Michael Chen",
+    author: "Taylor Brody",
     readTime: "7 min read",
     category: "Digital Marketing"
   }
