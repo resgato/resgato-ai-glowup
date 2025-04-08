@@ -15,6 +15,7 @@ import SEO from "./pages/SEO";
 import PPC from "./pages/PPC";
 import EmailMarketing from "./pages/EmailMarketing";
 import StrategicConsulting from "./pages/StrategicConsulting";
+import AIConsulting from "./pages/AIConsulting";
 
 const queryClient = new QueryClient();
 
@@ -35,6 +36,7 @@ const App = () => (
           <Route path="/ppc" element={<PPC />} />
           <Route path="/email-marketing" element={<EmailMarketing />} />
           <Route path="/strategic-consulting" element={<StrategicConsulting />} />
+          <Route path="/ai-consulting" element={<AIConsulting />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

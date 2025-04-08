@@ -63,6 +63,9 @@ const Navbar = () => {
                       <ListItem to="/strategic-consulting" title="Strategic Consulting">
                         Expert guidance for your digital marketing strategy
                       </ListItem>
+                      <ListItem to="/ai-consulting" title="AI Consulting">
+                        Transform your business with artificial intelligence
+                      </ListItem>
                     </ul>
                   </NavigationMenuContent>
                 </NavigationMenuItem>
@@ -154,6 +157,13 @@ const Navbar = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Strategic Consulting
+                </Link>
+                <Link
+                  to="/ai-consulting"
+                  className="block text-gray-600 hover:text-resgato-blue py-1 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  AI Consulting
                 </Link>
               </div>
             </div>
