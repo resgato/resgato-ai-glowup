@@ -8,44 +8,44 @@ const ServicesSection = () => {
   const services = [
     {
       icon: <Search className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
-      title: 'SEO Services',
-      description: 'Essential optimization for brands of all sizes with an online presence. Our expert SEO services help businesses get started in the right direction with sustainable growth strategies.',
+      title: 'Utah SEO Services',
+      description: 'Essential optimization for Utah brands of all sizes with an online presence. Our expert SEO services help local businesses get started in the right direction with sustainable growth strategies.',
       link: '/seo'
     },
     {
       icon: <BarChart className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
       title: 'PPC Services',
-      description: 'Customized PPC campaigns focused on conversions, lower cost per acquisition (CPA), and increased ROI. We handle consultation, planning, campaign creation, and ongoing optimization.',
+      description: 'Customized PPC campaigns focused on conversions, lower cost per acquisition (CPA), and increased ROI for Utah businesses. We handle consultation, planning, campaign creation, and ongoing optimization.',
       link: '/ppc'
     },
     {
       icon: <Mail className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
       title: 'Email Marketing',
-      description: 'Personalized email campaigns that engage customers through audience segmentation, visually appealing designs, and performance monitoring to maximize ROI.',
+      description: 'Personalized email campaigns that engage Utah customers through audience segmentation, visually appealing designs, and performance monitoring to maximize ROI.',
       link: '/email-marketing'
     },
     {
       icon: <MessageSquare className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
       title: 'Strategic Consulting',
-      description: 'Affordable retainer-based consulting with clear communication to help businesses develop effective digital marketing strategies tailored to their unique needs.',
+      description: 'Affordable retainer-based consulting with clear communication to help Utah businesses develop effective digital marketing strategies tailored to the local market.',
       link: '/strategic-consulting'
     },
     {
       icon: <Bot className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
-      title: 'AI Consulting',
-      description: 'Expert guidance to help your business leverage artificial intelligence for improved efficiency, customer insights, and competitive advantage.',
+      title: 'Utah AI Agency Services',
+      description: 'As Utah\'s leading AI agency, we provide expert guidance to help your business leverage artificial intelligence for improved efficiency, customer insights, and competitive advantage in the local market.',
       link: '/ai-consulting'
     },
     {
       icon: <Users className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
       title: 'Social Media Marketing',
-      description: 'Strategic social media management across platforms with content creation, community engagement, and performance analytics to build your brand presence.',
+      description: 'Strategic social media management across platforms with content creation, community engagement, and performance analytics to build your Utah brand presence.',
       link: '/social-media-marketing'
     },
     {
       icon: <Calendar className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
       title: 'Content Strategy',
-      description: 'Comprehensive content planning and creation services that enhance your digital presence, engage your audience, and support your SEO and marketing goals.',
+      description: 'Comprehensive content planning and creation services that enhance your Utah business\'s digital presence, engage your local audience, and support your SEO and marketing goals.',
       link: '/content-strategy'
     }
   ];
@@ -53,9 +53,9 @@ const ServicesSection = () => {
   return (
     <section className="section-container" id="services">
       <div className="text-center mb-8 md:mb-16">
-        <h2 className="section-title">Our Digital Marketing Services</h2>
+        <h2 className="section-title">Utah's Premier Digital Marketing Services</h2>
         <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
-          Founded in 2012, Resgato delivers comprehensive digital marketing services to optimize your online presence and drive real business results.
+          Founded in 2012, Resgato delivers comprehensive digital marketing and AI services to businesses throughout Utah, optimizing your online presence and driving real business results.
         </p>
       </div>
 
