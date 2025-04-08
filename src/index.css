@@ -128,49 +128,74 @@
   }
 
   .entry-content {
-    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8;
+    @apply max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-8 prose prose-lg dark:prose-invert;
     font-size: 1.125rem;
     line-height: 1.75;
     color: var(--foreground);
   }
 
   .entry-content h2 {
-    @apply text-3xl font-bold mt-12 mb-6 text-resgato-navy;
+    @apply text-3xl font-bold mt-12 mb-6 text-resgato-navy dark:text-resgato-white;
+    font-family: 'Inter', sans-serif;
   }
 
   .entry-content h3 {
-    @apply text-2xl font-semibold mt-8 mb-4 text-resgato-navy;
+    @apply text-2xl font-semibold mt-8 mb-4 text-resgato-navy dark:text-resgato-white;
+    font-family: 'Inter', sans-serif;
   }
 
   .entry-content p {
-    @apply mb-6;
+    @apply mb-6 text-gray-700 dark:text-gray-300;
+    font-family: 'Inter', sans-serif;
   }
 
   .entry-content ul, .entry-content ol {
-    @apply mb-6 pl-6;
+    @apply mb-6 pl-6 text-gray-700 dark:text-gray-300;
+    font-family: 'Inter', sans-serif;
   }
 
   .entry-content li {
     @apply mb-2;
   }
 
+  .entry-content strong {
+    @apply font-semibold text-resgato-navy dark:text-resgato-white;
+  }
+
   .entry-content a {
-    @apply text-resgato-blue hover:text-resgato-blue/80 underline;
+    @apply text-resgato-blue hover:text-resgato-blue/80 underline transition-colors duration-200;
   }
 
   .entry-content blockquote {
-    @apply border-l-4 border-resgato-blue pl-4 italic my-6;
+    @apply border-l-4 border-resgato-blue pl-4 italic my-6 text-gray-600 dark:text-gray-400;
+    font-family: 'Inter', sans-serif;
   }
 
   .entry-content img {
-    @apply max-w-full h-auto rounded-lg my-6;
+    @apply max-w-full h-auto rounded-lg my-6 shadow-md;
   }
 
   .entry-content code {
-    @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm;
+    @apply bg-gray-100 dark:bg-gray-800 px-2 py-1 rounded text-sm font-mono;
   }
 
   .entry-content pre {
-    @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto my-6;
+    @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto my-6 font-mono text-sm;
+  }
+
+  .entry-content hr {
+    @apply my-8 border-gray-200 dark:border-gray-700;
+  }
+
+  .entry-content table {
+    @apply w-full border-collapse my-6;
+  }
+
+  .entry-content th, .entry-content td {
+    @apply border border-gray-200 dark:border-gray-700 px-4 py-2;
+  }
+
+  .entry-content th {
+    @apply bg-gray-50 dark:bg-gray-800 font-semibold;
   }
 }
