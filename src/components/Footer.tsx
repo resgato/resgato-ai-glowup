@@ -13,7 +13,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">Resgato</h2>
             <p className="text-gray-300 max-w-xs">
-              Transforming businesses through AI-powered marketing solutions that drive real results.
+              Digital marketing agency founded in 2012, helping businesses optimize their online presence and drive results.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-300 hover:text-white transition-colors">
@@ -64,22 +64,22 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link to="/services" className="text-gray-300 hover:text-white transition-colors">
-                  AI Strategy Consulting
+                  SEO Services
                 </Link>
               </li>
               <li>
                 <Link to="/services" className="text-gray-300 hover:text-white transition-colors">
-                  AI-Powered Content Creation
+                  PPC Services
                 </Link>
               </li>
               <li>
                 <Link to="/services" className="text-gray-300 hover:text-white transition-colors">
-                  Customer Journey Optimization
+                  Email Marketing
                 </Link>
               </li>
               <li>
                 <Link to="/services" className="text-gray-300 hover:text-white transition-colors">
-                  Predictive Analytics
+                  Strategic Consulting
                 </Link>
               </li>
             </ul>
@@ -90,26 +90,33 @@ const Footer = () => {
             <h3 className="text-lg font-semibold mb-4">Contact Us</h3>
             <ul className="space-y-2">
               <li className="text-gray-300">
-                123 Marketing St.
-                <br />
-                San Francisco, CA 94103
+                Salt Lake City, Utah
               </li>
               <li>
-                <a href="mailto:info@resgato.com" className="text-gray-300 hover:text-white transition-colors">
-                  info@resgato.com
+                <a href="mailto:help@resgato.com" className="text-gray-300 hover:text-white transition-colors">
+                  help@resgato.com
                 </a>
               </li>
-              <li>
-                <a href="tel:+1-555-123-4567" className="text-gray-300 hover:text-white transition-colors">
-                  +1 (555) 123-4567
-                </a>
+              <li className="text-gray-300">
+                <p>
+                  New clients: Use contact form<br />
+                  Current clients: Email help@resgato.com
+                </p>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Bottom Bar */}
+        {/* Certifications */}
         <div className="mt-12 pt-8 border-t border-gray-700">
+          <h3 className="text-lg font-semibold mb-4 text-center">Certifications & Partnerships</h3>
+          <div className="flex flex-wrap justify-center gap-6 mb-8">
+            <div className="bg-white/10 px-4 py-2 rounded">Google Ads Certified</div>
+            <div className="bg-white/10 px-4 py-2 rounded">Google Analytics Certified</div>
+            <div className="bg-white/10 px-4 py-2 rounded">Facebook Marketing Partner</div>
+            <div className="bg-white/10 px-4 py-2 rounded">TikTok Agency</div>
+            <div className="bg-white/10 px-4 py-2 rounded">Mailchimp Agency</div>
+          </div>
           <p className="text-gray-400 text-sm text-center">
             &copy; {currentYear} Resgato. All rights reserved.
           </p>

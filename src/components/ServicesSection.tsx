@@ -1,48 +1,48 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { BarChart, FileText, Code, MessageSquare, Database, Compass } from 'lucide-react';
+import { Search, Mail, BarChart, MessageSquare, Users, Calendar } from 'lucide-react';
 
 const ServicesSection = () => {
   const services = [
     {
-      icon: <Database className="h-8 w-8 text-resgato-purple" />,
-      title: 'AI Marketing Strategy',
-      description: 'Develop comprehensive marketing strategies powered by AI technologies to reach your target audience more effectively.'
-    },
-    {
-      icon: <FileText className="h-8 w-8 text-resgato-purple" />,
-      title: 'AI Content Creation',
-      description: 'Generate high-quality, tailored content for various marketing channels with our AI-powered content creation tools.'
+      icon: <Search className="h-8 w-8 text-resgato-purple" />,
+      title: 'SEO Services',
+      description: 'Essential optimization for brands of all sizes with an online presence. Our expert SEO services help businesses get started in the right direction with sustainable growth strategies.'
     },
     {
       icon: <BarChart className="h-8 w-8 text-resgato-purple" />,
-      title: 'Predictive Analytics',
-      description: 'Forecast market trends and customer behaviors using advanced AI models to stay ahead of the competition.'
+      title: 'PPC Services',
+      description: 'Customized PPC campaigns focused on conversions, lower cost per acquisition (CPA), and increased ROI. We handle consultation, planning, campaign creation, and ongoing optimization.'
     },
     {
-      icon: <Compass className="h-8 w-8 text-resgato-purple" />,
-      title: 'Customer Journey Optimization',
-      description: 'Enhance the customer experience by using AI to analyze and optimize every touchpoint in the customer journey.'
+      icon: <Mail className="h-8 w-8 text-resgato-purple" />,
+      title: 'Email Marketing',
+      description: 'Personalized email campaigns that engage customers through audience segmentation, visually appealing designs, and performance monitoring to maximize ROI.'
     },
     {
       icon: <MessageSquare className="h-8 w-8 text-resgato-purple" />,
-      title: 'AI Chatbots & Assistants',
-      description: 'Implement intelligent conversational agents to engage with customers, answer questions, and nurture leads 24/7.'
+      title: 'Strategic Consulting',
+      description: 'Affordable retainer-based consulting with clear communication to help businesses develop effective digital marketing strategies tailored to their unique needs.'
     },
     {
-      icon: <Code className="h-8 w-8 text-resgato-purple" />,
-      title: 'Marketing Automation',
-      description: 'Streamline your marketing processes with intelligent automation tools that save time and increase efficiency.'
+      icon: <Users className="h-8 w-8 text-resgato-purple" />,
+      title: 'Social Media Marketing',
+      description: 'Strategic social media management across platforms with content creation, community engagement, and performance analytics to build your brand presence.'
+    },
+    {
+      icon: <Calendar className="h-8 w-8 text-resgato-purple" />,
+      title: 'Content Strategy',
+      description: 'Comprehensive content planning and creation services that enhance your digital presence, engage your audience, and support your SEO and marketing goals.'
     }
   ];
 
   return (
     <section className="section-container" id="services">
       <div className="text-center mb-16">
-        <h2 className="section-title">Our AI Marketing Services</h2>
+        <h2 className="section-title">Our Digital Marketing Services</h2>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Leverage the power of artificial intelligence to transform your marketing efforts and drive exceptional results.
+          Founded in 2012, Resgato delivers comprehensive digital marketing services to optimize your online presence and drive real business results.
         </p>
       </div>
 

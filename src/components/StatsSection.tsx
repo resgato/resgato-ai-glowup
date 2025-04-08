@@ -5,20 +5,20 @@ import { Card, CardContent } from '@/components/ui/card';
 const StatsSection = () => {
   const stats = [
     {
-      value: '250+',
-      label: 'Clients Served'
-    },
-    {
-      value: '45%',
-      label: 'Average ROI Increase'
-    },
-    {
-      value: '85%',
-      label: 'Client Retention'
-    },
-    {
-      value: '12+',
+      value: '11+',
       label: 'Years of Experience'
+    },
+    {
+      value: '5',
+      label: 'Industry Certifications'
+    },
+    {
+      value: '100+',
+      label: 'Satisfied Clients'
+    },
+    {
+      value: '3',
+      label: 'Core Services'
     }
   ];
 
