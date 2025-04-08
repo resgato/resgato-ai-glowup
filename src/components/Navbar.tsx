@@ -17,28 +17,34 @@ const Navbar = () => {
         <div className="flex justify-between items-center py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Resgato</span>
+            <span className="text-2xl font-bold bg-gradient-to-r from-resgato-navy to-resgato-blue bg-clip-text text-transparent">Resgato</span>
           </Link>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-10">
-            <Link to="/" className="text-gray-700 hover:text-resgato-purple font-medium transition-colors">
+            <Link to="/" className="text-gray-700 hover:text-resgato-blue font-medium transition-colors">
               Home
             </Link>
-            <Link to="/about" className="text-gray-700 hover:text-resgato-purple font-medium transition-colors">
+            <Link to="/about" className="text-gray-700 hover:text-resgato-blue font-medium transition-colors">
               About
             </Link>
-            <Link to="/services" className="text-gray-700 hover:text-resgato-purple font-medium transition-colors">
+            <Link to="/services" className="text-gray-700 hover:text-resgato-blue font-medium transition-colors">
               Services
             </Link>
-            <Link to="/contact" className="text-gray-700 hover:text-resgato-purple font-medium transition-colors">
+            <Link to="/case-studies" className="text-gray-700 hover:text-resgato-blue font-medium transition-colors">
+              Case Studies
+            </Link>
+            <Link to="/blog" className="text-gray-700 hover:text-resgato-blue font-medium transition-colors">
+              Blog
+            </Link>
+            <Link to="/contact" className="text-gray-700 hover:text-resgato-blue font-medium transition-colors">
               Contact
             </Link>
           </nav>
 
           {/* CTA Button (Desktop) */}
           <div className="hidden md:block">
-            <Button asChild className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
+            <Button asChild className="bg-resgato-blue hover:bg-resgato-navy text-white">
               <Link to="/contact">Get Started</Link>
             </Button>
           </div>
@@ -60,35 +66,49 @@ const Navbar = () => {
           <nav className="flex flex-col space-y-4">
             <Link
               to="/"
-              className="text-gray-700 hover:text-resgato-purple font-medium py-2 transition-colors"
+              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Home
             </Link>
             <Link
               to="/about"
-              className="text-gray-700 hover:text-resgato-purple font-medium py-2 transition-colors"
+              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
             <Link
               to="/services"
-              className="text-gray-700 hover:text-resgato-purple font-medium py-2 transition-colors"
+              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link
+              to="/case-studies"
+              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Case Studies
+            </Link>
+            <Link
+              to="/blog"
+              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Blog
+            </Link>
+            <Link
               to="/contact"
-              className="text-gray-700 hover:text-resgato-purple font-medium py-2 transition-colors"
+              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </Link>
             <Button
               asChild
-              className="bg-resgato-purple hover:bg-resgato-deep-purple text-white w-full"
+              className="bg-resgato-blue hover:bg-resgato-navy text-white w-full"
               onClick={() => setIsMenuOpen(false)}
             >
               <Link to="/contact">Get Started</Link>
