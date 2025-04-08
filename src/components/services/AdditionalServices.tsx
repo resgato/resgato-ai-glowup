@@ -10,25 +10,25 @@ const AdditionalServices = () => {
       icon: <TrendingUp className="h-8 w-8 text-resgato-purple" />,
       title: 'Competitive Intelligence',
       description: 'Use AI to analyze competitor strategies and identify market opportunities.',
-      link: '/strategic-consulting'
+      link: '/contact'
     },
     {
       icon: <Eye className="h-8 w-8 text-resgato-purple" />,
       title: 'Sentiment Analysis',
       description: 'Monitor and analyze customer sentiment across digital channels.',
-      link: '/ai-consulting'
+      link: '/contact'
     },
     {
       icon: <Globe className="h-8 w-8 text-resgato-purple" />,
       title: 'AI-Powered SEO',
       description: 'Optimize your website and content for search engines using AI techniques.',
-      link: '/seo'
+      link: '/contact'
     },
     {
       icon: <Edit className="h-8 w-8 text-resgato-purple" />,
       title: 'Personalization Engines',
       description: 'Deliver tailored experiences to individual customers based on their preferences.',
-      link: '/email-marketing'
+      link: '/contact'
     }
   ];
 

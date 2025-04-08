@@ -89,9 +89,9 @@ const CaseStudies = () => {
                       </ul>
                     </div>
                     <Button asChild variant="outline" className="w-full">
-                      <a href="#" className="flex items-center justify-center">
+                      <Link to="/contact" className="flex items-center justify-center">
                         Read Full Case Study <ArrowRight className="ml-2 h-4 w-4" />
-                      </a>
+                      </Link>
                     </Button>
                   </div>
                 </div>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -7,6 +6,7 @@ import { BarChart, ArrowRight, LineChart, Target, TrendingUp, DollarSign, Calend
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import StatsSection from '@/components/StatsSection';
+import { Link } from 'react-router-dom';
 
 const PPC = () => {
   return (
@@ -27,9 +27,11 @@ const PPC = () => {
                 <p className="text-xl text-gray-700 max-w-lg">
                   We've accomplished this many times and guarantee that we'll lower your costs and boost your conversions.
                 </p>
-                <Button className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
-                  Get a Free PPC Analysis
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button asChild className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
+                  <Link to="/contact">
+                    Get a Free PPC Analysis
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
               </div>
               <div className="bg-white rounded-xl shadow-lg p-8 animate-fade-in">

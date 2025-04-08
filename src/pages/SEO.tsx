@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -9,9 +8,9 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { ResponsiveContainer, LineChart as RechartLineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 import { ChartContainer, ChartTooltip } from '@/components/ui/chart';
+import { Link } from 'react-router-dom';
 
 const SEO = () => {
-  // Sample data mimicking the Google Search Console chart in the image
   const performanceData = [
     { month: 'Sep', clicks: 10, impressions: 150 },
     { month: 'Oct', clicks: 25, impressions: 500 },
@@ -50,9 +49,11 @@ const SEO = () => {
                 <p className="text-lg text-gray-700 max-w-lg">
                   With a strong SEO strategy, your business can own top keywords on Google and ultimately get organic traffic and more conversions from your website, at no cost in the future.
                 </p>
-                <Button className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
-                  Get a Free SEO Audit
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button asChild className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
+                  <Link to="/contact">
+                    Get a Free SEO Audit
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
               </div>
               <div className="bg-white rounded-xl shadow-lg p-8 animate-fade-in">

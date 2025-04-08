@@ -1,10 +1,10 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
 import { MessageSquare, ArrowRight, LineChart, PieChart, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Link } from 'react-router-dom';
 
 const StrategicConsulting = () => {
   return (
@@ -22,9 +22,11 @@ const StrategicConsulting = () => {
                 <p className="text-xl text-gray-700 max-w-lg">
                   Affordable retainer-based consulting with clear communication to help businesses develop effective digital marketing strategies tailored to their unique needs.
                 </p>
-                <Button className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
-                  Schedule a Strategy Session
-                  <ArrowRight className="ml-2 h-5 w-5" />
+                <Button asChild className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
+                  <Link to="/contact">
+                    Schedule a Strategy Session
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Link>
                 </Button>
               </div>
               <div className="bg-white rounded-xl shadow-lg p-8 animate-fade-in">
