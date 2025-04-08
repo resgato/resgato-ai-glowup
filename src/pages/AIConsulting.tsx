@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -72,29 +71,6 @@ const AIConsulting = () => {
     }
   ];
 
-  const caseStudies = [
-    {
-      company: 'Retail Chain',
-      solution: 'Customer Behavior Analysis',
-      result: 'Implemented predictive AI models that led to a 32% increase in customer retention and 24% growth in average order value.'
-    },
-    {
-      company: 'Manufacturing Firm',
-      solution: 'Process Automation',
-      result: 'Integrated AI-powered quality control systems that reduced defects by 47% and increased production efficiency by 28%.'
-    },
-    {
-      company: 'Healthcare Provider',
-      solution: 'Patient Care Optimization',
-      result: 'Deployed AI triage systems that reduced wait times by 35% while improving diagnostic accuracy by 22%.'
-    },
-    {
-      company: 'Financial Services',
-      solution: 'Fraud Detection',
-      result: 'Implemented AI algorithms that identified fraudulent transactions with 95% accuracy, reducing losses by $2.3M annually.'
-    }
-  ];
-
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -113,7 +89,7 @@ const AIConsulting = () => {
                 <div className="pt-4">
                   <a 
                     href="/contact" 
-                    className="inline-block bg-resgato-light-purple hover:bg-resgato-purple text-white font-semibold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105"
+                    className="inline-block bg-resgato-light-purple hover:bg-resgato-purple text-white font-semibold py-4 px-8 rounded-lg transition duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl text-lg"
                   >
                     Book a Free Consultation
                   </a>
@@ -280,34 +256,6 @@ const AIConsulting = () => {
                 </div>
               </div>
             )}
-          </div>
-        </section>
-
-        {/* Case Studies Section */}
-        <section className="py-16 md:py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-2xl md:text-4xl font-bold mb-4">Success Stories</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                See how our AI consulting services have helped organizations across industries achieve remarkable results.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-              {caseStudies.map((study, index) => (
-                <div key={index} className="bg-resgato-light-purple/10 rounded-lg p-6 md:p-8 border border-resgato-light-purple/30 hover:shadow-md transition-shadow duration-300">
-                  <h3 className="text-xl font-bold mb-4">{study.company}</h3>
-                  <div className="mb-4">
-                    <span className="text-sm font-semibold text-resgato-blue">Solution:</span>
-                    <p className="text-gray-700">{study.solution}</p>
-                  </div>
-                  <div>
-                    <span className="text-sm font-semibold text-resgato-blue">Result:</span>
-                    <p className="text-gray-700">{study.result}</p>
-                  </div>
-                </div>
-              ))}
-            </div>
           </div>
         </section>
 
