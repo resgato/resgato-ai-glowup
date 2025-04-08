@@ -58,3 +58,6 @@ vector_dimension = 1536
 
 [functions.send-contact-notification]
 verify_jwt = false
+
+[functions.new-contact-email]
+verify_jwt = false
