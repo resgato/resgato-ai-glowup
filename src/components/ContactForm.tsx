@@ -50,7 +50,7 @@ const ContactForm = () => {
     try {
       console.log("Submitting contact form...", data);
       
-      // First, try to store the submission in the database
+      // Store submission in the database - corrected to use the proper table
       const { error: dbError } = await supabase
         .from('contact_submissions')
         .insert({
@@ -63,7 +63,7 @@ const ContactForm = () => {
       
       if (dbError) {
         console.error('Database storage error:', dbError);
-        // Continue with email notification even if database storage fails
+        throw new Error(`Failed to store your message: ${dbError.message}`);
       }
       
       // Send email notification
@@ -95,7 +95,7 @@ const ContactForm = () => {
       console.error('Error submitting form:', error);
       toast({
         title: "Something went wrong",
-        description: "Unable to send your message. Please try again later.",
+        description: error instanceof Error ? error.message : "Unable to send your message. Please try again later.",
         variant: "destructive"
       });
     } finally {
