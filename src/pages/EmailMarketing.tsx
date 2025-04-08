@@ -6,6 +6,7 @@ import StatsSection from '@/components/StatsSection';
 import { Mail, ArrowRight, Users, BarChart, MessageSquare, DollarSign, Target, Zap } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
 
 const EmailMarketing = () => {
   return (
@@ -23,10 +24,12 @@ const EmailMarketing = () => {
                 <p className="text-xl text-gray-700 max-w-lg">
                   Reach potential and current customers with our customized email marketing campaigns that convert and deliver impressive ROI.
                 </p>
-                <Button className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
-                  Get Email Strategy Consultation
-                  <ArrowRight className="ml-2 h-5 w-5" />
-                </Button>
+                <Link to="/contact?service=email-marketing">
+                  <Button className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
+                    Get Email Strategy Consultation
+                    <ArrowRight className="ml-2 h-5 w-5" />
+                  </Button>
+                </Link>
               </div>
               <div className="bg-white rounded-xl shadow-lg p-8 animate-fade-in">
                 <div className="bg-resgato-light-purple w-16 h-16 rounded-full flex items-center justify-center mb-6">

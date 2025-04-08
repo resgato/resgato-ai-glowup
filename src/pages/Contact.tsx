@@ -1,5 +1,5 @@
-
 import React, { useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
@@ -8,6 +8,9 @@ import { Instagram } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Contact = () => {
+  const [searchParams] = useSearchParams();
+  const service = searchParams.get('service');
+
   useEffect(() => {
     // Load Calendly script
     const head = document.querySelector('head');
@@ -166,7 +169,7 @@ const Contact = () => {
             <Card className="shadow-xl border-none">
               <CardContent className="p-8">
                 <h2 className="text-2xl md:text-3xl font-bold mb-6">Send Us a Message</h2>
-                <ContactForm />
+                <ContactForm initialService={service} />
               </CardContent>
             </Card>
           </div>

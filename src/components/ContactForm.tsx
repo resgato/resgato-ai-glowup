@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -23,12 +22,17 @@ const contactFormSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address' }),
   company: z.string().optional(),
   phone: z.string().optional(),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters' })
+  message: z.string().min(10, { message: 'Message must be at least 10 characters' }),
+  service: z.string().optional()
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
 
-const ContactForm = () => {
+interface ContactFormProps {
+  initialService?: string | null;
+}
+
+const ContactForm = ({ initialService }: ContactFormProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
   
@@ -40,7 +44,8 @@ const ContactForm = () => {
       email: '',
       company: '',
       phone: '',
-      message: ''
+      message: '',
+      service: initialService || ''
     }
   });
 
@@ -116,21 +121,35 @@ const ContactForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        {initialService && (
           <FormField
             control={form.control}
-            name="name"
+            name="service"
             render={({ field }) => (
-              <FormItem className="space-y-2">
-                <FormLabel>Full Name</FormLabel>
+              <FormItem>
                 <FormControl>
-                  <Input placeholder="John Doe" {...field} />
+                  <input type="hidden" {...field} />
                 </FormControl>
-                <FormMessage />
               </FormItem>
             )}
           />
-          
+        )}
+        
+        <FormField
+          control={form.control}
+          name="name"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Name</FormLabel>
+              <FormControl>
+                <Input placeholder="Your name" {...field} />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <FormField
             control={form.control}
             name="email"
