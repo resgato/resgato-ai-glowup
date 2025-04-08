@@ -60,6 +60,9 @@ const Navbar = () => {
                       <ListItem to="/email-marketing" title="Email Marketing">
                         Strategic email campaigns to engage your audience
                       </ListItem>
+                      <ListItem to="/social-media-marketing" title="Social Media Marketing">
+                        Build your brand presence across social platforms
+                      </ListItem>
                       <ListItem to="/strategic-consulting" title="Strategic Consulting">
                         Expert guidance for your digital marketing strategy
                       </ListItem>
@@ -150,6 +153,13 @@ const Navbar = () => {
                   onClick={() => setIsMenuOpen(false)}
                 >
                   Email Marketing
+                </Link>
+                <Link
+                  to="/social-media-marketing"
+                  className="block text-gray-600 hover:text-resgato-blue py-1 transition-colors"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Social Media Marketing
                 </Link>
                 <Link
                   to="/strategic-consulting"

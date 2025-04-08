@@ -18,6 +18,7 @@ import PPC from "./pages/PPC";
 import EmailMarketing from "./pages/EmailMarketing";
 import StrategicConsulting from "./pages/StrategicConsulting";
 import AIConsulting from "./pages/AIConsulting";
+import SocialMediaMarketing from "./pages/SocialMediaMarketing";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 
@@ -43,6 +44,7 @@ const App = () => (
           <Route path="/email-marketing" element={<EmailMarketing />} />
           <Route path="/strategic-consulting" element={<StrategicConsulting />} />
           <Route path="/ai-consulting" element={<AIConsulting />} />
+          <Route path="/social-media-marketing" element={<SocialMediaMarketing />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

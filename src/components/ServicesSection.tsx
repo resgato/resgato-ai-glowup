@@ -40,7 +40,7 @@ const ServicesSection = () => {
       icon: <Users className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
       title: 'Social Media Marketing',
       description: 'Strategic social media management across platforms with content creation, community engagement, and performance analytics to build your brand presence.',
-      link: '/strategic-consulting'
+      link: '/social-media-marketing'
     },
     {
       icon: <Calendar className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
