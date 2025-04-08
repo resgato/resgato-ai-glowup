@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -7,6 +6,7 @@ import StatsSection from '@/components/StatsSection';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Clock, Tag, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
 const Blog = () => {
   const featuredPost = {
@@ -140,10 +140,13 @@ const Blog = () => {
                   </h3>
                   <p className="text-gray-600 mb-6">{featuredPost.excerpt}</p>
                   <div className="flex items-center">
-                    <div className="bg-gray-200 rounded-full w-8 h-8 flex items-center justify-center mr-3">
-                      <User className="h-4 w-4 text-gray-500" />
-                    </div>
-                    <span className="text-sm font-medium">{featuredPost.author}</span>
+                    <Link to="/author/taylor-brody" className="flex items-center group">
+                      <Avatar className="h-8 w-8 mr-3">
+                        <AvatarImage src="/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" alt={featuredPost.author} />
+                        <AvatarFallback>{featuredPost.author.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                      </Avatar>
+                      <span className="text-sm font-medium group-hover:text-resgato-blue transition-colors">{featuredPost.author}</span>
+                    </Link>
                   </div>
                 </div>
               </div>
@@ -196,10 +199,13 @@ const Blog = () => {
                     <p className="text-gray-600 text-sm">{post.excerpt}</p>
                   </CardContent>
                   <CardFooter className="pt-0 text-sm text-gray-500 flex items-center">
-                    <div className="bg-gray-200 rounded-full w-6 h-6 flex items-center justify-center mr-2">
-                      <User className="h-3 w-3 text-gray-500" />
-                    </div>
-                    <span className="mr-3">{post.author}</span>
+                    <Link to="/author/taylor-brody" className="flex items-center group">
+                      <Avatar className="w-6 h-6 mr-2">
+                        <AvatarImage src="/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" alt={post.author} />
+                        <AvatarFallback>{post.author.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                      </Avatar>
+                      <span className="mr-3 group-hover:text-resgato-blue transition-colors">{post.author}</span>
+                    </Link>
                     <span>•</span>
                     <span className="ml-3 flex items-center">
                       <Clock className="h-3 w-3 mr-1" />

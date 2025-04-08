@@ -1,6 +1,5 @@
-
 import React from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useParams, useNavigate, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
@@ -8,8 +7,8 @@ import StatsSection from '@/components/StatsSection';
 import { Card, CardContent } from '@/components/ui/card';
 import { Calendar, Clock, Tag, User, ArrowLeft, Share2 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 
-// Define the structure of a blog post
 interface BlogPost {
   id: number;
   slug: string;
@@ -23,7 +22,6 @@ interface BlogPost {
   category: string;
 }
 
-// Create a map of blog posts
 const blogPosts: Record<string, BlogPost> = {
   "find-marketing-agency-salt-lake-city": {
     id: 7,
@@ -175,10 +173,10 @@ const BlogPost = () => {
                 <Tag className="h-4 w-4 mr-1" />
                 {post.category}
               </span>
-              <span className="flex items-center mb-2">
+              <Link to="/author/taylor-brody" className="flex items-center mb-2 hover:text-white">
                 <User className="h-4 w-4 mr-1" />
                 {post.author}
-              </span>
+              </Link>
             </div>
           </div>
         </section>
@@ -212,12 +210,23 @@ const BlogPost = () => {
             {/* Author Bio */}
             <div className="mt-12 p-6 bg-gray-50 rounded-lg">
               <div className="flex items-start space-x-4">
-                <div className="bg-gray-200 rounded-full w-12 h-12 flex items-center justify-center flex-shrink-0">
-                  <User className="h-6 w-6 text-gray-500" />
-                </div>
+                <Link to="/author/taylor-brody" className="flex-shrink-0">
+                  <Avatar className="w-16 h-16 border-2 border-gray-200">
+                    <AvatarImage src="/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" alt={post.author} />
+                    <AvatarFallback>{post.author.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+                  </Avatar>
+                </Link>
                 <div>
-                  <h3 className="font-bold text-lg">{post.author}</h3>
+                  <Link to="/author/taylor-brody" className="hover:text-resgato-blue transition-colors">
+                    <h3 className="font-bold text-lg">{post.author}</h3>
+                  </Link>
                   <p className="text-gray-600 mt-1">Digital Marketing Specialist at Resgato with over 10 years of experience helping businesses in Utah grow their online presence.</p>
+                  <Link 
+                    to="/author/taylor-brody" 
+                    className="inline-block mt-2 text-sm font-medium text-resgato-blue hover:text-resgato-navy transition-colors"
+                  >
+                    View Full Profile
+                  </Link>
                 </div>
               </div>
             </div>
