@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -47,6 +48,8 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
+      console.log("Submitting contact form...", data);
+      
       // Send email notification only, bypassing database storage temporarily
       const notificationResponse = await supabase.functions.invoke('new-contact-email', {
         body: {
@@ -57,9 +60,11 @@ const ContactForm = () => {
           message: data.message
         }
       });
+      
+      console.log("Notification response:", notificationResponse);
 
-      if (!notificationResponse.data?.success && notificationResponse.error) {
-        console.error('Email notification could not be sent:', notificationResponse.error);
+      if (!notificationResponse.data?.success) {
+        console.error('Email notification response issue:', notificationResponse);
         throw new Error('Failed to send your message. Please try again later.');
       }
       
