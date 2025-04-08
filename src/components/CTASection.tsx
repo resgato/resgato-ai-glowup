@@ -2,7 +2,7 @@
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight } from 'lucide-react';
+import { ArrowRight, Calendar } from 'lucide-react';
 
 const CTASection = () => {
   return (
@@ -18,7 +18,7 @@ const CTASection = () => {
           <Button asChild className="bg-white text-resgato-deep-purple hover:bg-gray-100 px-8 py-6 text-lg">
             <Link to="/contact">
               Schedule a Consultation
-              <ArrowRight className="ml-2 h-5 w-5" />
+              <Calendar className="ml-2 h-5 w-5" />
             </Link>
           </Button>
           <Button asChild variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 px-8 py-6 text-lg">

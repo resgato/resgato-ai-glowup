@@ -22,6 +22,18 @@ const Contact = () => {
           </div>
         </section>
 
+        {/* Calendar Scheduling Section */}
+        <section className="py-12 bg-white">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl md:text-3xl font-bold mb-6 text-center">Schedule a Consultation</h2>
+            <p className="text-lg text-gray-700 mb-8 text-center max-w-2xl mx-auto">
+              Pick a time that works for you and let's discuss how we can help your business grow.
+            </p>
+            <div className="calendly-inline-widget min-h-[650px]" data-url="https://calendly.com/resgato/consultation?embed_domain=resgato.com&embed_type=Inline&month=2025-04"></div>
+            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+          </div>
+        </section>
+
         {/* Contact Section */}
         <section className="section-container">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
