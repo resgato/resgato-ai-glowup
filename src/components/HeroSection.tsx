@@ -29,34 +29,46 @@ const HeroSection = () => {
             </div>
           </div>
           <div className="grid grid-cols-2 gap-6 animate-fade-in">
-            <div className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-100">
+            <Link 
+              to="/seo" 
+              className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-100 transition-transform hover:scale-105"
+            >
               <div className="bg-resgato-light-purple w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Search className="text-resgato-deep-purple h-6 w-6" />
               </div>
               <h3 className="text-lg font-semibold mb-2">SEO Services</h3>
               <p className="text-gray-600">Essential optimization for every brand with an online presence.</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-200">
+            </Link>
+            <Link 
+              to="/ppc" 
+              className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-200 transition-transform hover:scale-105"
+            >
               <div className="bg-resgato-light-purple w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <BarChart className="text-resgato-deep-purple h-6 w-6" />
               </div>
               <h3 className="text-lg font-semibold mb-2">PPC Campaigns</h3>
               <p className="text-gray-600">Custom campaigns focused on conversions and increasing ROI.</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-300">
+            </Link>
+            <Link 
+              to="/email-marketing" 
+              className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-300 transition-transform hover:scale-105"
+            >
               <div className="bg-resgato-light-purple w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <Mail className="text-resgato-deep-purple h-6 w-6" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Email Marketing</h3>
               <p className="text-gray-600">Personalized campaigns that engage potential and current customers.</p>
-            </div>
-            <div className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-400">
+            </Link>
+            <Link 
+              to="/strategic-consulting" 
+              className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-400 transition-transform hover:scale-105"
+            >
               <div className="bg-resgato-light-purple w-12 h-12 rounded-full flex items-center justify-center mb-4">
                 <LinkIcon className="text-resgato-deep-purple h-6 w-6" />
               </div>
               <h3 className="text-lg font-semibold mb-2">Strategic Consulting</h3>
               <p className="text-gray-600">Effective consultations with clear communication and affordable retainers.</p>
-            </div>
+            </Link>
           </div>
         </div>
       </div>
