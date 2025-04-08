@@ -1,18 +1,7 @@
-# Welcome to your Lovable project
-
+# Resgato Digital Marketing
 ## Project info
 
-**URL**: https://lovable.dev/projects/76ec5aeb-b18f-48b6-a215-efcd0432aaff
 
-## How can I edit this code?
-
-There are several ways of editing your application.
-
-**Use Lovable**
-
-Simply visit the [Lovable Project](https://lovable.dev/projects/76ec5aeb-b18f-48b6-a215-efcd0432aaff) and start prompting.
-
-Changes made via Lovable will be committed automatically to this repo.
 
 **Use your preferred IDE**
 
