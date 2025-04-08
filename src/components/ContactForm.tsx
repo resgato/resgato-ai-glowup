@@ -49,7 +49,7 @@ const ContactForm = () => {
     
     try {
       // Submit form data to Supabase
-      const { error } = await supabase
+      const { error: dbError } = await supabase
         .from('contact_submissions')
         .insert([
           {
@@ -61,8 +61,23 @@ const ContactForm = () => {
           }
         ]);
       
-      if (error) {
-        throw error;
+      if (dbError) {
+        throw dbError;
+      }
+      
+      // Send email notification
+      const notificationResponse = await supabase.functions.invoke('new-contact-email', {
+        body: {
+          name: data.name,
+          email: data.email,
+          company: data.company,
+          phone: data.phone,
+          message: data.message
+        }
+      });
+
+      if (!notificationResponse.data?.success && notificationResponse.error) {
+        console.warn('Email notification could not be sent:', notificationResponse.error);
       }
       
       toast({

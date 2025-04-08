@@ -4,23 +4,57 @@ import { Resend } from "npm:resend";
 
 const resend = new Resend(Deno.env.get("RESEND_API_KEY"));
 
+// Define CORS headers for cross-origin requests
+const corsHeaders = {
+  'Access-Control-Allow-Origin': '*',
+  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
+};
+
 serve(async (req) => {
-  const { name, email, message } = await req.json();
+  // Handle CORS preflight requests
+  if (req.method === 'OPTIONS') {
+    return new Response(null, { headers: corsHeaders });
+  }
 
   try {
-    await resend.emails.send({
-      from: "alerts@yourdomain.com", // Resend requires verified domain
-      to: "you@yourdomain.com",
-      subject: "New Contact Submission",
+    const { name, email, message, company, phone } = await req.json();
+
+    console.log(`Received contact form submission from ${name} (${email})`);
+    
+    const emailResult = await resend.emails.send({
+      from: "contact@resgato.com", // Update this with your verified domain
+      to: "help@resgato.com", // Update this with your business email
+      subject: "New Contact Form Submission - Resgato",
       html: `
-        <strong>Name:</strong> ${name}<br>
-        <strong>Email:</strong> ${email}<br>
-        <strong>Message:</strong><br>${message}
+        <h2>New Contact Form Submission</h2>
+        <p><strong>Name:</strong> ${name}</p>
+        <p><strong>Email:</strong> ${email}</p>
+        ${company ? `<p><strong>Company:</strong> ${company}</p>` : ''}
+        ${phone ? `<p><strong>Phone:</strong> ${phone}</p>` : ''}
+        <p><strong>Message:</strong><br>${message}</p>
       `,
     });
 
-    return new Response("Sent", { status: 200 });
-  } catch (e) {
-    return new Response("Error sending email", { status: 500 });
+    console.log("Email sent successfully:", emailResult);
+
+    return new Response(JSON.stringify({ success: true }), { 
+      status: 200,
+      headers: {
+        'Content-Type': 'application/json',
+        ...corsHeaders
+      } 
+    });
+  } catch (error) {
+    console.error("Error sending email:", error);
+    return new Response(JSON.stringify({ 
+      success: false, 
+      error: error.message 
+    }), { 
+      status: 500,
+      headers: {
+        'Content-Type': 'application/json',
+        ...corsHeaders
+      } 
+    });
   }
 });
