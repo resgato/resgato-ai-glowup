@@ -1,48 +1,45 @@
 {
-  "rewrites": [
-    {
-      "source": "/(.*)",
-      "destination": "/index.html"
-    }
-  ]
-} 
-
-{
   "redirects": [
     {
       "source": "/category/marketing-tips/",
-      "destination": "/blog",
+      "destination": "https://www.resgato.com/blog",
       "permanent": true
     },
     {
       "source": "/connect/",
-      "destination": "/contact",
+      "destination": "https://www.resgato.com/contact",
       "permanent": true
     },
     {
       "source": "/consultation/",
-      "destination": "/contact",
+      "destination": "https://www.resgato.com/contact",
       "permanent": true
     },
     {
       "source": "/digital-marketing-agency/ppc/",
-      "destination": "/ppc",
+      "destination": "https://www.resgato.com/ppc",
       "permanent": true
     },
     {
       "source": "/digital-marketing-agency/seo/",
-      "destination": "/seo",
+      "destination": "https://www.resgato.com/seo",
       "permanent": true
     },
     {
       "source": "/driving-more-traffic-to-your-website/",
-      "destination": "/services",
+      "destination": "https://www.resgato.com/services",
       "permanent": true
     },
     {
       "source": "/privacy-policy/",
-      "destination": "/",
+      "destination": "https://www.resgato.com/",
       "permanent": true
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
   ]
 }
