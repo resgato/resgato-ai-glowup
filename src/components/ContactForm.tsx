@@ -1,34 +1,50 @@
 
-import React, { useState } from 'react';
+import React from 'react';
+import { useForm } from 'react-hook-form';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
-import { Label } from '@/components/ui/label';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import {
+  Form,
+  FormControl,
+  FormField,
+  FormItem,
+  FormLabel,
+  FormMessage
+} from '@/components/ui/form';
+
+// Define validation schema
+const contactFormSchema = z.object({
+  name: z.string().min(2, { message: 'Name must be at least 2 characters' }),
+  email: z.string().email({ message: 'Please enter a valid email address' }),
+  company: z.string().optional(),
+  phone: z.string().optional(),
+  message: z.string().min(10, { message: 'Message must be at least 10 characters' })
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 const ContactForm = () => {
   const { toast } = useToast();
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    company: '',
-    phone: '',
-    message: ''
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  
+  // Initialize form
+  const form = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      name: '',
+      email: '',
+      company: '',
+      phone: '',
+      message: ''
+    }
   });
 
-  const [isSubmitting, setIsSubmitting] = useState(false);
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    const { name, value } = e.target;
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
+  const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
     
     try {
@@ -37,11 +53,11 @@ const ContactForm = () => {
         .from('contact_submissions')
         .insert([
           {
-            name: formData.name,
-            email: formData.email,
-            company: formData.company || null,
-            phone: formData.phone || null,
-            message: formData.message
+            name: data.name,
+            email: data.email,
+            company: data.company || null,
+            phone: data.phone || null,
+            message: data.message
           }
         ]);
       
@@ -55,13 +71,7 @@ const ContactForm = () => {
       });
       
       // Reset form after successful submission
-      setFormData({
-        name: '',
-        email: '',
-        company: '',
-        phone: '',
-        message: ''
-      });
+      form.reset();
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
@@ -75,77 +85,93 @@ const ContactForm = () => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-6">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="space-y-2">
-          <Label htmlFor="name">Full Name</Label>
-          <Input
-            id="name"
+    <Form {...form}>
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <FormField
+            control={form.control}
             name="name"
-            placeholder="John Doe"
-            required
-            value={formData.name}
-            onChange={handleChange}
+            render={({ field }) => (
+              <FormItem className="space-y-2">
+                <FormLabel>Full Name</FormLabel>
+                <FormControl>
+                  <Input placeholder="John Doe" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
-        
-        <div className="space-y-2">
-          <Label htmlFor="email">Email Address</Label>
-          <Input
-            id="email"
+          
+          <FormField
+            control={form.control}
             name="email"
-            type="email"
-            placeholder="john@example.com"
-            required
-            value={formData.email}
-            onChange={handleChange}
+            render={({ field }) => (
+              <FormItem className="space-y-2">
+                <FormLabel>Email Address</FormLabel>
+                <FormControl>
+                  <Input placeholder="john@example.com" type="email" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
-        </div>
-        
-        <div className="space-y-2">
-          <Label htmlFor="company">Company</Label>
-          <Input
-            id="company"
+          
+          <FormField
+            control={form.control}
             name="company"
-            placeholder="Your Company"
-            value={formData.company}
-            onChange={handleChange}
+            render={({ field }) => (
+              <FormItem className="space-y-2">
+                <FormLabel>Company</FormLabel>
+                <FormControl>
+                  <Input placeholder="Your Company" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
+          />
+          
+          <FormField
+            control={form.control}
+            name="phone"
+            render={({ field }) => (
+              <FormItem className="space-y-2">
+                <FormLabel>Phone Number</FormLabel>
+                <FormControl>
+                  <Input placeholder="+1 (555) 123-4567" {...field} />
+                </FormControl>
+                <FormMessage />
+              </FormItem>
+            )}
           />
         </div>
         
-        <div className="space-y-2">
-          <Label htmlFor="phone">Phone Number</Label>
-          <Input
-            id="phone"
-            name="phone"
-            placeholder="+1 (555) 123-4567"
-            value={formData.phone}
-            onChange={handleChange}
-          />
-        </div>
-      </div>
-      
-      <div className="space-y-2">
-        <Label htmlFor="message">Message</Label>
-        <Textarea
-          id="message"
+        <FormField
+          control={form.control}
           name="message"
-          placeholder="Tell us about your project and how we can help..."
-          rows={5}
-          required
-          value={formData.message}
-          onChange={handleChange}
+          render={({ field }) => (
+            <FormItem className="space-y-2">
+              <FormLabel>Message</FormLabel>
+              <FormControl>
+                <Textarea 
+                  placeholder="Tell us about your project and how we can help..." 
+                  rows={5} 
+                  {...field} 
+                />
+              </FormControl>
+              <FormMessage />
+            </FormItem>
+          )}
         />
-      </div>
-      
-      <Button
-        type="submit"
-        className="w-full bg-resgato-purple hover:bg-resgato-deep-purple text-white"
-        disabled={isSubmitting}
-      >
-        {isSubmitting ? 'Sending...' : 'Send Message'}
-      </Button>
-    </form>
+        
+        <Button
+          type="submit"
+          className="w-full bg-resgato-purple hover:bg-resgato-deep-purple text-white"
+          disabled={isSubmitting}
+        >
+          {isSubmitting ? 'Sending...' : 'Send Message'}
+        </Button>
+      </form>
+    </Form>
   );
 };
 
