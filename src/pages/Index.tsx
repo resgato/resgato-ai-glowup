@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
@@ -16,7 +15,7 @@ const Index = () => {
       <div className="min-h-screen flex flex-col">
         <Helmet>
           <title>Resgato | Leading Utah Marketing Agency & AI Solutions</title>
-          <meta name="description" content="Resgato is Utah's premier digital marketing and AI agency. Our Utah-based team specializes in SEO, PPC, email marketing and AI consultancy services since 2012." />
+          <meta name="description" content="Resgato delivers innovative digital marketing solutions with creative strategy, cutting-edge technology, and a passion for brand growth." />
           <meta name="keywords" content="Utah marketing agency, Utah AI agency, digital marketing Utah, SEO services Utah, PPC campaigns Utah, email marketing Utah" />
           <link rel="canonical" href="https://resgato.com" />
           <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
