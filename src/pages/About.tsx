@@ -4,31 +4,34 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
 import { Card, CardContent } from '@/components/ui/card';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
+import { ArrowRight } from 'lucide-react';
 
 const About = () => {
   const teamMembers = [
     {
-      name: 'Alex Johnson',
-      position: 'CEO & Founder',
-      bio: 'Over 15 years of experience in digital marketing and AI technology. Previously led marketing at tech giants before founding Resgato.',
+      name: 'Taylor Brody',
+      position: 'Founder & CEO',
+      bio: 'Founded Resgato in 2012 with a vision to help businesses avoid digital obscurity. With over 18 years of experience in digital marketing, Taylor has led the agency to become a trusted partner for businesses across various industries.',
       image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80'
     },
     {
       name: 'Sophia Chen',
       position: 'Chief AI Officer',
-      bio: 'PhD in Machine Learning with extensive experience developing AI solutions for marketing applications. Leading our AI research and implementation.',
+      bio: 'PhD in Machine Learning with extensive experience developing AI solutions for marketing applications. Leading our AI research and implementation to keep Resgato at the cutting edge of digital marketing technology.',
       image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80'
     },
     {
       name: 'Marcus Williams',
       position: 'Head of Marketing Strategy',
-      bio: 'Former CMO with expertise in developing data-driven marketing strategies. Specializes in helping clients implement AI marketing solutions.',
+      bio: 'Former CMO with expertise in developing data-driven marketing strategies. Specializes in helping clients implement customized digital marketing solutions that deliver measurable results.',
       image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80'
     },
     {
       name: 'Olivia Rodriguez',
       position: 'Director of Client Success',
-      bio: 'Dedicated to ensuring our clients achieve exceptional results through our AI marketing solutions. Expert in measuring and optimizing ROI.',
+      bio: 'Dedicated to ensuring our clients achieve exceptional results through our tailored marketing solutions. Expert in measuring and optimizing ROI while maintaining strong client relationships.',
       image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80'
     }
   ];
@@ -44,7 +47,7 @@ const About = () => {
               About <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Resgato</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              We're a team of AI marketing experts dedicated to transforming businesses through innovative, data-driven strategies.
+              Founded in 2012, we're a dedicated team of digital marketing experts based in Salt Lake City, Utah, committed to rescuing brands from obscurity.
             </p>
           </div>
         </section>
@@ -55,13 +58,13 @@ const About = () => {
             <div>
               <h2 className="section-title">Our Story</h2>
               <p className="text-lg text-gray-700 mb-6">
-                Resgato was founded in 2018 with a simple yet powerful vision: to bridge the gap between advanced AI technologies and practical marketing applications. We recognized that while artificial intelligence was transforming many industries, marketing teams were struggling to effectively implement these technologies.
+                Resgato Digital Marketing Agency was founded in 2012 by Taylor Brody in Salt Lake City, Utah. The name "Resgato" (pronounced 'res-gah-toe') means "to rescue" in Portuguese, reflecting our mission to help businesses avoid obscurity through effective digital marketing strategies.
               </p>
               <p className="text-lg text-gray-700 mb-6">
-                Starting with a small team of AI specialists and marketing experts, we began developing customized solutions that helped businesses harness the power of AI to enhance their marketing efforts. Our innovative approach quickly gained recognition, and our client base grew rapidly.
+                Since our inception, we've operated on the principle that every client and their customers are unique. This understanding has shaped our approach to digital marketing, where we tailor strategies to each client's specific needs rather than applying a one-size-fits-all solution.
               </p>
               <p className="text-lg text-gray-700">
-                Today, Resgato is a leading AI Marketing Consultancy, serving clients across various industries worldwide. We remain committed to our founding mission: empowering businesses with AI-driven marketing strategies that drive real results.
+                Today, Resgato is recognized as a strategic partner for businesses across various industries. We remain committed to our founding mission: elevating brands through well-rounded digital campaigns that deliver timely, realistic results aligned with our clients' budgets and focused on their long-term satisfaction.
               </p>
             </div>
             <div className="bg-resgato-light-purple rounded-xl p-8">
@@ -73,7 +76,7 @@ const About = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="text-gray-800"><span className="font-semibold">Specialized Expertise:</span> Our team consists of experts in both AI technology and marketing strategy.</p>
+                  <p className="text-gray-800"><span className="font-semibold">Personalized Approach:</span> We recognize the uniqueness of each client and their customers, tailoring our strategies accordingly.</p>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
@@ -81,7 +84,7 @@ const About = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="text-gray-800"><span className="font-semibold">Custom Solutions:</span> We develop tailored strategies specific to your business needs and goals.</p>
+                  <p className="text-gray-800"><span className="font-semibold">Results-Driven:</span> Our focus is on delivering measurable outcomes that align with your business goals and budget.</p>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
@@ -89,7 +92,7 @@ const About = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="text-gray-800"><span className="font-semibold">Proven Results:</span> Our strategies have helped hundreds of businesses increase ROI and achieve sustainable growth.</p>
+                  <p className="text-gray-800"><span className="font-semibold">Comprehensive Services:</span> From SEO and PPC to social media and email marketing, we offer a complete range of digital marketing solutions.</p>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
@@ -97,7 +100,7 @@ const About = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="text-gray-800"><span className="font-semibold">Cutting-Edge Innovation:</span> We continuously research and integrate the latest advancements in AI technology.</p>
+                  <p className="text-gray-800"><span className="font-semibold">Strategic Partnership:</span> We position ourselves as an extension of your team, committed to your long-term success.</p>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
@@ -105,20 +108,118 @@ const About = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="text-gray-800"><span className="font-semibold">Client-Centric Approach:</span> We prioritize understanding your unique challenges and objectives.</p>
+                  <p className="text-gray-800"><span className="font-semibold">Local Expertise:</span> Based in Salt Lake City, we bring a deep understanding of both local and national markets.</p>
                 </li>
               </ul>
             </div>
           </div>
         </section>
 
-        {/* Our Team Section */}
+        {/* Services Section */}
         <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="section-title">Our Services</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                We offer a comprehensive range of digital marketing services tailored to meet your specific business needs.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+              <Card className="border-none shadow-lg">
+                <CardContent className="p-6">
+                  <div className="bg-resgato-light-purple w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-resgato-deep-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">SEO Services & Consulting</h3>
+                  <p className="text-gray-700 mb-5">
+                    We believe SEO is essential for any online presence, regardless of business size. Our organic search strategies help improve your visibility, drive targeted traffic, and establish your brand as an authority in your industry.
+                  </p>
+                  <Button asChild variant="outline" className="mt-auto">
+                    <Link to="/seo">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-none shadow-lg">
+                <CardContent className="p-6">
+                  <div className="bg-resgato-light-purple w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-resgato-deep-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">PPC & SEM</h3>
+                  <p className="text-gray-700 mb-5">
+                    Our customized pay-per-click campaigns are developed to lower cost per acquisition and increase return on investment. We handle consultation, planning, campaign creation, and ongoing optimization to ensure maximum ROI.
+                  </p>
+                  <Button asChild variant="outline" className="mt-auto">
+                    <Link to="/ppc">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-none shadow-lg">
+                <CardContent className="p-6">
+                  <div className="bg-resgato-light-purple w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-resgato-deep-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">Social Media Marketing</h3>
+                  <p className="text-gray-700 mb-5">
+                    We assist in engaging with current audiences and identifying new ones, including automation to manage ongoing maintenance. Our strategies help build your brand presence and foster meaningful connections with your target audience.
+                  </p>
+                  <Button asChild variant="outline" className="mt-auto">
+                    <Link to="/services">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+
+              <Card className="border-none shadow-lg">
+                <CardContent className="p-6">
+                  <div className="bg-resgato-light-purple w-14 h-14 rounded-full flex items-center justify-center mb-4">
+                    <svg xmlns="http://www.w3.org/2000/svg" className="h-7 w-7 text-resgato-deep-purple" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
+                    </svg>
+                  </div>
+                  <h3 className="text-2xl font-bold mb-3">Email Marketing</h3>
+                  <p className="text-gray-700 mb-5">
+                    We develop automated email marketing programs using optimized capture forms, drip campaigns, segmentation, and strong copy. Our email strategies nurture leads, boost customer retention, and drive conversions.
+                  </p>
+                  <Button asChild variant="outline" className="mt-auto">
+                    <Link to="/email-marketing">
+                      Learn More <ArrowRight className="ml-2 h-4 w-4" />
+                    </Link>
+                  </Button>
+                </CardContent>
+              </Card>
+            </div>
+
+            <div className="text-center">
+              <Button asChild className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
+                <Link to="/services">
+                  View All Services <ArrowRight className="ml-2 h-5 w-5" />
+                </Link>
+              </Button>
+            </div>
+          </div>
+        </section>
+
+        {/* Our Team Section */}
+        <section className="py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-16">
               <h2 className="section-title">Meet Our Team</h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our diverse team of experts combines deep knowledge in AI technology and marketing strategy to deliver innovative solutions.
+                Our diverse team of experts combines deep knowledge in digital marketing to deliver innovative solutions tailored to your business needs.
               </p>
             </div>
 
@@ -151,3 +252,4 @@ const About = () => {
 };
 
 export default About;
+

@@ -3,10 +3,13 @@ import React from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 
 const StatsSection = () => {
+  // Calculate years in business from 2012 to current year
+  const yearsFounded = new Date().getFullYear() - 2012;
+  
   const stats = [
     {
-      value: '11+',
-      label: 'Years of Experience'
+      value: `${yearsFounded}+`,
+      label: 'Years in Business'
     },
     {
       value: '5',
@@ -17,7 +20,7 @@ const StatsSection = () => {
       label: 'Satisfied Clients'
     },
     {
-      value: '3',
+      value: '4',
       label: 'Core Services'
     }
   ];
