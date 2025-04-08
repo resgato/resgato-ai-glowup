@@ -1,4 +1,3 @@
-
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -22,6 +21,7 @@ import SocialMediaMarketing from "./pages/SocialMediaMarketing";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import ContentStrategy from "./pages/ContentStrategy";
+import UtahRealEstateMarketing from "./pages/UtahRealEstateMarketing";
 
 const queryClient = new QueryClient();
 
@@ -49,6 +49,7 @@ const App = () => (
           <Route path="/content-strategy" element={<ContentStrategy />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/utah-real-estate-marketing" element={<UtahRealEstateMarketing />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
