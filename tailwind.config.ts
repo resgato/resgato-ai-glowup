@@ -111,7 +111,7 @@ export default {
 				'slide-up': 'slideUp 0.5s ease-out forwards'
 			},
 			fontFamily: {
-				sans: ['Inter', 'sans-serif'],
+				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
 			}
 		}
 	},
