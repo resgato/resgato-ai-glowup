@@ -14,25 +14,21 @@ const About = () => {
       name: 'Taylor Brody',
       position: 'Founder & CEO',
       bio: 'Founded Resgato in 2012 with a vision to help businesses avoid digital obscurity. With over 18 years of experience in digital marketing, Taylor has led the agency to become a trusted partner for businesses across various industries.',
-      image: '/lovable-uploads/aa895be1-f629-4fbf-8954-bfc48ad23cd2.png'
     },
     {
       name: 'Parker Gardner',
       position: 'Head of Ad Operations',
       bio: 'Strategic advertising expert specializing in campaign management and optimization. Leverages data-driven insights to deliver exceptional ROI across multiple advertising platforms.',
-      image: '/lovable-uploads/a64347a2-2b97-4123-8278-55629d817209.png'
     },
     {
       name: 'Nitin Bhatnagar',
       position: 'SEO Manager',
       bio: 'Expert in search engine optimization with a passion for driving organic traffic and improving search rankings. Specializes in on-page and technical SEO to help clients achieve maximum visibility.',
-      image: '/lovable-uploads/d144fcd1-b411-4b4d-a16c-a6f2d58dced9.png'
     },
     {
       name: 'Carlos Piccardo',
       position: 'Social Media Marketing',
       bio: 'Creative social media strategist with expertise in building engaging brand presences across multiple platforms. Skilled in content creation, community management, and social advertising campaigns.',
-      image: '/lovable-uploads/5df442f1-1003-4fea-bd5a-d75d511ffaab.png'
     }
   ];
 
@@ -225,14 +221,7 @@ const About = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {teamMembers.map((member, index) => (
-                <Card key={index} className="border-none shadow-lg overflow-hidden">
-                  <div className="aspect-square overflow-hidden">
-                    <img
-                      src={member.image}
-                      alt={member.name}
-                      className="w-full h-full object-cover transition-transform duration-500 hover:scale-105"
-                    />
-                  </div>
+                <Card key={index} className="border-none shadow-lg">
                   <CardContent className="p-6">
                     <h3 className="text-xl font-bold text-gray-900">{member.name}</h3>
                     <p className="text-resgato-purple font-medium mb-3">{member.position}</p>
