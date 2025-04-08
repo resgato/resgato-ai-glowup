@@ -97,10 +97,7 @@ const EmailMarketing = () => {
                   alt="Email Users Statistics" 
                   className="w-full rounded-xl shadow-lg"
                 />
-                <div className="absolute -bottom-6 -right-6 bg-resgato-light-purple p-4 rounded-lg shadow-md hidden md:block">
-                  <p className="text-resgato-deep-purple font-semibold">4.3 billion global email users in 2022</p>
-                  <p className="text-sm text-gray-600">Expected to grow to 4.6 billion by 2025</p>
-                </div>
+              
               </div>
             </div>
           </div>
