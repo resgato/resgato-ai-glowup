@@ -50,10 +50,10 @@ const ContactForm = () => {
     try {
       console.log("Submitting contact form...", data);
       
-      // Store submission in the database - fixed schema issue
+      // Store submission in the database using the provided pattern
       const { error: dbError } = await supabase
         .from('contact_submissions')
-        .insert([{  // Note: using an array for the insert
+        .insert([{
           name: data.name,
           email: data.email,
           company: data.company || null,
@@ -66,21 +66,27 @@ const ContactForm = () => {
         throw new Error(`Failed to store your message: ${dbError.message}`);
       }
       
-      // Send email notification
-      const notificationResponse = await supabase.functions.invoke('new-contact-email', {
-        body: {
+      // Call the edge function directly as specified
+      const projectRef = "bopzgxqujuqosdexnppj";
+      const response = await fetch(`https://${projectRef}.functions.supabase.co/new-contact-email`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
           name: data.name,
           email: data.email,
           company: data.company,
           phone: data.phone,
           message: data.message
-        }
+        }),
       });
       
-      console.log("Notification response:", notificationResponse);
+      const result = await response.json();
+      console.log("Email notification response:", result);
 
-      if (!notificationResponse.data?.success) {
-        console.error('Email notification response issue:', notificationResponse);
+      if (!response.ok) {
+        console.error('Email notification response issue:', result);
         throw new Error('Failed to send your message. Please try again later.');
       }
       
