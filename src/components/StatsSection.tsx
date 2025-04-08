@@ -14,7 +14,7 @@ const StatsSection = () => {
     },
     {
       value: 'Millions',
-      label: 'Ad Impressions'
+      label: 'Impressions'
     },
     {
       value: '25k+',
@@ -22,7 +22,7 @@ const StatsSection = () => {
     },
     {
       value: '$500k+',
-      label: 'Ad Budget Managed'
+      label: 'Marketing Budget Managed'
     }
   ];
 
