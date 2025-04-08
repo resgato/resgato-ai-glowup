@@ -10,10 +10,10 @@ const AboutSection = () => {
         <div>
           <h2 className="section-title">About Resgato</h2>
           <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">
-            Resgato is a leading AI Marketing Consultancy that helps businesses harness the power of artificial intelligence to transform their marketing strategies. We combine cutting-edge AI technologies with deep marketing expertise to deliver exceptional results for our clients.
+            Resgato is a leading digital marketing agency with over 13 years of experience helping businesses achieve meaningful growth through data-driven strategies. We specialize in SEO, PPC, email marketing, and strategic consulting services customized to meet your unique business objectives.
           </p>
           <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">
-            Our team of experienced consultants works closely with each client to understand their unique challenges and objectives, developing customized AI marketing solutions that drive growth, increase efficiency, and maximize ROI.
+            Our team of seasoned digital marketing experts works closely with each client to develop tailored solutions that generate leads, increase conversions, and maximize return on investment. With millions of ad impressions managed and thousands of leads generated for our clients, we have a proven track record of delivering exceptional results.
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Button asChild className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
@@ -26,13 +26,13 @@ const AboutSection = () => {
             <div className="bg-resgato-light-purple rounded-lg p-4 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Our Mission</h3>
               <p className="text-sm md:text-base text-gray-700">
-                To empower businesses with AI-driven marketing strategies that drive meaningful results and sustainable growth.
+                To empower businesses with effective digital marketing strategies that drive measurable results, increase online visibility, and create sustainable growth opportunities.
               </p>
             </div>
             <div className="bg-resgato-light-purple rounded-lg p-4 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Our Vision</h3>
               <p className="text-sm md:text-base text-gray-700">
-                To be the global leader in AI marketing innovation, setting new standards of excellence in the industry.
+                To be the most trusted digital marketing partner for businesses seeking exceptional ROI and long-term success in an increasingly competitive online landscape.
               </p>
             </div>
           </div>
@@ -40,16 +40,16 @@ const AboutSection = () => {
             <div className="bg-resgato-light-purple rounded-lg p-4 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Our Values</h3>
               <ul className="text-sm md:text-base text-gray-700 list-disc list-inside space-y-1 md:space-y-2">
+                <li>Results-Driven</li>
+                <li>Transparency</li>
                 <li>Innovation</li>
-                <li>Integrity</li>
-                <li>Collaboration</li>
-                <li>Excellence</li>
+                <li>Partnership</li>
               </ul>
             </div>
             <div className="bg-resgato-light-purple rounded-lg p-4 md:p-6">
               <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Our Approach</h3>
               <p className="text-sm md:text-base text-gray-700">
-                Data-driven, client-focused, and results-oriented to ensure maximum impact.
+                Data-driven, customized strategies with clear metrics and regular reporting to maximize your marketing ROI.
               </p>
             </div>
           </div>
