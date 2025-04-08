@@ -50,16 +50,16 @@ const ContactForm = () => {
     try {
       console.log("Submitting contact form...", data);
       
-      // Store submission in the database - corrected to use the proper table
+      // Store submission in the database - fixed schema issue
       const { error: dbError } = await supabase
         .from('contact_submissions')
-        .insert({
+        .insert([{  // Note: using an array for the insert
           name: data.name,
           email: data.email,
           company: data.company || null,
           phone: data.phone || null,
           message: data.message
-        });
+        }]);
       
       if (dbError) {
         console.error('Database storage error:', dbError);
