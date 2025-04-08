@@ -4,27 +4,25 @@ import { Card, CardContent } from '@/components/ui/card';
 import { useLocation } from 'react-router-dom';
 
 const StatsSection = () => {
-  // Calculate years in business from 2012 to current year
-  const yearsFounded = new Date().getFullYear() - 2012;
   const location = useLocation();
   
   // Default stats for general pages
   let stats = [
     {
-      value: `${yearsFounded}+`,
+      value: '13+',
       label: 'Years in Business'
     },
     {
-      value: '500+',
-      label: 'Keywords Ranked'
+      value: 'Millions',
+      label: 'Ad Impressions'
     },
     {
-      value: '200+',
-      label: 'Satisfied Clients'
+      value: 'Thousands',
+      label: 'Leads Generated'
     },
     {
-      value: '40%',
-      label: 'Avg. Traffic Increase'
+      value: '$500k+',
+      label: 'Ad Budget Managed'
     }
   ];
 
@@ -32,7 +30,7 @@ const StatsSection = () => {
   if (location.pathname === '/ppc') {
     stats = [
       {
-        value: `${yearsFounded}+`,
+        value: '13+',
         label: 'Years in Business'
       },
       {
