@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -27,55 +28,72 @@ const Blog = () => {
       slug: "future-digital-marketing-2025",
       title: "The Future of Digital Marketing in 2025 and Beyond",
       excerpt: "Explore emerging trends in AI-driven marketing, privacy-first strategies, and immersive content experiences that will shape the marketing landscape over the next decade.",
-      cover: "/placeholder.svg",
+      cover: "/lovable-uploads/c69e195b-c2c5-434c-be7b-ac3fb2ce1f7b.png",
       date: "April 5, 2025",
       author: "Taylor Brody",
       readTime: "8 min read",
-      category: "Digital Strategy"
+      category: "Digital Strategy",
+      content: "The digital marketing landscape is evolving at an unprecedented pace. As we move further into 2025, businesses need to adapt to new technologies and shifting consumer behaviors. AI-powered marketing automation is no longer optional but essential for staying competitive. Privacy regulations continue to reshape how we collect and utilize customer data, pushing marketers to develop more transparent and consent-based strategies. Meanwhile, immersive experiences through AR and VR are creating new opportunities for brand engagement. This article explores the key trends that will define digital marketing success in the coming years."
     },
     {
       id: 2,
       slug: "seo-tactics-2025",
       title: "7 Proven SEO Tactics That Actually Work in 2025",
       excerpt: "With search algorithms constantly evolving, these seven strategies have consistently delivered results for our clients across various industries.",
-      cover: "/placeholder.svg",
+      cover: "/lovable-uploads/55557fa0-302d-476b-a9c9-d36ce29e2da5.png",
       date: "April 1, 2025",
-      author: "Taylor Brody",
+      author: "Parker Gardner",
       readTime: "6 min read",
-      category: "SEO"
+      category: "SEO",
+      content: "Search engine optimization continues to be a cornerstone of digital marketing, but the tactics that work are constantly changing. In this article, we share seven proven SEO strategies that are delivering results in 2025. From AI-optimized content creation to voice search optimization and semantic search understanding, these approaches will help you stay ahead of algorithm updates and drive organic traffic. We'll also discuss the growing importance of user experience signals and how they affect your rankings."
     },
     {
       id: 3,
       slug: "email-marketing-strategy",
       title: "How to Build an Email Marketing Strategy That Converts",
       excerpt: "Despite the rise of new channels, email marketing remains one of the highest-ROI activities. Learn our framework for creating email campaigns that engage and convert.",
-      cover: "/placeholder.svg",
+      cover: "/lovable-uploads/3f29c8f4-0489-47bd-ab86-13ed0a87031b.png",
       date: "March 28, 2025",
       author: "Taylor Brody",
       readTime: "5 min read",
-      category: "Email Marketing"
+      category: "Email Marketing",
+      content: "Email marketing continues to deliver the highest ROI of any digital channel when done right. This guide walks you through our proven framework for creating email campaigns that not only engage subscribers but drive measurable conversions. We cover list segmentation strategies, personalization techniques, automation workflows, and testing methodologies that will elevate your email performance. You'll learn how to craft compelling subject lines, create mobile-optimized designs, and develop content that resonates with your audience."
     },
     {
       id: 4,
       slug: "psychology-landing-pages",
       title: "The Psychology Behind High-Converting Landing Pages",
       excerpt: "Understanding user psychology is crucial for designing landing pages that convert. Discover the principles that guide effective landing page design.",
-      cover: "/placeholder.svg",
+      cover: "/lovable-uploads/144eee65-8921-416b-9249-38ea50211b6e.png",
       date: "March 22, 2025",
-      author: "Taylor Brody",
+      author: "Parker Gardner",
       readTime: "7 min read",
-      category: "Conversion Optimization"
+      category: "Conversion Optimization",
+      content: "The difference between an average landing page and a high-converting one often comes down to psychological principles. This article explores the key psychological triggers that influence visitor behavior and decision-making. From color psychology and visual hierarchy to social proof and scarcity, we break down the elements that compel users to take action. You'll learn practical applications of these principles and see real-world examples of landing pages that effectively leverage psychology to drive conversions."
     },
     {
       id: 5,
       slug: "attribution-models",
       title: "Understanding Attribution Models: A Guide for Marketing Leaders",
       excerpt: "Choosing the right attribution model is essential for accurately measuring marketing effectiveness. This guide breaks down the options and helps you choose.",
-      cover: "/placeholder.svg",
+      cover: "/lovable-uploads/6f391aed-1521-493a-ab6a-b226a0de270f.png",
       date: "March 15, 2025",
       author: "Taylor Brody",
       readTime: "9 min read",
-      category: "Analytics"
+      category: "Analytics",
+      content: "In today's complex marketing ecosystem, understanding which channels and touchpoints contribute to conversions is challenging. This comprehensive guide explains different attribution models, from simple last-click approaches to sophisticated data-driven models. We'll help you understand the strengths and limitations of each model and provide a framework for selecting the right approach based on your business goals, customer journey complexity, and available data. The article includes practical implementation tips and case studies showing how proper attribution modeling improved marketing ROI."
+    },
+    {
+      id: 6,
+      slug: "social-media-strategy-2025",
+      title: "Building a Social Media Strategy for 2025: Platforms, Content, and Measurement",
+      excerpt: "Social media continues to evolve rapidly. Discover which platforms deserve your attention and how to create content that resonates with today's audiences.",
+      cover: "/lovable-uploads/06a3fbfe-8265-4f20-934f-543d194bd0c0.png",
+      date: "March 8, 2025",
+      author: "Parker Gardner",
+      readTime: "6 min read",
+      category: "Social Media",
+      content: "The social media landscape is more diverse and specialized than ever. This article provides a comprehensive framework for developing a social media strategy that aligns with your business objectives in 2025. We analyze the latest platform trends, audience demographics, and content formats that are gaining traction. You'll learn how to create platform-specific content strategies, leverage user-generated content, and implement measurement approaches that go beyond vanity metrics to demonstrate real business impact."
     }
   ];
   
@@ -199,9 +217,14 @@ const Blog = () => {
                     <p className="text-gray-600 text-sm">{post.excerpt}</p>
                   </CardContent>
                   <CardFooter className="pt-0 text-sm text-gray-500 flex items-center">
-                    <Link to="/author/taylor-brody" className="flex items-center group">
+                    <Link to={`/author/${post.author.toLowerCase().replace(' ', '-')}`} className="flex items-center group">
                       <Avatar className="w-6 h-6 mr-2">
-                        <AvatarImage src="/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" alt={post.author} />
+                        <AvatarImage 
+                          src={post.author === "Taylor Brody" 
+                            ? "/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" 
+                            : "/placeholder.svg"} 
+                          alt={post.author} 
+                        />
                         <AvatarFallback>{post.author.split(' ').map(n => n[0]).join('')}</AvatarFallback>
                       </Avatar>
                       <span className="mr-3 group-hover:text-resgato-blue transition-colors">{post.author}</span>
@@ -218,7 +241,7 @@ const Blog = () => {
             
             <div className="mt-12 text-center">
               <Link 
-                to="#" 
+                to="/blog" 
                 className="inline-flex items-center border-2 border-resgato-blue text-resgato-blue px-6 py-3 rounded-lg font-medium transition-colors hover:bg-resgato-blue hover:text-white"
               >
                 View All Articles
