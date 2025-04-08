@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Search, Mail, BarChart, MessageSquare, Users, Calendar, Robot } from 'lucide-react';
+import { Search, Mail, BarChart, MessageSquare, Users, Calendar, Bot } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ServicesSection = () => {
@@ -31,7 +31,7 @@ const ServicesSection = () => {
       link: '/strategic-consulting'
     },
     {
-      icon: <Robot className="h-8 w-8 text-resgato-purple" />,
+      icon: <Bot className="h-8 w-8 text-resgato-purple" />,
       title: 'AI Consulting',
       description: 'Expert guidance to help your business leverage artificial intelligence for improved efficiency, customer insights, and competitive advantage.',
       link: '/ai-consulting'

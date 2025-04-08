@@ -3,7 +3,7 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
-import { Robot, AlertCircle, Brain, Zap, Glasses, Cpu } from 'lucide-react';
+import { Bot, AlertCircle, Brain, Zap, Glasses, Cpu } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 
 const AIConsulting = () => {
@@ -71,7 +71,7 @@ const AIConsulting = () => {
               </div>
               <div className="flex justify-center">
                 <div className="bg-white/10 p-8 rounded-xl backdrop-blur-sm">
-                  <Robot className="h-32 w-32 text-resgato-light-purple mx-auto" />
+                  <Bot className="h-32 w-32 text-resgato-light-purple mx-auto" />
                 </div>
               </div>
             </div>
