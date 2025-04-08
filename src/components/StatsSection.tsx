@@ -49,6 +49,28 @@ const StatsSection = () => {
       }
     ];
   }
+  
+  // Email Marketing specific stats
+  if (location.pathname === '/email-marketing') {
+    stats = [
+      {
+        value: '4.3B',
+        label: 'Global Email Users'
+      },
+      {
+        value: '333B',
+        label: 'Daily Emails Sent'
+      },
+      {
+        value: '$40',
+        label: 'ROI per $1 Spent'
+      },
+      {
+        value: '72%',
+        label: 'Prefer Email for Business Communication'
+      }
+    ];
+  }
 
   return (
     <section className="py-8 md:py-16 bg-white">
