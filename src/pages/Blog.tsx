@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -94,6 +93,18 @@ const Blog = () => {
       readTime: "6 min read",
       category: "Social Media",
       content: "The social media landscape is more diverse and specialized than ever. This article provides a comprehensive framework for developing a social media strategy that aligns with your business objectives in 2025. We analyze the latest platform trends, audience demographics, and content formats that are gaining traction. You'll learn how to create platform-specific content strategies, leverage user-generated content, and implement measurement approaches that go beyond vanity metrics to demonstrate real business impact."
+    },
+    {
+      id: 7,
+      slug: "utah-real-estate-marketing",
+      title: "9 Tips for Utah Real Estate Marketing",
+      excerpt: "Explore expert insights and strategies to excel in Utah's real estate market in 2023.",
+      cover: "/lovable-uploads/utah-real-estate-marketing.png",
+      date: "April 10, 2025",
+      author: "Taylor Brody",
+      readTime: "10 min read",
+      category: "Real Estate Marketing",
+      content: "To help you excel in Utah's real estate market in 2023, we gathered insights from top industry professionals, including founders, CEOs, and digital marketers. From prioritizing your online presence to leveraging social media marketing, discover the top nine tips these experts shared to boost your real estate marketing strategy in the coming year."
     }
   ];
   
@@ -106,7 +117,8 @@ const Blog = () => {
     "Email Marketing",
     "Conversion Optimization",
     "Branding",
-    "Digital Marketing"
+    "Digital Marketing",
+    "Real Estate Marketing"
   ];
 
   return (
