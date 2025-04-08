@@ -1,11 +1,26 @@
 
-import React from 'react';
+import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import { Card, CardContent } from '@/components/ui/card';
 
 const Contact = () => {
+  useEffect(() => {
+    // Load Calendly script
+    const head = document.querySelector('head');
+    const script = document.createElement('script');
+    script.setAttribute('src', 'https://assets.calendly.com/assets/external/widget.js');
+    script.setAttribute('type', 'text/javascript');
+    script.async = true;
+    head?.appendChild(script);
+
+    return () => {
+      // Clean up script when component unmounts
+      head?.removeChild(script);
+    };
+  }, []);
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
@@ -29,8 +44,11 @@ const Contact = () => {
             <p className="text-lg text-gray-700 mb-8 text-center max-w-2xl mx-auto">
               Pick a time that works for you and let's discuss how we can help your business grow.
             </p>
-            <div className="calendly-inline-widget min-h-[650px]" data-url="https://calendly.com/resgato/consultation?embed_domain=resgato.com&embed_type=Inline&month=2025-04"></div>
-            <script type="text/javascript" src="https://assets.calendly.com/assets/external/widget.js" async></script>
+            <div 
+              className="calendly-inline-widget" 
+              data-url="https://calendly.com/resgato/consultation?embed_domain=resgato.com&embed_type=Inline&month=2025-04"
+              style={{ minHeight: '650px' }}
+            ></div>
           </div>
         </section>
 
