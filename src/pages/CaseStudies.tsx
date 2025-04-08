@@ -11,30 +11,30 @@ const CaseStudies = () => {
   const caseStudies = [
     {
       id: 1,
-      title: 'Boosting Conversion Rates by 320% for Tech SaaS',
-      industry: 'Technology',
+      title: 'Boosting Conversion Rates by 320% for Axio Auto',
+      industry: 'Automotive',
       tags: ['SEO', 'PPC', 'Conversion Rate Optimization'],
-      imageUrl: '/placeholder.svg',
-      summary: 'How we transformed a struggling SaaS platform into a market leader with strategic digital marketing initiatives.',
+      imageUrl: 'https://images.unsplash.com/photo-1579762593175-20226054cad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      summary: 'How we transformed a regional auto dealership into a market leader with strategic digital marketing initiatives focused on local SEO and targeted PPC campaigns.',
       results: ['320% increase in conversion rate', '215% growth in organic traffic', '47% reduction in customer acquisition cost']
     },
     {
       id: 2,
-      title: 'Scaling E-commerce Revenue from $1M to $8M in 14 Months',
+      title: 'Scaling E-commerce Revenue for The Daily Shifts',
       industry: 'E-commerce',
       tags: ['Email Marketing', 'Social Media', 'Analytics'],
-      imageUrl: '/placeholder.svg',
-      summary: 'Strategic email campaigns and targeted social media advertising helped this boutique retailer expand nationally.',
+      imageUrl: 'https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      summary: 'Strategic email campaigns and targeted social media advertising helped this mindfulness brand expand nationally and increase recurring revenue.',
       results: ['800% revenue growth', '375% increase in returning customers', '523% growth in email subscribers']
     },
     {
       id: 3,
-      title: 'Revitalizing Brand Perception for Traditional Finance Firm',
-      industry: 'Finance',
+      title: 'Revitalizing Brand Perception for MLD',
+      industry: 'Retail',
       tags: ['Branding', 'Content Marketing', 'Social Media'],
-      imageUrl: '/placeholder.svg',
-      summary: "Transforming a 50-year-old financial institution's digital presence to appeal to younger demographics while maintaining trust.",
-      results: ['42% increase in millennial clients', '68% growth in social engagement', '3.2x improvement in brand sentiment']
+      imageUrl: 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      summary: "Transforming a traditional retail chain's digital presence to appeal to younger demographics while maintaining trust with existing customers.",
+      results: ['42% increase in millennial customers', '68% growth in social engagement', '3.2x improvement in brand sentiment']
     }
   ];
 
@@ -62,7 +62,7 @@ const CaseStudies = () => {
                   className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl animate-fade-in"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
-                  <div className="h-48 bg-gray-200">
+                  <div className="h-56 bg-gray-200">
                     <img 
                       src={study.imageUrl} 
                       alt={study.title} 
