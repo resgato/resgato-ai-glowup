@@ -50,7 +50,23 @@ const ContactForm = () => {
     try {
       console.log("Submitting contact form...", data);
       
-      // Send email notification only, bypassing database storage temporarily
+      // First, try to store the submission in the database
+      const { error: dbError } = await supabase
+        .from('contact_submissions')
+        .insert({
+          name: data.name,
+          email: data.email,
+          company: data.company || null,
+          phone: data.phone || null,
+          message: data.message
+        });
+      
+      if (dbError) {
+        console.error('Database storage error:', dbError);
+        // Continue with email notification even if database storage fails
+      }
+      
+      // Send email notification
       const notificationResponse = await supabase.functions.invoke('new-contact-email', {
         body: {
           name: data.name,
