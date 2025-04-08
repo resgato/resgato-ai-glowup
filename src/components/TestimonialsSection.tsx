@@ -25,26 +25,26 @@ const TestimonialsSection = () => {
   ];
 
   return (
-    <section className="bg-resgato-light-purple/30 py-16 md:py-24">
+    <section className="bg-resgato-light-purple/30 py-10 md:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-16">
+        <div className="text-center mb-8 md:mb-16">
           <h2 className="section-title">What Our Clients Say</h2>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
             Discover how Resgato's AI marketing solutions have helped businesses achieve remarkable results.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-8">
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="bg-white shadow-lg border-none h-full">
-              <CardContent className="p-8">
-                <svg className="h-10 w-10 text-resgato-purple mb-4" fill="currentColor" viewBox="0 0 32 32">
+              <CardContent className="p-5 md:p-8">
+                <svg className="h-8 w-8 md:h-10 md:w-10 text-resgato-purple mb-3 md:mb-4" fill="currentColor" viewBox="0 0 32 32">
                   <path d="M10 8v6c0 2.2-1.8 4-4 4v2c3.3 0 6-2.7 6-6V8h-2zm12 0v6c0 2.2-1.8 4-4 4v2c3.3 0 6-2.7 6-6V8h-2z" />
                 </svg>
-                <p className="text-gray-700 mb-6 italic">{testimonial.quote}</p>
+                <p className="text-gray-700 mb-4 md:mb-6 italic text-sm md:text-base">{testimonial.quote}</p>
                 <div>
-                  <p className="font-semibold text-gray-900">{testimonial.author}</p>
-                  <p className="text-gray-600">{testimonial.position}, {testimonial.company}</p>
+                  <p className="font-semibold text-gray-900 text-sm md:text-base">{testimonial.author}</p>
+                  <p className="text-gray-600 text-xs md:text-sm">{testimonial.position}, {testimonial.company}</p>
                 </div>
               </CardContent>
             </Card>

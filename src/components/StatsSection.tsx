@@ -23,14 +23,14 @@ const StatsSection = () => {
   ];
 
   return (
-    <section className="py-16 md:py-24 bg-white">
+    <section className="py-8 md:py-24 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-10">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-3 md:gap-10">
           {stats.map((stat, index) => (
             <Card key={index} className="border-none shadow-md">
-              <CardContent className="p-6 text-center">
-                <p className="text-4xl md:text-5xl font-bold text-resgato-deep-purple mb-2">{stat.value}</p>
-                <p className="text-gray-600">{stat.label}</p>
+              <CardContent className="p-4 md:p-6 text-center">
+                <p className="text-3xl md:text-5xl font-bold text-resgato-deep-purple mb-1 md:mb-2">{stat.value}</p>
+                <p className="text-sm md:text-base text-gray-600">{stat.label}</p>
               </CardContent>
             </Card>
           ))}

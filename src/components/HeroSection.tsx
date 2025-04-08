@@ -7,9 +7,9 @@ import { ArrowRight, Search, Mail, BarChart, Link as LinkIcon } from 'lucide-rea
 const HeroSection = () => {
   return (
     <div className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 md:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div className="space-y-8 animate-fade-in">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-28">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="space-y-4 md:space-y-8 animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Digital Marketing Expertise <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Since 2012</span>
             </h1>
@@ -28,46 +28,46 @@ const HeroSection = () => {
               </Button>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-6 animate-fade-in">
+          <div className="grid grid-cols-2 gap-3 sm:gap-6 animate-fade-in">
             <Link 
               to="/seo" 
-              className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-100 transition-transform hover:scale-105"
+              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-100 transition-transform hover:scale-105"
             >
-              <div className="bg-resgato-light-purple w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <Search className="text-resgato-deep-purple h-6 w-6" />
+              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <Search className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">SEO Services</h3>
-              <p className="text-gray-600">Essential optimization for every brand with an online presence.</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">SEO Services</h3>
+              <p className="text-sm sm:text-base text-gray-600">Essential optimization for every brand with an online presence.</p>
             </Link>
             <Link 
               to="/ppc" 
-              className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-200 transition-transform hover:scale-105"
+              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-200 transition-transform hover:scale-105"
             >
-              <div className="bg-resgato-light-purple w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <BarChart className="text-resgato-deep-purple h-6 w-6" />
+              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <BarChart className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">PPC Campaigns</h3>
-              <p className="text-gray-600">Custom campaigns focused on conversions and increasing ROI.</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">PPC Campaigns</h3>
+              <p className="text-sm sm:text-base text-gray-600">Custom campaigns focused on conversions and increasing ROI.</p>
             </Link>
             <Link 
               to="/email-marketing" 
-              className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-300 transition-transform hover:scale-105"
+              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-300 transition-transform hover:scale-105"
             >
-              <div className="bg-resgato-light-purple w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <Mail className="text-resgato-deep-purple h-6 w-6" />
+              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <Mail className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Email Marketing</h3>
-              <p className="text-gray-600">Personalized campaigns that engage potential and current customers.</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Email Marketing</h3>
+              <p className="text-sm sm:text-base text-gray-600">Personalized campaigns that engage potential and current customers.</p>
             </Link>
             <Link 
               to="/strategic-consulting" 
-              className="bg-white rounded-xl shadow-lg p-6 animate-slide-up animate-delay-400 transition-transform hover:scale-105"
+              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-400 transition-transform hover:scale-105"
             >
-              <div className="bg-resgato-light-purple w-12 h-12 rounded-full flex items-center justify-center mb-4">
-                <LinkIcon className="text-resgato-deep-purple h-6 w-6" />
+              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
+                <LinkIcon className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <h3 className="text-lg font-semibold mb-2">Strategic Consulting</h3>
-              <p className="text-gray-600">Effective consultations with clear communication and affordable retainers.</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Strategic Consulting</h3>
+              <p className="text-sm sm:text-base text-gray-600">Effective consultations with clear communication and affordable retainers.</p>
             </Link>
           </div>
         </div>
