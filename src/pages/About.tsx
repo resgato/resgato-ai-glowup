@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -14,7 +13,13 @@ const About = () => {
       name: 'Taylor Brody',
       position: 'Founder & CEO',
       bio: 'Founded Resgato in 2012 with a vision to help businesses avoid digital obscurity. With over 18 years of experience in digital marketing, Taylor has led the agency to become a trusted partner for businesses across various industries.',
-      image: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80'
+      image: '/lovable-uploads/55557fa0-302d-476b-a9c9-d36ce29e2da5.png'
+    },
+    {
+      name: 'Parker Gardner',
+      position: 'Head of Ad Operations',
+      bio: 'Strategic advertising expert specializing in campaign management and optimization. Leverages data-driven insights to deliver exceptional ROI across multiple advertising platforms.',
+      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80'
     },
     {
       name: 'Sophia Chen',
@@ -176,7 +181,7 @@ const About = () => {
                     We assist in engaging with current audiences and identifying new ones, including automation to manage ongoing maintenance. Our strategies help build your brand presence and foster meaningful connections with your target audience.
                   </p>
                   <Button asChild variant="outline" className="mt-auto">
-                    <Link to="/services">
+                    <Link to="/social-media-marketing">
                       Learn More <ArrowRight className="ml-2 h-4 w-4" />
                     </Link>
                   </Button>
@@ -252,4 +257,3 @@ const About = () => {
 };
 
 export default About;
-

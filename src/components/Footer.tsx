@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Instagram, Twitter, Linkedin } from 'lucide-react';
+import { Instagram, Linkedin } from 'lucide-react';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();
@@ -17,11 +17,7 @@ const Footer = () => {
               Digital marketing agency founded in 2012, helping businesses optimize their online presence and drive results.
             </p>
             <div className="flex space-x-4">
-              <a href="https://twitter.com/resgatomarketing" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
-                <span className="sr-only">Twitter</span>
-                <Twitter className="h-6 w-6" />
-              </a>
-              <a href="https://linkedin.com/company/resgato" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
+              <a href="https://www.linkedin.com/in/taylorbrody" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
                 <span className="sr-only">LinkedIn</span>
                 <Linkedin className="h-6 w-6" />
               </a>
@@ -73,13 +69,23 @@ const Footer = () => {
                 </Link>
               </li>
               <li>
+                <Link to="/social-media-marketing" className="text-gray-300 hover:text-white transition-colors">
+                  Social Media Marketing
+                </Link>
+              </li>
+              <li>
                 <Link to="/email-marketing" className="text-gray-300 hover:text-white transition-colors">
                   Email Marketing
                 </Link>
               </li>
               <li>
-                <Link to="/strategic-consulting" className="text-gray-300 hover:text-white transition-colors">
-                  Strategic Consulting
+                <Link to="/content-strategy" className="text-gray-300 hover:text-white transition-colors">
+                  Content Strategy
+                </Link>
+              </li>
+              <li>
+                <Link to="/ai-consulting" className="text-gray-300 hover:text-white transition-colors">
+                  AI Consulting
                 </Link>
               </li>
             </ul>
