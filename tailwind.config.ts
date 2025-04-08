@@ -54,10 +54,13 @@ export default {
 					foreground: 'hsl(var(--card-foreground))'
 				},
 				resgato: {
-					purple: '#9b87f5',
-					'deep-purple': '#6E59A5',
-					'light-purple': '#E5DEFF',
-					'dark-purple': '#1A1F2C',
+					navy: '#1C1F2B',      // Midnight Navy
+					blue: '#2F80ED',      // Cerulean Blue
+					white: '#F9FAFB',     // Cloud White
+					'deep-purple': '#1C1F2B', // Keeping the structure but replacing with Midnight Navy
+					purple: '#2F80ED',    // Replacing with Cerulean Blue
+					'light-purple': '#F9FAFB', // Replacing with Cloud White
+					'dark-purple': '#1C1F2B',  // Replacing with Midnight Navy
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',

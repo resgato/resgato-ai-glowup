@@ -6,33 +6,33 @@
 
 @layer base {
   :root {
-    --background: 260 33% 98%;
-    --foreground: 222 47% 11%;
+    --background: 220 33% 98%; /* Adjusted to match Cloud White */
+    --foreground: 230 21% 14%; /* Adjusted to match Midnight Navy */
 
     --card: 0 0% 100%;
-    --card-foreground: 222 47% 11%;
+    --card-foreground: 230 21% 14%; /* Adjusted to match Midnight Navy */
 
     --popover: 0 0% 100%;
-    --popover-foreground: 222 47% 11%;
+    --popover-foreground: 230 21% 14%; /* Adjusted to match Midnight Navy */
 
-    --primary: 262 81% 74%;
-    --primary-foreground: 210 40% 98%;
+    --primary: 217 75% 56%; /* Adjusted to match Cerulean Blue */
+    --primary-foreground: 0 0% 100%;
 
-    --secondary: 210 40% 96%;
-    --secondary-foreground: 222 47% 11%;
+    --secondary: 220 14% 96%; /* Lighter shade of Midnight Navy */
+    --secondary-foreground: 230 21% 14%; /* Adjusted to match Midnight Navy */
 
-    --muted: 210 40% 96%;
-    --muted-foreground: 215 16% 47%;
+    --muted: 220 14% 96%; /* Lighter shade of Midnight Navy */
+    --muted-foreground: 220 8% 46%;
 
-    --accent: 262 81% 94%;
-    --accent-foreground: 222 47% 11%;
+    --accent: 217 75% 96%; /* Lighter version of Cerulean Blue */
+    --accent-foreground: 230 21% 14%; /* Adjusted to match Midnight Navy */
 
     --destructive: 0 84% 60%;
     --destructive-foreground: 210 40% 98%;
 
     --border: 214 32% 91%;
     --input: 214 32% 91%;
-    --ring: 262 81% 74%;
+    --ring: 217 75% 56%; /* Adjusted to match Cerulean Blue */
 
     --radius: 0.75rem;
 
@@ -43,37 +43,37 @@
     --sidebar-accent: 240 5% 96%;
     --sidebar-accent-foreground: 240 6% 10%;
     --sidebar-border: 220 13% 91%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-ring: 217 75% 56%; /* Adjusted to match Cerulean Blue */
   }
 
   .dark {
-    --background: 222 47% 11%;
-    --foreground: 210 40% 98%;
+    --background: 230 21% 14%; /* Adjusted to match Midnight Navy */
+    --foreground: 220 33% 98%; /* Adjusted to match Cloud White */
 
-    --card: 222 47% 11%;
-    --card-foreground: 210 40% 98%;
+    --card: 230 21% 14%; /* Adjusted to match Midnight Navy */
+    --card-foreground: 220 33% 98%; /* Adjusted to match Cloud White */
 
-    --popover: 222 47% 11%;
-    --popover-foreground: 210 40% 98%;
+    --popover: 230 21% 14%; /* Adjusted to match Midnight Navy */
+    --popover-foreground: 220 33% 98%; /* Adjusted to match Cloud White */
 
-    --primary: 262 81% 74%;
-    --primary-foreground: 222 47% 11%;
+    --primary: 217 75% 56%; /* Adjusted to match Cerulean Blue */
+    --primary-foreground: 230 21% 14%; /* Adjusted to match Midnight Navy */
 
-    --secondary: 217 33% 18%;
-    --secondary-foreground: 210 40% 98%;
+    --secondary: 223 14% 20%; /* Darker shade of Midnight Navy */
+    --secondary-foreground: 220 33% 98%; /* Adjusted to match Cloud White */
 
-    --muted: 217 33% 18%;
-    --muted-foreground: 215 20% 65%;
+    --muted: 223 14% 20%; /* Darker shade of Midnight Navy */
+    --muted-foreground: 217 10% 64%;
 
-    --accent: 217 33% 18%;
-    --accent-foreground: 210 40% 98%;
+    --accent: 223 14% 20%; /* Darker shade of Midnight Navy */
+    --accent-foreground: 220 33% 98%; /* Adjusted to match Cloud White */
 
     --destructive: 0 63% 31%;
-    --destructive-foreground: 210 40% 98%;
+    --destructive-foreground: 220 33% 98%; /* Adjusted to match Cloud White */
 
-    --border: 217 33% 18%;
-    --input: 217 33% 18%;
-    --ring: 212 27% 84%;
+    --border: 223 14% 20%; /* Darker shade of Midnight Navy */
+    --input: 223 14% 20%; /* Darker shade of Midnight Navy */
+    --ring: 217 75% 56%; /* Adjusted to match Cerulean Blue */
   }
 }
 
@@ -89,11 +89,11 @@
 
 @layer components {
   .btn-primary {
-    @apply bg-resgato-purple hover:bg-resgato-deep-purple text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg;
+    @apply bg-resgato-blue hover:bg-resgato-blue/80 text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 shadow-md hover:shadow-lg;
   }
   
   .btn-secondary {
-    @apply bg-transparent border border-resgato-purple text-resgato-purple hover:bg-resgato-light-purple px-6 py-3 rounded-lg font-medium transition-all duration-300;
+    @apply bg-transparent border border-resgato-blue text-resgato-blue hover:bg-resgato-white px-6 py-3 rounded-lg font-medium transition-all duration-300;
   }
   
   .section-container {
@@ -101,11 +101,11 @@
   }
   
   .card-gradient {
-    @apply bg-gradient-to-br from-white to-resgato-light-purple/30 backdrop-blur-sm;
+    @apply bg-gradient-to-br from-white to-resgato-white/30 backdrop-blur-sm;
   }
   
   .section-title {
-    @apply text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent;
+    @apply text-3xl md:text-4xl font-bold mb-4 bg-gradient-to-r from-resgato-navy to-resgato-blue bg-clip-text text-transparent;
   }
   
   .animate-delay-100 {
