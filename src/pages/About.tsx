@@ -13,31 +13,25 @@ const About = () => {
       name: 'Taylor Brody',
       position: 'Founder & CEO',
       bio: 'Founded Resgato in 2012 with a vision to help businesses avoid digital obscurity. With over 18 years of experience in digital marketing, Taylor has led the agency to become a trusted partner for businesses across various industries.',
-      image: '/lovable-uploads/55557fa0-302d-476b-a9c9-d36ce29e2da5.png'
+      image: '/lovable-uploads/6ffa87e1-1ead-4ccd-9c96-f8781cd04bd9.png'
     },
     {
       name: 'Parker Gardner',
       position: 'Head of Ad Operations',
       bio: 'Strategic advertising expert specializing in campaign management and optimization. Leverages data-driven insights to deliver exceptional ROI across multiple advertising platforms.',
-      image: 'https://images.unsplash.com/photo-1618160702438-9b02ab6515c9?ixlib=rb-4.0.3&auto=format&fit=crop&w=256&q=80'
+      image: '/lovable-uploads/ef8ad9c3-2a8a-4644-a09b-7a297245395f.png'
     },
     {
-      name: 'Sophia Chen',
-      position: 'Chief AI Officer',
-      bio: 'PhD in Machine Learning with extensive experience developing AI solutions for marketing applications. Leading our AI research and implementation to keep Resgato at the cutting edge of digital marketing technology.',
-      image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80'
+      name: 'Nitin Bhatnagar',
+      position: 'SEO Manager',
+      bio: 'Expert in search engine optimization with a passion for driving organic traffic and improving search rankings. Specializes in on-page and technical SEO to help clients achieve maximum visibility.',
+      image: '/lovable-uploads/b0d61b85-9f85-42e5-926f-6cfa9ed2c723.png'
     },
     {
-      name: 'Marcus Williams',
-      position: 'Head of Marketing Strategy',
-      bio: 'Former CMO with expertise in developing data-driven marketing strategies. Specializes in helping clients implement customized digital marketing solutions that deliver measurable results.',
-      image: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80'
-    },
-    {
-      name: 'Olivia Rodriguez',
-      position: 'Director of Client Success',
-      bio: 'Dedicated to ensuring our clients achieve exceptional results through our tailored marketing solutions. Expert in measuring and optimizing ROI while maintaining strong client relationships.',
-      image: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=256&q=80'
+      name: 'Carlos Piccardo',
+      position: 'Social Media Marketing',
+      bio: 'Creative social media strategist with expertise in building engaging brand presences across multiple platforms. Skilled in content creation, community management, and social advertising campaigns.',
+      image: '/lovable-uploads/5df442f1-1003-4fea-bd5a-d75d511ffaab.png'
     }
   ];
 
