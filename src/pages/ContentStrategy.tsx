@@ -38,7 +38,7 @@ const ContentStrategy = () => {
         <ServiceHero 
           title="Content Strategy Services"
           description="Develop a comprehensive content strategy that engages your audience, supports your SEO efforts, and drives conversions."
-          image="/placeholder.svg"
+          image="/lovable-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png"
           features={contentStrategyFeatures}
         />
         <StatsSection />

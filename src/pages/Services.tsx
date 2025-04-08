@@ -40,7 +40,7 @@ const Services = () => {
         <ServiceHero 
           title="Our AI Marketing Services"
           description="Discover how our AI-powered marketing solutions can help your business achieve exceptional results."
-          image="/placeholder.svg"
+          image="/lovable-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png"
           features={servicesFeatures}
         />
         <CoreServices />
