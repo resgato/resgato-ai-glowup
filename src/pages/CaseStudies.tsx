@@ -33,7 +33,7 @@ const CaseStudies = () => {
       industry: 'Finance',
       tags: ['Branding', 'Content Marketing', 'Social Media'],
       imageUrl: '/placeholder.svg',
-      summary: 'Transforming a 50-year-old financial institution's digital presence to appeal to younger demographics while maintaining trust.',
+      summary: "Transforming a 50-year-old financial institution's digital presence to appeal to younger demographics while maintaining trust.",
       results: ['42% increase in millennial clients', '68% growth in social engagement', '3.2x improvement in brand sentiment']
     }
   ];
