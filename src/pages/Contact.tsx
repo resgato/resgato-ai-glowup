@@ -1,9 +1,11 @@
+
 import React, { useEffect } from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import ContactForm from '@/components/ContactForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { Instagram } from 'lucide-react';
+import { ScrollArea } from '@/components/ui/scroll-area';
 
 const Contact = () => {
   useEffect(() => {
@@ -57,11 +59,16 @@ const Contact = () => {
             <p className="text-lg text-gray-700 mb-8 text-center max-w-2xl mx-auto">
               Pick a time that works for you and let's discuss how we can help your business grow.
             </p>
-            <div 
-              className="calendly-inline-widget" 
-              data-url="https://calendly.com/resgato/consultation?embed_domain=resgato.com&embed_type=Inline&month=2025-04"
-              style={{ minHeight: '650px' }}
-            ></div>
+            <div className="h-[650px] w-full overflow-hidden">
+              <iframe 
+                src="https://calendly.com/resgato/consultation?embed_domain=resgato.com&embed_type=Inline&month=2025-04"
+                width="100%" 
+                height="100%" 
+                frameBorder="0"
+                title="Calendly Scheduling"
+                className="w-full h-full"
+              ></iframe>
+            </div>
           </div>
         </section>
 
