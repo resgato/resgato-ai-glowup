@@ -6,3 +6,43 @@
     }
   ]
 } 
+
+{
+  "redirects": [
+    {
+      "source": "/category/marketing-tips/",
+      "destination": "/blog",
+      "permanent": true
+    },
+    {
+      "source": "/connect/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/consultation/",
+      "destination": "/contact",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing-agency/ppc/",
+      "destination": "/ppc",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing-agency/seo/",
+      "destination": "/seo",
+      "permanent": true
+    },
+    {
+      "source": "/driving-more-traffic-to-your-website/",
+      "destination": "/services",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "/",
+      "permanent": true
+    }
+  ]
+}
