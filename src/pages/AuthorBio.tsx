@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
@@ -51,25 +50,19 @@ const authors: Record<string, Author> = {
   "taylor-brody": {
     id: "taylor-brody",
     name: "Taylor Brody",
-    role: "Senior Digital Marketing Strategist",
-    bio: "Digital Marketing Specialist with over 10 years of experience helping businesses in Utah grow their online presence.",
+    role: "Founder & Digital Marketing Strategist",
+    bio: "Founder of Resgato Digital Marketing, a results-driven agency based in Salt Lake City with over a decade of experience across multiple industries.",
     longBio: (
       <>
         <p className="mb-4">
-          Taylor Brody is a seasoned digital marketing strategist with over a decade of experience in helping businesses 
-          transform their online presence and achieve measurable growth through data-driven strategies.
+          Taylor Brody is the founder of Resgato Digital Marketing, a results-driven agency based in Salt Lake City. 
+          With over a decade of experience across automotive, tech, retail, and local services, he's managed 
+          multimillion-dollar marketing budgets and led high-impact campaigns that drive measurable growth.
         </p>
         <p className="mb-4">
-          After earning a degree in Marketing from the University of Utah, Taylor began his career at a 
-          national digital agency where he managed campaigns for Fortune 500 clients. This experience 
-          provided him with a deep understanding of marketing best practices across various industries 
-          and scales.
-        </p>
-        <p className="mb-4">
-          In 2015, Taylor decided to focus his expertise on helping local businesses in the Salt Lake City 
-          area compete effectively in the digital space. Since joining Resgato, he has led the digital 
-          marketing department with a focus on creating tailored, results-oriented campaigns that 
-          combine SEO, content marketing, PPC, and social media strategies.
+          Taylor previously served on a board of directors, where he helped shape strategic direction and 
+          brand development at the organizational level. His work combines performance media, SEO, and 
+          sustainable marketing systems into campaigns built to scale.
         </p>
         <p className="mb-4">
           Taylor's approach is rooted in his belief that effective marketing requires both analytical 
@@ -77,9 +70,10 @@ const authors: Record<string, Author> = {
           concepts into clear, actionable plans that align with each client's unique business goals.
         </p>
         <p>
-          When he's not optimizing campaigns or analyzing metrics, Taylor enjoys hiking in Utah's 
-          beautiful national parks, experimenting with photography, and volunteering with local 
-          tech education initiatives aimed at bringing digital literacy to underserved communities.
+          Taylor's writing turns complex digital trends into clear, actionable insights for business owners, 
+          marketers, and growth-minded entrepreneurs. When he's not optimizing campaigns or analyzing metrics, 
+          Taylor enjoys hiking in Utah's beautiful national parks, experimenting with photography, and volunteering 
+          with local tech education initiatives.
         </p>
       </>
     ),
@@ -93,11 +87,11 @@ const authors: Record<string, Author> = {
     experience: {
       years: 10,
       specialties: [
+        "Performance Media Marketing",
         "Search Engine Optimization (SEO)",
         "Pay-Per-Click (PPC) Advertising",
-        "Content Marketing Strategy",
-        "Social Media Marketing",
-        "Email Marketing Campaigns",
+        "Strategic Marketing Planning",
+        "Sustainable Marketing Systems",
         "Marketing Analytics & Reporting"
       ]
     },
