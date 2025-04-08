@@ -22,8 +22,8 @@ serve(async (req) => {
     console.log(`Received contact form submission from ${name} (${email})`);
     
     const emailResult = await resend.emails.send({
-      from: "contact@resgato.com", // Update this with your verified domain
-      to: "help@resgato.com", // Update this with your business email
+      from: "contact@resgato.com",
+      to: "help@resgato.com",
       subject: "New Contact Form Submission - Resgato",
       html: `
         <h2>New Contact Form Submission</h2>

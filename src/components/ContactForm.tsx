@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -48,24 +47,7 @@ const ContactForm = () => {
     setIsSubmitting(true);
     
     try {
-      // Submit form data to Supabase
-      const { error: dbError } = await supabase
-        .from('contact_submissions')
-        .insert([
-          {
-            name: data.name,
-            email: data.email,
-            company: data.company || null,
-            phone: data.phone || null,
-            message: data.message
-          }
-        ]);
-      
-      if (dbError) {
-        throw dbError;
-      }
-      
-      // Send email notification
+      // Send email notification only, bypassing database storage temporarily
       const notificationResponse = await supabase.functions.invoke('new-contact-email', {
         body: {
           name: data.name,
@@ -77,7 +59,8 @@ const ContactForm = () => {
       });
 
       if (!notificationResponse.data?.success && notificationResponse.error) {
-        console.warn('Email notification could not be sent:', notificationResponse.error);
+        console.error('Email notification could not be sent:', notificationResponse.error);
+        throw new Error('Failed to send your message. Please try again later.');
       }
       
       toast({
