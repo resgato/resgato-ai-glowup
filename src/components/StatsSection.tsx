@@ -72,6 +72,28 @@ const StatsSection = () => {
     ];
   }
 
+  // Blog-specific stats
+  if (location.pathname.includes('/blog')) {
+    stats = [
+      {
+        value: '73%',
+        label: 'Consumers Trust Content Marketing'
+      },
+      {
+        value: '70%',
+        label: 'Prefer Articles to Ads'
+      },
+      {
+        value: '3x',
+        label: 'More Leads Than Paid Search'
+      },
+      {
+        value: '6x',
+        label: 'Higher Conversion Rate'
+      }
+    ];
+  }
+
   return (
     <section className="py-8 md:py-16 bg-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

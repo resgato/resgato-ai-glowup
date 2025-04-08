@@ -3,25 +3,39 @@ import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
+import StatsSection from '@/components/StatsSection';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Calendar, Clock, Tag, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const Blog = () => {
   const featuredPost = {
-    id: 1,
-    title: "The Future of Digital Marketing in 2025 and Beyond",
-    excerpt: "Explore emerging trends in AI-driven marketing, privacy-first strategies, and immersive content experiences that will shape the marketing landscape over the next decade.",
-    cover: "/placeholder.svg",
-    date: "April 5, 2025",
-    author: "Sarah Johnson",
-    readTime: "8 min read",
-    category: "Digital Strategy"
+    id: 7,
+    slug: "find-marketing-agency-salt-lake-city",
+    title: "How to Find the Best Digital Marketing Agency Near You in Salt Lake City",
+    excerpt: "Looking for a marketing agency near you? Discover how to choose the right partner for your business in the Salt Lake City area.",
+    cover: "/lovable-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png",
+    date: "April 8, 2025",
+    author: "Michael Chen",
+    readTime: "7 min read",
+    category: "Digital Marketing"
   };
   
   const posts = [
     {
+      id: 1,
+      slug: "future-digital-marketing-2025",
+      title: "The Future of Digital Marketing in 2025 and Beyond",
+      excerpt: "Explore emerging trends in AI-driven marketing, privacy-first strategies, and immersive content experiences that will shape the marketing landscape over the next decade.",
+      cover: "/placeholder.svg",
+      date: "April 5, 2025",
+      author: "Sarah Johnson",
+      readTime: "8 min read",
+      category: "Digital Strategy"
+    },
+    {
       id: 2,
+      slug: "seo-tactics-2025",
       title: "7 Proven SEO Tactics That Actually Work in 2025",
       excerpt: "With search algorithms constantly evolving, these seven strategies have consistently delivered results for our clients across various industries.",
       cover: "/placeholder.svg",
@@ -32,6 +46,7 @@ const Blog = () => {
     },
     {
       id: 3,
+      slug: "email-marketing-strategy",
       title: "How to Build an Email Marketing Strategy That Converts",
       excerpt: "Despite the rise of new channels, email marketing remains one of the highest-ROI activities. Learn our framework for creating email campaigns that engage and convert.",
       cover: "/placeholder.svg",
@@ -42,6 +57,7 @@ const Blog = () => {
     },
     {
       id: 4,
+      slug: "psychology-landing-pages",
       title: "The Psychology Behind High-Converting Landing Pages",
       excerpt: "Understanding user psychology is crucial for designing landing pages that convert. Discover the principles that guide effective landing page design.",
       cover: "/placeholder.svg",
@@ -52,6 +68,7 @@ const Blog = () => {
     },
     {
       id: 5,
+      slug: "attribution-models",
       title: "Understanding Attribution Models: A Guide for Marketing Leaders",
       excerpt: "Choosing the right attribution model is essential for accurately measuring marketing effectiveness. This guide breaks down the options and helps you choose.",
       cover: "/placeholder.svg",
@@ -59,16 +76,6 @@ const Blog = () => {
       author: "David Park",
       readTime: "9 min read",
       category: "Analytics"
-    },
-    {
-      id: 6,
-      title: "Social Media Strategy for B2B Companies: Beyond LinkedIn",
-      excerpt: "While LinkedIn remains essential for B2B marketing, other platforms offer untapped potential. Learn how to diversify your B2B social media approach.",
-      cover: "/placeholder.svg",
-      date: "March 10, 2025",
-      author: "Priya Sharma",
-      readTime: "6 min read",
-      category: "Social Media"
     }
   ];
   
@@ -81,7 +88,7 @@ const Blog = () => {
     "Email Marketing",
     "Conversion Optimization",
     "Branding",
-    "Technology"
+    "Digital Marketing"
   ];
 
   return (
@@ -127,9 +134,9 @@ const Blog = () => {
                     </span>
                   </div>
                   <h3 className="text-2xl md:text-3xl font-bold mb-4">
-                    <a href="#" className="hover:text-resgato-blue transition-colors">
+                    <Link to={`/blog/${featuredPost.slug}`} className="hover:text-resgato-blue transition-colors">
                       {featuredPost.title}
-                    </a>
+                    </Link>
                   </h3>
                   <p className="text-gray-600 mb-6">{featuredPost.excerpt}</p>
                   <div className="flex items-center">
@@ -182,7 +189,7 @@ const Blog = () => {
                       <span>{post.date}</span>
                     </div>
                     <CardTitle className="text-xl hover:text-resgato-blue transition-colors">
-                      <a href="#">{post.title}</a>
+                      <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                     </CardTitle>
                   </CardHeader>
                   <CardContent>
@@ -233,6 +240,7 @@ const Blog = () => {
           </div>
         </section>
         
+        <StatsSection />
         <CTASection />
       </main>
       <Footer />
