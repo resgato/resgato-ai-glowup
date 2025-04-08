@@ -30,20 +30,20 @@ const StatsSection = () => {
   if (location.pathname === '/ppc') {
     stats = [
       {
-        value: '13+',
-        label: 'Years in Business'
+        value: '$350 billion',
+        label: 'Global PPC Spend'
       },
       {
-        value: '37%',
-        label: 'Lower CPA'
+        value: '6.42%',
+        label: 'Average CTR'
       },
       {
-        value: '64%',
-        label: 'Higher Conversion Rate'
+        value: '$8',
+        label: 'Profit per $1 Spent'
       },
       {
-        value: '185%',
-        label: 'Average ROAS'
+        value: '47%',
+        label: 'Global Purchases Made Online'
       }
     ];
   }
@@ -60,8 +60,8 @@ const StatsSection = () => {
         label: 'Daily Emails Sent'
       },
       {
-        value: '$40',
-        label: 'ROI per $1 Spent'
+        value: '$42',
+        label: 'AverageROI per $1 Spent'
       },
       {
         value: '72%',
