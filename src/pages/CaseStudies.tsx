@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -14,7 +13,7 @@ const CaseStudies = () => {
       title: 'Boosting Conversion Rates by 320% for Axio Auto',
       industry: 'Automotive',
       tags: ['SEO', 'PPC', 'Conversion Rate Optimization'],
-      imageUrl: 'https://images.unsplash.com/photo-1579762593175-20226054cad0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      imageUrl: '/lovable-uploads/55557fa0-302d-476b-a9c9-d36ce29e2da5.png',
       summary: 'How we transformed a regional auto dealership into a market leader with strategic digital marketing initiatives focused on local SEO and targeted PPC campaigns.',
       results: ['320% increase in conversion rate', '215% growth in organic traffic', '47% reduction in customer acquisition cost']
     },
@@ -23,7 +22,7 @@ const CaseStudies = () => {
       title: 'Scaling E-commerce Revenue for The Daily Shifts',
       industry: 'E-commerce',
       tags: ['Email Marketing', 'Social Media', 'Analytics'],
-      imageUrl: 'https://images.unsplash.com/photo-1607083206968-13611e3d76db?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      imageUrl: '/lovable-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png',
       summary: 'Strategic email campaigns and targeted social media advertising helped this mindfulness brand expand nationally and increase recurring revenue.',
       results: ['800% revenue growth', '375% increase in returning customers', '523% growth in email subscribers']
     },
@@ -32,7 +31,7 @@ const CaseStudies = () => {
       title: 'Revitalizing Brand Perception for MLD',
       industry: 'Retail',
       tags: ['Branding', 'Content Marketing', 'Social Media'],
-      imageUrl: 'https://images.unsplash.com/photo-1567401893414-76b7b1e5a7a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+      imageUrl: '/lovable-uploads/3f29c8f4-0489-47bd-ab86-13ed0a87031b.png',
       summary: "Transforming a traditional retail chain's digital presence to appeal to younger demographics while maintaining trust with existing customers.",
       results: ['42% increase in millennial customers', '68% growth in social engagement', '3.2x improvement in brand sentiment']
     }

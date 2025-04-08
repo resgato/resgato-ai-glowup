@@ -157,7 +157,7 @@ const PPC = () => {
               </div>
               <div className="rounded-lg overflow-hidden shadow-lg">
                 <img 
-                  src="/public/lovable-uploads/6f391aed-1521-493a-ab6a-b226a0de270f.png" 
+                  src="/lovable-uploads/6f391aed-1521-493a-ab6a-b226a0de270f.png" 
                   alt="Team working on PPC campaigns" 
                   className="w-full h-auto"
                 />
