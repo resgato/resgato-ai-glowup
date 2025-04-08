@@ -1,3 +1,4 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -13,19 +14,19 @@ const About = () => {
       name: 'Taylor Brody',
       position: 'Founder & CEO',
       bio: 'Founded Resgato in 2012 with a vision to help businesses avoid digital obscurity. With over 18 years of experience in digital marketing, Taylor has led the agency to become a trusted partner for businesses across various industries.',
-      image: '/lovable-uploads/6ffa87e1-1ead-4ccd-9c96-f8781cd04bd9.png'
+      image: '/lovable-uploads/aa895be1-f629-4fbf-8954-bfc48ad23cd2.png'
     },
     {
       name: 'Parker Gardner',
       position: 'Head of Ad Operations',
       bio: 'Strategic advertising expert specializing in campaign management and optimization. Leverages data-driven insights to deliver exceptional ROI across multiple advertising platforms.',
-      image: '/lovable-uploads/ef8ad9c3-2a8a-4644-a09b-7a297245395f.png'
+      image: '/lovable-uploads/a64347a2-2b97-4123-8278-55629d817209.png'
     },
     {
       name: 'Nitin Bhatnagar',
       position: 'SEO Manager',
       bio: 'Expert in search engine optimization with a passion for driving organic traffic and improving search rankings. Specializes in on-page and technical SEO to help clients achieve maximum visibility.',
-      image: '/lovable-uploads/b0d61b85-9f85-42e5-926f-6cfa9ed2c723.png'
+      image: '/lovable-uploads/d144fcd1-b411-4b4d-a16c-a6f2d58dced9.png'
     },
     {
       name: 'Carlos Piccardo',
