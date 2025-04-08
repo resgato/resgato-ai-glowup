@@ -72,8 +72,7 @@ const authors: Record<string, Author> = {
         <p>
           Taylor's writing turns complex digital trends into clear, actionable insights for business owners, 
           marketers, and growth-minded entrepreneurs. When he's not optimizing campaigns or analyzing metrics, 
-          Taylor enjoys hiking in Utah's beautiful national parks, experimenting with photography, and volunteering 
-          with local tech education initiatives.
+          Taylor enjoys skiing and biking in Utah's beautiful mountains, spendimg time with his wife Amanda, and traveling.
         </p>
       </>
     ),
