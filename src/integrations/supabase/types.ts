@@ -9,33 +9,6 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
-      contact_email_queue: {
-        Row: {
-          created_at: string | null
-          email: string | null
-          id: string
-          message: string | null
-          name: string | null
-          sent: boolean | null
-        }
-        Insert: {
-          created_at?: string | null
-          email?: string | null
-          id?: string
-          message?: string | null
-          name?: string | null
-          sent?: boolean | null
-        }
-        Update: {
-          created_at?: string | null
-          email?: string | null
-          id?: string
-          message?: string | null
-          name?: string | null
-          sent?: boolean | null
-        }
-        Relationships: []
-      }
       contact_submissions: {
         Row: {
           company: string | null
