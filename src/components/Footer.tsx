@@ -93,6 +93,11 @@ const Footer = () => {
                 Salt Lake City, Utah
               </li>
               <li>
+                <a href="tel:+18017421540" className="text-gray-300 hover:text-white transition-colors">
+                  (801) 742-1540
+                </a>
+              </li>
+              <li>
                 <a href="mailto:help@resgato.com" className="text-gray-300 hover:text-white transition-colors">
                   help@resgato.com
                 </a>

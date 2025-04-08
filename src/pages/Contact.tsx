@@ -40,7 +40,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-1">Phone</h3>
-                    <p className="text-gray-700">+1 (555) 123-4567</p>
+                    <p className="text-gray-700">(801) 742-1540</p>
                   </div>
                 </div>
 
@@ -52,7 +52,7 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="text-xl font-semibold mb-1">Email</h3>
-                    <p className="text-gray-700">info@resgato.com</p>
+                    <p className="text-gray-700">help@resgato.com</p>
                   </div>
                 </div>
 
@@ -66,8 +66,7 @@ const Contact = () => {
                   <div>
                     <h3 className="text-xl font-semibold mb-1">Address</h3>
                     <p className="text-gray-700">
-                      123 Marketing St.<br />
-                      San Francisco, CA 94103<br />
+                      Salt Lake City, Utah<br />
                       United States
                     </p>
                   </div>

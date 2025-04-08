@@ -14,12 +14,19 @@ const CTASection = () => {
         <p className="text-xl max-w-2xl mx-auto mb-8">
           Get in touch with our team of digital marketing experts today and discover how we can help you achieve your business goals.
         </p>
-        <Button asChild className="bg-white text-resgato-deep-purple hover:bg-gray-100 px-8 py-6 text-lg">
-          <Link to="/contact">
-            Schedule a Consultation
-            <ArrowRight className="ml-2 h-5 w-5" />
-          </Link>
-        </Button>
+        <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+          <Button asChild className="bg-white text-resgato-deep-purple hover:bg-gray-100 px-8 py-6 text-lg">
+            <Link to="/contact">
+              Schedule a Consultation
+              <ArrowRight className="ml-2 h-5 w-5" />
+            </Link>
+          </Button>
+          <Button asChild variant="outline" className="bg-transparent border-white text-white hover:bg-white/10 px-8 py-6 text-lg">
+            <a href="tel:+18017421540">
+              Call (801) 742-1540
+            </a>
+          </Button>
+        </div>
       </div>
     </section>
   );
