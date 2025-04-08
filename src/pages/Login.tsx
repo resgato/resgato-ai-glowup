@@ -1,6 +1,6 @@
 
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -24,9 +24,15 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
+import {
+  Alert,
+  AlertTitle,
+  AlertDescription,
+} from '@/components/ui/alert';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
+import { AlertCircle } from 'lucide-react';
 
 const authSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address' }),
@@ -38,8 +44,29 @@ type AuthFormValues = z.infer<typeof authSchema>;
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [mode, setMode] = useState<'login' | 'signup'>('login');
+  const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const navigate = useNavigate();
+  const location = useLocation();
   const { toast } = useToast();
+  
+  // Check for error parameters in URL
+  useEffect(() => {
+    const hash = location.hash;
+    if (hash.includes('error=')) {
+      const errorParams = new URLSearchParams(hash.substring(1));
+      const error = errorParams.get('error');
+      const errorDescription = errorParams.get('error_description');
+      
+      if (error && errorDescription) {
+        setErrorMessage(decodeURIComponent(errorDescription.replace(/\+/g, ' ')));
+        toast({
+          title: 'Authentication Error',
+          description: decodeURIComponent(errorDescription.replace(/\+/g, ' ')),
+          variant: 'destructive',
+        });
+      }
+    }
+  }, [location, toast]);
   
   useEffect(() => {
     // Check if user is already logged in
@@ -51,6 +78,17 @@ const Login = () => {
     };
     
     checkSession();
+    
+    // Set up auth state listener
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      if (session) {
+        navigate('/admin');
+      }
+    });
+    
+    return () => {
+      subscription.unsubscribe();
+    };
   }, [navigate]);
   
   // Initialize form
@@ -64,6 +102,7 @@ const Login = () => {
   
   const onSubmit = async (data: AuthFormValues) => {
     setIsLoading(true);
+    setErrorMessage(null);
     
     try {
       let authResponse;
@@ -77,6 +116,9 @@ const Login = () => {
         authResponse = await supabase.auth.signUp({
           email: data.email,
           password: data.password,
+          options: {
+            emailRedirectTo: window.location.origin + '/login',
+          }
         });
       }
       
@@ -90,7 +132,7 @@ const Login = () => {
           description: 'Please check your email to verify your account',
         });
         setMode('login');
-      } else {
+      } else if (authResponse.data.session) {
         toast({
           title: mode === 'login' ? 'Logged in successfully' : 'Account created successfully',
         });
@@ -98,6 +140,7 @@ const Login = () => {
       }
     } catch (error: any) {
       console.error('Auth error:', error);
+      setErrorMessage(error.message || 'An error occurred during authentication');
       toast({
         title: 'Authentication error',
         description: error.message || 'An error occurred during authentication',
@@ -125,6 +168,14 @@ const Login = () => {
               </CardDescription>
             </CardHeader>
             <CardContent>
+              {errorMessage && (
+                <Alert variant="destructive" className="mb-4">
+                  <AlertCircle className="h-4 w-4" />
+                  <AlertTitle>Error</AlertTitle>
+                  <AlertDescription>{errorMessage}</AlertDescription>
+                </Alert>
+              )}
+              
               <Tabs value={mode} onValueChange={(value) => setMode(value as 'login' | 'signup')} className="w-full">
                 <TabsList className="grid w-full grid-cols-2 mb-6">
                   <TabsTrigger value="login">Login</TabsTrigger>
