@@ -21,6 +21,7 @@ import AIConsulting from "./pages/AIConsulting";
 import SocialMediaMarketing from "./pages/SocialMediaMarketing";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
+import ContentStrategy from "./pages/ContentStrategy";
 
 const queryClient = new QueryClient();
 
@@ -45,6 +46,7 @@ const App = () => (
           <Route path="/strategic-consulting" element={<StrategicConsulting />} />
           <Route path="/ai-consulting" element={<AIConsulting />} />
           <Route path="/social-media-marketing" element={<SocialMediaMarketing />} />
+          <Route path="/content-strategy" element={<ContentStrategy />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}

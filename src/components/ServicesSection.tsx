@@ -46,7 +46,7 @@ const ServicesSection = () => {
       icon: <Calendar className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
       title: 'Content Strategy',
       description: 'Comprehensive content planning and creation services that enhance your digital presence, engage your audience, and support your SEO and marketing goals.',
-      link: '/strategic-consulting'
+      link: '/content-strategy'
     }
   ];
 
