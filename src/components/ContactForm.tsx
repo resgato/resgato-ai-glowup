@@ -53,7 +53,7 @@ const ContactForm = () => {
       console.log("Submitting contact form...", data);
       
       // Store submission in the database
-      const { error: dbError } = await supabase
+      const { error } = await supabase
         .from('contact_submissions')
         .insert([{
           name: data.name,
@@ -63,16 +63,14 @@ const ContactForm = () => {
           message: data.message
         }]);
       
-      if (dbError) {
-        console.error('Database storage error:', dbError);
-        throw new Error(`Failed to store your message: ${dbError.message}`);
+      if (error) {
+        console.error('Database error:', error);
+        throw new Error(`Failed to submit your message: ${error.message}`);
       }
       
-      // The database trigger should automatically call the edge function
-      // but we'll also call it manually as a fallback to ensure the email is sent
+      // Send email notification directly through the edge function
       try {
-        const projectRef = "bopzgxqujuqosdexnppj";
-        const response = await fetch(`https://${projectRef}.functions.supabase.co/new-contact-email`, {
+        const response = await fetch(`https://bopzgxqujuqosdexnppj.functions.supabase.co/new-contact-email`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -86,16 +84,14 @@ const ContactForm = () => {
           }),
         });
         
-        const result = await response.json();
-        console.log("Email notification response:", result);
-
         if (!response.ok) {
-          console.error('Email notification response issue:', result);
-          console.warn('Continuing despite email notification issue - the database trigger should have sent the email');
+          const result = await response.json();
+          console.warn('Email notification issue:', result);
+          // Continue despite email error - at least the submission is stored
         }
       } catch (emailError) {
         console.error('Error sending email notification:', emailError);
-        console.warn('Continuing despite email error - the database trigger should have sent the email');
+        // Continue despite email error - at least the submission is stored
       }
       
       toast({
