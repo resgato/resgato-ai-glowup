@@ -6,6 +6,8 @@ import CTASection from '@/components/CTASection';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { BarChart, FileText, Code, MessageSquare, Database, Compass, TrendingUp, Eye, Globe, Edit } from 'lucide-react';
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Link } from 'react-router-dom';
+import { Button } from '@/components/ui/button';
 
 const Services = () => {
   const mainServices = [
@@ -13,37 +15,43 @@ const Services = () => {
       icon: <Database className="h-12 w-12 text-resgato-purple" />,
       title: 'AI Marketing Strategy',
       description: 'Comprehensive marketing strategies powered by artificial intelligence.',
-      details: 'Our AI Marketing Strategy service provides a tailored roadmap for leveraging artificial intelligence in your marketing efforts. We analyze your business objectives, target audience, and current marketing performance to develop a comprehensive strategy that incorporates the most relevant AI technologies. Our strategies are designed to enhance customer engagement, increase conversion rates, and maximize ROI.'
+      details: 'Our AI Marketing Strategy service provides a tailored roadmap for leveraging artificial intelligence in your marketing efforts. We analyze your business objectives, target audience, and current marketing performance to develop a comprehensive strategy that incorporates the most relevant AI technologies. Our strategies are designed to enhance customer engagement, increase conversion rates, and maximize ROI.',
+      link: '/ai-consulting'
     },
     {
       icon: <FileText className="h-12 w-12 text-resgato-purple" />,
       title: 'AI Content Creation',
       description: 'Generate high-quality, tailored content for various marketing channels.',
-      details: 'Our AI Content Creation service utilizes advanced natural language processing and generation technologies to produce high-quality, engaging content for your marketing channels. From blog posts and social media content to email campaigns and product descriptions, our AI tools can generate content that resonates with your audience while maintaining your brand voice and style. This service helps you scale your content production efficiently while ensuring consistency and quality.'
+      details: 'Our AI Content Creation service utilizes advanced natural language processing and generation technologies to produce high-quality, engaging content for your marketing channels. From blog posts and social media content to email campaigns and product descriptions, our AI tools can generate content that resonates with your audience while maintaining your brand voice and style. This service helps you scale your content production efficiently while ensuring consistency and quality.',
+      link: '/ai-consulting'
     },
     {
       icon: <BarChart className="h-12 w-12 text-resgato-purple" />,
       title: 'Predictive Analytics',
       description: 'Forecast market trends and customer behaviors using advanced AI models.',
-      details: 'Our Predictive Analytics service harnesses the power of machine learning algorithms to analyze historical data and forecast future trends, customer behaviors, and market changes. By identifying patterns and correlations in your data, we help you anticipate shifts in customer preferences, optimize inventory management, personalize marketing campaigns, and make data-driven decisions that keep you ahead of the competition.'
+      details: 'Our Predictive Analytics service harnesses the power of machine learning algorithms to analyze historical data and forecast future trends, customer behaviors, and market changes. By identifying patterns and correlations in your data, we help you anticipate shifts in customer preferences, optimize inventory management, personalize marketing campaigns, and make data-driven decisions that keep you ahead of the competition.',
+      link: '/strategic-consulting'
     },
     {
       icon: <Compass className="h-12 w-12 text-resgato-purple" />,
       title: 'Customer Journey Optimization',
       description: 'Enhance the customer experience across all touchpoints.',
-      details: 'Our Customer Journey Optimization service uses AI to analyze and enhance every interaction between your brand and your customers. By mapping the customer journey and identifying pain points and opportunities for improvement, we develop strategies to deliver personalized experiences that drive engagement and loyalty. From initial awareness to post-purchase support, we help you create a seamless, satisfying journey that converts prospects into loyal customers.'
+      details: 'Our Customer Journey Optimization service uses AI to analyze and enhance every interaction between your brand and your customers. By mapping the customer journey and identifying pain points and opportunities for improvement, we develop strategies to deliver personalized experiences that drive engagement and loyalty. From initial awareness to post-purchase support, we help you create a seamless, satisfying journey that converts prospects into loyal customers.',
+      link: '/strategic-consulting'
     },
     {
       icon: <MessageSquare className="h-12 w-12 text-resgato-purple" />,
       title: 'AI Chatbots & Assistants',
       description: 'Implement intelligent conversational agents to engage with customers.',
-      details: 'Our AI Chatbots & Assistants service provides sophisticated conversational AI solutions that enhance customer service and engagement. We design, develop, and implement chatbots and virtual assistants that can handle customer inquiries, provide product recommendations, schedule appointments, and more—all while maintaining a natural, conversational tone. These AI-powered assistants work 24/7, ensuring your customers receive immediate support whenever they need it.'
+      details: 'Our AI Chatbots & Assistants service provides sophisticated conversational AI solutions that enhance customer service and engagement. We design, develop, and implement chatbots and virtual assistants that can handle customer inquiries, provide product recommendations, schedule appointments, and more—all while maintaining a natural, conversational tone. These AI-powered assistants work 24/7, ensuring your customers receive immediate support whenever they need it.',
+      link: '/ai-consulting'
     },
     {
       icon: <Code className="h-12 w-12 text-resgato-purple" />,
       title: 'Marketing Automation',
       description: 'Streamline your marketing processes with intelligent automation tools.',
-      details: 'Our Marketing Automation service leverages AI to automate repetitive marketing tasks, streamline workflows, and improve efficiency. From email marketing and social media posting to lead scoring and nurturing, our automation solutions help you deliver the right message to the right audience at the right time. By automating routine tasks, your team can focus on strategy and creative work, leading to better results and resource optimization.'
+      details: 'Our Marketing Automation service leverages AI to automate repetitive marketing tasks, streamline workflows, and improve efficiency. From email marketing and social media posting to lead scoring and nurturing, our automation solutions help you deliver the right message to the right audience at the right time. By automating routine tasks, your team can focus on strategy and creative work, leading to better results and resource optimization.',
+      link: '/email-marketing'
     }
   ];
 
@@ -51,22 +59,26 @@ const Services = () => {
     {
       icon: <TrendingUp className="h-8 w-8 text-resgato-purple" />,
       title: 'Competitive Intelligence',
-      description: 'Use AI to analyze competitor strategies and identify market opportunities.'
+      description: 'Use AI to analyze competitor strategies and identify market opportunities.',
+      link: '/strategic-consulting'
     },
     {
       icon: <Eye className="h-8 w-8 text-resgato-purple" />,
       title: 'Sentiment Analysis',
-      description: 'Monitor and analyze customer sentiment across digital channels.'
+      description: 'Monitor and analyze customer sentiment across digital channels.',
+      link: '/ai-consulting'
     },
     {
       icon: <Globe className="h-8 w-8 text-resgato-purple" />,
       title: 'AI-Powered SEO',
-      description: 'Optimize your website and content for search engines using AI techniques.'
+      description: 'Optimize your website and content for search engines using AI techniques.',
+      link: '/seo'
     },
     {
       icon: <Edit className="h-8 w-8 text-resgato-purple" />,
       title: 'Personalization Engines',
-      description: 'Deliver tailored experiences to individual customers based on their preferences.'
+      description: 'Deliver tailored experiences to individual customers based on their preferences.',
+      link: '/email-marketing'
     }
   ];
 
@@ -106,7 +118,12 @@ const Services = () => {
                     <h3 className="text-2xl md:text-3xl font-bold">{service.title}</h3>
                   </div>
                   <p className="text-xl text-gray-600 mb-6">{service.description}</p>
-                  <p className="text-gray-700">{service.details}</p>
+                  <p className="text-gray-700 mb-6">{service.details}</p>
+                  <Link to={service.link}>
+                    <Button className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
+                      Learn More
+                    </Button>
+                  </Link>
                 </div>
                 <div className={`bg-gradient-to-br from-resgato-purple/10 to-resgato-light-purple/30 rounded-xl p-8 shadow-lg ${index % 2 === 1 ? 'lg:order-1' : ''}`}>
                   <h4 className="text-xl font-semibold mb-4">Benefits:</h4>
@@ -170,15 +187,17 @@ const Services = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               {additionalServices.map((service, index) => (
-                <Card key={index} className="border-resgato-light-purple shadow-md hover:shadow-lg transition-all duration-300 h-full">
-                  <CardHeader>
-                    <div className="mb-4">{service.icon}</div>
-                    <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
-                  </CardHeader>
-                  <CardContent>
-                    <CardDescription className="text-gray-600 text-base">{service.description}</CardDescription>
-                  </CardContent>
-                </Card>
+                <Link key={index} to={service.link} className="block h-full transition-transform hover:scale-105">
+                  <Card className="border-resgato-light-purple shadow-md hover:shadow-lg transition-all duration-300 h-full">
+                    <CardHeader>
+                      <div className="mb-4">{service.icon}</div>
+                      <CardTitle className="text-xl font-bold">{service.title}</CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <CardDescription className="text-gray-600 text-base">{service.description}</CardDescription>
+                    </CardContent>
+                  </Card>
+                </Link>
               ))}
             </div>
           </div>
