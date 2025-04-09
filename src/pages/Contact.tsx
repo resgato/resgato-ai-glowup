@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import PageHelmet from '@/components/PageHelmet';
 import { useSearchParams } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -39,8 +40,9 @@ const Contact = () => {
     };
   }, []);
 
-  return (
-    <div className="min-h-screen flex flex-col">
+    return (
+        <div className="min-h-screen flex flex-col">
+          <PageHelmet title="Contact" />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
