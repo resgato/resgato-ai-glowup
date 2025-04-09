@@ -6,6 +6,7 @@ import { Bot, AlertCircle, Brain, Zap, Glasses, Cpu, TrendingUp, Workflow, BarCh
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { Card, CardContent } from '@/components/ui/card';
 import { useIsMobile } from '@/hooks/use-mobile';
+import PageHelmet from '@/components/PageHelmet';
 
 const AIConsulting = () => {
   const isMobile = useIsMobile();
@@ -73,6 +74,7 @@ const AIConsulting = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHelmet title="AI Consulting" description="Navigate the complex world of artificial intelligence with expert guidance tailored to your unique business challenges and opportunities." />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

@@ -42,7 +42,7 @@ const Contact = () => {
 
     return (
         <div className="min-h-screen flex flex-col">
-          <PageHelmet title="Contact" />
+          <PageHelmet title="Contact" description="Ready to transform your digital marketing with AI? Our team is here to help you get started." />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

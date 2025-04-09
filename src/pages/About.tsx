@@ -35,7 +35,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="About" />
+      <PageHelmet title="About Resgato" description="Resgato is a digital marketing & AI agency that helps businesses through effective digital marketing and ai strategies." />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

@@ -8,7 +8,7 @@ import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
 import StatsSection from '@/components/StatsSection';
 import CTASection from '@/components/CTASection';
-
+import PageHelmet from '@/components/PageHelmet';
 const SocialMediaMarketing = () => {
   const socialPlatforms = [
     {
@@ -50,6 +50,7 @@ const SocialMediaMarketing = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHelmet title="Social Media Marketing" description="Build brand awareness, engage with your audience, and drive conversions through strategic social media marketing tailored to your business goals." />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

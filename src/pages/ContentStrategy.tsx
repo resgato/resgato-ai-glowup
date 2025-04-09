@@ -5,7 +5,8 @@ import Footer from '@/components/Footer';
 import ServiceHero from '@/components/services/ServiceHero';
 import StatsSection from '@/components/StatsSection';
 import CTASection from '@/components/CTASection';
-import { CalendarDays, FileText, PenTool, BarChart } from 'lucide-react';
+import { CalendarDays, FileText, PenTool, BarChart } from 'lucide-react'; 
+import PageHelmet from '@/components/PageHelmet';
 
 const ContentStrategy = () => {
   const contentStrategyFeatures = [
@@ -33,6 +34,7 @@ const ContentStrategy = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHelmet title="Content Strategy Services" description="Develop a comprehensive content strategy that engages your audience, supports your SEO efforts, and drives conversions." />
       <Navbar />
       <main className="flex-grow">
         <ServiceHero 

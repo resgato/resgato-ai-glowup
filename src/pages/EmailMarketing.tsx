@@ -7,10 +7,12 @@ import { Mail, ArrowRight, Users, BarChart, MessageSquare, DollarSign, Target, Z
 import { Button } from '@/components/ui/button';
 import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
+import PageHelmet from '@/components/PageHelmet';
 
 const EmailMarketing = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHelmet title="Email Marketing" description="Reach potential and current customers with our customized email marketing campaigns that convert and deliver impressive ROI." />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

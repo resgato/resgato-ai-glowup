@@ -6,11 +6,12 @@ import HeroSection from '@/components/HeroSection';
 import ServicesSection from '@/components/ServicesSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTASection from '@/components/CTASection';
-
+import PageHelmet from '@/components/PageHelmet';
 const UtahRealEstateMarketing = () => {
   return (
     <HelmetProvider>
       <div className="min-h-screen flex flex-col">
+        <PageHelmet title="9 Tips for Utah Real Estate Marketing" description="Discover top-notch real estate marketing solutions in Utah with Resgato. We offer tailored strategies to boost your property sales and visibility." />
         <Helmet>
           <title>9 Tips for Utah Real Estate Marketing | Resgato</title>
           <meta name="description" content="Discover top-notch real estate marketing solutions in Utah with Resgato. We offer tailored strategies to boost your property sales and visibility." />

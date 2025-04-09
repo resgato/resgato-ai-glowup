@@ -5,7 +5,7 @@ import CTASection from '@/components/CTASection';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
-
+import PageHelmet from '@/components/PageHelmet';
 const CaseStudies = () => {
   const caseStudies = [
     {
@@ -39,6 +39,7 @@ const CaseStudies = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHelmet title="Case Studies" description="Discover how Resgato has helped businesses like yours transform their digital presence and achieve remarkable growth." />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

@@ -12,7 +12,7 @@ import PageHelmet from '@/components/PageHelmet';
 const PPC = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="PPC" />
+      <PageHelmet title="Paid Search Marketing" description="Paid search advertising is a powerful way to reach your audience and drive conversions. We create campaigns that get you the lowest CPA possible." />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

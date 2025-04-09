@@ -5,10 +5,12 @@ import CTASection from '@/components/CTASection';
 import { MessageSquare, ArrowRight, LineChart, PieChart, BarChart3 } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
+import PageHelmet from '@/components/PageHelmet';
 
 const StrategicConsulting = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHelmet title="Strategic Consulting" description="Affordable retainer-based consulting with clear communication to help businesses develop effective digital marketing strategies tailored to their unique needs." />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

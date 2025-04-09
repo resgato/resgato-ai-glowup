@@ -8,7 +8,7 @@ import CoreServices from '@/components/services/CoreServices';
 import AdditionalServices from '@/components/services/AdditionalServices';
 import ProcessSection from '@/components/services/ProcessSection';
 import { ArrowUpRight, Zap, BarChart3, TrendingUp, Lightbulb } from 'lucide-react';
-
+import PageHelmet from '@/components/PageHelmet';
 const Services = () => {
   const servicesFeatures = [
     {
@@ -35,6 +35,7 @@ const Services = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHelmet title="Digital Marketing & AI Services" description="Discover how our AI-powered marketing solutions can help your business achieve exceptional results." />
       <Navbar />
       <main className="flex-grow">
         <ServiceHero 

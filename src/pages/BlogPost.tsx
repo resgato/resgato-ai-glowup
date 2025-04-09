@@ -6,7 +6,7 @@ import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Calendar, Clock, Tag, ArrowRight } from 'lucide-react';
-
+import PageHelmet from '@/components/PageHelmet';
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   

@@ -124,7 +124,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="Blog" />
+      <PageHelmet title="Blog" description="The latest strategies, trends, and insights from the world of digital marketing." />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
