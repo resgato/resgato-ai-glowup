@@ -47,7 +47,7 @@ const Contact = () => {
         <section className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              Get in <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Touch</span>
+              Contact <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Resgato</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
               Ready to transform your marketing with AI? Our team is here to help you get started.
