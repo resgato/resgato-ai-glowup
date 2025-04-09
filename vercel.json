@@ -36,6 +36,16 @@
       "permanent": true
     },
     {
+      "source": "/category/blog",
+      "destination": "https://www.resgato.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/links/",
+      "destination": "https://www.resgato.com/blog",
+      "permanent": true
+    },
+    {
       "source": "/privacy-policy/",
       "destination": "https://www.resgato.com/",
       "permanent": true
