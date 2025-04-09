@@ -8,10 +8,11 @@ import SEOHero from '@/components/seo/SEOHero';
 import SEOStrategy from '@/components/seo/SEOStrategy';
 import SEOResults from '@/components/seo/SEOResults';
 import SEOProcess from '@/components/seo/SEOProcess';
-
+import PageHelmet from '@/components/PageHelmet';
 const SEO = () => {
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHelmet title="SEO Services" />
       <Navbar />
       <main className="flex-grow">
         <SEOHero />

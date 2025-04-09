@@ -1,5 +1,6 @@
 
 import React from 'react';
+import PageHelmet from '@/components/PageHelmet';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
@@ -34,6 +35,7 @@ const About = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHelmet title="About" />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

@@ -7,6 +7,7 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Calendar, Clock, Tag, User } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
+import PageHelmet from '@/components/PageHelmet';
 
 const Blog = () => {
   const featuredPost = {
@@ -123,6 +124,7 @@ const Blog = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHelmet title="Blog" />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
