@@ -23,7 +23,7 @@ const UtahRealEstateMarketing = () => {
         <main className="flex-grow">
           <HeroSection />
           <div className="entry-content clear" itemProp="text">
-            <h2>9 Tips for Utah Real Estate Marketing</h2>
+            <h1>9 Tips for Utah Real Estate Marketing</h1>
             <p>To help you excel in Utah&#8217;s real estate market in 2023, we gathered insights from top industry professionals, including founders, CEOs, and digital marketers. From prioritizing your online presence to leveraging social media marketing, discover the top nine tips these experts shared to boost your real estate marketing strategy in the coming year.</p>
             <ul>
               <li>Prioritize Your Online Presence</li>
