@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">Resgato</h2>
             <p className="text-gray-300 max-w-xs">
-              Digital marketing agency founded in 2012, helping businesses optimize their online presence and drive results.
+              Utah's leading digital marketing agency founded in 2012, helping local businesses optimize their online presence and drive measurable results.
             </p>
             <div className="flex space-x-4">
               <a href="https://www.linkedin.com/in/taylorbrody" target="_blank" rel="noopener noreferrer" className="text-gray-300 hover:text-white transition-colors">
@@ -65,7 +65,7 @@ const Footer = () => {
               </li>
               <li>
                 <Link to="/ppc" className="text-gray-300 hover:text-white transition-colors">
-                  PPC Services
+                  Utah PPC Services
                 </Link>
               </li>
               <li>
@@ -115,6 +115,62 @@ const Footer = () => {
                 </p>
               </li>
             </ul>
+          </div>
+        </div>
+
+        {/* Services Links */}
+        <div className="mt-12 pt-6 border-t border-gray-700">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div>
+              <h4 className="text-sm uppercase tracking-wider text-gray-400 mb-4">Utah PPC Services</h4>
+              <ul className="grid grid-cols-2 gap-2 text-sm">
+                <li>
+                  <Link to="/ppc" className="text-gray-300 hover:text-white transition-colors">
+                    Google Ads Management
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/ppc" className="text-gray-300 hover:text-white transition-colors">
+                    PPC Strategy Utah
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/ppc" className="text-gray-300 hover:text-white transition-colors">
+                    Salt Lake City PPC Agency
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/ppc" className="text-gray-300 hover:text-white transition-colors">
+                    Paid Search Utah
+                  </Link>
+                </li>
+              </ul>
+            </div>
+            <div>
+              <h4 className="text-sm uppercase tracking-wider text-gray-400 mb-4">SEO & Digital Services</h4>
+              <ul className="grid grid-cols-2 gap-2 text-sm">
+                <li>
+                  <Link to="/seo" className="text-gray-300 hover:text-white transition-colors">
+                    Utah SEO Company
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/content-strategy" className="text-gray-300 hover:text-white transition-colors">
+                    Content Marketing
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/ai-consulting" className="text-gray-300 hover:text-white transition-colors">
+                    AI Solutions
+                  </Link>
+                </li>
+                <li>
+                  <Link to="/strategic-consulting" className="text-gray-300 hover:text-white transition-colors">
+                    Digital Strategy
+                  </Link>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
 

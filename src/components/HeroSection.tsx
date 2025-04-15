@@ -11,7 +11,7 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-4 md:space-y-8 animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Salt Lake City's Premier <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Digital Marketing & AI Agency</span>
+              Salt Lake City's Premier <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Digital Marketing & PPC Agency</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-lg">
               Since 2012, Resgato has helped Utah businesses optimize their digital presence through SEO, PPC, SEM services, and strategic marketing that delivers measurable results.
@@ -46,8 +46,8 @@ const HeroSection = () => {
               <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
                 <BarChart className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Utah PPC & SEM Services</h3>
-              <p className="text-sm sm:text-base text-gray-600">Custom campaigns focused on conversions for Utah businesses.</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Utah PPC & Google Ads Services</h3>
+              <p className="text-sm sm:text-base text-gray-600">Expert PPC management for Utah businesses focused on ROI and conversions.</p>
             </Link>
             <Link 
               to="/email-marketing" 

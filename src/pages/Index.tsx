@@ -16,9 +16,9 @@ const Index = () => {
     <HelmetProvider>
       <div className="min-h-screen flex flex-col">
         <Helmet>
-          <title>Resgato | Leading Salt Lake City Marketing Agency & AI Solutions</title>
+          <title>Resgato | Leading Salt Lake City Marketing Agency & Utah PPC Services</title>
           <meta name="description" content="Resgato is a premier digital marketing agency in Salt Lake City, offering SEO, PPC, SEM services and digital strategy consulting for Utah businesses." />
-          <meta name="keywords" content="salt lake city marketing agencies, digital marketing agency salt lake city, utah sem companies, salt lake city ppc agency, digital strategy consulting salt lake city, utah ppc consultant" />
+          <meta name="keywords" content="salt lake city marketing agencies, utah ppc agency, digital marketing agency salt lake city, utah sem companies, salt lake city ppc agency, digital strategy consulting salt lake city, utah ppc consultant" />
           <link rel="canonical" href="https://resgato.com" />
           <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
           <script type="application/ld+json">{`
@@ -26,7 +26,7 @@ const Index = () => {
               "@context": "https://schema.org",
               "@type": "LocalBusiness",
               "name": "Resgato Digital Marketing",
-              "description": "Premier digital marketing agency in Salt Lake City, Utah",
+              "description": "Premier digital marketing agency in Salt Lake City, Utah specializing in PPC, SEO, and digital strategy",
               "url": "https://resgato.com",
               "logo": "https://resgato.com/lovable-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png",
               "address": {
