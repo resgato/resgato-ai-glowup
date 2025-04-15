@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { 
@@ -18,6 +17,7 @@ import CTASection from '@/components/CTASection';
 import StatsSection from '@/components/StatsSection';
 import { Button } from '@/components/ui/button';
 import PageHelmet from '@/components/PageHelmet';
+import PlatformsWeSupport from '@/components/PlatformsWeSupport';
 
 const PPC = () => {
   return (
@@ -274,6 +274,9 @@ const PPC = () => {
             </div>
           </div>
         </section>
+        
+        {/* Platforms We Support */}
+        <PlatformsWeSupport />
         
         <StatsSection />
         <CTASection />
