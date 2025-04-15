@@ -45,30 +45,21 @@ const PlatformsWeSupport = () => {
           
           {/* Microsoft Bing */}
           <div className="flex flex-col items-center justify-center">
-            <svg 
-              className="h-12 w-12 text-gray-500" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path 
-                d="M11.5 0L0 5.04V18.56l11.5-5.04 11.5 5.04V5.04L11.5 0ZM11.5 12.96L0 18v-12l11.5-5.04V12.96ZM23 18l-11.5-5.04V6.96L23 12v6Z" 
-                fill="currentColor" 
-              />
-            </svg>
+            <img 
+              src="/lovable-uploads/f9397a76-13f8-46c6-9197-106aa2658db0.png" 
+              alt="Microsoft Bing" 
+              className="h-12 w-12 filter grayscale" 
+            />
             <p className="mt-2 text-gray-600 font-medium">Microsoft Bing</p>
           </div>
           
           {/* TikTok */}
           <div className="flex flex-col items-center justify-center">
-            <svg 
-              className="h-12 w-12 text-gray-500" 
-              viewBox="0 0 24 24" 
-              fill="currentColor" 
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path d="M12.53.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.69 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.56-3.53-5.91-.02-1.88.46-3.74 1.53-5.21 1.3-1.85 3.43-3.02 5.64-3.14.92-.03 1.83.22 2.62.69.63.38 1.15.89 1.6 1.47.01-1.42-.02-2.84.02-4.26.06-.53.2-1.04.45-1.5Z" />
-            </svg>
+            <img 
+              src="/lovable-uploads/f9a3c237-dff6-4a0d-8cef-79a1946fd9f0.png" 
+              alt="TikTok" 
+              className="h-12 w-12 filter grayscale" 
+            />
             <p className="mt-2 text-gray-600 font-medium">TikTok</p>
           </div>
         </div>
