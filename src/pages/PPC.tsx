@@ -1,9 +1,22 @@
 
 import React from 'react';
+import { Link } from 'react-router-dom';
+import { 
+  ArrowRight, 
+  BarChart, 
+  Target, 
+  LineChart, 
+  Calendar, 
+  Settings, 
+  Rocket, 
+  TrendingUp, 
+  DollarSign
+} from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
 import StatsSection from '@/components/StatsSection';
+import { Button } from '@/components/ui/button';
 import PageHelmet from '@/components/PageHelmet';
 
 const PPC = () => {
