@@ -1,18 +1,21 @@
+
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
-import { BarChart, ArrowRight, LineChart, Target, TrendingUp, DollarSign, Calendar, Settings, Rocket } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import StatsSection from '@/components/StatsSection';
-import { Link } from 'react-router-dom';
 import PageHelmet from '@/components/PageHelmet';
 
 const PPC = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="Paid Search Marketing" description="Paid search advertising is a powerful way to reach your audience and drive conversions. We create campaigns that get you the lowest CPA possible." />
+      <PageHelmet 
+        title="Salt Lake City PPC & SEM Services" 
+        description="Maximize your ROI with our expert PPC management services in Salt Lake City. Our Utah PPC consultants deliver results-driven paid advertising campaigns." 
+        keywords="salt lake city ppc agency, utah sem companies, utah ppc consultant, paid advertising salt lake city, sem services utah"
+        canonicalUrl="/ppc"
+      />
+
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

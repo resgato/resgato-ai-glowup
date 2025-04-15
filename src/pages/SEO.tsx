@@ -13,7 +13,12 @@ import PageHelmet from '@/components/PageHelmet';
 const SEO = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="SEO Services" description="Improve your search engine rankings and drive organic traffic with our expert SEO services. We optimize your website for search engines to increase visibility and drive conversions." /> 
+      <PageHelmet 
+        title="Salt Lake City SEO Services" 
+        description="Resgato offers expert SEO services in Salt Lake City. Improve your search engine rankings, drive organic traffic, and increase conversions with our Utah SEO specialists." 
+        keywords="utah sem services, salt lake city seo agency, salt lake city digital marketing agency, seo services utah, local seo salt lake city"
+        canonicalUrl="/seo"
+      /> 
 
       <Navbar />
       <main className="flex-grow">

@@ -9,38 +9,44 @@ import AdditionalServices from '@/components/services/AdditionalServices';
 import ProcessSection from '@/components/services/ProcessSection';
 import { ArrowUpRight, Zap, BarChart3, TrendingUp, Lightbulb } from 'lucide-react';
 import PageHelmet from '@/components/PageHelmet';
+
 const Services = () => {
   const servicesFeatures = [
     {
       icon: <Zap className="h-6 w-6 text-resgato-purple" />,
-      title: "AI-Powered Solutions",
+      title: "AI-Powered Marketing Solutions",
       description: "Leverage the latest in artificial intelligence to optimize your marketing efforts and improve ROI."
     },
     {
       icon: <BarChart3 className="h-6 w-6 text-resgato-purple" />,
-      title: "Data-Driven Strategies",
-      description: "Make informed decisions based on comprehensive analytics and actionable insights."
+      title: "Data-Driven SEM Strategies",
+      description: "Make informed decisions based on comprehensive analytics and actionable insights for your Utah business."
     },
     {
       icon: <TrendingUp className="h-6 w-6 text-resgato-purple" />,
-      title: "Growth-Focused Campaigns",
-      description: "Accelerate your business growth with targeted campaigns designed to increase conversions."
+      title: "Salt Lake City PPC Campaigns",
+      description: "Accelerate your business growth with targeted pay-per-click campaigns designed to increase conversions."
     },
     {
       icon: <Lightbulb className="h-6 w-6 text-resgato-purple" />,
-      title: "Innovative Approaches",
+      title: "Digital Strategy Consulting",
       description: "Stay ahead of the competition with cutting-edge marketing techniques and technologies."
     }
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="Digital Marketing & AI Services" description="Discover how our AI-powered marketing solutions can help your business achieve exceptional results." />
+      <PageHelmet 
+        title="Salt Lake City Digital Marketing & AI Services" 
+        description="Discover how our AI-powered digital marketing solutions can help your Utah business achieve exceptional results with SEO, PPC, and SEM services." 
+        keywords="salt lake city marketing agencies, digital marketing agency salt lake city, utah sem companies, salt lake city ppc agency, utah ppc consultant, digital strategy consulting salt lake city"
+        canonicalUrl="/services"
+      />
       <Navbar />
       <main className="flex-grow">
         <ServiceHero 
-          title="Our AI Marketing Services"
-          description="Discover how our AI-powered marketing solutions can help your business achieve exceptional results."
+          title="Salt Lake City Marketing Services"
+          description="Discover how our AI-powered marketing solutions can help your Utah business achieve exceptional results with our digital strategy consulting."
           image="/lovable-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png"
           features={servicesFeatures}
         />

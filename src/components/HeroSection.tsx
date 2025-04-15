@@ -11,10 +11,10 @@ const HeroSection = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-4 md:space-y-8 animate-fade-in">
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Utah's Premier <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Digital Marketing & AI Agency</span>
+              Salt Lake City's Premier <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Digital Marketing & AI Agency</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-lg">
-              Since 2012, Resgato has helped Utah businesses optimize their digital presence through SEO, PPC, AI solutions, and strategic marketing that delivers measurable results.
+              Since 2012, Resgato has helped Utah businesses optimize their digital presence through SEO, PPC, SEM services, and strategic marketing that delivers measurable results.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
               <Button asChild className="bg-resgato-purple hover:bg-resgato-deep-purple text-white px-8 py-6 text-lg">
@@ -36,7 +36,7 @@ const HeroSection = () => {
               <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
                 <Search className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Utah SEO Services</h3>
+              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Salt Lake City SEO Services</h3>
               <p className="text-sm sm:text-base text-gray-600">Essential optimization for Utah brands with an online presence.</p>
             </Link>
             <Link 
@@ -46,7 +46,7 @@ const HeroSection = () => {
               <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
                 <BarChart className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">PPC Campaigns</h3>
+              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Utah PPC & SEM Services</h3>
               <p className="text-sm sm:text-base text-gray-600">Custom campaigns focused on conversions for Utah businesses.</p>
             </Link>
             <Link 
@@ -60,14 +60,14 @@ const HeroSection = () => {
               <p className="text-sm sm:text-base text-gray-600">Personalized campaigns that engage Utah customers.</p>
             </Link>
             <Link 
-              to="/ai-consulting" 
+              to="/strategic-consulting" 
               className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-400 transition-transform hover:scale-105"
             >
               <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
                 <LinkIcon className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
               </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Utah AI Agency</h3>
-              <p className="text-sm sm:text-base text-gray-600">Innovative AI solutions for Utah businesses seeking a competitive edge.</p>
+              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Digital Strategy Consulting</h3>
+              <p className="text-sm sm:text-base text-gray-600">Innovative solutions for Salt Lake City businesses seeking a competitive edge.</p>
             </Link>
           </div>
         </div>

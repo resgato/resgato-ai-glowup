@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
@@ -14,11 +15,51 @@ const Index = () => {
     <HelmetProvider>
       <div className="min-h-screen flex flex-col">
         <Helmet>
-          <title>Resgato | Leading Utah Marketing Agency & AI Solutions</title>
-          <meta name="description" content="Resgato delivers innovative digital marketing solutions with creative strategy, cutting-edge AI technology, and a passion for brand growth." />
-          <meta name="keywords" content="Utah marketing agency, Utah AI agency, digital marketing Utah, SEO services Utah, PPC campaigns Utah, email marketing Utah" />
+          <title>Resgato | Leading Salt Lake City Marketing Agency & AI Solutions</title>
+          <meta name="description" content="Resgato is a premier digital marketing agency in Salt Lake City, offering SEO, PPC, SEM services and digital strategy consulting for Utah businesses." />
+          <meta name="keywords" content="salt lake city marketing agencies, digital marketing agency salt lake city, utah sem companies, salt lake city ppc agency, digital strategy consulting salt lake city, utah ppc consultant" />
           <link rel="canonical" href="https://resgato.com" />
           <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
+          <script type="application/ld+json">{`
+            {
+              "@context": "https://schema.org",
+              "@type": "LocalBusiness",
+              "name": "Resgato Digital Marketing",
+              "description": "Premier digital marketing agency in Salt Lake City, Utah",
+              "url": "https://resgato.com",
+              "logo": "https://resgato.com/lovable-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png",
+              "address": {
+                "@type": "PostalAddress",
+                "addressLocality": "Salt Lake City",
+                "addressRegion": "UT",
+                "addressCountry": "US"
+              },
+              "geo": {
+                "@type": "GeoCoordinates",
+                "latitude": 40.7608,
+                "longitude": -111.8910
+              },
+              "telephone": "+1-801-555-0123",
+              "sameAs": [
+                "https://www.facebook.com/resgatodigital",
+                "https://www.linkedin.com/company/resgato-digital",
+                "https://twitter.com/resgatodigital"
+              ],
+              "openingHoursSpecification": {
+                "@type": "OpeningHoursSpecification",
+                "dayOfWeek": [
+                  "Monday",
+                  "Tuesday",
+                  "Wednesday",
+                  "Thursday",
+                  "Friday"
+                ],
+                "opens": "09:00",
+                "closes": "17:00"
+              },
+              "priceRange": "$$"
+            }
+          `}</script>
         </Helmet>
         
         <Navbar />
