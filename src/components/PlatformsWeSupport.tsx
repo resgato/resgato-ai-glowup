@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Linkedin, Instagram, Facebook, TikTok } from 'lucide-react';
+import { Linkedin, Instagram, Facebook } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
 const PlatformsWeSupport = () => {
@@ -59,8 +59,17 @@ const PlatformsWeSupport = () => {
           
           {/* TikTok */}
           <div className="flex flex-col items-center justify-center">
-            <TikTok className="h-12 w-12 text-gray-500" />
+            <svg 
+              className="h-12 w-12 text-gray-500" 
+              viewBox="0 0 24 24" 
+              fill="none" 
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.69 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.56-3.53-5.91-.02-1.88.46-3.74 1.53-5.21 1.3-1.85 3.43-3.02 5.64-3.14.92-.03 1.83.22 2.62.69.63.38 1.15.89 1.6 1.47.01-1.42-.02-2.84.02-4.26.06-.53.2-1.04.45-1.5zM21.99 12.09c-.44-1.56-1.26-3-2.39-4.15a9.869 9.869 0 0 0-4.28-2.44A9.804 9.804 0 0 0 12.04 5h.02c-.01 1.45.01 2.9-.02 4.35-.14.57-.46 1.1-.9 1.49a3.34 3.34 0 0 1-1.11.7c-.66.22-1.36.18-2.02.1-.73-.1-1.43-.41-1.99-.86-1.24-1.03-1.92-2.66-1.83-4.28.08-1.56.75-3.08 1.86-4.15 1.41-1.41 3.42-2.09 5.41-1.92C16.22 1.25 18.89 3.27 20 5.84c.62 1.45.83 3.05.67 4.6-.11 1.19-.44 2.37-1.06 3.39-.77 1.26-1.95 2.29-3.3 2.9-.57.26-1.18.44-1.8.53v-3.48c.86-.26 1.66-.75 2.24-1.46.62-.75.98-1.71.96-2.68z" 
+              fill="currentColor" 
+            />
             <p className="mt-2 text-gray-600 font-medium">TikTok</p>
+            {/* The text is accidentally inside the SVG */}
           </div>
         </div>
       </div>
@@ -72,3 +81,4 @@ const PlatformsWeSupport = () => {
 };
 
 export default PlatformsWeSupport;
+
