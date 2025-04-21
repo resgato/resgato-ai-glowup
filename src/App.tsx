@@ -22,6 +22,7 @@ import Login from "./pages/Login";
 import Admin from "./pages/Admin";
 import ContentStrategy from "./pages/ContentStrategy";
 import UtahRealEstateMarketing from "./pages/UtahRealEstateMarketing";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const queryClient = new QueryClient();
 
@@ -31,6 +32,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/about" element={<About />} />
@@ -51,7 +53,6 @@ const App = () => (
           <Route path="/admin" element={<Admin />} />
           <Route path="/utah-real-estate-marketing" element={<UtahRealEstateMarketing />} />
           <Route path="/blog/utah-real-estate-marketing" element={<Navigate to="/utah-real-estate-marketing" replace />} />
-          {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>
