@@ -5,7 +5,6 @@ import StarterKit from '@tiptap/starter-kit';
 import Link from '@tiptap/extension-link';
 import Image from '@tiptap/extension-image';
 import Placeholder from '@tiptap/extension-placeholder';
-import { supabase } from '@/integrations/supabase/client';
 import { 
   Bold, 
   Italic, 
@@ -63,31 +62,16 @@ const RichTextEditor = ({ content, onChange }: RichTextEditorProps) => {
     },
   });
 
+  // Image upload handler
   const handleImageUpload = useCallback(async (file: File) => {
     if (!file) return;
-    
     setIsUploading(true);
     
     try {
       const fileExt = file.name.split('.').pop();
       const fileName = `${Math.random().toString(36).substring(2, 15)}-${Date.now()}.${fileExt}`;
-      const filePath = `/lovable-uploads/${fileName}`;
-
-      // In a real implementation with Supabase, we would upload like this:
-      // const { error } = await supabase.storage
-      //   .from('blog-images')
-      //   .upload(filePath, file);
-      
-      // if (error) throw error;
-      
-      // const { data } = supabase.storage.from('blog-images').getPublicUrl(filePath);
-      // const imageUrl = data.publicUrl;
-
-      // For now, we'll simulate a successful upload and return a path
-      // that would work with the public directory in the project
       const imageUrl = `/lovable-uploads/${fileName}`;
       
-      // Insert image at current cursor position
       if (editor) {
         editor.chain().focus().setImage({ src: imageUrl, alt: file.name }).run();
       }
@@ -108,10 +92,10 @@ const RichTextEditor = ({ content, onChange }: RichTextEditorProps) => {
     }
   }, [editor, toast]);
 
+  // Link handler
   const setLink = useCallback(() => {
     if (!editor) return;
     
-    // If there's no text selected, return
     if (editor.state.selection.empty) {
       toast({
         variant: "destructive",
@@ -121,9 +105,7 @@ const RichTextEditor = ({ content, onChange }: RichTextEditorProps) => {
       return;
     }
 
-    // Check if URL is valid
     try {
-      // Add https if not present
       const url = linkUrl.startsWith('http') ? linkUrl : `https://${linkUrl}`;
       new URL(url);
       
@@ -152,6 +134,7 @@ const RichTextEditor = ({ content, onChange }: RichTextEditorProps) => {
     return null;
   }
 
+  // Render the editor UI
   return (
     <div className="border border-gray-200 rounded-lg">
       <div className="flex flex-wrap gap-2 p-2 border-b bg-gray-50">
@@ -250,6 +233,7 @@ const RichTextEditor = ({ content, onChange }: RichTextEditorProps) => {
           </PopoverContent>
         </Popover>
 
+        {/* Image upload button */}
         <div className="relative">
           <Button
             variant="ghost"
@@ -272,12 +256,13 @@ const RichTextEditor = ({ content, onChange }: RichTextEditorProps) => {
             onChange={(e) => {
               if (e.target.files?.[0]) {
                 handleImageUpload(e.target.files[0]);
-                e.target.value = ''; // Reset input
+                e.target.value = ''; 
               }
             }}
           />
         </div>
 
+        {/* Undo/Redo buttons */}
         <div className="ml-auto flex gap-1">
           <Button 
             variant="ghost" 
@@ -298,11 +283,13 @@ const RichTextEditor = ({ content, onChange }: RichTextEditorProps) => {
         </div>
       </div>
 
+      {/* Editor content area */}
       <EditorContent 
         editor={editor} 
         className="prose max-w-none p-4 min-h-[300px] focus:outline-none"
       />
       
+      {/* Link bubble menu */}
       {editor && editor.isActive('link') && (
         <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
           <div className="flex bg-white shadow-lg rounded-md overflow-hidden border">
