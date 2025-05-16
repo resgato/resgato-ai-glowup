@@ -7,9 +7,10 @@ interface PageHelmetProps {
   description?: string;
   keywords?: string;
   canonicalUrl?: string;
+  image?: string;
 }
 
-const PageHelmet: React.FC<PageHelmetProps> = ({ title, description, keywords, canonicalUrl }) => {
+const PageHelmet: React.FC<PageHelmetProps> = ({ title, description, keywords, canonicalUrl, image }) => {
   const siteUrl = "https://resgato.com";
   const fullCanonicalUrl = canonicalUrl ? `${siteUrl}${canonicalUrl}` : undefined;
   
@@ -19,6 +20,19 @@ const PageHelmet: React.FC<PageHelmetProps> = ({ title, description, keywords, c
       {description && <meta name="description" content={description} />}
       {keywords && <meta name="keywords" content={keywords} />}
       {fullCanonicalUrl && <link rel="canonical" href={fullCanonicalUrl} />}
+      
+      {/* Open Graph / Facebook */}
+      {description && <meta property="og:description" content={description} />}
+      <meta property="og:title" content={`${title} - Resgato Marketing`} />
+      {image && <meta property="og:image" content={image} />}
+      <meta property="og:type" content="website" />
+      {fullCanonicalUrl && <meta property="og:url" content={fullCanonicalUrl} />}
+      
+      {/* Twitter */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={`${title} - Resgato Marketing`} />
+      {description && <meta name="twitter:description" content={description} />}
+      {image && <meta name="twitter:image" content={image} />}
     </Helmet>
   );
 };
