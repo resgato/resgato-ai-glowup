@@ -34,7 +34,8 @@ export default defineConfig(({ mode }) => ({
         '@tiptap/pm/keymap',
         '@tiptap/pm/schema-list',
         '@tiptap/pm/schema-basic',
-        '@tiptap/pm/dropcursor', // Added this missing PM dependency
+        '@tiptap/pm/dropcursor',
+        '@tiptap/pm/gapcursor', // Added this missing PM dependency
       ]
     }
   }
