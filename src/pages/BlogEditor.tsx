@@ -1,7 +1,8 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
+import { blogService } from '@/services/blogService';
+import { BlogPost } from '@/types/blog';
 import { z } from 'zod';
 import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
@@ -89,20 +90,13 @@ const BlogEditor = () => {
     
     checkSession();
     
-    if (isEditMode) {
+    if (isEditMode && id) {
       const fetchPost = async () => {
         setIsLoading(true);
         try {
-          const { data, error } = await supabase
-            .from('blog_posts')
-            .select('*')
-            .eq('id', id)
-            .single();
+          const data = await blogService.getPostById(parseInt(id));
             
-          if (error) throw error;
-          
           if (data) {
-            // Format date to ISO string for input element
             form.reset(data);
           } else {
             toast({
@@ -139,16 +133,11 @@ const BlogEditor = () => {
     });
     
     try {
-      if (isEditMode) {
+      if (isEditMode && id) {
         // Update existing post
-        const { error } = await supabase
-          .from('blog_posts')
-          .update({
-            ...values,
-          })
-          .eq('id', id);
+        const updated = await blogService.updatePost(parseInt(id), values);
           
-        if (error) throw error;
+        if (!updated) throw new Error("Failed to update blog post");
         
         toast({
           title: "Success",
@@ -156,14 +145,12 @@ const BlogEditor = () => {
         });
       } else {
         // Create new post
-        const { error } = await supabase
-          .from('blog_posts')
-          .insert([{
-            ...values,
-            date: currentDate,
-          }]);
+        const created = await blogService.createPost({
+          ...values,
+          date: currentDate,
+        } as BlogPost);
           
-        if (error) throw error;
+        if (!created) throw new Error("Failed to create blog post");
         
         toast({
           title: "Success",

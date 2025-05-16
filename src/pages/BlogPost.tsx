@@ -1,7 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link, useNavigate } from 'react-router-dom';
-import { supabase } from '@/integrations/supabase/client';
+import { blogService } from '@/services/blogService';
+import { BlogPost as BlogPostType } from '@/types/blog';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
@@ -10,24 +10,11 @@ import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import PageHelmet from '@/components/PageHelmet';
 
-interface BlogPost {
-  id: number;
-  slug: string;
-  title: string;
-  excerpt: string;
-  cover: string;
-  date: string;
-  author: string;
-  readTime: string;
-  category: string;
-  content: string;
-}
-
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
   const navigate = useNavigate();
-  const [post, setPost] = useState<BlogPost | null>(null);
-  const [relatedPosts, setRelatedPosts] = useState<BlogPost[]>([]);
+  const [post, setPost] = useState<BlogPostType | null>(null);
+  const [relatedPosts, setRelatedPosts] = useState<BlogPostType[]>([]);
   const [loading, setLoading] = useState(true);
   const [notFound, setNotFound] = useState(false);
 
@@ -35,37 +22,28 @@ const BlogPost = () => {
     const fetchPost = async () => {
       setLoading(true);
       try {
-        // Fetch current post
-        const { data, error } = await supabase
-          .from('blog_posts')
-          .select('*')
-          .eq('slug', slug)
-          .single();
-        
-        if (error) {
-          console.error('Error fetching post:', error);
+        if (!slug) {
           setNotFound(true);
           return;
         }
         
-        if (data) {
-          setPost(data);
-          
-          // Fetch related posts in same category
-          const { data: relatedData } = await supabase
-            .from('blog_posts')
-            .select('*')
-            .eq('category', data.category)
-            .neq('id', data.id)
-            .order('id', { ascending: false })
-            .limit(3);
-            
-          if (relatedData) {
-            setRelatedPosts(relatedData);
-          }
-        } else {
+        // Fetch current post
+        const data = await blogService.getPostBySlug(slug);
+        
+        if (!data) {
           setNotFound(true);
+          return;
         }
+        
+        setPost(data);
+        
+        // Fetch related posts in same category
+        const allPosts = await blogService.getAllPosts();
+        const related = allPosts
+          .filter(p => p.category === data.category && p.id !== data.id)
+          .slice(0, 3);
+        
+        setRelatedPosts(related);
       } catch (error) {
         console.error('Error:', error);
         setNotFound(true);

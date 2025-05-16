@@ -1,7 +1,8 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
+import { blogService } from '@/services/blogService';
+import { BlogPost } from '@/types/blog';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/FooterAdminLink';
 import { Button } from '@/components/ui/button';
@@ -9,19 +10,6 @@ import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
 import { AlertTriangle, Edit, Plus, Trash } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
-
-interface BlogPost {
-  id: number;
-  slug: string;
-  title: string;
-  excerpt: string;
-  cover: string;
-  date: string;
-  author: string;
-  readTime: string;
-  category: string;
-  content: string;
-}
 
 const BlogAdmin = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -41,12 +29,7 @@ const BlogAdmin = () => {
         return;
       }
       
-      const { data, error } = await supabase
-        .from('blog_posts')
-        .select('*')
-        .order('created_at', { ascending: false });
-        
-      if (error) throw error;
+      const data = await blogService.getAllPosts();
       setPosts(data || []);
     } catch (error) {
       console.error('Error fetching blog posts:', error);
@@ -73,18 +56,17 @@ const BlogAdmin = () => {
     if (!postToDelete) return;
     
     try {
-      const { error } = await supabase
-        .from('blog_posts')
-        .delete()
-        .eq('id', postToDelete.id);
-        
-      if (error) throw error;
+      const success = await blogService.deletePost(postToDelete.id);
       
-      setPosts(posts.filter(post => post.id !== postToDelete.id));
-      toast({
-        title: "Success",
-        description: `Post "${postToDelete.title}" has been deleted.`,
-      });
+      if (success) {
+        setPosts(posts.filter(post => post.id !== postToDelete.id));
+        toast({
+          title: "Success",
+          description: `Post "${postToDelete.title}" has been deleted.`,
+        });
+      } else {
+        throw new Error("Failed to delete post");
+      }
     } catch (error) {
       console.error('Error deleting post:', error);
       toast({

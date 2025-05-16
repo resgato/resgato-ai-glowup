@@ -1,7 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { supabase } from '@/integrations/supabase/client';
+import { blogService } from '@/services/blogService';
+import { BlogPost } from '@/types/blog';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
@@ -10,19 +10,6 @@ import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle }
 import { Calendar, Clock, Tag, User } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import PageHelmet from '@/components/PageHelmet';
-
-interface BlogPost {
-  id: number;
-  slug: string;
-  title: string;
-  excerpt: string;
-  cover: string;
-  date: string;
-  author: string;
-  readTime: string;
-  category: string;
-  content: string;
-}
 
 const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -34,12 +21,7 @@ const Blog = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const { data, error } = await supabase
-          .from('blog_posts')
-          .select('*')
-          .order('id', { ascending: false });
-        
-        if (error) throw error;
+        const data = await blogService.getAllPosts();
         
         if (data && data.length > 0) {
           setPosts(data);

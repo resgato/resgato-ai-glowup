@@ -1,7 +1,7 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
+import { blogService } from '@/services/blogService';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/FooterAdminLink';
 import { Button } from '@/components/ui/button';
@@ -34,13 +34,8 @@ const Admin = () => {
       }
       
       // Count blog posts
-      const { count: blogCount, error: blogError } = await supabase
-        .from('blog_posts')
-        .select('*', { count: 'exact', head: true });
-      
-      if (!blogError && blogCount !== null) {
-        setBlogCount(blogCount);
-      }
+      const posts = await blogService.getAllPosts();
+      setBlogCount(posts.length);
       
       setLoading(false);
     };
