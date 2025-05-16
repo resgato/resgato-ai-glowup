@@ -15,7 +15,17 @@ const FooterAdminLink = () => {
     const checkSession = async () => {
       try {
         setIsLoading(true);
-        const { data, error } = await supabase.auth.getSession();
+        
+        // Add timeout to prevent hanging
+        const timeoutPromise = new Promise((_, reject) => 
+          setTimeout(() => reject(new Error('Auth check timeout')), 3000)
+        );
+        
+        // Race the auth check against timeout
+        const { data, error } = await Promise.race([
+          supabase.auth.getSession(),
+          timeoutPromise
+        ]);
         
         if (error) {
           console.error('Error checking session:', error);
@@ -59,15 +69,12 @@ const FooterAdminLink = () => {
     };
   }, []);
 
-  // Render a non-visible placeholder while loading instead of null
-  // This prevents layout shifts but won't break rendering
-  if (isLoading) {
-    return <div className="mt-4" aria-hidden="true"></div>;
-  }
-
+  // Always render something to avoid layout shifts or blank pages
   return (
     <div className="mt-4 text-center text-sm text-gray-400">
-      {isLoggedIn ? (
+      {isLoading ? (
+        <span className="opacity-50">Loading...</span>
+      ) : isLoggedIn ? (
         <Link to="/admin" className="hover:text-resgato-purple hover:underline">
           Admin Dashboard
         </Link>

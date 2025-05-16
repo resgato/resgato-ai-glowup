@@ -34,7 +34,6 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 1,
-      // Updated to match the current Tanstack Query API
       throwOnError: false
     },
   }
