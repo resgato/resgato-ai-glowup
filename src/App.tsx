@@ -4,6 +4,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { HelmetProvider } from "react-helmet-async";
 import Index from "./pages/Index";
 import About from "./pages/About";
 import Services from "./pages/Services";
@@ -30,40 +31,42 @@ import ScrollToTop from "@/components/ScrollToTop";
 const queryClient = new QueryClient();
 
 const App = () => (
-  <QueryClientProvider client={queryClient}>
-    <TooltipProvider>
-      <Toaster />
-      <Sonner />
-      <BrowserRouter>
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Index />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/case-studies" element={<CaseStudies />} />
-          <Route path="/blog" element={<Blog />} />
-          <Route path="/blog/:slug" element={<BlogPost />} />
-          <Route path="/author/:authorId" element={<AuthorBio />} />
-          <Route path="/seo" element={<SEO />} />
-          <Route path="/ppc" element={<PPC />} />
-          <Route path="/email-marketing" element={<EmailMarketing />} />
-          <Route path="/strategic-consulting" element={<StrategicConsulting />} />
-          <Route path="/ai-consulting" element={<AIConsulting />} />
-          <Route path="/social-media-marketing" element={<SocialMediaMarketing />} />
-          <Route path="/content-strategy" element={<ContentStrategy />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/admin" element={<Admin />} />
-          <Route path="/admin/blogs" element={<BlogAdmin />} />
-          <Route path="/admin/blogs/new" element={<BlogEditor />} />
-          <Route path="/admin/blogs/edit/:id" element={<BlogEditor />} />
-          <Route path="/utah-real-estate-marketing" element={<UtahRealEstateMarketing />} />
-          <Route path="/blog/utah-real-estate-marketing" element={<Navigate to="/utah-real-estate-marketing" replace />} />
-          <Route path="*" element={<NotFound />} />
-        </Routes>
-      </BrowserRouter>
-    </TooltipProvider>
-  </QueryClientProvider>
+  <HelmetProvider>
+    <QueryClientProvider client={queryClient}>
+      <TooltipProvider>
+        <Toaster />
+        <Sonner />
+        <BrowserRouter>
+          <ScrollToTop />
+          <Routes>
+            <Route path="/" element={<Index />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/services" element={<Services />} />
+            <Route path="/contact" element={<Contact />} />
+            <Route path="/case-studies" element={<CaseStudies />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:slug" element={<BlogPost />} />
+            <Route path="/author/:authorId" element={<AuthorBio />} />
+            <Route path="/seo" element={<SEO />} />
+            <Route path="/ppc" element={<PPC />} />
+            <Route path="/email-marketing" element={<EmailMarketing />} />
+            <Route path="/strategic-consulting" element={<StrategicConsulting />} />
+            <Route path="/ai-consulting" element={<AIConsulting />} />
+            <Route path="/social-media-marketing" element={<SocialMediaMarketing />} />
+            <Route path="/content-strategy" element={<ContentStrategy />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/admin" element={<Admin />} />
+            <Route path="/admin/blogs" element={<BlogAdmin />} />
+            <Route path="/admin/blogs/new" element={<BlogEditor />} />
+            <Route path="/admin/blogs/edit/:id" element={<BlogEditor />} />
+            <Route path="/utah-real-estate-marketing" element={<UtahRealEstateMarketing />} />
+            <Route path="/blog/utah-real-estate-marketing" element={<Navigate to="/utah-real-estate-marketing" replace />} />
+            <Route path="*" element={<NotFound />} />
+          </Routes>
+        </BrowserRouter>
+      </TooltipProvider>
+    </QueryClientProvider>
+  </HelmetProvider>
 );
 
 export default App;
