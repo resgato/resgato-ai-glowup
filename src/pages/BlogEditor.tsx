@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -9,7 +8,6 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/FooterAdminLink';
-import RichTextEditor from '@/components/RichTextEditor';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
@@ -311,9 +309,10 @@ const BlogEditor = () => {
                   <FormItem>
                     <FormLabel>Content</FormLabel>
                     <FormControl>
-                      <RichTextEditor 
-                        content={field.value} 
-                        onChange={field.onChange} 
+                      <Textarea 
+                        placeholder="Write your blog post content here..." 
+                        className="min-h-[300px]"
+                        {...field} 
                       />
                     </FormControl>
                     <FormMessage />

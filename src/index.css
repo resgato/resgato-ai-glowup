@@ -1,7 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
 
 @layer base {
   :root {
@@ -100,7 +100,7 @@
   }
   
   .card-gradient {
-    @apply bg-gradient-to-br from-white to-gray-100/30 backdrop-blur-sm;
+    @apply bg-gradient-to-br from-white to-resgato-white/30 backdrop-blur-sm;
   }
   
   .section-title {
@@ -135,12 +135,12 @@
   }
 
   .entry-content h2 {
-    @apply text-3xl font-bold mt-12 mb-6 text-resgato-navy dark:text-white;
+    @apply text-3xl font-bold mt-12 mb-6 text-resgato-navy dark:text-resgato-white;
     font-family: 'Inter', sans-serif;
   }
 
   .entry-content h3 {
-    @apply text-2xl font-semibold mt-8 mb-4 text-resgato-navy dark:text-white;
+    @apply text-2xl font-semibold mt-8 mb-4 text-resgato-navy dark:text-resgato-white;
     font-family: 'Inter', sans-serif;
   }
 
@@ -159,7 +159,7 @@
   }
 
   .entry-content strong {
-    @apply font-semibold text-resgato-navy dark:text-white;
+    @apply font-semibold text-resgato-navy dark:text-resgato-white;
   }
 
   .entry-content a {

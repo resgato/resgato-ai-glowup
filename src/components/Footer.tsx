@@ -7,10 +7,10 @@ const Footer = () => {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-resgato-navy text-white pt-16 pb-8">
+    <footer className="bg-resgato-dark-purple text-white pt-16 pb-8">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Brand Column */}
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
+          {/* Brand Column */}
           <div className="space-y-4">
             <h2 className="text-2xl font-bold">Resgato</h2>
             <p className="text-gray-300 max-w-xs">
