@@ -18,6 +18,7 @@ export type Database = {
           message: string
           name: string
           phone: string | null
+          recaptcha_token: string | null
         }
         Insert: {
           company?: string | null
@@ -27,6 +28,7 @@ export type Database = {
           message: string
           name: string
           phone?: string | null
+          recaptcha_token?: string | null
         }
         Update: {
           company?: string | null
@@ -36,6 +38,7 @@ export type Database = {
           message?: string
           name?: string
           phone?: string | null
+          recaptcha_token?: string | null
         }
         Relationships: []
       }
