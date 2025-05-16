@@ -73,7 +73,10 @@ export default {
         },
         "resgato-purple": "#6851D4",
         "resgato-light-purple": "#E8E4FF",
-        "resgato-deep-purple": "#35258B"
+        "resgato-deep-purple": "#35258B",
+        "resgato-navy": "#1A1F2C",  // Added missing navy color
+        "resgato-blue": "#2F80ED",   // Added blue color for gradient
+        "resgato-white": "#F8FAFC"   // Added white color
       },
       borderRadius: {
         lg: "var(--radius)",
