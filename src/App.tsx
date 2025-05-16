@@ -34,31 +34,62 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 1,
-      throwOnError: false
+      onError: (error) => {
+        console.error("Query error:", error);
+      }
     },
   }
 });
 
 const App = () => {
   const [isAppReady, setIsAppReady] = useState(false);
+  const [initError, setInitError] = useState<Error | null>(null);
   
   // Add a safety mechanism to ensure the app always renders even if there are initialization errors
   useEffect(() => {
-    try {
-      // Any app initialization can go here
-      
-      // Mark app as ready
-      setIsAppReady(true);
-    } catch (error) {
-      console.error("Error initializing app:", error);
-      // Ensure the app renders even if there's an error
-      setIsAppReady(true);
-    }
+    const initApp = async () => {
+      try {
+        // Any app initialization can go here
+        
+        // Mark app as ready
+        setIsAppReady(true);
+      } catch (error) {
+        console.error("Error initializing app:", error);
+        // Capture error for potential display
+        setInitError(error instanceof Error ? error : new Error("Unknown initialization error"));
+        // Ensure the app renders even if there's an error
+        setIsAppReady(true);
+      }
+    };
+    
+    // Add timeout to prevent hanging on initialization
+    const timeoutId = setTimeout(() => {
+      if (!isAppReady) {
+        console.warn("App initialization timed out, rendering anyway");
+        setIsAppReady(true);
+      }
+    }, 5000);
+    
+    initApp();
+    
+    return () => clearTimeout(timeoutId);
   }, []);
 
   // Show a minimal fallback if the app is not ready yet
   if (!isAppReady) {
-    return <div className="min-h-screen flex items-center justify-center">Loading...</div>;
+    return (
+      <div className="min-h-screen flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500 mx-auto mb-4"></div>
+          <p>Loading application...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show error message if initialization failed
+  if (initError) {
+    console.warn("Rendering app with initialization error:", initError);
   }
 
   return (

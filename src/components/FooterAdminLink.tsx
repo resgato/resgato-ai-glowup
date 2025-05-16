@@ -17,28 +17,41 @@ const FooterAdminLink = () => {
         setIsLoading(true);
         
         // Add timeout to prevent hanging
-        const timeoutPromise = new Promise<{data: null, error: Error}>((_, reject) => 
+        const timeoutPromise = new Promise<{data: {session: null}, error: Error}>((_, reject) => 
           setTimeout(() => reject(new Error('Auth check timeout')), 3000)
         );
         
-        // Race the auth check against timeout
-        // Using Promise.race but making sure we handle the typing correctly
-        const result = await Promise.race([
-          supabase.auth.getSession(),
-          timeoutPromise
-        ]);
-        
-        // Type guard to ensure we're handling the result correctly
-        const { data, error } = result;
-        
-        if (error) {
-          console.error('Error checking session:', error);
-          // Don't break the app on error, just assume not logged in
+        let sessionResult;
+        try {
+          // Use a try/catch directly here instead of Promise.race to avoid type issues
+          const sessionPromise = supabase.auth.getSession();
+          
+          // Set up a timeout using setTimeout
+          const timeoutId = setTimeout(() => {
+            console.error('Auth check timed out');
+            setIsLoggedIn(false);
+            setIsLoading(false);
+          }, 3000);
+          
+          // Await the session check
+          sessionResult = await sessionPromise;
+          
+          // Clear the timeout since we got a response
+          clearTimeout(timeoutId);
+        } catch (error) {
+          console.error('Error in session check:', error);
           setIsLoggedIn(false);
+          setIsLoading(false);
           return;
         }
         
-        setIsLoggedIn(!!data.session);
+        // If we got here, we have a result to check
+        if (sessionResult?.error) {
+          console.error('Error checking session:', sessionResult.error);
+          setIsLoggedIn(false);
+        } else {
+          setIsLoggedIn(!!sessionResult?.data?.session);
+        }
       } catch (error) {
         console.error('Error checking auth session:', error);
         // Don't break the app on error, just assume not logged in
