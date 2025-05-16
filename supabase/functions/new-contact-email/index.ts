@@ -10,7 +10,7 @@ if (!resendApiKey) {
 const resend = new Resend(resendApiKey);
 
 // reCAPTCHA verification constants
-const RECAPTCHA_SECRET_KEY = Deno.env.get("RECAPTCHA_SECRET_KEY") || "6LeIxAcTAAAAAGG-vFI1TnRWxMZNFuojJ4WifJWe"; // Google's test secret key
+const RECAPTCHA_SECRET_KEY = Deno.env.get("RECAPTCHA_SECRET_KEY") || "6LdrTT0rAAAAAHkuNTcn26tLuIGdOzpq65W-T3KL"; // Production secret key
 const RECAPTCHA_VERIFY_URL = "https://www.google.com/recaptcha/api/siteverify";
 
 // Define CORS headers for cross-origin requests

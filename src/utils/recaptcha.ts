@@ -3,7 +3,7 @@
 // This utility provides functions to load and execute reCAPTCHA
 
 // The site key is exposed in the frontend and is meant to be public
-const RECAPTCHA_SITE_KEY = '6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI'; // This is Google's test key, replace with your actual site key in production
+const RECAPTCHA_SITE_KEY = '6LdrTT0rAAAAAB1V02vzkntNoxAEQnf6khPYvy6v'; // Production site key
 
 /**
  * Dynamically loads the reCAPTCHA script if it's not already loaded
