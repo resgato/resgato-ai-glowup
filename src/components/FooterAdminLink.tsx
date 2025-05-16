@@ -17,15 +17,19 @@ const FooterAdminLink = () => {
         setIsLoading(true);
         
         // Add timeout to prevent hanging
-        const timeoutPromise = new Promise((_, reject) => 
+        const timeoutPromise = new Promise<{data: null, error: Error}>((_, reject) => 
           setTimeout(() => reject(new Error('Auth check timeout')), 3000)
         );
         
         // Race the auth check against timeout
-        const { data, error } = await Promise.race([
+        // Using Promise.race but making sure we handle the typing correctly
+        const result = await Promise.race([
           supabase.auth.getSession(),
           timeoutPromise
         ]);
+        
+        // Type guard to ensure we're handling the result correctly
+        const { data, error } = result;
         
         if (error) {
           console.error('Error checking session:', error);
