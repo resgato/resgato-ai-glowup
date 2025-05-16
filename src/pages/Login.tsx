@@ -43,6 +43,7 @@ type AuthFormValues = z.infer<typeof authSchema>;
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
+  const [isCheckingAuth, setIsCheckingAuth] = useState(true);
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
@@ -56,22 +57,39 @@ const Login = () => {
       const errorDescription = errorParams.get('error_description');
       
       if (error && errorDescription) {
-        setErrorMessage(decodeURIComponent(errorDescription.replace(/\+/g, ' ')));
+        const decodedError = decodeURIComponent(errorDescription.replace(/\+/g, ' '));
+        setErrorMessage(decodedError);
         toast({
           title: 'Authentication Error',
-          description: decodeURIComponent(errorDescription.replace(/\+/g, ' ')),
+          description: decodedError,
           variant: 'destructive',
         });
+        
+        console.error('Auth error from URL:', error, decodedError);
       }
     }
   }, [location, toast]);
   
+  // Check if user is already logged in
   useEffect(() => {
-    // Check if user is already logged in
     const checkSession = async () => {
-      const { data } = await supabase.auth.getSession();
-      if (data.session) {
-        navigate('/admin');
+      try {
+        const { data, error } = await supabase.auth.getSession();
+        
+        if (error) {
+          console.error('Error checking session:', error);
+          setIsCheckingAuth(false);
+          return;
+        }
+        
+        if (data.session) {
+          console.log('User already logged in, redirecting to admin');
+          navigate('/admin');
+        }
+      } catch (error) {
+        console.error('Error checking auth session:', error);
+      } finally {
+        setIsCheckingAuth(false);
       }
     };
     
@@ -79,7 +97,8 @@ const Login = () => {
     
     // Set up auth state listener
     const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session) {
+      if (session && event === 'SIGNED_IN') {
+        console.log('Auth state changed: signed in, redirecting to admin');
         navigate('/admin');
       }
     });
@@ -103,6 +122,7 @@ const Login = () => {
     setErrorMessage(null);
     
     try {
+      console.log('Attempting login with:', data.email);
       const authResponse = await supabase.auth.signInWithPassword({
         email: data.email,
         password: data.password,
@@ -113,6 +133,7 @@ const Login = () => {
       }
       
       if (authResponse.data.session) {
+        console.log('Login successful, redirecting to admin');
         toast({
           title: 'Logged in successfully',
         });
@@ -130,6 +151,18 @@ const Login = () => {
       setIsLoading(false);
     }
   };
+  
+  if (isCheckingAuth) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <main className="flex-grow flex items-center justify-center py-12">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        </main>
+        <Footer />
+      </div>
+    );
+  }
   
   return (
     <div className="min-h-screen flex flex-col">
