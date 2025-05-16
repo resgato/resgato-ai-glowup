@@ -74,9 +74,10 @@ export default {
         "resgato-purple": "#6851D4",
         "resgato-light-purple": "#E8E4FF",
         "resgato-deep-purple": "#35258B",
-        "resgato-navy": "#1A1F2C",  // Added missing navy color
-        "resgato-blue": "#2F80ED",   // Added blue color for gradient
-        "resgato-white": "#F8FAFC"   // Added white color
+        "resgato-navy": "#1A1F2C",  
+        "resgato-blue": "#2F80ED",   
+        "resgato-white": "#F8FAFC",
+        "resgato-dark-purple": "#2D1B69"  // Added missing dark-purple color for footer
       },
       borderRadius: {
         lg: "var(--radius)",
@@ -84,7 +85,7 @@ export default {
         sm: "calc(var(--radius) - 4px)",
       },
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        sans: ["Inter", ...fontFamily.sans],
       },
       keyframes: {
         "accordion-down": {
@@ -95,10 +96,20 @@ export default {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "fade-in": {
+          from: { opacity: "0" },
+          to: { opacity: "1" },
+        },
+        "slide-up": {
+          from: { transform: "translateY(10%)", opacity: "0" },
+          to: { transform: "translateY(0)", opacity: "1" },
+        }
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "fade-in": "fade-in 0.5s ease-out forwards",
+        "slide-up": "slide-up 0.5s ease-out forwards"
       },
     },
   },
