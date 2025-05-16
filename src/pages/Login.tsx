@@ -50,23 +50,27 @@ const Login = () => {
   
   // Check for error parameters in URL
   useEffect(() => {
-    const hash = location.hash;
-    if (hash.includes('error=')) {
-      const errorParams = new URLSearchParams(hash.substring(1));
-      const error = errorParams.get('error');
-      const errorDescription = errorParams.get('error_description');
-      
-      if (error && errorDescription) {
-        const decodedError = decodeURIComponent(errorDescription.replace(/\+/g, ' '));
-        setErrorMessage(decodedError);
-        toast({
-          title: 'Authentication Error',
-          description: decodedError,
-          variant: 'destructive',
-        });
+    try {
+      const hash = location.hash;
+      if (hash && hash.includes('error=')) {
+        const errorParams = new URLSearchParams(hash.substring(1));
+        const error = errorParams.get('error');
+        const errorDescription = errorParams.get('error_description');
         
-        console.error('Auth error from URL:', error, decodedError);
+        if (error && errorDescription) {
+          const decodedError = decodeURIComponent(errorDescription.replace(/\+/g, ' '));
+          setErrorMessage(decodedError);
+          toast({
+            title: 'Authentication Error',
+            description: decodedError,
+            variant: 'destructive',
+          });
+          
+          console.error('Auth error from URL:', error, decodedError);
+        }
       }
+    } catch (parseError) {
+      console.error('Error parsing URL hash:', parseError);
     }
   }, [location, toast]);
   
@@ -82,29 +86,43 @@ const Login = () => {
           return;
         }
         
-        if (data.session) {
+        if (data && data.session) {
           console.log('User already logged in, redirecting to admin');
           navigate('/admin');
         }
       } catch (error) {
         console.error('Error checking auth session:', error);
       } finally {
+        // Always set loading to false to ensure UI renders
         setIsCheckingAuth(false);
       }
     };
     
     checkSession();
     
-    // Set up auth state listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session && event === 'SIGNED_IN') {
-        console.log('Auth state changed: signed in, redirecting to admin');
-        navigate('/admin');
-      }
-    });
+    // Set up auth state listener with error handling
+    let subscription;
+    try {
+      const { data } = supabase.auth.onAuthStateChange((event, session) => {
+        if (session && event === 'SIGNED_IN') {
+          console.log('Auth state changed: signed in, redirecting to admin');
+          navigate('/admin');
+        }
+      });
+      
+      subscription = data.subscription;
+    } catch (error) {
+      console.error('Error setting up auth state listener:', error);
+    }
     
     return () => {
-      subscription.unsubscribe();
+      if (subscription) {
+        try {
+          subscription.unsubscribe();
+        } catch (error) {
+          console.error('Error unsubscribing from auth state:', error);
+        }
+      }
     };
   }, [navigate]);
   

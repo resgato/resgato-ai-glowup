@@ -11,6 +11,7 @@ const FooterAdminLink = () => {
   const { toast } = useToast();
   
   useEffect(() => {
+    // Use a safe version of the check session function that won't break the app if it fails
     const checkSession = async () => {
       try {
         setIsLoading(true);
@@ -18,30 +19,50 @@ const FooterAdminLink = () => {
         
         if (error) {
           console.error('Error checking session:', error);
+          // Don't break the app on error, just assume not logged in
+          setIsLoggedIn(false);
           return;
         }
         
         setIsLoggedIn(!!data.session);
       } catch (error) {
         console.error('Error checking auth session:', error);
+        // Don't break the app on error, just assume not logged in
+        setIsLoggedIn(false);
       } finally {
         setIsLoading(false);
       }
     };
     
+    // Run the session check
     checkSession();
     
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      setIsLoggedIn(!!session);
-    });
+    // Set up auth state listener with error handling
+    let subscription;
+    try {
+      const { data } = supabase.auth.onAuthStateChange((event, session) => {
+        setIsLoggedIn(!!session);
+      });
+      subscription = data.subscription;
+    } catch (error) {
+      console.error('Error setting up auth state listener:', error);
+    }
     
     return () => {
-      subscription.unsubscribe();
+      if (subscription) {
+        try {
+          subscription.unsubscribe();
+        } catch (error) {
+          console.error('Error unsubscribing from auth state:', error);
+        }
+      }
     };
   }, []);
 
+  // Render a non-visible placeholder while loading instead of null
+  // This prevents layout shifts but won't break rendering
   if (isLoading) {
-    return null; // Don't render anything while checking login status
+    return <div className="mt-4" aria-hidden="true"></div>;
   }
 
   return (
