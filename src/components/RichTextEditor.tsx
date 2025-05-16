@@ -303,13 +303,17 @@ const RichTextEditor = ({ content, onChange }: RichTextEditorProps) => {
         className="prose max-w-none p-4 min-h-[300px] focus:outline-none"
       />
       
-      {editor.isActive('link') && (
+      {editor && editor.isActive('link') && (
         <BubbleMenu editor={editor} tippyOptions={{ duration: 100 }}>
           <div className="flex bg-white shadow-lg rounded-md overflow-hidden border">
             <Button
               variant="ghost"
               size="sm"
-              onClick={() => editor.chain().focus().unsetLink().run()}
+              onClick={() => {
+                if (editor) {
+                  editor.chain().focus().unsetLink().run();
+                }
+              }}
             >
               Unlink
             </Button>
