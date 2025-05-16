@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -7,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { executeRecaptcha } from '@/utils/recaptcha';
 import {
   Form,
   FormControl,
@@ -57,6 +59,13 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
     try {
       console.log("Submitting contact form...", data);
       
+      // Get reCAPTCHA token
+      const recaptchaToken = await executeRecaptcha('contact_form_submit');
+      
+      if (!recaptchaToken) {
+        throw new Error('CAPTCHA verification failed. Please try again.');
+      }
+      
       // Store submission in the database
       const { error } = await supabase
         .from('contact_submissions')
@@ -65,7 +74,8 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
           email: data.email,
           company: data.company || null,
           phone: data.phone || null,
-          message: data.message
+          message: data.message,
+          recaptcha_token: recaptchaToken // Store the token for reference
         }]);
       
       if (error) {
@@ -85,7 +95,8 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
             email: data.email,
             company: data.company,
             phone: data.phone,
-            message: data.message
+            message: data.message,
+            recaptchaToken: recaptchaToken // Include token for verification
           }),
         });
         
@@ -117,6 +128,14 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
       setIsSubmitting(false);
     }
   };
+
+  // Load reCAPTCHA script when component mounts
+  React.useEffect(() => {
+    const loadRecaptcha = async () => {
+      await executeRecaptcha('page_load');
+    };
+    loadRecaptcha();
+  }, []);
 
   return (
     <Form {...form}>
@@ -218,6 +237,13 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
+        
+        {/* Invisible reCAPTCHA badge notice */}
+        <div className="text-xs text-gray-500 text-center mt-2">
+          This site is protected by reCAPTCHA and the
+          <a href="https://policies.google.com/privacy" className="text-resgato-purple hover:underline mx-1" target="_blank" rel="noopener noreferrer">Privacy Policy</a>and
+          <a href="https://policies.google.com/terms" className="text-resgato-purple hover:underline mx-1" target="_blank" rel="noopener noreferrer">Terms of Service</a>apply.
+        </div>
       </form>
     </Form>
   );
