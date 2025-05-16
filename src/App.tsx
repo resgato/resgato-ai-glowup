@@ -34,8 +34,12 @@ const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
       retry: 1,
-      onError: (error) => {
-        console.error("Query error:", error);
+      // Updated to use the correct syntax for error handling in TanStack Query
+      useErrorBoundary: false,
+      meta: {
+        onError: (error: Error) => {
+          console.error("Query error:", error);
+        }
       }
     },
   }
