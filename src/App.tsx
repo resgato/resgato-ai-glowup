@@ -1,3 +1,4 @@
+
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
@@ -20,6 +21,8 @@ import AIConsulting from "./pages/AIConsulting";
 import SocialMediaMarketing from "./pages/SocialMediaMarketing";
 import Login from "./pages/Login";
 import Admin from "./pages/Admin";
+import BlogAdmin from "./pages/BlogAdmin";
+import BlogEditor from "./pages/BlogEditor";
 import ContentStrategy from "./pages/ContentStrategy";
 import UtahRealEstateMarketing from "./pages/UtahRealEstateMarketing";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -51,6 +54,9 @@ const App = () => (
           <Route path="/content-strategy" element={<ContentStrategy />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
+          <Route path="/admin/blogs" element={<BlogAdmin />} />
+          <Route path="/admin/blogs/new" element={<BlogEditor />} />
+          <Route path="/admin/blogs/edit/:id" element={<BlogEditor />} />
           <Route path="/utah-real-estate-marketing" element={<UtahRealEstateMarketing />} />
           <Route path="/blog/utah-real-estate-marketing" element={<Navigate to="/utah-real-estate-marketing" replace />} />
           <Route path="*" element={<NotFound />} />
