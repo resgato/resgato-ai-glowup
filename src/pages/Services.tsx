@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -47,7 +46,7 @@ const Services = () => {
         <ServiceHero 
           title="Salt Lake City Marketing Services"
           description="Discover how our AI-powered marketing solutions can help your Utah business achieve exceptional results with our digital strategy consulting."
-          image="/lovable-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png"
+          image="/resgato-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png"
           features={servicesFeatures}
         />
         <CoreServices />

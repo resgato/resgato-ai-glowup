@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -40,7 +39,7 @@ const ContentStrategy = () => {
         <ServiceHero 
           title="Content Strategy Services"
           description="Develop a comprehensive content strategy that engages your audience, supports your SEO efforts, and drives conversions."
-          image="/lovable-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png"
+          image="/resgato-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png"
           features={contentStrategyFeatures}
         />
         <StatsSection />

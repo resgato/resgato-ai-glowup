@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { blogService } from '@/services/blog';
@@ -115,7 +114,7 @@ const Blog = () => {
                       <Link to={`/author/${featuredPost.author.toLowerCase().replace(' ', '-')}`} className="flex items-center group">
                         <Avatar className="h-8 w-8 mr-3">
                           <AvatarImage src={featuredPost.author === "Taylor Brody" 
-                            ? "/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" 
+                            ? "/resgato-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" 
                             : "/placeholder.svg"} 
                             alt={featuredPost.author} 
                           />
@@ -185,7 +184,7 @@ const Blog = () => {
                         <Avatar className="w-6 h-6 mr-2">
                           <AvatarImage 
                             src={post.author === "Taylor Brody" 
-                              ? "/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" 
+                              ? "/resgato-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" 
                               : "/placeholder.svg"} 
                             alt={post.author} 
                           />

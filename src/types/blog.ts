@@ -1,4 +1,3 @@
-
 export interface BlogPost {
   id: number;
   slug: string;
@@ -19,7 +18,7 @@ export const mockBlogPosts: BlogPost[] = [
     slug: "digital-marketing-trends-2025",
     title: "Digital Marketing Trends to Watch in 2025",
     excerpt: "Explore the emerging trends that will shape digital marketing strategies in 2025 and beyond.",
-    cover: "/lovable-uploads/f9a3c237-dff6-4a0d-8cef-79a1946fd9f0.png",
+    cover: "/resgato-uploads/f9a3c237-dff6-4a0d-8cef-79a1946fd9f0.png",
     date: "April 19, 2025",
     author: "Taylor Brody",
     readTime: "5 min read",
@@ -31,7 +30,7 @@ export const mockBlogPosts: BlogPost[] = [
     slug: "seo-best-practices-guide",
     title: "The Ultimate Guide to SEO Best Practices",
     excerpt: "Learn the essential SEO techniques that will help your website rank higher in search results.",
-    cover: "/lovable-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png",
+    cover: "/resgato-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png",
     date: "March 15, 2025",
     author: "Alex Morgan",
     readTime: "8 min read",
@@ -43,7 +42,7 @@ export const mockBlogPosts: BlogPost[] = [
     slug: "social-media-strategy-blueprint",
     title: "Social Media Strategy Blueprint for Businesses",
     excerpt: "A comprehensive framework for building and executing an effective social media marketing strategy.",
-    cover: "/lovable-uploads/f9397a76-13f8-46c6-9197-106aa2658db0.png",
+    cover: "/resgato-uploads/f9397a76-13f8-46c6-9197-106aa2658db0.png",
     date: "February 8, 2025",
     author: "Jordan Lee",
     readTime: "6 min read",

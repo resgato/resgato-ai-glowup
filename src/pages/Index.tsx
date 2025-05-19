@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
@@ -28,7 +27,7 @@ const Index = () => {
               "name": "Resgato Digital Marketing",
               "description": "Premier digital marketing agency in Salt Lake City, Utah specializing in PPC, SEO, and digital strategy",
               "url": "https://resgato.com",
-              "logo": "https://resgato.com/lovable-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png",
+              "logo": "https://resgato.com/resgato-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png",
               "address": {
                 "@type": "PostalAddress",
                 "addressLocality": "Salt Lake City",

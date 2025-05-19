@@ -1,4 +1,3 @@
-
 import { BlogPost } from '@/types/blog';
 import { supabase } from '@/integrations/supabase/client';
 
@@ -17,7 +16,7 @@ export const newBlogPosts: Omit<BlogPost, 'id'>[] = [
     slug: "seo-in-the-age-of-ai",
     title: "SEO in the Age of AI: Adapting to the New Digital Landscape",
     excerpt: "Discover how artificial intelligence is reshaping SEO strategies and what marketers need to do to stay ahead in this rapidly evolving digital landscape.",
-    cover: "/lovable-uploads/3f29c8f4-0489-47bd-ab86-13ed0a87031b.png",
+    cover: "/resgato-uploads/3f29c8f4-0489-47bd-ab86-13ed0a87031b.png",
     date: getCurrentDate(),
     author: "Taylor Brody",
     readTime: "7 min read",
@@ -78,7 +77,7 @@ Remember that while AI is changing the SEO landscape, the fundamental goal remai
     slug: "ppc-vs-performance-max",
     title: "PPC vs Performance Max: Choosing the Right Google Ads Strategy",
     excerpt: "Compare traditional PPC campaigns with Google's AI-driven Performance Max to determine which approach will deliver the best results for your business goals.",
-    cover: "/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png",
+    cover: "/resgato-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png",
     date: getCurrentDate(),
     author: "Taylor Brody",
     readTime: "6 min read",
@@ -170,7 +169,7 @@ By staying informed about both traditional and AI-powered advertising options, y
     slug: "digital-marketing-for-small-businesses",
     title: "Digital Marketing Strategies That Work for Small Businesses",
     excerpt: "Discover cost-effective digital marketing approaches that deliver real results for small businesses with limited budgets and resources.",
-    cover: "/lovable-uploads/c69e195b-c2c5-434c-be7b-ac3fb2ce1f7b.png",
+    cover: "/resgato-uploads/c69e195b-c2c5-434c-be7b-ac3fb2ce1f7b.png",
     date: getCurrentDate(),
     author: "Taylor Brody",
     readTime: "8 min read",
@@ -269,7 +268,7 @@ Digital marketing success for small businesses comes from strategic focus rather
     slug: "importance-of-sms-marketing",
     title: "Why SMS Marketing Should Be Part of Your Digital Strategy",
     excerpt: "Explore the unmatched open rates and engagement potential of SMS marketing and learn how to integrate it effectively with your other marketing channels.",
-    cover: "/lovable-uploads/144eee65-8921-416b-9249-38ea50211b6e.png",
+    cover: "/resgato-uploads/144eee65-8921-416b-9249-38ea50211b6e.png",
     date: getCurrentDate(),
     author: "Taylor Brody",
     readTime: "5 min read",
@@ -386,7 +385,7 @@ SMS marketing offers unmatched open rates and engagement, making it a valuable a
     slug: "email-marketing-to-local-customers",
     title: "Email Marketing Strategies for Connecting with Local Customers",
     excerpt: "Learn how to create email campaigns that resonate with your local customer base and drive foot traffic to your physical locations.",
-    cover: "/lovable-uploads/6f391aed-1521-493a-ab6a-b226a0de270f.png",
+    cover: "/resgato-uploads/6f391aed-1521-493a-ab6a-b226a0de270f.png",
     date: getCurrentDate(),
     author: "Taylor Brody",
     readTime: "6 min read",

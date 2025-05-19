@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { blogService } from '@/services/blog';
@@ -22,7 +21,7 @@ const AuthorBio = () => {
       name: 'Taylor Brody',
       role: 'Digital Marketing Strategist',
       bio: 'Taylor Brody is a seasoned digital marketing strategist with over 10 years of experience helping businesses grow their online presence. Specializing in content marketing and SEO, Taylor has worked with brands across various industries to develop effective digital strategies.',
-      avatar: '/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png',
+      avatar: '/resgato-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png',
     },
     'alex-morgan': {
       name: 'Alex Morgan',
@@ -40,7 +39,7 @@ const AuthorBio = () => {
       name: 'Resgato Team',
       role: 'Digital Marketing Experts',
       bio: 'The Resgato Team is a diverse group of digital marketing professionals with expertise spanning across SEO, content marketing, social media, and paid advertising. With their combined experience and specialized knowledge, they provide comprehensive insights into the ever-evolving digital landscape. The team works collaboratively to analyze trends, test new strategies, and deliver data-backed recommendations that help businesses stay ahead of the competition. Their collective approach ensures a holistic perspective on all marketing challenges.',
-      avatar: '/lovable-uploads/c69e195b-c2c5-434c-be7b-ac3fb2ce1f7b.png',
+      avatar: '/resgato-uploads/c69e195b-c2c5-434c-be7b-ac3fb2ce1f7b.png',
     },
   };
 

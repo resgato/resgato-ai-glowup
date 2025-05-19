@@ -119,7 +119,7 @@ const BlogPost = () => {
                       <Avatar className="h-8 w-8 mr-2 border-2 border-white/20">
                         <AvatarImage 
                           src={post.author === "Taylor Brody" 
-                            ? "/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" 
+                            ? "/resgato-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" 
                             : "/placeholder.svg"} 
                           alt={post.author} 
                         />
@@ -155,7 +155,7 @@ const BlogPost = () => {
                   <Avatar className="h-12 w-12 mr-4 border-2 border-gray-200">
                     <AvatarImage 
                       src={post.author === "Taylor Brody" 
-                        ? "/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" 
+                        ? "/resgato-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png" 
                         : "/placeholder.svg"} 
                       alt={post.author} 
                     />

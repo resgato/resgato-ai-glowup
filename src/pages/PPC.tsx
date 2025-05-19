@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
@@ -294,7 +293,7 @@ const PPC = () => {
                 </div>
                 <div className="rounded-lg overflow-hidden shadow-lg">
                   <img 
-                    src="/lovable-uploads/6f391aed-1521-493a-ab6a-b226a0de270f.png" 
+                    src="/resgato-uploads/6f391aed-1521-493a-ab6a-b226a0de270f.png" 
                     alt="Utah PPC experts at Resgato" 
                     className="w-full h-auto"
                   />

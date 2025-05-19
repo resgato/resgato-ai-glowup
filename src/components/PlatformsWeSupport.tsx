@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Linkedin, Instagram, Facebook } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
@@ -46,7 +45,7 @@ const PlatformsWeSupport = () => {
           {/* Microsoft Bing */}
           <div className="flex flex-col items-center justify-center">
             <img 
-              src="/lovable-uploads/f9397a76-13f8-46c6-9197-106aa2658db0.png" 
+              src="/resgato-uploads/f9397a76-13f8-46c6-9197-106aa2658db0.png" 
               alt="Microsoft Bing" 
               className="h-12 w-12 filter grayscale" 
             />
@@ -56,7 +55,7 @@ const PlatformsWeSupport = () => {
           {/* TikTok */}
           <div className="flex flex-col items-center justify-center">
             <img 
-              src="/lovable-uploads/f9a3c237-dff6-4a0d-8cef-79a1946fd9f0.png" 
+              src="/resgato-uploads/f9a3c237-dff6-4a0d-8cef-79a1946fd9f0.png" 
               alt="TikTok" 
               className="h-12 w-12 filter grayscale" 
             />

@@ -98,7 +98,7 @@ const EmailMarketing = () => {
               </div>
               <div className="relative">
                 <img 
-                  src="/lovable-uploads/06a3fbfe-8265-4f20-934f-543d194bd0c0.png" 
+                  src="/resgato-uploads/06a3fbfe-8265-4f20-934f-543d194bd0c0.png" 
                   alt="Email Users Statistics" 
                   className="w-full rounded-xl shadow-lg"
                 />
@@ -162,7 +162,7 @@ const EmailMarketing = () => {
             <div className="mt-16 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <img 
-                  src="/lovable-uploads/c69e195b-c2c5-434c-be7b-ac3fb2ce1f7b.png" 
+                  src="/resgato-uploads/c69e195b-c2c5-434c-be7b-ac3fb2ce1f7b.png" 
                   alt="Daily Email Statistics" 
                   className="w-full rounded-xl shadow-lg"
                 />
@@ -247,12 +247,12 @@ const EmailMarketing = () => {
               
               <div className="order-1 lg:order-2 grid grid-cols-1 gap-8">
                 <img 
-                  src="/lovable-uploads/3f29c8f4-0489-47bd-ab86-13ed0a87031b.png" 
+                  src="/resgato-uploads/3f29c8f4-0489-47bd-ab86-13ed0a87031b.png" 
                   alt="Person reading email on beach" 
                   className="w-full rounded-xl shadow-lg"
                 />
                 <img 
-                  src="/lovable-uploads/144eee65-8921-416b-9249-38ea50211b6e.png" 
+                  src="/resgato-uploads/144eee65-8921-416b-9249-38ea50211b6e.png" 
                   alt="Email Marketing ROI" 
                   className="w-full rounded-xl shadow-lg"
                 />
