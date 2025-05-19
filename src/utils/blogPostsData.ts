@@ -1,5 +1,6 @@
 
 import { BlogPost } from '@/types/blog';
+import { supabase } from '@/integrations/supabase/client';
 
 // Function to format today's date
 const getCurrentDate = (): string => {
