@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { blogService } from '@/services/blog';
@@ -21,7 +21,7 @@ const BlogAdmin = () => {
   const { toast } = useToast();
   const navigate = useNavigate();
 
-  const fetchPosts = async () => {
+  const fetchPosts = useCallback(async () => {
     setLoading(true);
     try {
       const { data: sessionData } = await supabase.auth.getSession();
@@ -43,11 +43,11 @@ const BlogAdmin = () => {
     } finally {
       setLoading(false);
     }
-  };
+  }, [navigate, toast]);
 
   useEffect(() => {
     fetchPosts();
-  }, []);
+  }, [fetchPosts]);
 
   const handleDeleteClick = (post: BlogPost) => {
     setPostToDelete(post);
@@ -105,11 +105,12 @@ const BlogAdmin = () => {
           description: result.message || "Failed to add sample blog posts",
         });
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "An error occurred while adding sample blog posts";
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message || "An error occurred while adding sample blog posts",
+        description: errorMessage,
       });
     } finally {
       setAddingPosts(false);

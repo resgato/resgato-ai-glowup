@@ -1,6 +1,9 @@
 import type { Config } from "tailwindcss";
+import { fontFamily } from "tailwindcss/defaultTheme";
+import animatePlugin from "tailwindcss-animate";
+import typographyPlugin from "@tailwindcss/typography";
 
-export default {
+const config = {
 	darkMode: ["class"],
 	content: [
 		"./pages/**/*.{ts,tsx}",
@@ -70,7 +73,9 @@ export default {
 					'accent-foreground': 'hsl(var(--sidebar-accent-foreground))',
 					border: 'hsl(var(--sidebar-border))',
 					ring: 'hsl(var(--sidebar-ring))'
-				}
+				},
+				'resgato-purple': '#6B46C1',
+				'resgato-deep-purple': '#553C9A',
 			},
 			borderRadius: {
 				lg: 'var(--radius)',
@@ -110,12 +115,14 @@ export default {
 				'slide-up': 'slideUp 0.5s ease-out forwards'
 			},
 			fontFamily: {
-				sans: ['Inter', '-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', 'Roboto', 'Helvetica', 'Arial', 'sans-serif'],
+				sans: ['var(--font-sans)', ...fontFamily.sans],
 			}
 		}
 	},
 	plugins: [
-		require("tailwindcss-animate"),
-		require("@tailwindcss/typography")
+		animatePlugin,
+		typographyPlugin
 	],
 } satisfies Config;
+
+export default config;

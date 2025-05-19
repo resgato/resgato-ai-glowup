@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useCallback } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { blogService } from '@/services/blog';
@@ -55,6 +55,55 @@ const Admin = () => {
   const navigate = useNavigate();
   const { toast } = useToast();
 
+  const fetchTotalCount = useCallback(async () => {
+    try {
+      const { count, error } = await supabase
+        .from('contact_submissions')
+        .select('*', { count: 'exact', head: true });
+
+      if (error) throw error;
+
+      if (count !== null) {
+        setTotalCount(count);
+        setTotalPages(Math.max(1, Math.ceil(count / ITEMS_PER_PAGE)));
+      }
+    } catch (error) {
+      console.error('Error fetching total count:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to fetch total submission count',
+        variant: 'destructive',
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, [toast]);
+
+  const fetchSubmissions = useCallback(async (page: number) => {
+    try {
+      setLoading(true);
+      const from = (page - 1) * ITEMS_PER_PAGE;
+      const to = from + ITEMS_PER_PAGE - 1;
+      const { data, error } = await supabase
+        .from('contact_submissions')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .range(from, to);
+
+      if (error) throw error;
+      setSubmissions(data || []);
+    } catch (error) {
+      console.error('Error fetching submissions:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to fetch contact submissions',
+        variant: 'destructive',
+      });
+    } finally {
+      setLoading(false);
+    }
+  }, [toast]);
+
   useEffect(() => {
     // Check if user is logged in
     const checkSession = async () => {
@@ -82,32 +131,8 @@ const Admin = () => {
     return () => {
       subscription?.unsubscribe();
     };
-  }, [navigate, currentPage]);
+  }, [navigate, currentPage, fetchSubmissions, fetchTotalCount]);
   
-  const fetchTotalCount = async () => {
-    try {
-      const { count, error } = await supabase
-        .from('contact_submissions')
-        .select('*', { count: 'exact', head: true });
-
-      if (error) throw error;
-
-      if (count !== null) {
-        setTotalCount(count);
-        setTotalPages(Math.max(1, Math.ceil(count / ITEMS_PER_PAGE)));
-      }
-    } catch (error) {
-      console.error('Error fetching total count:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to fetch total submission count',
-        variant: 'destructive',
-      });
-    } finally {
-      setLoading(false);
-    }
-  };
-
   const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate('/');
@@ -145,31 +170,6 @@ const Admin = () => {
       });
     } finally {
       setAddingPosts(false);
-    }
-  };
-
-  const fetchSubmissions = async (page: number) => {
-    try {
-      setLoading(true);
-      const from = (page - 1) * ITEMS_PER_PAGE;
-      const to = from + ITEMS_PER_PAGE - 1;
-      const { data, error } = await supabase
-        .from('contact_submissions')
-        .select('*')
-        .order('created_at', { ascending: false })
-        .range(from, to);
-
-      if (error) throw error;
-      setSubmissions(data || []);
-    } catch (error) {
-      console.error('Error fetching submissions:', error);
-      toast({
-        title: 'Error',
-        description: 'Failed to fetch contact submissions',
-        variant: 'destructive',
-      });
-    } finally {
-      setLoading(false);
     }
   };
 

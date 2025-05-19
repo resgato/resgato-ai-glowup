@@ -10,10 +10,23 @@ export const checkAuth = async (): Promise<boolean> => {
   return !!sessionData.session;
 };
 
+interface RawBlogPostData {
+  id: number;
+  slug: string;
+  title?: string;
+  excerpt?: string;
+  cover?: string;
+  date?: string;
+  author?: string;
+  readTime?: string;
+  category?: string;
+  content?: string;
+}
+
 /**
  * Transform raw Supabase data to a BlogPost object
  */
-export const transformBlogPostData = (data: any): BlogPost => ({
+export const transformBlogPostData = (data: RawBlogPostData): BlogPost => ({
   id: data.id,
   slug: data.slug,
   title: data.title || '',
