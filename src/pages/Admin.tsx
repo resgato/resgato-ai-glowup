@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -7,30 +6,81 @@ import { addNewBlogPosts } from '@/utils/blogPostsData';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/FooterAdminLink';
 import { Button } from '@/components/ui/button';
-import { FileEdit, LogOut, MessageSquare, BookOpen, Plus } from 'lucide-react';
-import { useToast } from '@/components/ui/use-toast';
+import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import {
+  Pagination,
+  PaginationContent,
+  PaginationItem,
+  PaginationLink,
+  PaginationNext,
+  PaginationPrevious,
+  PaginationEllipsis,
+} from '@/components/ui/pagination';
+import { format } from 'date-fns';
+import { useToast } from '@/hooks/use-toast';
+
+type ContactSubmission = {
+  id: string;
+  name: string;
+  email: string;
+  company: string | null;
+  phone: string | null;
+  message: string;
+  created_at: string;
+};
+
+const ITEMS_PER_PAGE = 5;
 
 const Admin = () => {
+  const [submissions, setSubmissions] = useState<ContactSubmission[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [session, setSession] = useState<any>(null);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [totalCount, setTotalCount] = useState(0);
+  const [totalPages, setTotalPages] = useState(1);
   const navigate = useNavigate();
   const { toast } = useToast();
-  const [loading, setLoading] = useState(true);
-  const [contactCount, setContactCount] = useState(0);
-  const [blogCount, setBlogCount] = useState(0);
-  const [userName, setUserName] = useState('');
-  const [addingPosts, setAddingPosts] = useState(false);
 
   useEffect(() => {
+    // Check if user is logged in
     const checkSession = async () => {
       const { data } = await supabase.auth.getSession();
+      setSession(data.session);
+      
       if (!data.session) {
         navigate('/login');
-        return;
+      } else {
+        fetchSubmissions(currentPage);
+        fetchTotalCount();
       }
-
-      setUserName(data.session.user.email || '');
-      
-      // Count contacts
-      const { count: contactCount, error: contactError } = await supabase
+    };
+    
+    checkSession();
+    
+    // Set up auth state listener
+    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+      setSession(session);
+      if (!session) {
+        navigate('/login');
+      }
+    });
+    
+    return () => {
+      subscription?.unsubscribe();
+    };
+  }, [navigate, currentPage]);
+  
+  const fetchTotalCount = async () => {
+    try {
+      const { count, error } = await supabase
         .from('contact_submissions')
         .select('*', { count: 'exact', head: true });
       

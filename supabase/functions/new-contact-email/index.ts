@@ -1,4 +1,3 @@
-
 import { serve } from "https://deno.land/std/http/server.ts";
 import { Resend } from "npm:resend";
 
@@ -113,7 +112,7 @@ serve(async (req) => {
     console.error("Error sending email:", error);
     return new Response(JSON.stringify({ 
       success: false, 
-      error: error.message 
+      error: error instanceof Error ? error.message : 'An unexpected error occurred'
     }), { 
       status: 500,
       headers: {
