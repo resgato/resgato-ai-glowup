@@ -14,12 +14,18 @@ const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
     
     let processedContent = text;
     
+    // Convert h1 headers (# Header)
+    processedContent = processedContent.replace(/^#\s+([^\n]+)/gm, '<h1 class="text-3xl font-bold my-5">$1</h1>');
+    
     // Convert h2 headers (## Header)
-    processedContent = processedContent.replace(/##\s+([^\n]+)/g, '<h2 class="text-2xl font-bold my-4">$1</h2>');
+    processedContent = processedContent.replace(/^##\s+([^\n]+)/gm, '<h2 class="text-2xl font-bold my-4">$1</h2>');
     
     // Convert h3 headers (### Header)
-    // The issue was likely with the regex pattern for h3 - let's ensure it properly matches
-    processedContent = processedContent.replace(/###\s+([^\n]+)/g, '<h3 class="text-xl font-bold my-3">$1</h3>');
+    processedContent = processedContent.replace(/^###\s+([^\n]+)/gm, '<h3 class="text-xl font-bold my-3">$1</h3>');
+    
+    // Convert standalone # that might be used for styling
+    // This must be processed after the headers to avoid conflicts
+    processedContent = processedContent.replace(/^#\s+(?![#\s])/gm, '<div class="text-lg font-semibold my-3">');
     
     // Convert links - [text](url)
     processedContent = processedContent.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-resgato-blue hover:underline" target="_blank" rel="noopener noreferrer">$1</a>');
@@ -42,7 +48,7 @@ const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
   
   // Process and sanitize content
   const sanitizedContent = DOMPurify.sanitize(processed, {
-    ALLOWED_TAGS: ['h2', 'h3', 'p', 'a', 'strong', 'em', 'ul', 'ol', 'li', 'blockquote'],
+    ALLOWED_TAGS: ['h1', 'h2', 'h3', 'p', 'a', 'strong', 'em', 'ul', 'ol', 'li', 'blockquote', 'div'],
     ALLOWED_ATTR: ['href', 'target', 'rel', 'class'],
   });
   
