@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { supabase } from '@/integrations/supabase/client';
 import { Button } from '@/components/ui/button';
@@ -89,12 +88,12 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ value, onChange }) => {
         title: "Image uploaded successfully",
         description: "The image has been uploaded and selected as your cover image."
       });
-    } catch (error: any) {
-      console.error('Error uploading image:', error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "An error occurred while uploading the image";
       toast({
         variant: "destructive",
-        title: "Upload failed",
-        description: error.message || "There was an error uploading your image."
+        title: "Error",
+        description: errorMessage,
       });
     } finally {
       setUploading(false);

@@ -1,4 +1,3 @@
-
 import { supabase } from '@/integrations/supabase/client';
 import { BlogPost } from '@/types/blog';
 import { BlogServiceResponse } from './types';
@@ -26,4 +25,11 @@ export const transformBlogPostData = (data: any): BlogPost => ({
   category: data.category || '',
   content: data.content || ''
 });
+
+export const handleApiError = (error: unknown): string => {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return "An unexpected error occurred";
+};
 

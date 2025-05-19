@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -70,12 +69,12 @@ const BlogAdmin = () => {
       } else {
         throw new Error("Failed to delete post");
       }
-    } catch (error) {
-      console.error('Error deleting post:', error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "An error occurred while deleting the post";
       toast({
         variant: "destructive",
         title: "Error",
-        description: "Failed to delete post. Please try again.",
+        description: errorMessage,
       });
     } finally {
       setDeleteDialogOpen(false);

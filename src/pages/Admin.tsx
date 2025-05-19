@@ -27,6 +27,7 @@ import {
 import { format } from 'date-fns';
 import { useToast } from '@/hooks/use-toast';
 import { LogOut, MessageSquare, FileEdit, BookOpen, Plus } from 'lucide-react';
+import { Session } from '@supabase/supabase-js';
 
 type ContactSubmission = {
   id: string;
@@ -43,7 +44,7 @@ const ITEMS_PER_PAGE = 5;
 const Admin = () => {
   const [submissions, setSubmissions] = useState<ContactSubmission[]>([]);
   const [loading, setLoading] = useState(true);
-  const [session, setSession] = useState<any>(null);
+  const [session, setSession] = useState<Session | null>(null);
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
@@ -135,11 +136,12 @@ const Admin = () => {
           description: result.message || "Failed to add sample blog posts",
         });
       }
-    } catch (error: any) {
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "An error occurred while adding sample blog posts";
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message || "An error occurred while adding sample blog posts",
+        description: errorMessage,
       });
     } finally {
       setAddingPosts(false);

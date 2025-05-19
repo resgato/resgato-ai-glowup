@@ -103,13 +103,12 @@ const Login = () => {
         });
         navigate('/admin');
       }
-    } catch (error: any) {
-      console.error('Auth error:', error);
-      setErrorMessage(error.message || 'An error occurred during authentication');
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "An error occurred during sign in";
       toast({
-        title: 'Authentication error',
-        description: error.message || 'An error occurred during authentication',
-        variant: 'destructive',
+        variant: "destructive",
+        title: "Error",
+        description: errorMessage,
       });
     } finally {
       setIsLoading(false);

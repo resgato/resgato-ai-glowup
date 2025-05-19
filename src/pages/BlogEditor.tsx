@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -167,12 +166,12 @@ const BlogEditor = () => {
       }
       
       navigate('/admin/blogs');
-    } catch (error: any) {
-      console.error('Error saving post:', error);
+    } catch (error: unknown) {
+      const errorMessage = error instanceof Error ? error.message : "An error occurred while saving the post";
       toast({
         variant: "destructive",
         title: "Error",
-        description: error.message || "Failed to save blog post",
+        description: errorMessage,
       });
     } finally {
       setIsLoading(false);
