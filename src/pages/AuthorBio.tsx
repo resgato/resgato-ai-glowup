@@ -1,145 +1,103 @@
-import React from 'react';
+
+import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
+import { blogService } from '@/services/blog';
+import { BlogPost } from '@/types/blog';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import CTASection from '@/components/CTASection';
-import { Button } from '@/components/ui/button';
-import { Separator } from '@/components/ui/separator';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { Card, CardContent } from '@/components/ui/card';
+import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import PageHelmet from '@/components/PageHelmet';
-import { 
-  Briefcase, 
-  Calendar, 
-  Clock, 
-  FileText, 
-  Mail, 
-  MapPin, 
-  Twitter,
-  Linkedin,
-  ArrowLeft
-} from 'lucide-react';
-
-interface Author {
-  id: string;
-  name: string;
-  role: string;
-  bio: string;
-  longBio: React.ReactNode;
-  photoUrl: string;
-  location: string;
-  email: string;
-  socialLinks: {
-    twitter?: string;
-    linkedin?: string;
-  };
-  experience: {
-    years: number;
-    specialties: string[];
-  };
-  recentPosts: {
-    id: number;
-    slug: string;
-    title: string;
-    date: string;
-    readTime: string;
-  }[];
-}
-
-// Author data
-const authors: Record<string, Author> = {
-  "taylor-brody": {
-    id: "taylor-brody",
-    name: "Taylor Brody",
-    role: "Founder & Digital Marketing Strategist",
-    bio: "Founder of Resgato Digital Marketing, a results-driven agency based in Salt Lake City with over a decade of experience across multiple industries.",
-    longBio: (
-      <>
-        <p className="mb-4">
-          Taylor Brody is the founder of Resgato Digital Marketing, a results-driven agency based in Salt Lake City. 
-          With over a decade of experience across automotive, tech, retail, and local services, he's managed 
-          multimillion-dollar marketing budgets and led high-impact campaigns that drive measurable growth.
-        </p>
-        <p className="mb-4">
-          Taylor previously served on a board of directors, where he helped shape strategic direction and 
-          brand development at the organizational level. His work combines performance media, SEO, and 
-          sustainable marketing systems into campaigns built to scale.
-        </p>
-        <p className="mb-4">
-          Taylor's approach is rooted in his belief that effective marketing requires both analytical 
-          thinking and creative problem-solving. He is known for his ability to translate complex marketing 
-          concepts into clear, actionable plans that align with each client's unique business goals.
-        </p>
-        <p>
-          Taylor's writing turns complex digital trends into clear, actionable insights for business owners, 
-          marketers, and growth-minded entrepreneurs. When he's not optimizing campaigns or analyzing metrics, 
-          Taylor enjoys skiing and biking in Utah's beautiful mountains, spendimg time with his wife Amanda, and traveling.
-        </p>
-      </>
-    ),
-    photoUrl: "/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png",
-    location: "Salt Lake City, UT",
-    email: "taylor.brody@resgato.com",
-    socialLinks: {
-      twitter: "https://twitter.com/taylorbrody",
-      linkedin: "https://linkedin.com/in/taylorbrody"
-    },
-    experience: {
-      years: 10,
-      specialties: [
-        "Performance Media Marketing",
-        "Search Engine Optimization (SEO)",
-        "Pay-Per-Click (PPC) Advertising",
-        "Strategic Marketing Planning",
-        "Sustainable Marketing Systems",
-        "Marketing Analytics & Reporting"
-      ]
-    },
-    recentPosts: [
-      {
-        id: 7,
-        slug: "find-marketing-agency-salt-lake-city",
-        title: "How to Find the Best Digital Marketing Agency Near You in Salt Lake City",
-        date: "April 8, 2025",
-        readTime: "7 min read"
-      },
-      {
-        id: 1,
-        slug: "future-digital-marketing-2025",
-        title: "The Future of Digital Marketing in 2025 and Beyond",
-        date: "April 5, 2025",
-        readTime: "8 min read"
-      },
-      {
-        id: 2,
-        slug: "seo-tactics-2025",
-        title: "7 Proven SEO Tactics That Actually Work in 2025",
-        date: "April 1, 2025",
-        readTime: "6 min read"
-      }
-    ]
-  }
-};
 
 const AuthorBio = () => {
   const { authorId } = useParams<{ authorId: string }>();
-  const author = authorId ? authors[authorId] : null;
+  const [posts, setPosts] = useState<BlogPost[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
 
-  if (!author) {
+  // Author information based on URL parameter
+  const authorInfo = {
+    'taylor-brody': {
+      name: 'Taylor Brody',
+      role: 'Digital Marketing Strategist',
+      bio: 'Taylor Brody is a seasoned digital marketing strategist with over 10 years of experience helping businesses grow their online presence. Specializing in content marketing and SEO, Taylor has worked with brands across various industries to develop effective digital strategies.',
+      avatar: '/lovable-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png',
+    },
+    'alex-morgan': {
+      name: 'Alex Morgan',
+      role: 'SEO Specialist',
+      bio: 'Alex Morgan is an SEO expert with a passion for helping businesses improve their visibility in search engines. With a data-driven approach, Alex has helped numerous clients achieve significant improvements in their organic search rankings and traffic.',
+      avatar: '/placeholder.svg',
+    },
+    'jordan-lee': {
+      name: 'Jordan Lee',
+      role: 'Social Media Manager',
+      bio: 'Jordan Lee is a creative social media manager with expertise in building engaged online communities. With a background in both B2B and B2C marketing, Jordan understands how to tailor social media strategies to meet specific business goals.',
+      avatar: '/placeholder.svg',
+    },
+    'resgato-team': {
+      name: 'Resgato Team',
+      role: 'Digital Marketing Experts',
+      bio: 'The Resgato Team is a diverse group of digital marketing professionals with expertise spanning across SEO, content marketing, social media, and paid advertising. With their combined experience and specialized knowledge, they provide comprehensive insights into the ever-evolving digital landscape. The team works collaboratively to analyze trends, test new strategies, and deliver data-backed recommendations that help businesses stay ahead of the competition. Their collective approach ensures a holistic perspective on all marketing challenges.',
+      avatar: '/lovable-uploads/c69e195b-c2c5-434c-be7b-ac3fb2ce1f7b.png',
+    },
+  };
+
+  const currentAuthor = authorId ? authorInfo[authorId as keyof typeof authorInfo] : null;
+
+  useEffect(() => {
+    const fetchAuthorPosts = async () => {
+      if (!authorId || !currentAuthor) {
+        setError('Author not found');
+        setLoading(false);
+        return;
+      }
+
+      try {
+        // Convert URL format (e.g., 'taylor-brody') to display name ('Taylor Brody')
+        const authorName = currentAuthor.name;
+        const authorPosts = await blogService.getPostsByAuthor(authorName);
+        setPosts(authorPosts);
+      } catch (err) {
+        console.error('Error fetching author posts:', err);
+        setError('Failed to load author posts');
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchAuthorPosts();
+  }, [authorId, currentAuthor]);
+
+  if (loading) {
     return (
       <div className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-grow flex items-center justify-center">
+        <div className="flex-grow flex items-center justify-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        </div>
+        <Footer />
+      </div>
+    );
+  }
+
+  if (error || !currentAuthor) {
+    return (
+      <div className="min-h-screen flex flex-col">
+        <Navbar />
+        <div className="flex-grow flex items-center justify-center">
           <div className="text-center p-8">
-            <h1 className="text-3xl font-bold mb-4">Author Not Found</h1>
-            <p className="mb-6">Sorry, the author you're looking for doesn't exist in our database.</p>
-            <Button asChild>
-              <Link to="/blog" className="bg-resgato-blue hover:bg-resgato-navy text-white">
-                Back to Blog
-              </Link>
-            </Button>
+            <h2 className="text-2xl font-bold mb-4">Author Not Found</h2>
+            <p className="mb-6">We couldn't find the author you're looking for.</p>
+            <Link 
+              to="/blog" 
+              className="inline-flex items-center bg-resgato-blue text-white px-6 py-3 rounded-lg"
+            >
+              Return to Blog
+            </Link>
           </div>
-        </main>
+        </div>
         <Footer />
       </div>
     );
@@ -147,173 +105,95 @@ const AuthorBio = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
+      <PageHelmet 
+        title={`${currentAuthor.name} - Author Profile`} 
+        description={`Learn more about ${currentAuthor.name}, ${currentAuthor.role} at Resgato Digital Marketing.`}
+      />
       <Navbar />
-      
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="bg-resgato-navy text-white py-12 md:py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex items-center space-x-2 text-sm mb-6">
-              <Button variant="ghost" asChild className="text-gray-300 hover:text-white hover:bg-transparent transition-colors p-0">
-                <Link to="/blog">
-                  <ArrowLeft className="w-4 h-4 mr-1" />
-                  Back to Blog
-                </Link>
-              </Button>
-            </div>
-            
-            <div className="md:flex md:items-center md:gap-12">
-              <div className="mb-8 md:mb-0 md:w-1/3">
-                <div className="relative w-48 h-48 mx-auto md:w-64 md:h-64 rounded-full overflow-hidden border-4 border-white">
-                  <img 
-                    src={author.photoUrl} 
-                    alt={`${author.name} portrait`}
-                    className="w-full h-full object-cover"
-                  />
+        {/* Author Bio Section */}
+        <section className="bg-resgato-navy text-white py-16">
+          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
+              <Avatar className="h-36 w-36 md:h-52 md:w-52 border-4 border-white/20">
+                <AvatarImage src={currentAuthor.avatar} alt={currentAuthor.name} />
+                <AvatarFallback>{currentAuthor.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+              </Avatar>
+              
+              <div className="text-center md:text-left">
+                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">{currentAuthor.name}</h1>
+                <p className="text-xl text-white/80 mb-6">{currentAuthor.role}</p>
+                <div className="max-w-2xl">
+                  <p className="text-lg text-white/90">{currentAuthor.bio}</p>
                 </div>
               </div>
-              
-              <div className="md:w-2/3">
-                <h1 className="text-3xl md:text-5xl font-bold mb-4">{author.name}</h1>
-                <p className="text-xl md:text-2xl text-gray-200 mb-6">{author.role}</p>
-                
-                <div className="flex flex-wrap gap-y-3 gap-x-6 text-gray-200 mb-6">
-                  <div className="flex items-center">
-                    <MapPin className="w-4 h-4 mr-2" />
-                    <span>{author.location}</span>
-                  </div>
-                  <div className="flex items-center">
-                    <Briefcase className="w-4 h-4 mr-2" />
-                    <span>{author.experience.years}+ Years Experience</span>
-                  </div>
-                  <div className="flex items-center">
-                    <FileText className="w-4 h-4 mr-2" />
-                    <span>{author.recentPosts.length} Articles</span>
-                  </div>
-                </div>
-                
-                <div className="flex gap-3">
-                  {author.socialLinks.twitter && (
-                    <a 
-                      href={author.socialLinks.twitter} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="bg-white text-resgato-navy p-2 rounded-full hover:bg-gray-200 transition-colors"
-                    >
-                      <Twitter className="w-5 h-5" />
-                    </a>
-                  )}
-                  {author.socialLinks.linkedin && (
-                    <a 
-                      href={author.socialLinks.linkedin} 
-                      target="_blank" 
-                      rel="noopener noreferrer"
-                      className="bg-white text-resgato-navy p-2 rounded-full hover:bg-gray-200 transition-colors"
-                    >
-                      <Linkedin className="w-5 h-5" />
-                    </a>
-                  )}
-                  <a 
-                    href={`mailto:${author.email}`}
-                    className="bg-white text-resgato-navy p-2 rounded-full hover:bg-gray-200 transition-colors"
+            </div>
+          </div>
+        </section>
+        
+        {/* Author's Posts */}
+        <section className="py-16">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 className="text-2xl font-bold mb-10">Articles by {currentAuthor.name}</h2>
+            
+            {posts.length > 0 ? (
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                {posts.map((post) => (
+                  <Card 
+                    key={post.id}
+                    className="overflow-hidden hover:shadow-lg transition-shadow"
                   >
-                    <Mail className="w-5 h-5" />
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Bio Section */}
-        <section className="py-12 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid md:grid-cols-3 gap-10">
-              <div className="md:col-span-2">
-                <h2 className="text-3xl font-bold mb-6">About Taylor</h2>
-                <div className="prose prose-lg max-w-none">
-                  {author.longBio}
-                </div>
-              </div>
-              
-              <div>
-                <div className="bg-gray-50 rounded-lg p-6 mb-8">
-                  <h3 className="text-xl font-bold mb-4">Areas of Expertise</h3>
-                  <ul className="space-y-2">
-                    {author.experience.specialties.map((specialty, index) => (
-                      <li key={index} className="flex items-start">
-                        <div className="bg-resgato-blue/10 text-resgato-blue p-1 rounded mr-3 mt-0.5">
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" viewBox="0 0 20 20" fill="currentColor">
-                            <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
-                          </svg>
-                        </div>
-                        <span>{specialty}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                
-                <div>
-                  <h3 className="text-xl font-bold mb-4">Contact Taylor</h3>
-                  <Button asChild className="w-full bg-resgato-blue hover:bg-resgato-navy text-white mb-4">
-                    <Link to="/contact">Get in Touch</Link>
-                  </Button>
-                  <p className="text-gray-600 text-sm">
-                    Interested in working with Taylor? Get in touch to discuss 
-                    how he can help your business grow online.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-        
-        {/* Recent Articles */}
-        <section className="py-12 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-3xl font-bold mb-8">Recent Articles by {author.name}</h2>
-            
-            <div className="grid md:grid-cols-3 gap-8">
-              {author.recentPosts.map((post) => (
-                <Card key={post.id} className="overflow-hidden hover:shadow-lg transition-shadow">
-                  <CardContent className="p-6">
-                    <div className="flex items-center text-sm text-gray-500 mb-3">
-                      <span className="inline-flex items-center mr-4">
-                        <Calendar className="h-4 w-4 mr-1" />
-                        {post.date}
-                      </span>
-                      <span className="inline-flex items-center">
-                        <Clock className="h-4 w-4 mr-1" />
-                        {post.readTime}
-                      </span>
+                    <div className="h-48 overflow-hidden">
+                      <img 
+                        src={post.cover} 
+                        alt={post.title} 
+                        className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                      />
                     </div>
-                    <h3 className="text-xl font-bold mb-4 hover:text-resgato-blue transition-colors">
-                      <Link to={`/blog/${post.slug}`}>
-                        {post.title}
-                      </Link>
-                    </h3>
-                    <Link 
-                      to={`/blog/${post.slug}`}
-                      className="text-resgato-blue font-medium hover:text-resgato-navy transition-colors"
-                    >
-                      Read Article →
-                    </Link>
-                  </CardContent>
-                </Card>
-              ))}
-            </div>
-            
-            <div className="mt-10 text-center">
-              <Button asChild variant="outline" className="border-resgato-blue text-resgato-blue hover:bg-resgato-blue hover:text-white">
-                <Link to="/blog">View All Articles</Link>
-              </Button>
-            </div>
+                    <CardHeader className="pb-2">
+                      <div className="flex items-center text-xs text-gray-500 mb-1">
+                        <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                          {post.category}
+                        </span>
+                        <span className="mx-2">•</span>
+                        <span>{post.date}</span>
+                      </div>
+                      <CardTitle className="text-lg hover:text-resgato-blue transition-colors">
+                        <Link to={`/blog/${post.slug}`}>{post.title}</Link>
+                      </CardTitle>
+                    </CardHeader>
+                    <CardContent>
+                      <p className="text-gray-600 text-sm line-clamp-2">{post.excerpt}</p>
+                    </CardContent>
+                    <CardFooter className="pt-0 flex items-center text-sm">
+                      <div className="flex items-center text-gray-500">
+                        <Clock className="h-3 w-3 mr-1" />
+                        <span>{post.readTime}</span>
+                      </div>
+                      <div className="ml-auto">
+                        <Link 
+                          to={`/blog/${post.slug}`}
+                          className="text-resgato-blue flex items-center hover:underline"
+                        >
+                          Read More
+                          <ArrowRight className="h-4 w-4 ml-1" />
+                        </Link>
+                      </div>
+                    </CardFooter>
+                  </Card>
+                ))}
+              </div>
+            ) : (
+              <div className="text-center py-10 bg-gray-50 rounded-lg">
+                <p className="text-lg text-gray-600">No articles published yet by {currentAuthor.name}.</p>
+                <Link to="/blog" className="mt-4 inline-block text-resgato-blue hover:underline">
+                  Browse all blog posts
+                </Link>
+              </div>
+            )}
           </div>
         </section>
-        
-        <CTASection />
       </main>
-      
       <Footer />
     </div>
   );
