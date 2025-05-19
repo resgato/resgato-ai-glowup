@@ -20,7 +20,7 @@ const Index = () => {
           <meta name="description" content="Resgato is a premier digital marketing agency in Salt Lake City, offering SEO, PPC, SEM services and digital strategy consulting for Utah businesses." />
           <meta name="keywords" content="salt lake city marketing agencies, utah ppc agency, digital marketing agency salt lake city, utah sem companies, salt lake city ppc agency, digital strategy consulting salt lake city, utah ppc consultant" />
           <link rel="canonical" href="https://resgato.com" />
-          <link rel="sitemap" type="application/xml" href="https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/generate-sitemap" />
+          <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
           <script type="application/ld+json">{`
             {
               "@context": "https://schema.org",
