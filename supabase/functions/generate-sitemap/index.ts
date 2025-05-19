@@ -41,7 +41,7 @@ serve(async (req: Request) => {
     // Current date for lastmod
     const currentDate = new Date().toISOString().split('T')[0];
     
-    // Generate the sitemap XML
+    // Generate the sitemap XML with no whitespace before XML declaration
     let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
@@ -116,7 +116,8 @@ serve(async (req: Request) => {
     sitemap += `
 </urlset>`;
 
-    // Return the sitemap with proper headers and make sure there's no BOM or hidden characters
+    // Create a new response with the sitemap content
+    // Using trim() to ensure no extraneous whitespace
     return new Response(sitemap.trim(), { 
       headers: corsHeaders 
     });
