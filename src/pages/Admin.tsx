@@ -26,6 +26,7 @@ import {
 } from '@/components/ui/pagination';
 import { format } from 'date-fns';
 import { useToast } from '@/hooks/use-toast';
+import { LogOut, MessageSquare, FileEdit, BookOpen, Plus } from 'lucide-react';
 
 type ContactSubmission = {
   id: string;
@@ -46,6 +47,10 @@ const Admin = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalCount, setTotalCount] = useState(0);
   const [totalPages, setTotalPages] = useState(1);
+  const [addingPosts, setAddingPosts] = useState(false);
+  const [blogCount, setBlogCount] = useState(0);
+  const [contactCount, setContactCount] = useState(0);
+  const [userName, setUserName] = useState('Admin');
   const navigate = useNavigate();
   const { toast } = useToast();
 
@@ -83,20 +88,24 @@ const Admin = () => {
       const { count, error } = await supabase
         .from('contact_submissions')
         .select('*', { count: 'exact', head: true });
-      
-      if (!contactError && contactCount !== null) {
-        setContactCount(contactCount);
+
+      if (error) throw error;
+
+      if (count !== null) {
+        setTotalCount(count);
+        setTotalPages(Math.max(1, Math.ceil(count / ITEMS_PER_PAGE)));
       }
-      
-      // Count blog posts
-      const posts = await blogService.getAllPosts();
-      setBlogCount(posts.length);
-      
+    } catch (error) {
+      console.error('Error fetching total count:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to fetch total submission count',
+        variant: 'destructive',
+      });
+    } finally {
       setLoading(false);
-    };
-    
-    checkSession();
-  }, [navigate]);
+    }
+  };
 
   const handleLogout = async () => {
     await supabase.auth.signOut();
@@ -107,7 +116,7 @@ const Admin = () => {
     setAddingPosts(true);
     try {
       const result = await addNewBlogPosts();
-      if (result.success) {
+      if (result.success && result.results) {
         const successCount = result.results.filter(r => r.status === 'success').length;
         const skipCount = result.results.filter(r => r.status === 'skipped').length;
         
@@ -134,6 +143,31 @@ const Admin = () => {
       });
     } finally {
       setAddingPosts(false);
+    }
+  };
+
+  const fetchSubmissions = async (page: number) => {
+    try {
+      setLoading(true);
+      const from = (page - 1) * ITEMS_PER_PAGE;
+      const to = from + ITEMS_PER_PAGE - 1;
+      const { data, error } = await supabase
+        .from('contact_submissions')
+        .select('*')
+        .order('created_at', { ascending: false })
+        .range(from, to);
+
+      if (error) throw error;
+      setSubmissions(data || []);
+    } catch (error) {
+      console.error('Error fetching submissions:', error);
+      toast({
+        title: 'Error',
+        description: 'Failed to fetch contact submissions',
+        variant: 'destructive',
+      });
+    } finally {
+      setLoading(false);
     }
   };
 
