@@ -67,25 +67,13 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ value, onChange }) => {
       
       setUploading(true);
       
-      // Check if bucket exists, create it if not
-      const { data: buckets } = await supabase.storage.listBuckets();
-      const blogBucket = buckets?.find(bucket => bucket.name === 'blog_images');
-      
-      if (!blogBucket) {
-        // Create the bucket if it doesn't exist
-        const { error: bucketError } = await supabase.storage.createBucket('blog_images', {
-          public: true,
-          allowedMimeTypes: ['image/png', 'image/jpeg', 'image/gif', 'image/webp'],
-          fileSizeLimit: 5242880, // 5MB
-        });
-        
-        if (bucketError) throw bucketError;
-      }
-      
-      // Upload the file
+      // Upload file directly - bucket should exist now due to the SQL migration
       const { data, error } = await supabase.storage
         .from('blog_images')
-        .upload(fileName, file);
+        .upload(fileName, file, {
+          upsert: true,
+          cacheControl: '3600'
+        });
 
       if (error) throw error;
 
@@ -130,7 +118,7 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ value, onChange }) => {
         </TabsList>
         
         <TabsContent value="upload" className="space-y-4">
-          <div className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-6 h-40">
+          <div className="flex flex-col items-center justify-center border-2 border-dashed border-gray-300 rounded-md p-6 h-40 relative">
             {uploading ? (
               <div className="text-center">
                 <Loader2 className="h-8 w-8 animate-spin mx-auto text-blue-500" />
@@ -140,15 +128,16 @@ const ImageUploader: React.FC<ImageUploaderProps> = ({ value, onChange }) => {
               <>
                 <Upload className="h-10 w-10 text-gray-400 mb-2" />
                 <p className="text-sm text-gray-500 mb-2">Drag & drop or click to upload</p>
-                <Input 
-                  type="file" 
-                  accept="image/*"
-                  onChange={handleUpload}
-                  disabled={uploading}
-                  className="absolute inset-0 opacity-0 cursor-pointer h-full w-full"
-                />
-                <Button variant="outline" size="sm">
+                <Button variant="outline" size="sm" className="relative z-10">
                   Select File
+                  <Input 
+                    type="file" 
+                    accept="image/*"
+                    onChange={handleUpload}
+                    disabled={uploading}
+                    className="absolute inset-0 opacity-0 cursor-pointer z-20 w-full h-full"
+                    aria-label="Upload image"
+                  />
                 </Button>
               </>
             )}
