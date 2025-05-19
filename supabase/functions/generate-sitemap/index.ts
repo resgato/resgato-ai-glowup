@@ -6,7 +6,7 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2.42.0";
 const corsHeaders = {
   'Access-Control-Allow-Origin': '*',
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
-  'Content-Type': 'application/xml',
+  'Content-Type': 'application/xml; charset=utf-8',
 };
 
 serve(async (req: Request) => {
@@ -116,7 +116,8 @@ serve(async (req: Request) => {
     sitemap += `
 </urlset>`;
 
-    return new Response(sitemap, { 
+    // Return the sitemap with proper headers and make sure there's no BOM or hidden characters
+    return new Response(sitemap.trim(), { 
       headers: corsHeaders 
     });
   } catch (error) {

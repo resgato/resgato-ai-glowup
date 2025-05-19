@@ -3,7 +3,7 @@ import { supabase } from '@/integrations/supabase/client';
 import { BlogPost } from '@/types/blog';
 import { checkAuth, transformBlogPostData } from './api';
 
-const SITEMAP_ENDPOINT = "https://bopzgxqujuqosdexnppj.functions.supabase.co/generate-sitemap";
+const SITEMAP_ENDPOINT = "https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/generate-sitemap";
 
 /**
  * Trigger a sitemap update by pinging the sitemap endpoint
