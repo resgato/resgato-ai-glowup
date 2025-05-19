@@ -19,158 +19,62 @@ const mockPosts: BlogPost[] = [
   // ... more mock posts
 ];
 
-// Get all blog posts from database or fallback to mock data
+// Get all blog posts - temporarily returning mock data only
 export const getAllPosts = async (): Promise<BlogPost[]> => {
-  try {
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .select('*')
-      .order('created_at', { ascending: false });
-    
-    if (error) {
-      console.error('Error fetching blog posts:', error);
-      return mockPosts;
-    }
-    
-    // Transform the data from snake_case to camelCase for the readTime field
-    return data.map(post => ({
-      ...post,
-      readTime: post.read_time
-    })) as BlogPost[];
-  } catch (error) {
-    console.error('Error in getAllPosts:', error);
-    return mockPosts;
-  }
+  console.log('Using mock blog posts data');
+  return mockPosts;
 };
 
-// Get a single blog post by slug
+// Get a single blog post by slug - temporarily using mock data
 export const getPostBySlug = async (slug: string): Promise<BlogPost | null> => {
-  try {
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .select('*')
-      .eq('slug', slug)
-      .single();
-    
-    if (error) {
-      console.error('Error fetching blog post:', error);
-      return mockPosts.find(post => post.slug === slug) || null;
-    }
-    
-    return {
-      ...data,
-      readTime: data.read_time
-    } as BlogPost;
-  } catch (error) {
-    console.error('Error in getPostBySlug:', error);
-    return mockPosts.find(post => post.slug === slug) || null;
-  }
+  console.log('Using mock data for blog post by slug:', slug);
+  return mockPosts.find(post => post.slug === slug) || null;
 };
 
-// Get a single blog post by ID
+// Get a single blog post by ID - temporarily using mock data
 export const getPostById = async (id: number): Promise<BlogPost | null> => {
-  try {
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .select('*')
-      .eq('id', id)
-      .single();
-    
-    if (error) {
-      console.error('Error fetching blog post by ID:', error);
-      return mockPosts.find(post => post.id === id) || null;
-    }
-    
-    return {
-      ...data,
-      readTime: data.read_time
-    } as BlogPost;
-  } catch (error) {
-    console.error('Error in getPostById:', error);
-    return mockPosts.find(post => post.id === id) || null;
-  }
+  console.log('Using mock data for blog post by ID:', id);
+  return mockPosts.find(post => post.id === id) || null;
 };
 
-// Create a new blog post
+// Create a new blog post - temporarily logging only
 export const createPost = async (post: Omit<BlogPost, 'id'>): Promise<BlogPost | null> => {
-  try {
-    // Convert readTime to read_time for database storage
-    const dbPost = {
-      ...post,
-      read_time: post.readTime
-    };
-    
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .insert([dbPost])
-      .select()
-      .single();
-    
-    if (error) {
-      console.error('Error creating blog post:', error);
-      throw new Error(`Failed to create post: ${error.message}`);
-    }
-    
-    return {
-      ...data,
-      readTime: data.read_time
-    } as BlogPost;
-  } catch (error) {
-    console.error('Error in createPost:', error);
-    throw error;
-  }
+  console.log('Create post called with:', post);
+  console.log('Note: This would normally save to the database, but is using mock data for now');
+  
+  // Simulate creating a post with a new ID
+  const newPost: BlogPost = {
+    ...post,
+    id: Math.max(...mockPosts.map(p => p.id)) + 1
+  };
+  
+  return newPost;
 };
 
-// Update an existing blog post
+// Update an existing blog post - temporarily logging only
 export const updatePost = async (id: number, post: Partial<BlogPost>): Promise<BlogPost | null> => {
-  try {
-    // If readTime is included, convert to read_time for database
-    const dbPost: any = { ...post };
-    if (post.readTime) {
-      dbPost.read_time = post.readTime;
-      delete dbPost.readTime;
-    }
-    
-    const { data, error } = await supabase
-      .from('blog_posts')
-      .update(dbPost)
-      .eq('id', id)
-      .select()
-      .single();
-    
-    if (error) {
-      console.error('Error updating blog post:', error);
-      throw new Error(`Failed to update post: ${error.message}`);
-    }
-    
-    return {
-      ...data,
-      readTime: data.read_time
-    } as BlogPost;
-  } catch (error) {
-    console.error('Error in updatePost:', error);
-    throw error;
+  console.log(`Update post called for ID ${id} with:`, post);
+  console.log('Note: This would normally update the database, but is using mock data for now');
+  
+  const existingPost = mockPosts.find(p => p.id === id);
+  if (!existingPost) {
+    return null;
   }
+  
+  const updatedPost: BlogPost = {
+    ...existingPost,
+    ...post
+  };
+  
+  return updatedPost;
 };
 
-// Delete a blog post
+// Delete a blog post - temporarily logging only
 export const deletePost = async (id: number): Promise<boolean> => {
-  try {
-    const { error } = await supabase
-      .from('blog_posts')
-      .delete()
-      .eq('id', id);
-    
-    if (error) {
-      console.error('Error deleting blog post:', error);
-      return false;
-    }
-    
-    return true;
-  } catch (error) {
-    console.error('Error in deletePost:', error);
-    return false;
-  }
+  console.log(`Delete post called for ID ${id}`);
+  console.log('Note: This would normally delete from the database, but is using mock data for now');
+  
+  return true;
 };
 
 export const blogService = {
