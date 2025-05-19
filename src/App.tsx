@@ -27,7 +27,20 @@ import ContentStrategy from "./pages/ContentStrategy";
 import UtahRealEstateMarketing from "./pages/UtahRealEstateMarketing";
 import ScrollToTop from "@/components/ScrollToTop";
 
-const queryClient = new QueryClient();
+// Updated QueryClient configuration to be compatible with React Query v5
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: false
+    },
+    mutations: {
+      onError: (error) => {
+        console.error('Mutation error:', error);
+      }
+    }
+  }
+});
 
 const App = () => (
   <QueryClientProvider client={queryClient}>

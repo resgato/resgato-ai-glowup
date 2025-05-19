@@ -1,124 +1,154 @@
 
-import { supabase } from "@/integrations/supabase/client";
-import { BlogPost } from "@/types/blog";
+import { supabase } from '@/integrations/supabase/client';
+import { BlogPost } from '@/types/blog';
 
-// Mock blog post data
-const mockBlogPosts: BlogPost[] = [
+// Mock data as a fallback
+const mockPosts: BlogPost[] = [
   {
     id: 1,
-    slug: "digital-marketing-trends-2025",
-    title: "Digital Marketing Trends to Watch in 2025",
-    excerpt: "Explore the emerging trends that will shape digital marketing strategies in 2025 and beyond.",
-    cover: "/lovable-uploads/f9a3c237-dff6-4a0d-8cef-79a1946fd9f0.png",
-    date: "May 12, 2025",
-    author: "Taylor Brody",
-    readTime: "5 min read",
-    category: "Digital Marketing",
-    content: "As we move further into 2025, digital marketing continues to evolve at a rapid pace. The integration of artificial intelligence and machine learning has transformed how brands connect with consumers.\n\nPersonalization has reached new heights, with algorithms now capable of predicting consumer needs before they even arise. Voice search optimization is no longer optional but essential for visibility.\n\nPrivacy-first marketing approaches have become the standard as consumers grow increasingly conscious of their digital footprint. Brands that successfully navigate these changes while maintaining authentic connections with their audience will lead the pack.\n\nVideo content continues to dominate across platforms, with short-form videos seeing particularly high engagement rates. The metaverse presents exciting new opportunities for brand experiences that blur the line between digital and physical.\n\nAs we navigate these trends, it's clear that adaptability remains the most valuable skill for marketers in this dynamic landscape."
+    slug: 'digital-marketing-trends-2025',
+    title: 'Digital Marketing Trends to Watch in 2025',
+    excerpt: 'Explore the emerging trends that will shape digital marketing strategies in 2025 and beyond.',
+    cover: '/lovable-uploads/f9a3c237-dff6-4a0d-8cef-79a1946fd9f0.png',
+    date: 'May 12, 2025',
+    author: 'Taylor Brody',
+    read_time: '5 min read',
+    category: 'Digital Marketing',
+    content: 'As we move further into 2025, digital marketing continues to evolve at a rapid pace. The integration of artificial intelligence and machine learning has transformed how brands connect with consumers.\n\nPersonalization has reached new heights, with algorithms now capable of predicting consumer needs before they even arise. Voice search optimization is no longer optional but essential for visibility.\n\nPrivacy-first marketing approaches have become the standard as consumers grow increasingly conscious of their digital footprint. Brands that successfully navigate these changes while maintaining authentic connections with their audience will lead the pack.\n\nVideo content continues to dominate across platforms, with short-form videos seeing particularly high engagement rates. The metaverse presents exciting new opportunities for brand experiences that blur the line between digital and physical.\n\nAs we navigate these trends, it's clear that adaptability remains the most valuable skill for marketers in this dynamic landscape.'
   },
-  {
-    id: 2,
-    slug: "seo-best-practices-guide",
-    title: "The Ultimate Guide to SEO Best Practices",
-    excerpt: "Learn the essential SEO techniques that will help your website rank higher in search results.",
-    cover: "/lovable-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png",
-    date: "April 28, 2025",
-    author: "Alex Morgan",
-    readTime: "8 min read",
-    category: "SEO",
-    content: "Search Engine Optimization remains one of the most crucial aspects of digital marketing. As search algorithms become increasingly sophisticated, so too must our strategies for optimizing content.\n\nThe foundation of effective SEO still rests on quality content that genuinely answers user queries. However, technical aspects like page speed, mobile responsiveness, and proper schema markup have grown in importance.\n\nKeyword research has evolved beyond simple search volume metrics to include user intent analysis. Understanding whether a search query has informational, navigational, or transactional intent is key to creating content that resonates.\n\nBacklink quality continues to outweigh quantity, with a single link from a respected authority in your industry often providing more value than dozens of low-quality links.\n\nUser experience signals now factor heavily into rankings, making engagement metrics like bounce rate, time on page, and click-through rate essential considerations in your SEO strategy.\n\nVoice search optimization requires a shift in keyword strategy toward more conversational phrases and questions. Featured snippets have become prime real estate for visibility, making structured content that directly answers common questions highly valuable."
-  },
-  {
-    id: 3,
-    slug: "social-media-strategy-blueprint",
-    title: "Social Media Strategy Blueprint for Businesses",
-    excerpt: "A comprehensive framework for building and executing an effective social media marketing strategy.",
-    cover: "/lovable-uploads/f9397a76-13f8-46c6-9197-106aa2658db0.png",
-    date: "April 15, 2025",
-    author: "Jordan Lee",
-    readTime: "6 min read",
-    category: "Social Media",
-    content: "Developing a robust social media strategy begins with clearly defined objectives that align with broader business goals. Whether you're focused on brand awareness, community building, or direct conversions, your metrics should reflect these priorities.\n\nAudience research forms the backbone of effective strategy, informing everything from platform selection to content themes. Creating detailed audience personas helps ensure your content resonates with the right people at the right time.\n\nContent planning should balance promotional material with value-driven posts that educate, entertain, or inspire. The 80/20 rule remains a good starting point—aim for 80% value-based content and 20% promotional.\n\nConsistency in posting schedule and visual identity helps build recognition and trust. A content calendar and design templates can help maintain this consistency across platforms and team members.\n\nCommunity management has evolved from simple response handling to proactive engagement that builds genuine relationships. Allocating time for meaningful interactions with followers can significantly impact brand perception.\n\nData analysis should inform ongoing optimization, with regular reviews of performance metrics to identify successful patterns and areas for improvement. Being willing to pivot quickly based on these insights keeps your strategy agile and effective."
-  }
+  // ... more mock posts
 ];
 
-// Create a namespace for type safety
-export const blogService = {
-  // Get all blog posts
-  async getAllPosts(): Promise<BlogPost[]> {
-    try {
-      // In a production environment, this would fetch from Supabase
-      // For now, we're using mock data
-      return mockBlogPosts;
-    } catch (error) {
-      console.error("Error fetching blog posts:", error);
-      return [];
+// Get all blog posts from database or fallback to mock data
+export const getAllPosts = async (): Promise<BlogPost[]> => {
+  try {
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .select('*')
+      .order('created_at', { ascending: false });
+    
+    if (error) {
+      console.error('Error fetching blog posts:', error);
+      return mockPosts;
     }
-  },
+    
+    return data as BlogPost[];
+  } catch (error) {
+    console.error('Error in getAllPosts:', error);
+    return mockPosts;
+  }
+};
 
-  // Get a single blog post by slug
-  async getPostBySlug(slug: string): Promise<BlogPost | null> {
-    try {
-      const post = mockBlogPosts.find(post => post.slug === slug);
-      return post || null;
-    } catch (error) {
-      console.error(`Error fetching blog post with slug ${slug}:`, error);
-      return null;
+// Get a single blog post by slug
+export const getPostBySlug = async (slug: string): Promise<BlogPost | null> => {
+  try {
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .select('*')
+      .eq('slug', slug)
+      .single();
+    
+    if (error) {
+      console.error('Error fetching blog post:', error);
+      return mockPosts.find(post => post.slug === slug) || null;
     }
-  },
+    
+    return data as BlogPost;
+  } catch (error) {
+    console.error('Error in getPostBySlug:', error);
+    return mockPosts.find(post => post.slug === slug) || null;
+  }
+};
 
-  // Get a single blog post by id
-  async getPostById(id: number): Promise<BlogPost | null> {
-    try {
-      const post = mockBlogPosts.find(post => post.id === id);
-      return post || null;
-    } catch (error) {
-      console.error(`Error fetching blog post with id ${id}:`, error);
-      return null;
+// Get a single blog post by ID
+export const getPostById = async (id: number): Promise<BlogPost | null> => {
+  try {
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .select('*')
+      .eq('id', id)
+      .single();
+    
+    if (error) {
+      console.error('Error fetching blog post by ID:', error);
+      return mockPosts.find(post => post.id === id) || null;
     }
-  },
+    
+    return data as BlogPost;
+  } catch (error) {
+    console.error('Error in getPostById:', error);
+    return mockPosts.find(post => post.id === id) || null;
+  }
+};
 
-  // Create a new blog post
-  async createPost(post: Omit<BlogPost, "id">): Promise<BlogPost | null> {
-    try {
-      // In a production environment, this would insert into Supabase
-      // For mock purposes, we're just returning the first post
-      return {
-        ...post,
-        id: Math.max(...mockBlogPosts.map(p => p.id)) + 1
-      };
-    } catch (error) {
-      console.error("Error creating blog post:", error);
-      return null;
+// Create a new blog post
+export const createPost = async (post: Omit<BlogPost, 'id'>): Promise<BlogPost | null> => {
+  try {
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .insert([post])
+      .select()
+      .single();
+    
+    if (error) {
+      console.error('Error creating blog post:', error);
+      throw new Error(`Failed to create post: ${error.message}`);
     }
-  },
+    
+    return data as BlogPost;
+  } catch (error) {
+    console.error('Error in createPost:', error);
+    throw error;
+  }
+};
 
-  // Update an existing blog post
-  async updatePost(id: number, post: Partial<BlogPost>): Promise<BlogPost | null> {
-    try {
-      // In a production environment, this would update in Supabase
-      // For mock purposes, we're just returning the first post
-      const existingPost = mockBlogPosts.find(p => p.id === id);
-      if (!existingPost) return null;
-      
-      return {
-        ...existingPost,
-        ...post
-      };
-    } catch (error) {
-      console.error(`Error updating blog post with id ${id}:`, error);
-      return null;
+// Update an existing blog post
+export const updatePost = async (id: number, post: Partial<BlogPost>): Promise<BlogPost | null> => {
+  try {
+    const { data, error } = await supabase
+      .from('blog_posts')
+      .update(post)
+      .eq('id', id)
+      .select()
+      .single();
+    
+    if (error) {
+      console.error('Error updating blog post:', error);
+      throw new Error(`Failed to update post: ${error.message}`);
     }
-  },
+    
+    return data as BlogPost;
+  } catch (error) {
+    console.error('Error in updatePost:', error);
+    throw error;
+  }
+};
 
-  // Delete a blog post
-  async deletePost(id: number): Promise<boolean> {
-    try {
-      // In a production environment, this would delete from Supabase
-      return true;
-    } catch (error) {
-      console.error(`Error deleting blog post with id ${id}:`, error);
+// Delete a blog post
+export const deletePost = async (id: number): Promise<boolean> => {
+  try {
+    const { error } = await supabase
+      .from('blog_posts')
+      .delete()
+      .eq('id', id);
+    
+    if (error) {
+      console.error('Error deleting blog post:', error);
       return false;
     }
+    
+    return true;
+  } catch (error) {
+    console.error('Error in deletePost:', error);
+    return false;
   }
+};
+
+export const blogService = {
+  getAllPosts,
+  getPostBySlug,
+  getPostById,
+  createPost,
+  updatePost,
+  deletePost
 };
