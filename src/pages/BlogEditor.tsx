@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -12,6 +13,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/components/ui/use-toast';
+import ImageUploader from '@/components/blog/ImageUploader';
 import {
   Form,
   FormControl,
@@ -281,9 +283,12 @@ const BlogEditor = () => {
                 name="cover"
                 render={({ field }) => (
                   <FormItem>
-                    <FormLabel>Cover Image URL</FormLabel>
+                    <FormLabel>Cover Image</FormLabel>
                     <FormControl>
-                      <Input placeholder="/path/to/image.jpg" {...field} />
+                      <ImageUploader 
+                        value={field.value} 
+                        onChange={field.onChange} 
+                      />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
@@ -317,8 +322,11 @@ const BlogEditor = () => {
                     <div className="mb-2 text-sm text-gray-500">
                       <p>Supports markdown-style formatting:</p>
                       <ul className="list-disc list-inside ml-2 mt-1">
+                        <li># For H1 headings</li>
                         <li>## For H2 headings</li>
                         <li>### For H3 headings</li>
+                        <li>**text** for bold text</li>
+                        <li>- Item for unordered lists</li>
                         <li>[Link text](https://example.com) for links</li>
                         <li>Separate paragraphs with blank lines</li>
                       </ul>
