@@ -1,98 +1,129 @@
+
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://resgato.com/</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
   </url>
   <url>
     <loc>https://resgato.com/about</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resgato.com/services</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
     <loc>https://resgato.com/contact</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
     <loc>https://resgato.com/blog</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://resgato.com/blog/seo-in-the-age-of-ai</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://resgato.com/blog/ppc-vs-performance-max</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://resgato.com/blog/digital-marketing-for-small-businesses</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://resgato.com/blog/importance-of-sms-marketing</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://resgato.com/blog/email-marketing-to-local-customers</loc>
+    <lastmod>2025-05-19</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://resgato.com/seo</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://resgato.com/ppc</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://resgato.com/email-marketing</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://resgato.com/strategic-consulting</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://resgato.com/ai-consulting</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://resgato.com/social-media-marketing</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://resgato.com/content-strategy</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://resgato.com/utah-real-estate-marketing</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://resgato.com/digital-strategy-consulting-salt-lake-city</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://resgato.com/salt-lake-city-ppc-agency</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
   <url>
     <loc>https://resgato.com/utah-sem-services</loc>
-    <lastmod>2025-04-15</lastmod>
+    <lastmod>2025-05-19</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

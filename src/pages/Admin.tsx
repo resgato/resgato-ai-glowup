@@ -1,18 +1,23 @@
+
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { blogService } from '@/services/blogService';
+import { addNewBlogPosts } from '@/utils/blogPostsData';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/FooterAdminLink';
 import { Button } from '@/components/ui/button';
-import { FileEdit, LogOut, MessageSquare, BookOpen } from 'lucide-react';
+import { FileEdit, LogOut, MessageSquare, BookOpen, Plus } from 'lucide-react';
+import { useToast } from '@/components/ui/use-toast';
 
 const Admin = () => {
   const navigate = useNavigate();
+  const { toast } = useToast();
   const [loading, setLoading] = useState(true);
   const [contactCount, setContactCount] = useState(0);
   const [blogCount, setBlogCount] = useState(0);
   const [userName, setUserName] = useState('');
+  const [addingPosts, setAddingPosts] = useState(false);
 
   useEffect(() => {
     const checkSession = async () => {
@@ -46,6 +51,40 @@ const Admin = () => {
   const handleLogout = async () => {
     await supabase.auth.signOut();
     navigate('/');
+  };
+
+  const handleAddSamplePosts = async () => {
+    setAddingPosts(true);
+    try {
+      const result = await addNewBlogPosts();
+      if (result.success) {
+        const successCount = result.results.filter(r => r.status === 'success').length;
+        const skipCount = result.results.filter(r => r.status === 'skipped').length;
+        
+        toast({
+          title: "Blog Posts Added",
+          description: `Successfully added ${successCount} new blog posts. ${skipCount} posts were skipped (already exist).`,
+        });
+        
+        // Refresh blog count
+        const posts = await blogService.getAllPosts();
+        setBlogCount(posts.length);
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: result.message || "Failed to add sample blog posts",
+        });
+      }
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: error.message || "An error occurred while adding sample blog posts",
+      });
+    } finally {
+      setAddingPosts(false);
+    }
   };
 
   if (loading) {
@@ -112,7 +151,7 @@ const Admin = () => {
             <div className="space-y-3">
               <Button asChild className="w-full justify-start" variant="outline">
                 <Link to="/admin/blogs/new" className="flex items-center gap-2">
-                  <BookOpen className="w-4 h-4" />
+                  <Plus className="w-4 h-4" />
                   Create New Blog Post
                 </Link>
               </Button>
@@ -121,6 +160,24 @@ const Admin = () => {
                   <FileEdit className="w-4 h-4" />
                   Edit Existing Blog Posts
                 </Link>
+              </Button>
+              <Button 
+                className="w-full justify-start" 
+                variant="outline"
+                onClick={handleAddSamplePosts}
+                disabled={addingPosts}
+              >
+                {addingPosts ? (
+                  <>
+                    <span className="w-4 h-4 mr-2 rounded-full border-2 border-t-transparent border-blue-500 animate-spin"></span>
+                    Adding Sample Posts...
+                  </>
+                ) : (
+                  <>
+                    <Plus className="w-4 h-4 mr-2" />
+                    Add Sample Blog Posts
+                  </>
+                )}
               </Button>
             </div>
           </div>
