@@ -1,7 +1,8 @@
+
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
-import { blogService } from '@/services/blogService';
+import { blogService } from '@/services/blog';
 import { BlogPost } from '@/types/blog';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/FooterAdminLink';

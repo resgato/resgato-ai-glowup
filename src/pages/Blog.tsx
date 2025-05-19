@@ -1,6 +1,7 @@
+
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
-import { blogService } from '@/services/blogService';
+import { blogService } from '@/services/blog';
 import { BlogPost } from '@/types/blog';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -27,8 +28,10 @@ const Blog = () => {
           setPosts(data);
           setFeaturedPost(data[0]);
           
-          // Extract unique categories
-          const uniqueCategories = Array.from(new Set(data.map(post => post.category)));
+          // Extract unique categories - fixed with proper type casting
+          const uniqueCategories = Array.from(
+            new Set(data.map(post => post.category))
+          ) as string[];
           setCategories(uniqueCategories);
         }
       } catch (error) {
