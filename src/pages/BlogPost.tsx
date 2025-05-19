@@ -10,6 +10,7 @@ import { Calendar, Clock, Tag, User, ArrowLeft, ArrowRight } from 'lucide-react'
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import PageHelmet from '@/components/PageHelmet';
+import BlogContent from '@/components/blog/BlogContent';
 
 const BlogPost = () => {
   const { slug } = useParams<{ slug: string }>();
@@ -147,9 +148,7 @@ const BlogPost = () => {
           <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="bg-white rounded-lg shadow-lg p-6 md:p-10">
               <article className="prose prose-lg max-w-none">
-                {post.content.split('\n\n').map((paragraph, idx) => (
-                  <p key={idx}>{paragraph}</p>
-                ))}
+                <BlogContent content={post.content} />
               </article>
               
               <div className="mt-10 pt-8 border-t">

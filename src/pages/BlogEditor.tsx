@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
@@ -122,6 +121,12 @@ const BlogEditor = () => {
       fetchPost();
     }
   }, [id, isEditMode, navigate]);
+
+  // Helper function to format content with proper rich text features
+  const formatContentHelper = (text: string) => {
+    // This is just a helper for the form - the real parsing happens in BlogContent.tsx
+    return text;
+  };
 
   const onSubmit = async (values: BlogFormValues) => {
     setIsLoading(true);
@@ -309,10 +314,19 @@ const BlogEditor = () => {
                 render={({ field }) => (
                   <FormItem>
                     <FormLabel>Content</FormLabel>
+                    <div className="mb-2 text-sm text-gray-500">
+                      <p>Supports markdown-style formatting:</p>
+                      <ul className="list-disc list-inside ml-2 mt-1">
+                        <li>## For H2 headings</li>
+                        <li>### For H3 headings</li>
+                        <li>[Link text](https://example.com) for links</li>
+                        <li>Separate paragraphs with blank lines</li>
+                      </ul>
+                    </div>
                     <FormControl>
                       <Textarea 
                         placeholder="Write your blog post content here..." 
-                        className="min-h-[300px]"
+                        className="min-h-[300px] font-mono"
                         {...field} 
                       />
                     </FormControl>
