@@ -4,12 +4,13 @@ import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { blogService } from '@/services/blog';
 import { BlogPost } from '@/types/blog';
+import { addNewBlogPosts } from '@/utils/blogPostsData';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/FooterAdminLink';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
-import { AlertTriangle, Edit, Plus, Trash } from 'lucide-react';
+import { AlertTriangle, Edit, Plus, Trash, BookPlus } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
 const BlogAdmin = () => {
@@ -17,6 +18,7 @@ const BlogAdmin = () => {
   const [loading, setLoading] = useState(true);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [postToDelete, setPostToDelete] = useState<BlogPost | null>(null);
+  const [addingPosts, setAddingPosts] = useState(false);
   const { toast } = useToast();
   const navigate = useNavigate();
 
@@ -81,18 +83,68 @@ const BlogAdmin = () => {
     }
   };
 
+  const handleAddSamplePosts = async () => {
+    setAddingPosts(true);
+    try {
+      const result = await addNewBlogPosts();
+      
+      if (result.success) {
+        const successCount = result.results.filter(r => r.status === 'success').length;
+        const skipCount = result.results.filter(r => r.status === 'skipped').length;
+        
+        toast({
+          title: "Blog Posts Added",
+          description: `Successfully added ${successCount} new blog posts. ${skipCount} posts were skipped (already exist).`,
+        });
+        
+        // Refresh the blog post list
+        fetchPosts();
+      } else {
+        toast({
+          variant: "destructive",
+          title: "Error",
+          description: result.message || "Failed to add sample blog posts",
+        });
+      }
+    } catch (error: any) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: error.message || "An error occurred while adding sample blog posts",
+      });
+    } finally {
+      setAddingPosts(false);
+    }
+  };
+
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
       <main className="flex-grow container mx-auto px-4 py-10">
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold">Blog Management</h1>
-          <Button asChild>
-            <Link to="/admin/blogs/new" className="flex items-center gap-2">
-              <Plus className="h-4 w-4" />
-              Add New Blog Post
-            </Link>
-          </Button>
+          <div className="flex gap-4">
+            <Button onClick={handleAddSamplePosts} disabled={addingPosts} variant="outline" className="flex items-center gap-2">
+              {addingPosts ? (
+                <>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-700"></div>
+                  Adding Posts...
+                </>
+              ) : (
+                <>
+                  <BookPlus className="h-4 w-4" />
+                  Add Sample Posts
+                </>
+              )}
+            </Button>
+            
+            <Button asChild>
+              <Link to="/admin/blogs/new" className="flex items-center gap-2">
+                <Plus className="h-4 w-4" />
+                Add New Blog Post
+              </Link>
+            </Button>
+          </div>
         </div>
         
         {loading ? (
@@ -103,12 +155,27 @@ const BlogAdmin = () => {
           <div className="bg-gray-50 rounded-lg p-10 text-center">
             <h3 className="text-xl mb-2">No blog posts found</h3>
             <p className="text-gray-600 mb-4">Get started by adding your first blog post.</p>
-            <Button asChild>
-              <Link to="/admin/blogs/new" className="flex items-center gap-2 mx-auto w-fit">
-                <Plus className="h-4 w-4" />
-                Add New Blog Post
-              </Link>
-            </Button>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button onClick={handleAddSamplePosts} disabled={addingPosts} variant="outline" className="flex items-center gap-2">
+                {addingPosts ? (
+                  <>
+                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-700"></div>
+                    Adding Posts...
+                  </>
+                ) : (
+                  <>
+                    <BookPlus className="h-4 w-4" />
+                    Add Sample Posts
+                  </>
+                )}
+              </Button>
+              <Button asChild>
+                <Link to="/admin/blogs/new" className="flex items-center gap-2">
+                  <Plus className="h-4 w-4" />
+                  Add New Blog Post
+                </Link>
+              </Button>
+            </div>
           </div>
         ) : (
           <div className="overflow-x-auto">
