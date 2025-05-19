@@ -11,16 +11,20 @@ const SITEMAP_ENDPOINT = "https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/
  */
 const triggerSitemapUpdate = async () => {
   try {
+    // Make sure to bypass all caching
+    const uniqueParam = `?t=${new Date().getTime()}`;
     // Simply ping the endpoint to regenerate the sitemap
-    await fetch(SITEMAP_ENDPOINT, { 
+    await fetch(`${SITEMAP_ENDPOINT}${uniqueParam}`, { 
       method: 'GET',
-      cache: 'no-cache', // Ensure no caching
+      cache: 'no-store', // Strongest no-cache setting
       headers: {
         'Accept': 'application/xml',
-        'Cache-Control': 'no-cache'
+        'Cache-Control': 'no-cache, no-store, must-revalidate',
+        'Pragma': 'no-cache',
+        'Expires': '0'
       }
     });
-    console.log('Sitemap update triggered');
+    console.log('Sitemap update triggered successfully');
   } catch (error) {
     // Log error but don't fail the main operation
     console.error('Failed to trigger sitemap update:', error);

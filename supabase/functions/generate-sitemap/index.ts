@@ -41,50 +41,37 @@ serve(async (req: Request) => {
     // Current date for lastmod
     const currentDate = new Date().toISOString().split('T')[0];
     
-    // Generate the sitemap XML with no whitespace before XML declaration
-    let sitemap = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://resgato.com/</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-  <url>
-    <loc>https://resgato.com/about</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://resgato.com/services</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.9</priority>
-  </url>
-  <url>
-    <loc>https://resgato.com/contact</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://resgato.com/blog</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
-  </url>`;
+    // Build the sitemap XML without any leading whitespace
+    let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
+    xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
+    
+    // Add main pages
+    const mainPages = [
+      { url: '/', priority: '1.0' },
+      { url: '/about', priority: '0.8' },
+      { url: '/services', priority: '0.9' },
+      { url: '/contact', priority: '0.8' },
+      { url: '/blog', priority: '0.8', changefreq: 'weekly' }
+    ];
+    
+    for (const page of mainPages) {
+      xml += `  <url>\n`;
+      xml += `    <loc>https://resgato.com${page.url}</loc>\n`;
+      xml += `    <lastmod>${currentDate}</lastmod>\n`;
+      xml += `    <changefreq>${page.changefreq || 'monthly'}</changefreq>\n`;
+      xml += `    <priority>${page.priority}</priority>\n`;
+      xml += `  </url>\n`;
+    }
 
     // Add blog posts
     if (blogPosts) {
       for (const post of blogPosts) {
-        sitemap += `
-  <url>
-    <loc>https://resgato.com/blog/${post.slug}</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>`;
+        xml += `  <url>\n`;
+        xml += `    <loc>https://resgato.com/blog/${post.slug}</loc>\n`;
+        xml += `    <lastmod>${currentDate}</lastmod>\n`;
+        xml += `    <changefreq>monthly</changefreq>\n`;
+        xml += `    <priority>0.7</priority>\n`;
+        xml += `  </url>\n`;
       }
     }
     
@@ -104,23 +91,23 @@ serve(async (req: Request) => {
     ];
     
     for (const page of servicePages) {
-      sitemap += `
-  <url>
-    <loc>https://resgato.com/${page}</loc>
-    <lastmod>${currentDate}</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>`;
+      xml += `  <url>\n`;
+      xml += `    <loc>https://resgato.com/${page}</loc>\n`;
+      xml += `    <lastmod>${currentDate}</lastmod>\n`;
+      xml += `    <changefreq>monthly</changefreq>\n`;
+      xml += `    <priority>0.7</priority>\n`;
+      xml += `  </url>\n`;
     }
 
-    sitemap += `
-</urlset>`;
+    xml += '</urlset>';
 
-    // Create a new response with the sitemap content
-    // Using trim() to ensure no extraneous whitespace
-    return new Response(sitemap.trim(), { 
-      headers: corsHeaders 
-    });
+    // Using a new ResponseInit object to ensure proper headers
+    const responseInit: ResponseInit = {
+      headers: corsHeaders
+    };
+
+    // Create a new response with the XML content that has no whitespace issues
+    return new Response(xml, responseInit);
   } catch (error) {
     console.error('Error generating sitemap:', error);
     return new Response(
