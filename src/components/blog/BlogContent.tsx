@@ -27,8 +27,19 @@ const BlogContent: React.FC<BlogContentProps> = ({ content }) => {
     // This must be processed after the headers to avoid conflicts
     processedContent = processedContent.replace(/^#\s+(?![#\s])/gm, '<div class="text-lg font-semibold my-3">');
     
+    // Convert bold text (**text**)
+    processedContent = processedContent.replace(/\*\*([^*]+)\*\*/g, '<strong>$1</strong>');
+    
     // Convert links - [text](url)
     processedContent = processedContent.replace(/\[([^\]]+)\]\(([^)]+)\)/g, '<a href="$2" class="text-resgato-blue hover:underline" target="_blank" rel="noopener noreferrer">$1</a>');
+    
+    // Process unordered lists
+    // First, identify list items
+    processedContent = processedContent.replace(/^-\s+([^\n]+)/gm, '<li>$1</li>');
+    
+    // Then wrap consecutive list items in a ul tag
+    // This regex finds consecutive list items and wraps them in a ul
+    processedContent = processedContent.replace(/(<li>.*?<\/li>(\s*<li>.*?<\/li>)*)/gs, '<ul class="list-disc pl-6 my-4">$1</ul>');
     
     // Convert paragraphs - each double newline becomes a paragraph
     processedContent = processedContent.replace(/\n\n/g, '</p><p class="my-4">');
