@@ -7,7 +7,8 @@ export const getAllPosts = async (): Promise<BlogPost[]> => {
   try {
     const { data, error } = await supabase
       .from('blog_posts')
-      .select('*');
+      .select('*')
+      .order('id', { ascending: false });
     
     if (error) {
       console.error('Error fetching blog posts:', error);
@@ -109,6 +110,13 @@ export const getPostById = async (id: number): Promise<BlogPost | null> => {
 // Create a new blog post
 export const createPost = async (post: Omit<BlogPost, 'id'>): Promise<BlogPost | null> => {
   try {
+    // Check if user is authenticated
+    const { data: sessionData } = await supabase.auth.getSession();
+    if (!sessionData.session) {
+      console.error('User not authenticated');
+      return null;
+    }
+
     const { data, error } = await supabase
       .from('blog_posts')
       .insert([
@@ -154,6 +162,13 @@ export const createPost = async (post: Omit<BlogPost, 'id'>): Promise<BlogPost |
 // Update an existing blog post
 export const updatePost = async (id: number, post: Partial<BlogPost>): Promise<BlogPost | null> => {
   try {
+    // Check if user is authenticated
+    const { data: sessionData } = await supabase.auth.getSession();
+    if (!sessionData.session) {
+      console.error('User not authenticated');
+      return null;
+    }
+    
     const { data, error } = await supabase
       .from('blog_posts')
       .update({
@@ -198,6 +213,13 @@ export const updatePost = async (id: number, post: Partial<BlogPost>): Promise<B
 // Delete a blog post
 export const deletePost = async (id: number): Promise<boolean> => {
   try {
+    // Check if user is authenticated
+    const { data: sessionData } = await supabase.auth.getSession();
+    if (!sessionData.session) {
+      console.error('User not authenticated');
+      return false;
+    }
+    
     const { error } = await supabase
       .from('blog_posts')
       .delete()
