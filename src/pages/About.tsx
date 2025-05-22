@@ -51,7 +51,7 @@ const About = () => {
 
         {/* Our Story Section */}
         <section className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
             <div>
               <h2 className="section-title">Our Story</h2>
               <p className="text-lg text-gray-700 mb-6">
@@ -64,50 +64,70 @@ const About = () => {
                 Today, Resgato stands as Utah's trusted digital marketing partner, offering end-to-end management of your online presence. From SEO optimization to content marketing and PPC campaigns, we provide the expertise and strategic planning needed to elevate your brand in the digital landscape.
               </p>
             </div>
-            <div className="bg-resgato-light-purple rounded-xl p-8">
-              <h3 className="text-2xl font-bold mb-4">Why Choose Resgato?</h3>
-              <ul className="space-y-4">
-                <li className="flex items-start">
-                  <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-gray-800"><span className="font-semibold">Personalized Approach:</span> We recognize the uniqueness of each client and their customers, tailoring our strategies accordingly.</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-gray-800"><span className="font-semibold">Results-Driven:</span> Our focus is on delivering measurable outcomes that align with your business goals and budget.</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-gray-800"><span className="font-semibold">Comprehensive Services:</span> From SEO and PPC to content marketing and social media management, we offer a complete range of digital marketing solutions tailored to your business needs.</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-gray-800"><span className="font-semibold">Strategic Partnership:</span> We position ourselves as an extension of your team, committed to your long-term success.</p>
-                </li>
-                <li className="flex items-start">
-                  <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                    <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                    </svg>
-                  </div>
-                  <p className="text-gray-800"><span className="font-semibold">Local Expertise:</span> Based in Salt Lake City, we bring a deep understanding of both local and national markets.</p>
-                </li>
-              </ul>
+            <div className="space-y-8">
+              <div className="aspect-square w-full overflow-hidden rounded-lg shadow-lg">
+                <img 
+                  src="/resgato-uploads/adagency.jpg" 
+                  alt="Resgato Digital Marketing Agency in Salt Lake City"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Why Choose Us Section */}
+        <section className="py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="section-title">Why Choose Resgato?</h2>
+              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+                As Utah's premier digital marketing agency, we combine technical expertise with strategic thinking to deliver exceptional results for businesses of all sizes.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <h3 className="text-xl font-bold mb-4">Proven Experience</h3>
+                <p className="text-gray-700">
+                  With over a decade of experience in digital marketing, we've helped hundreds of businesses achieve their growth goals through strategic campaigns and expert management.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <h3 className="text-xl font-bold mb-4">Clear Communication</h3>
+                <p className="text-gray-700">
+                  We believe in transparent, regular communication. Our team provides detailed reports and regular updates, ensuring you're always informed about your campaign's performance.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <h3 className="text-xl font-bold mb-4">SMB Expertise</h3>
+                <p className="text-gray-700">
+                  We specialize in helping small and medium-sized businesses grow. Our strategies are tailored to your budget and goals, ensuring maximum ROI for your marketing investment.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <h3 className="text-xl font-bold mb-4">Technical Excellence</h3>
+                <p className="text-gray-700">
+                  Our team includes expert web developers and designers who ensure your digital presence is not just beautiful, but also technically sound and optimized for performance.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <h3 className="text-xl font-bold mb-4">Creative Design</h3>
+                <p className="text-gray-700">
+                  From stunning graphics to compelling content, our creative team crafts visually appealing materials that capture attention and drive engagement across all platforms.
+                </p>
+              </div>
+
+              <div className="bg-white rounded-xl p-8 shadow-lg">
+                <h3 className="text-xl font-bold mb-4">Comprehensive Solutions</h3>
+                <p className="text-gray-700">
+                  We offer end-to-end digital marketing services, from SEO and PPC to content creation and social media management, all under one roof for seamless coordination.
+                </p>
+              </div>
             </div>
           </div>
         </section>
