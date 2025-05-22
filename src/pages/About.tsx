@@ -38,29 +38,29 @@ const About = () => {
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30 py-20">
+        <section className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30 py-12 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <h1 className="text-4xl md:text-5xl font-bold mb-6">
+            <h1 className="text-3xl md:text-5xl font-bold mb-4 md:mb-6">
               Utah's Premier <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Digital Marketing Agency & SEO Firm</span>
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+            <p className="text-lg md:text-xl text-gray-700 max-w-3xl mx-auto">
               As a leading marketing firm in Salt Lake City, we combine expert SEO, PPC, and content marketing strategies with professional management services to drive exceptional results for Utah businesses.
             </p>
           </div>
         </section>
 
         {/* Our Story Section */}
-        <section className="section-container">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+        <section className="section-container py-12 md:py-20">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12 items-start">
             <div>
               <h2 className="section-title">Our Story</h2>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-base md:text-lg text-gray-700 mb-6">
                 Resgato Digital Marketing Agency was founded in 2012 as a premier marketing firm in Salt Lake City, Utah. The name "Resgato" (pronounced 'res-gah-toe') means "to rescue" in Portuguese, reflecting our mission to help businesses avoid obscurity through effective digital marketing strategies and expert management services.
               </p>
-              <p className="text-lg text-gray-700 mb-6">
+              <p className="text-base md:text-lg text-gray-700 mb-6">
                 As a full-service digital marketing agency, we've built our reputation on delivering comprehensive online marketing solutions that combine SEO expertise, strategic content marketing, and professional ad agency services. Our approach is tailored to each client's unique needs, ensuring maximum ROI and sustainable growth.
               </p>
-              <p className="text-lg text-gray-700">
+              <p className="text-base md:text-lg text-gray-700">
                 Today, Resgato stands as Utah's trusted digital marketing partner, offering end-to-end management of your online presence. From SEO optimization to content marketing and PPC campaigns, we provide the expertise and strategic planning needed to elevate your brand in the digital landscape.
               </p>
             </div>
@@ -77,16 +77,16 @@ const About = () => {
         </section>
 
         {/* Why Choose Us Section */}
-        <section className="py-20 bg-gray-50">
+        <section className="py-12 md:py-20 bg-gray-50">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 md:mb-12">
               <h2 className="section-title">Why Choose Resgato?</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 As Utah's premier digital marketing agency, we combine technical expertise with strategic thinking to deliver exceptional results for businesses of all sizes.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
               <div className="bg-white rounded-xl p-8 shadow-lg">
                 <h3 className="text-xl font-bold mb-4">Proven Experience</h3>
                 <p className="text-gray-700">
@@ -132,17 +132,43 @@ const About = () => {
           </div>
         </section>
 
-        {/* Services Section */}
-        <section className="py-20 bg-gray-50">
+        {/* Our Team Section */}
+        <section className="py-12 md:py-20 bg-white">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
+            <div className="text-center mb-8 md:mb-16">
+              <h2 className="section-title">Meet Our Team</h2>
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
+                Our diverse team of experts combines deep knowledge in digital marketing to deliver innovative solutions tailored to your business needs.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+              {teamMembers.map((member, index) => (
+                <Card key={index} className="border-none shadow-lg">
+                  <CardContent className="p-4 md:p-6">
+                    <h3 className="text-lg md:text-xl font-bold text-gray-900">{member.name}</h3>
+                    <p className="text-resgato-purple font-medium mb-2 md:mb-3">{member.position}</p>
+                    <p className="text-sm md:text-base text-gray-600">{member.bio}</p>
+                  </CardContent>
+                </Card>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <CTASection />
+
+        {/* Services Section */}
+        <section className="py-12 md:py-20 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-8 md:mb-12">
               <h2 className="section-title">Our Services</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto">
                 We offer a comprehensive range of digital marketing services tailored to meet your specific business needs.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-8 md:mb-10">
               <Card className="border-none shadow-lg">
                 <CardContent className="p-6">
                   <div className="bg-resgato-light-purple w-14 h-14 rounded-full flex items-center justify-center mb-4">
@@ -220,41 +246,23 @@ const About = () => {
               </Card>
             </div>
 
-            <div className="text-center">
+            <div className="text-center mb-8 md:mb-12">
               <Button asChild className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
                 <Link to="/services">
                   View All Services <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
             </div>
-          </div>
-        </section>
 
-        {/* Our Team Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="section-title">Meet Our Team</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our diverse team of experts combines deep knowledge in digital marketing to deliver innovative solutions tailored to your business needs.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {teamMembers.map((member, index) => (
-                <Card key={index} className="border-none shadow-lg">
-                  <CardContent className="p-6">
-                    <h3 className="text-xl font-bold text-gray-900">{member.name}</h3>
-                    <p className="text-resgato-purple font-medium mb-3">{member.position}</p>
-                    <p className="text-gray-600">{member.bio}</p>
-                  </CardContent>
-                </Card>
-              ))}
+            <div className="aspect-[4/3] w-full max-w-4xl mx-auto overflow-hidden rounded-xl shadow-xl">
+              <img 
+                src="/resgato-uploads/aicoding.jpg" 
+                alt="Resgato's AI and coding expertise in action"
+                className="w-full h-full object-cover"
+              />
             </div>
           </div>
         </section>
-
-        <CTASection />
       </main>
       <Footer />
     </div>
