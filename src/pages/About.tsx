@@ -1,4 +1,3 @@
-
 import React from 'react';
 import PageHelmet from '@/components/PageHelmet';
 import Navbar from '@/components/Navbar';
@@ -42,10 +41,10 @@ const About = () => {
         <section className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
             <h1 className="text-4xl md:text-5xl font-bold mb-6">
-              About <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Resgato</span>
+              Utah's Premier <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Digital Marketing Agency & SEO Firm</span>
             </h1>
             <p className="text-xl text-gray-700 max-w-3xl mx-auto">
-              Founded in 2012, we're a dedicated team of digital marketing experts based in Salt Lake City, Utah, committed to rescuing brands from obscurity.
+              As a leading marketing firm in Salt Lake City, we combine expert SEO, PPC, and content marketing strategies with professional management services to drive exceptional results for Utah businesses.
             </p>
           </div>
         </section>
@@ -56,13 +55,13 @@ const About = () => {
             <div>
               <h2 className="section-title">Our Story</h2>
               <p className="text-lg text-gray-700 mb-6">
-                Resgato Digital Marketing Agency was founded in 2012 by Taylor Brody in Salt Lake City, Utah. The name "Resgato" (pronounced 'res-gah-toe') means "to rescue" in Portuguese, reflecting our mission to help businesses avoid obscurity through effective digital marketing strategies.
+                Resgato Digital Marketing Agency was founded in 2012 as a premier marketing firm in Salt Lake City, Utah. The name "Resgato" (pronounced 'res-gah-toe') means "to rescue" in Portuguese, reflecting our mission to help businesses avoid obscurity through effective digital marketing strategies and expert management services.
               </p>
               <p className="text-lg text-gray-700 mb-6">
-                Since our inception, we've operated on the principle that every client and their customers are unique. This understanding has shaped our approach to digital marketing, where we tailor strategies to each client's specific needs rather than applying a one-size-fits-all solution.
+                As a full-service digital marketing agency, we've built our reputation on delivering comprehensive online marketing solutions that combine SEO expertise, strategic content marketing, and professional ad agency services. Our approach is tailored to each client's unique needs, ensuring maximum ROI and sustainable growth.
               </p>
               <p className="text-lg text-gray-700">
-                Today, Resgato is recognized as a strategic partner for businesses across various industries. We remain committed to our founding mission: elevating brands through well-rounded digital campaigns that deliver timely, realistic results aligned with our clients' budgets and focused on their long-term satisfaction.
+                Today, Resgato stands as Utah's trusted digital marketing partner, offering end-to-end management of your online presence. From SEO optimization to content marketing and PPC campaigns, we provide the expertise and strategic planning needed to elevate your brand in the digital landscape.
               </p>
             </div>
             <div className="bg-resgato-light-purple rounded-xl p-8">
@@ -90,7 +89,7 @@ const About = () => {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <p className="text-gray-800"><span className="font-semibold">Comprehensive Services:</span> From SEO and PPC to social media and email marketing, we offer a complete range of digital marketing solutions.</p>
+                  <p className="text-gray-800"><span className="font-semibold">Comprehensive Services:</span> From SEO and PPC to content marketing and social media management, we offer a complete range of digital marketing solutions tailored to your business needs.</p>
                 </li>
                 <li className="flex items-start">
                   <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
@@ -133,7 +132,7 @@ const About = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-3">SEO Services & Consulting</h3>
                   <p className="text-gray-700 mb-5">
-                    We believe SEO is essential for any online presence, regardless of business size. Our organic search strategies help improve your visibility, drive targeted traffic, and establish your brand as an authority in your industry.
+                    As a leading SEO firm in Utah, we provide comprehensive search engine optimization services that improve your visibility, drive targeted traffic, and establish your brand as an authority. Our expert management ensures your online presence reaches its full potential.
                   </p>
                   <Button asChild variant="outline" className="mt-auto">
                     <Link to="/seo">
@@ -152,7 +151,7 @@ const About = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-3">PPC & SEM</h3>
                   <p className="text-gray-700 mb-5">
-                    Our customized pay-per-click campaigns are developed to lower cost per acquisition and increase return on investment. We handle consultation, planning, campaign creation, and ongoing optimization to ensure maximum ROI.
+                    Our ad agency team specializes in creating and managing targeted PPC campaigns that maximize ROI. We handle everything from consultation and planning to campaign creation and ongoing optimization, ensuring your marketing investment delivers exceptional results.
                   </p>
                   <Button asChild variant="outline" className="mt-auto">
                     <Link to="/ppc">
@@ -190,7 +189,7 @@ const About = () => {
                   </div>
                   <h3 className="text-2xl font-bold mb-3">Email Marketing</h3>
                   <p className="text-gray-700 mb-5">
-                    We develop automated email marketing programs using optimized capture forms, drip campaigns, segmentation, and strong copy. Our email strategies nurture leads, boost customer retention, and drive conversions.
+                    We develop comprehensive email marketing programs with expert management of capture forms, drip campaigns, and segmentation. Our strategic approach to email marketing nurtures leads, boosts retention, and drives measurable results for your business.
                   </p>
                   <Button asChild variant="outline" className="mt-auto">
                     <Link to="/email-marketing">
