@@ -18,8 +18,12 @@ export const getAllPosts = async (): Promise<BlogPost[]> => {
       throw error;
     }
 
+    console.log('Raw blog posts data:', data);
+
     // Transform data to match BlogPost type
     const blogPosts = data.map(post => transformBlogPostData(post));
+    
+    console.log('Transformed blog posts:', blogPosts);
     
     return blogPosts;
   } catch (error) {
