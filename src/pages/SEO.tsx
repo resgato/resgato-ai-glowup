@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -14,14 +13,15 @@ const SEO = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHelmet 
-        title="Salt Lake City SEO Services" 
-        description="Resgato offers expert SEO services in Salt Lake City. Improve your search engine rankings, drive organic traffic, and increase conversions with our Utah SEO specialists." 
+        title="Utah SEO Services | Salt Lake City SEO Agency"
+        description="Expert SEO services in Utah that boost your local search rankings. Our data-driven approach helps Salt Lake City businesses increase organic traffic and generate more qualified leads."
         keywords="utah sem services, salt lake city seo agency, salt lake city digital marketing agency, seo services utah, local seo salt lake city"
         canonicalUrl="/seo"
       /> 
 
       <Navbar />
       <main className="flex-grow">
+        <h1 className="sr-only">Utah SEO Services | Salt Lake City SEO Agency</h1>
         <SEOHero />
         <SEOStrategy />
         <SEOResults />

@@ -42,7 +42,11 @@ const Contact = () => {
 
     return (
         <div className="min-h-screen flex flex-col">
-          <PageHelmet title="Contact" description="Ready to transform your digital marketing with AI? Our team is here to help you get started." />
+          <PageHelmet 
+            title="Contact Resgato | Utah Digital Marketing Agency"
+            description="Ready to grow your Utah business? Get a free digital marketing consultation with Resgato's experts. We'll analyze your current strategy and provide actionable insights to improve your results."
+            canonicalUrl="/contact"
+          />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

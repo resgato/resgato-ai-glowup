@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -50,7 +49,11 @@ const SocialMediaMarketing = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="Social Media Marketing" description="Build brand awareness, engage with your audience, and drive conversions through strategic social media marketing tailored to your business goals." />
+      <PageHelmet 
+        title="Utah Social Media Marketing | Salt Lake City Social Media Agency"
+        description="Transform your social media presence with Resgato's expert social media marketing services. We create engaging content and targeted campaigns that build your brand and drive conversions in Utah."
+        canonicalUrl="/social-media-marketing"
+      />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

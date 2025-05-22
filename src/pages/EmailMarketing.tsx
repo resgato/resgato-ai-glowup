@@ -15,6 +15,7 @@ const EmailMarketing = () => {
       <PageHelmet title="Email Marketing" description="Reach potential and current customers with our customized email marketing campaigns that convert and deliver impressive ROI." />
       <Navbar />
       <main className="flex-grow">
+        <h1 className="sr-only">Utah Email Marketing Services | Salt Lake City Email Marketing Agency</h1>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

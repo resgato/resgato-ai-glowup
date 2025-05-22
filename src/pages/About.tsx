@@ -34,9 +34,14 @@ const About = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="About Resgato" description="Resgato is a digital marketing & AI agency that helps businesses through effective digital marketing and ai strategies." />
+      <PageHelmet 
+        title="About Resgato | Utah's Premier Digital Marketing Agency"
+        description="Meet Resgato, Salt Lake City's trusted digital marketing partner. Our team of certified experts combines local market knowledge with cutting-edge strategies to deliver exceptional results for Utah businesses."
+        canonicalUrl="/about"
+      />
       <Navbar />
       <main className="flex-grow">
+        <h1 className="sr-only">About Resgato | Utah's Premier Digital Marketing Agency</h1>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30 py-12 md:py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">

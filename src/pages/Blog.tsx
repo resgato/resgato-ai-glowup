@@ -71,11 +71,11 @@ const Blog = () => {
       />
       <Navbar />
       <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="bg-resgato-navy text-white py-16 md:py-24">
+        <h1 className="sr-only">Resgato Blog | Digital Marketing Insights & Tips</h1>
+        <section className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Insights & Expertise</h1>
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Digital Marketing Blog</h1>
               <p className="text-xl md:text-2xl max-w-2xl mb-8">The latest strategies, trends, and insights from the world of digital marketing.</p>
             </div>
           </div>

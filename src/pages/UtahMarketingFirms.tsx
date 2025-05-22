@@ -60,7 +60,7 @@ const UtahMarketingFirms = () => {
     <div className="min-h-screen bg-gray-50">
       <PageHelmet 
         title="Top Marketing Firms in Utah | Resgato Digital Marketing Agency"
-        description="Discover Utah's leading marketing agencies. Compare services, expertise, and results to find the perfect marketing partner for your business growth."
+        description="Compare Utah's leading marketing agencies and find your perfect match. Our comprehensive guide helps you evaluate services, expertise, and results to make an informed decision for your business."
         canonicalUrl="/utah-marketing-firms"
       />
       <Navbar />

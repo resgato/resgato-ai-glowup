@@ -30,6 +30,7 @@ const PPC = () => {
       />
       <Navbar />
       <main className="flex-grow">
+        <h1 className="sr-only">Utah PPC Services | Salt Lake City PPC Agency</h1>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30 py-20">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

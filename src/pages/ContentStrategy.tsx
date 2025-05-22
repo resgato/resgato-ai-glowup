@@ -33,7 +33,11 @@ const ContentStrategy = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="Content Strategy Services" description="Develop a comprehensive content strategy that engages your audience, supports your SEO efforts, and drives conversions." />
+      <PageHelmet 
+        title="Content Strategy Services | Utah Content Marketing Agency"
+        description="Drive engagement and conversions with our expert content strategy services. We create compelling, SEO-optimized content that resonates with your Utah audience and achieves your business goals."
+        canonicalUrl="/content-strategy"
+      />
       <Navbar />
       <main className="flex-grow">
         <ServiceHero 

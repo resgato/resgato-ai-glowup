@@ -1,4 +1,3 @@
-
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
@@ -38,13 +37,14 @@ const Services = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHelmet 
-        title="Salt Lake City Digital Marketing & AI Services" 
-        description="Discover how our AI-powered digital marketing solutions can help your Utah business achieve exceptional results with SEO, PPC, and SEM services." 
+        title="Digital Marketing Services | Resgato"
+        description="Comprehensive digital marketing services in Utah: SEO, PPC, social media, content strategy, and AI solutions. Custom strategies that drive real business growth and ROI."
         keywords="salt lake city marketing agencies, digital marketing agency salt lake city, utah sem companies, salt lake city ppc agency, utah ppc consultant, digital strategy consulting salt lake city, marketing firms in utah, ad agency salt lake city"
         canonicalUrl="/services"
       />
       <Navbar />
       <main className="flex-grow">
+        <h1 className="sr-only">Digital Marketing Services in Utah | Resgato</h1>
         <ServiceHero 
           title="Salt Lake City Marketing Services"
           description="Discover how our AI-powered marketing solutions can help your Utah business achieve exceptional results with our digital strategy consulting."

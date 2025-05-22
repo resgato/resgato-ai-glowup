@@ -16,11 +16,12 @@ const Index = () => {
     <div className="min-h-screen bg-gray-50">
       <PageHelmet 
         title="Resgato | Leading Salt Lake City Marketing Agency & Utah PPC Services"
-        description="Utah's premier digital marketing and AI agency specializing in SEO, PPC, and AI solutions. Drive growth with our data-driven strategies and expert team."
+        description="Utah's premier digital marketing agency in Salt Lake City. Expert SEO, PPC, and AI solutions that drive measurable growth. Get a free consultation with our certified marketing specialists."
         canonicalUrl="/"
       />
       <Navbar />
       <main className="flex-grow">
+        <h1 className="sr-only">Resgato | Utah's Premier Digital Marketing Agency in Salt Lake City</h1>
         <HeroSection />
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link 
