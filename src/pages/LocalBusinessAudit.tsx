@@ -33,10 +33,10 @@ const LocalBusinessAudit = () => {
           {
             business_name: formData.businessName,
             name: formData.name,
-            email: formData.email,
-            phone: formData.phone,
-            created_at: new Date().toISOString(),
-          },
+            business_email: formData.email,
+            business_phone: formData.phone,
+            email_sent: false
+          }
         ]);
 
       if (error) throw error;
