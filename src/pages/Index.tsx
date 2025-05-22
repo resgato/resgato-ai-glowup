@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import HeroSection from '@/components/HeroSection';
@@ -23,14 +22,6 @@ const Index = () => {
       <main className="flex-grow">
         <h1 className="sr-only">Resgato | Utah's Premier Digital Marketing Agency in Salt Lake City</h1>
         <HeroSection />
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <Link 
-            to="/contact"
-            className="inline-block bg-resgato-blue text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-resgato-blue/90 transition-colors"
-          >
-            Get Started
-          </Link>
-        </div>
         <StatsSection />
         <AboutSection />
         <ServicesSection />
