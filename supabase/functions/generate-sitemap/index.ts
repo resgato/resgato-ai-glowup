@@ -41,7 +41,7 @@ serve(async (req: Request) => {
     // Current date for lastmod
     const currentDate = new Date().toISOString().split('T')[0];
     
-    // Build the sitemap XML without any leading whitespace
+    // Build the sitemap XML line by line with NO whitespace before XML declaration
     let xml = '<?xml version="1.0" encoding="UTF-8"?>\n';
     xml += '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n';
     
@@ -77,25 +77,26 @@ serve(async (req: Request) => {
     
     // Add static service pages
     const servicePages = [
-      'seo',
-      'ppc',
-      'email-marketing',
-      'strategic-consulting',
-      'ai-consulting',
-      'social-media-marketing',
-      'content-strategy',
-      'utah-real-estate-marketing',
-      'digital-strategy-consulting-salt-lake-city',
-      'salt-lake-city-ppc-agency',
-      'utah-sem-services'
+      { url: 'seo', priority: '0.7' },
+      { url: 'ppc', priority: '0.7' },
+      { url: 'email-marketing', priority: '0.7' },
+      { url: 'strategic-consulting', priority: '0.7' },
+      { url: 'ai-consulting', priority: '0.7' },
+      { url: 'social-media-marketing', priority: '0.7' },
+      { url: 'content-strategy', priority: '0.7' },
+      { url: 'utah-real-estate-marketing', priority: '0.7' },
+      { url: 'utah-marketing-firms', priority: '0.8' },
+      { url: 'digital-strategy-consulting-salt-lake-city', priority: '0.7' },
+      { url: 'salt-lake-city-ppc-agency', priority: '0.7' },
+      { url: 'utah-sem-services', priority: '0.7' }
     ];
     
     for (const page of servicePages) {
       xml += `  <url>\n`;
-      xml += `    <loc>https://resgato.com/${page}</loc>\n`;
+      xml += `    <loc>https://resgato.com/${page.url}</loc>\n`;
       xml += `    <lastmod>${currentDate}</lastmod>\n`;
       xml += `    <changefreq>monthly</changefreq>\n`;
-      xml += `    <priority>0.7</priority>\n`;
+      xml += `    <priority>${page.priority}</priority>\n`;
       xml += `  </url>\n`;
     }
 
