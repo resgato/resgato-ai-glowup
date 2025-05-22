@@ -1,5 +1,4 @@
 
-import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';

@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { Linkedin, Instagram, Facebook } from 'lucide-react';
 import { Separator } from '@/components/ui/separator';
 
