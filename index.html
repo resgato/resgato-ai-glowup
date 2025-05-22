@@ -5,9 +5,23 @@
     <link rel="icon" type="image/svg+xml" href="/resgato-favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffffff" />
+    <title>Resgato | Utah's Premier Digital Marketing Agency</title>
+    <script>
+      // Add error handling for failed script loading
+      window.addEventListener('error', function(e) {
+        if (e.target.tagName === 'SCRIPT') {
+          console.error('Script failed to load:', e.target.src);
+        }
+      }, true);
+    </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
+    <noscript>
+      <div style="text-align: center; padding: 20px;">
+        Please enable JavaScript to view this website.
+      </div>
+    </noscript>
   </body>
 </html>
