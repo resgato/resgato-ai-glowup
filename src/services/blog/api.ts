@@ -1,30 +1,48 @@
-
 import { supabase } from '@/integrations/supabase/client';
 import { BlogPost } from '@/types/blog';
-import { RawBlogPostData } from './types';
+import { BlogServiceResponse } from './types';
 
 /**
- * Transform raw blog post data from the database into the BlogPost type
+ * Base function to check authentication status
  */
-export function transformBlogPostData(data: RawBlogPostData): BlogPost {
-  return {
-    id: data.id,
-    slug: data.slug,
-    title: data.title || '', // Handle null by providing empty string
-    excerpt: data.excerpt || '',
-    cover: data.cover || '',
-    date: data.date || '',
-    author: data.author || '',
-    readTime: data.readTime || '',
-    category: data.category || '',
-    content: data.content || ''
-  };
+export const checkAuth = async (): Promise<boolean> => {
+  const { data: sessionData } = await supabase.auth.getSession();
+  return !!sessionData.session;
+};
+
+interface RawBlogPostData {
+  id: number;
+  slug: string;
+  title?: string;
+  excerpt?: string;
+  cover?: string;
+  date?: string;
+  author?: string;
+  readTime?: string;
+  category?: string;
+  content?: string;
 }
 
 /**
- * Check if user is authenticated for protected operations
+ * Transform raw Supabase data to a BlogPost object
  */
-export async function checkAuth(): Promise<boolean> {
-  const { data } = await supabase.auth.getSession();
-  return !!data.session;
-}
+export const transformBlogPostData = (data: RawBlogPostData): BlogPost => ({
+  id: data.id,
+  slug: data.slug,
+  title: data.title || '',
+  excerpt: data.excerpt || '',
+  cover: data.cover || '',
+  date: data.date || '',
+  author: data.author || '',
+  readTime: data.readTime || '',
+  category: data.category || '',
+  content: data.content || ''
+});
+
+export const handleApiError = (error: unknown): string => {
+  if (error instanceof Error) {
+    return error.message;
+  }
+  return "An unexpected error occurred";
+};
+

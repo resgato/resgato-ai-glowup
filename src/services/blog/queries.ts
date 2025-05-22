@@ -1,7 +1,7 @@
-
 import { supabase } from '@/integrations/supabase/client';
 import { BlogPost } from '@/types/blog';
 import { transformBlogPostData } from './api';
+import { BlogServiceResponse } from './types';
 
 /**
  * Get all blog posts from Supabase

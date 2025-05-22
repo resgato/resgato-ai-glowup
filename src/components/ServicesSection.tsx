@@ -1,4 +1,5 @@
 
+import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Search, Mail, BarChart, MessageSquare, Users, Calendar, Bot } from 'lucide-react';
 import { Link } from 'react-router-dom';
