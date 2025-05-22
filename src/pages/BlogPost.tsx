@@ -84,18 +84,12 @@ const BlogPost = () => {
 
   return (
     <>
-      <Helmet>
-        <title>{post.title} | Resgato Blog</title>
-        <meta name="description" content={post.excerpt} />
-        <meta property="og:title" content={`${post.title} | Resgato Blog`} />
-        <meta property="og:description" content={post.excerpt} />
-        <meta property="og:image" content={post.cover} />
-        <meta property="og:type" content="article" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={`${post.title} | Resgato Blog`} />
-        <meta name="twitter:description" content={post.excerpt} />
-        <meta name="twitter:image" content={post.cover} />
-      </Helmet>
+      <PageHelmet 
+        title={`${post.title} | Resgato Blog`}
+        description={post.excerpt}
+        canonicalUrl={`/blog/${post.slug}`}
+        image={post.cover}
+      />
 
       <StructuredData 
         type="article" 
