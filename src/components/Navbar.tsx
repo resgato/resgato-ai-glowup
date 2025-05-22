@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
@@ -38,8 +37,6 @@ const Navbar = () => {
             <Link to="/about" className="text-gray-700 hover:text-resgato-blue font-medium transition-colors">
               About
             </Link>
-            
-            {/* Services Dropdown Menu */}
             <NavigationMenu>
               <NavigationMenuList>
                 <NavigationMenuItem>

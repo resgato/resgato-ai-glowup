@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Helmet, HelmetProvider } from 'react-helmet-async';
 import Navbar from '@/components/Navbar';
@@ -10,6 +9,7 @@ import CTASection from '@/components/CTASection';
 import StatsSection from '@/components/StatsSection';
 import AboutSection from '@/components/AboutSection';
 import PlatformsWeSupport from '@/components/PlatformsWeSupport';
+import { Link } from 'react-router-dom';
 
 const Index = () => {
   return (
@@ -66,6 +66,14 @@ const Index = () => {
         <Navbar />
         <main className="flex-grow">
           <HeroSection />
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link 
+              to="/contact"
+              className="inline-block bg-resgato-blue text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-resgato-blue/90 transition-colors"
+            >
+              Get Started
+            </Link>
+          </div>
           <StatsSection />
           <AboutSection />
           <ServicesSection />
