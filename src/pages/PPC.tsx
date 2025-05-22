@@ -24,7 +24,7 @@ const PPC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <PageHelmet 
-        title="Utah PPC Agency | Google Ads & PPC Marketing Services | Resgato"
+        title="Utah PPC Services | Salt Lake City PPC Agency"
         description="Expert PPC management services in Utah. Drive targeted traffic and maximize ROI with our data-driven Google Ads and PPC marketing strategies."
         canonicalUrl="/ppc"
       />

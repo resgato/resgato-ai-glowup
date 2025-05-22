@@ -12,7 +12,11 @@ import PageHelmet from '@/components/PageHelmet';
 const EmailMarketing = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="Email Marketing" description="Reach potential and current customers with our customized email marketing campaigns that convert and deliver impressive ROI." />
+      <PageHelmet 
+        title="Utah Email Marketing Services | Salt Lake City Email Marketing Agency"
+        description="Reach potential and current customers with our customized email marketing campaigns that convert and deliver impressive ROI."
+        canonicalUrl="/email-marketing"
+      />
       <Navbar />
       <main className="flex-grow">
         <h1 className="sr-only">Utah Email Marketing Services | Salt Lake City Email Marketing Agency</h1>
