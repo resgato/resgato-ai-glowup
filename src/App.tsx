@@ -26,6 +26,7 @@ import ContentStrategy from "./pages/ContentStrategy";
 import UtahRealEstateMarketing from "./pages/UtahRealEstateMarketing";
 import UtahMarketingFirms from "./pages/UtahMarketingFirms";
 import ScrollToTop from "@/components/ScrollToTop";
+import LocalBusinessAudit from "./pages/LocalBusinessAudit";
 
 // Updated QueryClient configuration to be compatible with React Query v5
 const queryClient = new QueryClient({
@@ -72,6 +73,7 @@ const App = () => (
           <Route path="/admin/blogs/edit/:id" element={<BlogEditor />} />
           <Route path="/utah-real-estate-marketing" element={<UtahRealEstateMarketing />} />
           <Route path="/utah-marketing-firms" element={<UtahMarketingFirms />} />
+          <Route path="/local-business-audit" element={<LocalBusinessAudit />} />
           <Route path="/blog/utah-real-estate-marketing" element={<Navigate to="/utah-real-estate-marketing" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>
