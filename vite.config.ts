@@ -8,10 +8,10 @@ export default defineConfig({
   server: {
     host: "::",
     port: 8080,
+    strictPort: true,
+    open: true,
   },
-  plugins: [
-    react(),
-  ],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
@@ -22,6 +22,7 @@ export default defineConfig({
     assetsDir: 'assets',
     emptyOutDir: true,
     sourcemap: true,
+    minify: false,
     rollupOptions: {
       output: {
         manualChunks: {
@@ -29,5 +30,8 @@ export default defineConfig({
         },
       },
     },
+  },
+  optimizeDeps: {
+    include: ['react', 'react-dom', 'react-router-dom'],
   },
 });
