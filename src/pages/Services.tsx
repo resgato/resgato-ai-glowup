@@ -37,7 +37,7 @@ const Services = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHelmet 
-        title="Digital Marketing Services in Utah | Resgato"
+        title="Digital Marketing Services in Utah | Resgato's Comprehensive Solutions"
         description="Comprehensive digital marketing services in Utah: SEO, PPC, social media, content strategy, and AI solutions. Custom strategies that drive real business growth and ROI."
         keywords="salt lake city marketing agencies, digital marketing agency salt lake city, utah sem companies, salt lake city ppc agency, utah ppc consultant, digital strategy consulting salt lake city, marketing firms in utah, ad agency salt lake city"
         canonicalUrl="/services"

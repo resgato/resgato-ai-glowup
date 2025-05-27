@@ -65,7 +65,7 @@ const Blog = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <PageHelmet 
-        title="Digital Marketing Blog | Resgato"
+        title="Digital Marketing Blog | Expert Insights from Resgato"
         description="Explore our latest insights on digital marketing, SEO, PPC, and AI strategies. Stay updated with Resgato's expert analysis and industry trends."
         canonicalUrl="/blog"
       />

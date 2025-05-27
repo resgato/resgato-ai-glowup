@@ -35,7 +35,7 @@ const About = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHelmet 
-        title="About Resgato | Utah's Premier Digital Marketing Agency"
+        title="About Resgato | Utah's Leading Digital Marketing & SEO Agency"
         description="Meet Resgato, Salt Lake City's trusted digital marketing partner. Our team of certified experts combines local market knowledge with cutting-edge strategies to deliver exceptional results for Utah businesses."
         canonicalUrl="/about"
       />
