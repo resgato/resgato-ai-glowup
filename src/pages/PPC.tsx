@@ -24,7 +24,7 @@ const PPC = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <PageHelmet 
-        title="Utah PPC Services | Expert Google Ads Management in Salt Lake City"
+        title="Utah PPC Services | Expert Google Ads Management | Salt Lake City's Top PPC Agency"
         description="Expert PPC management services in Utah. Drive targeted traffic and maximize ROI with our data-driven Google Ads and PPC marketing strategies."
         canonicalUrl="/ppc"
       />

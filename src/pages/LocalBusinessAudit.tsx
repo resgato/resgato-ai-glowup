@@ -79,7 +79,7 @@ const LocalBusinessAudit = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <PageHelmet 
-        title="Free Local Business Marketing Audit | Resgato"
+        title="Free Local Business Marketing Audit | Utah's #1 Digital Marketing Agency | Resgato"
         description="Get a comprehensive free audit of your local business marketing, including website performance, SEO, ads, and Google My Business profile. Start growing your business today."
         canonicalUrl="/local-business-audit"
       />

@@ -13,7 +13,7 @@ const EmailMarketing = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHelmet 
-        title="Utah Email Marketing Services | Salt Lake City's Email Marketing Experts"
+        title="Utah Email Marketing Services | ROI-Focused Campaigns | Salt Lake City's Email Experts"
         description="Reach potential and current customers with our customized email marketing campaigns that convert and deliver impressive ROI."
         canonicalUrl="/email-marketing"
       />

@@ -13,7 +13,7 @@ const UtahRealEstateMarketing = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <PageHelmet 
-        title="9 Tips for Utah Real Estate Marketing | Resgato"
+        title="Utah Real Estate Marketing | Expert Strategies for Realtors | Salt Lake City"
         description="Master real estate marketing in Utah with our expert strategies. Learn proven techniques for lead generation, property promotion, and market dominance in Salt Lake City's competitive real estate market."
         canonicalUrl="/utah-real-estate-marketing"
       />

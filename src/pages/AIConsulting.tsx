@@ -74,7 +74,11 @@ const AIConsulting = () => {
 
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="AI Consulting" description="Navigate the complex world of artificial intelligence with expert guidance tailored to your unique business challenges and opportunities." />
+      <PageHelmet 
+        title="AI Consulting Services | Utah's Leading AI Marketing Experts | Resgato"
+        description="Navigate the complex world of artificial intelligence with expert guidance tailored to your unique business challenges and opportunities."
+        canonicalUrl="/ai-consulting"
+      />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

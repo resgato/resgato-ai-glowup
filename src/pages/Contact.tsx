@@ -43,7 +43,7 @@ const Contact = () => {
     return (
         <div className="min-h-screen flex flex-col">
           <PageHelmet 
-            title="Contact Resgato | Utah's Trusted Digital Marketing Partner"
+            title="Contact Resgato | Utah's Top Digital Marketing Agency | Free Consultation | Salt Lake City"
             description="Ready to grow your Utah business? Get a free digital marketing consultation with Resgato's experts. We'll analyze your current strategy and provide actionable insights to improve your results."
             canonicalUrl="/contact"
           />

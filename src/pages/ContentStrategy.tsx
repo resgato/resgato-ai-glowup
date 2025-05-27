@@ -34,7 +34,7 @@ const ContentStrategy = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <PageHelmet 
-        title="Content Strategy Services | Utah Content Marketing Agency"
+        title="Content Strategy Services | Utah's Top Content Marketing Agency | Resgato"
         description="Drive engagement and conversions with our expert content strategy services. We create compelling, SEO-optimized content that resonates with your Utah audience and achieves your business goals."
         canonicalUrl="/content-strategy"
       />

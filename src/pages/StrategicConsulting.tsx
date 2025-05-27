@@ -10,7 +10,11 @@ import PageHelmet from '@/components/PageHelmet';
 const StrategicConsulting = () => {
   return (
     <div className="min-h-screen flex flex-col">
-      <PageHelmet title="Strategic Consulting" description="Affordable retainer-based consulting with clear communication to help businesses develop effective digital marketing strategies tailored to their unique needs." />
+      <PageHelmet 
+        title="Strategic Marketing Consulting | Utah's Leading Digital Strategy Experts | Resgato"
+        description="Affordable retainer-based consulting with clear communication to help businesses develop effective digital marketing strategies tailored to their unique needs."
+        canonicalUrl="/strategic-consulting"
+      />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}

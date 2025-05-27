@@ -14,7 +14,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <PageHelmet 
-        title="Resgato | Utah's Premier Digital Marketing Agency in Salt Lake City"
+        title="Resgato | Utah's #1 Digital Marketing Agency in Salt Lake City | SEO & PPC Experts"
         description="Utah's premier digital marketing agency in Salt Lake City. Expert SEO, PPC, and AI solutions that drive measurable growth. Get a free consultation with our certified marketing specialists."
         canonicalUrl="/"
       />
