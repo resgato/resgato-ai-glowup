@@ -16,7 +16,7 @@ const About = () => {
       bio: 'Founded Resgato in 2012 with a vision to help businesses avoid digital obscurity. With over 18 years of experience in digital marketing, Taylor has led the agency to become a trusted partner for businesses across various industries.',
     },
     {
-      name: 'Parker Gardner',
+      name: 'Julian Ureña',
       position: 'Head of Ad Operations',
       bio: 'Strategic advertising expert specializing in campaign management and optimization. Leverages data-driven insights to deliver exceptional ROI across multiple advertising platforms.',
     },
