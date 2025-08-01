@@ -1,106 +1,62 @@
-# Resgato Website
+# Resgato Next.js
 
-This is the main website for Resgato, a digital marketing agency based in Utah.
-
-## Tech Stack
-
-### Frontend
-- React + TypeScript
-- Vite for build tooling
+This is the Next.js version of the Resgato website, featuring:
+- Server-side rendering (SSR) for better SEO
+- Static site generation (SSG) for performance
+- Edge middleware for Prerender.io integration
+- TypeScript for type safety
 - Tailwind CSS for styling
-- shadcn/ui for UI components
+- Modern React features
 
-### Backend & Infrastructure
-- **Supabase** for:
-  - Database (PostgreSQL)
-  - Authentication
-  - Edge Functions
-  - Storage
-  - Row Level Security (RLS)
+## Getting Started
 
-### Hosting & Services
-- **Vercel** for hosting and deployment
-- **Cloudflare** for DNS and CDN
-- **Resend** for email notifications
-
-## Development
-
-### Prerequisites
-- Node.js 18+
-- npm or yarn
-- Supabase CLI (for local development)
-
-### Environment Variables
-Create a `.env` file in the root directory with the following variables:
-```env
-VITE_SUPABASE_URL=your_supabase_url
-VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
+1. Clone the repository:
+```bash
+git clone https://github.com/resgato/nextjs.git
+cd nextjs
 ```
 
-### Local Development
-1. Install dependencies:
+2. Install dependencies:
 ```bash
 npm install
 ```
 
-2. Start the development server:
+3. Run the development server:
 ```bash
 npm run dev
 ```
 
-### Database Migrations
-Database migrations are managed through Supabase. To apply migrations:
-1. Navigate to the Supabase dashboard
-2. Go to the SQL editor
-3. Run the migration files in order from the `supabase/migrations` directory
+4. Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-### Edge Functions
-Edge Functions are used for:
-- Sending email notifications for form submissions
-- Processing webhook events
-- Other serverless operations
+## Features
 
-To deploy Edge Functions:
-1. Navigate to the Supabase dashboard
-2. Go to Edge Functions
-3. Deploy the functions from the `supabase/functions` directory
+- **SEO Optimized**: Server-side rendering and unique meta tags for each page
+- **Performance**: Static site generation and automatic code splitting
+- **Modern Stack**: Next.js 14, React 18, TypeScript, Tailwind CSS
+- **Prerender.io Integration**: Edge middleware for bot detection and prerendering
+
+## Project Structure
+
+```
+src/
+├── app/              # App Router pages and layouts
+├── components/       # Reusable React components
+├── lib/             # Utility functions and shared logic
+├── styles/          # Global styles and Tailwind config
+└── types/           # TypeScript type definitions
+```
 
 ## Deployment
 
-The site is automatically deployed to Vercel when changes are pushed to the main branch. The deployment process:
-1. Builds the application
-2. Runs database migrations
-3. Deploys Edge Functions
-4. Updates the production site
-
-## Email Notifications
-
-Email notifications are handled through Resend and are triggered by:
-- Contact form submissions
-- Marketing audit submissions
-- Other form submissions
-
-The email system uses Supabase Edge Functions to:
-1. Process form submissions
-2. Format email content
-3. Send notifications via Resend
-
-## Security
-
-- Row Level Security (RLS) is enabled on all tables
-- Environment variables are used for sensitive data
-- API keys are stored securely in Vercel and Supabase
-- CORS is properly configured for all endpoints
+The site is deployed on Vercel. Each push to the main branch triggers a new deployment.
 
 ## Contributing
 
 1. Create a new branch for your feature
 2. Make your changes
 3. Submit a pull request
-4. Ensure all tests pass
-5. Get code review approval
 
 ## License
 
-This project is proprietary and confidential. All rights reserved.
+Proprietary - All rights reserved
 

@@ -1,13 +1,55 @@
-import { BlogPost } from '@/types/blog';
+import { BlogPost, mockBlogPosts } from '@/types/blog';
 import { supabase } from '@/integrations/supabase/client';
+import { blogService } from '@/services/blog';
 
-// Function to format today's date
-const getCurrentDate = (): string => {
+// Helper function to get current date in the required format
+export const getCurrentDate = () => {
   return new Date().toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
     day: 'numeric'
   });
+};
+
+// Function to migrate blog posts from old project
+export const migrateBlogPosts = async () => {
+  try {
+    // Get all posts from the old project
+    const oldPosts = mockBlogPosts;
+    
+    // Migrate each post
+    for (const post of oldPosts) {
+      // Check if post already exists
+      const existingPost = await blogService.getPostBySlug(post.slug);
+      
+      if (!existingPost) {
+        // Create new post
+        const created = await blogService.createPost({
+          slug: post.slug,
+          title: post.title,
+          excerpt: post.excerpt,
+          cover: post.cover,
+          date: post.date,
+          author: post.author,
+          readTime: post.readTime,
+          category: post.category,
+          content: post.content
+        });
+        
+        if (created) {
+          console.log(`Successfully migrated post: ${post.title}`);
+        } else {
+          console.error(`Failed to migrate post: ${post.title}`);
+        }
+      } else {
+        console.log(`Post already exists: ${post.title}`);
+      }
+    }
+    
+    console.log('Blog post migration completed');
+  } catch (error: unknown) {
+    console.error('Error migrating blog posts:', error);
+  }
 };
 
 // Blog posts content for our new articles

@@ -7,6 +7,35 @@ const corsHeaders = {
   'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',
 }
 
+// Define interfaces for better type safety
+interface ContactFormData {
+  businessName: string;
+  name: string;
+  email: string;
+  phone: string;
+  [key: string]: unknown;
+}
+
+interface ValidationResult {
+  isValid: boolean;
+  error?: string;
+}
+
+interface EmailError {
+  message: string;
+  [key: string]: unknown;
+}
+
+interface DatabaseError {
+  message: string;
+  [key: string]: unknown;
+}
+
+interface Dependencies {
+  supabase?: ReturnType<typeof createClient>;
+  resend?: Resend;
+}
+
 // Validate required fields
 const requiredFields = [
   'businessName',
@@ -15,7 +44,7 @@ const requiredFields = [
   'phone'
 ]
 
-function validateRequiredFields(body: any) {
+function validateRequiredFields(body: ContactFormData) {
   const missingFields = requiredFields.filter(field => !body[field])
   if (missingFields.length > 0) {
     throw new Error(`Missing required fields: ${missingFields.join(', ')}`)
@@ -30,19 +59,8 @@ function validateEmail(email: string) {
   }
 }
 
-// Define error types
-interface EmailError {
-  message: string;
-  [key: string]: any;
-}
-
-interface DatabaseError {
-  message: string;
-  [key: string]: any;
-}
-
 // Function to validate required fields and email format
-function validateInput(data: any): { isValid: boolean; error?: string } {
+function validateInput(data: ContactFormData): ValidationResult {
   const requiredFields = ['businessName', 'name', 'email', 'phone']
   const missingFields = requiredFields.filter(field => !data[field])
   
@@ -63,7 +81,7 @@ function validateInput(data: any): { isValid: boolean; error?: string } {
 
 export const handler = async (
   req: Request,
-  deps: { supabase?: any; resend?: any } = {}
+  deps: Dependencies = {}
 ) => {
   // Validate environment variables (moved inside handler)
   const supabaseUrl = Deno.env.get('SUPABASE_URL')

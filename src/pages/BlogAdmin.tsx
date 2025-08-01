@@ -3,23 +3,24 @@ import { Link, useNavigate } from 'react-router-dom';
 import { supabase } from '@/integrations/supabase/client';
 import { blogService } from '@/services/blog';
 import { BlogPost } from '@/types/blog';
-import { addNewBlogPosts } from '@/utils/blogPostsData';
+import { addNewBlogPosts, migrateBlogPosts } from '@/utils/blogPostsData';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/FooterAdminLink';
 import { Button } from '@/components/ui/button';
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
-import { AlertTriangle, Edit, Plus, Trash, BookPlus } from 'lucide-react';
+import { AlertTriangle, Edit, Plus, Trash, BookPlus, Database } from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
 const BlogAdmin = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
   const [loading, setLoading] = useState(true);
+  const [addingPosts, setAddingPosts] = useState(false);
+  const [migratingPosts, setMigratingPosts] = useState(false);
   const [deleteDialogOpen, setDeleteDialogOpen] = useState(false);
   const [postToDelete, setPostToDelete] = useState<BlogPost | null>(null);
-  const [addingPosts, setAddingPosts] = useState(false);
-  const { toast } = useToast();
   const navigate = useNavigate();
+  const { toast } = useToast();
 
   const fetchPosts = useCallback(async () => {
     setLoading(true);
@@ -86,34 +87,43 @@ const BlogAdmin = () => {
     setAddingPosts(true);
     try {
       const result = await addNewBlogPosts();
-      
-      if (result.success) {
-        const successCount = result.results.filter(r => r.status === 'success').length;
-        const skipCount = result.results.filter(r => r.status === 'skipped').length;
-        
+      if (result?.results) {
         toast({
-          title: "Blog Posts Added",
-          description: `Successfully added ${successCount} new blog posts. ${skipCount} posts were skipped (already exist).`,
+          title: "Success",
+          description: `${result.results.length} sample posts added successfully`,
         });
-        
-        // Refresh the blog post list
-        fetchPosts();
+        fetchPosts(); // Refresh the list
       } else {
-        toast({
-          variant: "destructive",
-          title: "Error",
-          description: result.message || "Failed to add sample blog posts",
-        });
+        throw new Error("Failed to add sample posts");
       }
-    } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : "An error occurred while adding sample blog posts";
+    } catch (error) {
       toast({
         variant: "destructive",
         title: "Error",
-        description: errorMessage,
+        description: "Failed to add sample posts",
       });
     } finally {
       setAddingPosts(false);
+    }
+  };
+
+  const handleMigratePosts = async () => {
+    setMigratingPosts(true);
+    try {
+      await migrateBlogPosts();
+      toast({
+        title: "Success",
+        description: "Blog posts migrated successfully",
+      });
+      fetchPosts(); // Refresh the list
+    } catch (error) {
+      toast({
+        variant: "destructive",
+        title: "Error",
+        description: "Failed to migrate blog posts",
+      });
+    } finally {
+      setMigratingPosts(false);
     }
   };
 
@@ -124,6 +134,20 @@ const BlogAdmin = () => {
         <div className="flex justify-between items-center mb-6">
           <h1 className="text-3xl font-bold">Blog Management</h1>
           <div className="flex gap-4">
+            <Button onClick={handleMigratePosts} disabled={migratingPosts} variant="outline" className="flex items-center gap-2">
+              {migratingPosts ? (
+                <>
+                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-700"></div>
+                  Migrating Posts...
+                </>
+              ) : (
+                <>
+                  <Database className="h-4 w-4" />
+                  Migrate Old Posts
+                </>
+              )}
+            </Button>
+            
             <Button onClick={handleAddSamplePosts} disabled={addingPosts} variant="outline" className="flex items-center gap-2">
               {addingPosts ? (
                 <>
