@@ -50,6 +50,12 @@ const Navbar = () => {
               Services
             </Link>
             <Link
+              to="/case-studies"
+              className="text-gray-700 hover:text-resgato-blue font-medium transition-colors"
+            >
+              Case Studies
+            </Link>
+            <Link
               to="/local-business-audit"
               className="text-gray-700 hover:text-resgato-blue font-medium transition-colors"
             >
@@ -104,6 +110,13 @@ const Navbar = () => {
               onClick={() => setIsMenuOpen(false)}
             >
               Services
+            </Link>
+            <Link
+              to="/case-studies"
+              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Case Studies
             </Link>
             <Link
               to="/local-business-audit"

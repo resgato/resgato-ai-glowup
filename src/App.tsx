@@ -27,6 +27,7 @@ import UtahRealEstateMarketing from "./pages/UtahRealEstateMarketing";
 import UtahMarketingFirms from "./pages/UtahMarketingFirms";
 import ScrollToTop from "@/components/ScrollToTop";
 import LocalBusinessAudit from "./pages/LocalBusinessAudit";
+import AxioEVCaseStudy from "./pages/AxioEVCaseStudy";
 
 // Updated QueryClient configuration to be compatible with React Query v5
 const queryClient = new QueryClient({
@@ -56,6 +57,7 @@ const App = () => (
           <Route path="/services" element={<Services />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/case-studies" element={<CaseStudies />} />
+          <Route path="/case-studies/:slug" element={<AxioEVCaseStudy />} />
           <Route path="/blog" element={<Blog />} />
           <Route path="/blog/:slug" element={<BlogPost />} />
           <Route path="/author/:authorId" element={<AuthorBio />} />
