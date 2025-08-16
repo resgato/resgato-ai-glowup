@@ -8,6 +8,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
+import { executeRecaptcha } from '@/utils/recaptcha';
 import {
   Form,
   FormControl,
@@ -58,6 +59,27 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
     try {
       console.log("Submitting contact form...", data);
       
+      // Get reCAPTCHA token with timeout
+      let recaptchaToken = '';
+      try {
+        console.log('Getting reCAPTCHA token...');
+        recaptchaToken = await Promise.race([
+          executeRecaptcha('contact_form_submit'),
+          new Promise<string>((_, reject) => 
+            setTimeout(() => reject(new Error('reCAPTCHA timeout')), 5000)
+          )
+        ]);
+        
+        if (!recaptchaToken) {
+          throw new Error('reCAPTCHA verification failed');
+        }
+        console.log('reCAPTCHA token received');
+      } catch (recaptchaError) {
+        console.warn('reCAPTCHA error:', recaptchaError);
+        // Continue without reCAPTCHA if it fails
+        recaptchaToken = 'recaptcha-failed';
+      }
+      
       // Store submission in the database
       const { data: submissionData, error: dbError } = await supabase
         .from('contact_submissions')
@@ -67,7 +89,8 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
           company: data.company || null,
           phone: data.phone || null,
           message: data.message,
-          service: data.service || null
+          service: data.service || null,
+          recaptcha_token: recaptchaToken
         }])
         .select()
         .single();
@@ -86,7 +109,7 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${supabase.supabaseKey}`
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDgxMjQ5NzAsImV4cCI6MjAyMzcwMDk3MH0.2QYwXZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQ'
           },
           body: JSON.stringify(submissionData)
         });
@@ -121,6 +144,20 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
       setIsSubmitting(false);
     }
   };
+
+  // Load reCAPTCHA script when component mounts
+  React.useEffect(() => {
+    const loadRecaptcha = async () => {
+      try {
+        await executeRecaptcha('page_load');
+        console.log('reCAPTCHA loaded successfully');
+      } catch (error) {
+        console.warn('reCAPTCHA load error:', error);
+        // Continue without reCAPTCHA if it fails to load
+      }
+    };
+    loadRecaptcha();
+  }, []);
 
   return (
     <Form {...form}>
@@ -222,6 +259,13 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
+        
+        {/* reCAPTCHA notice */}
+        <div className="text-xs text-gray-500 text-center mt-2">
+          This site is protected by reCAPTCHA and the
+          <a href="https://policies.google.com/privacy" className="text-resgato-purple hover:underline mx-1" target="_blank" rel="noopener noreferrer">Privacy Policy</a>and
+          <a href="https://policies.google.com/terms" className="text-resgato-purple hover:underline mx-1" target="_blank" rel="noopener noreferrer">Terms of Service</a>apply.
+        </div>
       </form>
     </Form>
   );
