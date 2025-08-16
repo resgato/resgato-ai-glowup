@@ -5,10 +5,23 @@ import { ArrowRight, Search, Mail, BarChart, Link as LinkIcon } from 'lucide-rea
 
 const HeroSection = () => {
   return (
-    <div className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-28">
+    <div className="relative overflow-hidden">
+      {/* Background Image */}
+      <div className="absolute inset-0 z-0">
+        <img 
+          src="/resgato-uploads/55557fa0-302d-476b-a9c9-d36ce29e2da5.png" 
+          alt="Axio EV - Electric Vehicle Dealership Success Story" 
+          className="w-full h-full object-cover opacity-10"
+        />
+        <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-resgato-light-purple/40"></div>
+      </div>
+      
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           <div className="space-y-4 md:space-y-8 animate-fade-in">
+            <div className="inline-flex items-center px-3 py-1 rounded-full bg-resgato-light-purple text-resgato-deep-purple text-sm font-semibold mb-4">
+              🚗 Featured Success Story: Axio EV
+            </div>
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
               Utah's Leading <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Digital Marketing Agency & SEO Firm</span>
             </h1>
@@ -23,51 +36,50 @@ const HeroSection = () => {
                 </Link>
               </Button>
               <Button asChild variant="outline" className="border-resgato-purple text-resgato-purple hover:bg-resgato-light-purple px-8 py-6 text-lg">
-                <Link to="/services">Our Services</Link>
+                <Link to="/case-studies/axio-ev-case-study">View Success Story</Link>
               </Button>
             </div>
           </div>
-          <div className="grid grid-cols-2 gap-3 sm:gap-6 animate-fade-in">
-            <Link 
-              to="/seo" 
-              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-100 transition-transform hover:scale-105"
-            >
-              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                <Search className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
+          
+          {/* Featured Case Study Card */}
+          <div className="animate-fade-in">
+            <div className="bg-white rounded-2xl shadow-2xl overflow-hidden border border-gray-100">
+              <div className="relative h-64">
+                <img 
+                  src="/resgato-uploads/55557fa0-302d-476b-a9c9-d36ce29e2da5.png" 
+                  alt="Axio EV - Electric Vehicle Dealership" 
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                <div className="absolute bottom-4 left-4 text-white">
+                  <h3 className="text-xl font-bold mb-1">Axio EV</h3>
+                  <p className="text-sm opacity-90">Electric Vehicle Dealership</p>
+                </div>
               </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Salt Lake City SEO Services</h3>
-              <p className="text-sm sm:text-base text-gray-600">Expert SEO management and optimization for Utah businesses seeking online growth.</p>
-            </Link>
-            <Link 
-              to="/ppc" 
-              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-200 transition-transform hover:scale-105"
-            >
-              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                <BarChart className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
+              <div className="p-6">
+                <h4 className="text-lg font-semibold mb-3 text-gray-800">Complete Digital Transformation</h4>
+                <div className="space-y-2 mb-4">
+                  <div className="flex items-center text-sm text-gray-600">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                    85% increase in online leads
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                    300% growth in local search visibility
+                  </div>
+                  <div className="flex items-center text-sm text-gray-600">
+                    <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                    Full business software implementation
+                  </div>
+                </div>
+                <Button asChild className="w-full bg-resgato-purple hover:bg-resgato-deep-purple text-white">
+                  <Link to="/case-studies/axio-ev-case-study">
+                    Read Full Case Study
+                    <ArrowRight className="ml-2 h-4 w-4" />
+                  </Link>
+                </Button>
               </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Utah PPC & Google Ads Services</h3>
-              <p className="text-sm sm:text-base text-gray-600">Professional ad agency services with proven ROI and conversion optimization.</p>
-            </Link>
-            <Link 
-              to="/email-marketing" 
-              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-300 transition-transform hover:scale-105"
-            >
-              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                <Mail className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Email Marketing</h3>
-              <p className="text-sm sm:text-base text-gray-600">Personalized campaigns that engage Utah customers.</p>
-            </Link>
-            <Link 
-              to="/strategic-consulting" 
-              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-400 transition-transform hover:scale-105"
-            >
-              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                <LinkIcon className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Digital Strategy Consulting</h3>
-              <p className="text-sm sm:text-base text-gray-600">Comprehensive online marketing management and strategic planning for Salt Lake City businesses.</p>
-            </Link>
+            </div>
           </div>
         </div>
       </div>
