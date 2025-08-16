@@ -7,8 +7,8 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { useToast } from '@/components/ui/use-toast';
-import { supabase } from '@/lib/supabase';
+import { useToast } from '@/hooks/use-toast';
+import { supabase } from '@/integrations/supabase/client';
 import { CheckCircle2, Search, BarChart3, MapPin } from 'lucide-react';
 
 const LocalBusinessAudit = () => {
@@ -27,19 +27,60 @@ const LocalBusinessAudit = () => {
     setIsSubmitting(true);
 
     try {
-      const { error } = await supabase
-        .from('marketing_audit_leads')
-        .insert([
-          {
-            business_name: formData.businessName,
-            name: formData.name,
-            business_email: formData.email,
-            business_phone: formData.phone,
-            email_sent: false
-          }
-        ]);
+      console.log("Submitting audit form...", formData);
 
-      if (error) throw error;
+      // Store submission in the database
+      const { data: submissionData, error: dbError } = await supabase
+        .from('marketing_audit_leads')
+        .insert([{
+          business_name: formData.businessName,
+          name: formData.name,
+          business_email: formData.email,
+          business_phone: formData.phone,
+          email_sent: false
+        }])
+        .select()
+        .single();
+
+      if (dbError) {
+        console.error('Database error:', dbError);
+        throw new Error(`Failed to submit your audit request: ${dbError.message}`);
+      }
+
+      console.log('Audit form submitted to database:', submissionData);
+
+      // Send email notification via edge function
+      try {
+        console.log('Sending audit email notification...');
+        const emailResponse = await fetch('https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/send-contact-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDgxMjQ5NzAsImV4cCI6MjAyMzcwMDk3MH0.2QYwXZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQ'
+          },
+          body: JSON.stringify({
+            id: submissionData.id,
+            name: formData.name,
+            email: formData.email,
+            company: formData.businessName,
+            phone: formData.phone,
+            message: `New Local Business Marketing Audit Request\n\nBusiness: ${formData.businessName}\nContact: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nThis is a request for a free local business marketing audit.`,
+            service: 'Local Business Marketing Audit',
+            created_at: submissionData.created_at
+          })
+        });
+
+        if (!emailResponse.ok) {
+          const emailError = await emailResponse.text();
+          console.warn('Email notification failed:', emailError);
+          // Continue despite email error - at least the submission is stored
+        } else {
+          console.log('Audit email notification sent successfully');
+        }
+      } catch (emailError) {
+        console.error('Error sending audit email notification:', emailError);
+        // Continue despite email error - at least the submission is stored
+      }
 
       toast({
         title: "Success!",
@@ -60,7 +101,7 @@ const LocalBusinessAudit = () => {
       console.error('Error submitting form:', error);
       toast({
         title: "Error",
-        description: "Something went wrong. Please try again.",
+        description: error instanceof Error ? error.message : "Something went wrong. Please try again.",
         variant: "destructive",
       });
     } finally {
@@ -216,7 +257,7 @@ const LocalBusinessAudit = () => {
                   className="w-full bg-resgato-blue hover:bg-resgato-navy text-white"
                   disabled={isSubmitting}
                 >
-                  {isSubmitting ? 'Submitting...' : 'Try it Now'}
+                  {isSubmitting ? 'Submitting...' : 'Get My Free Audit'}
                 </Button>
               </form>
             </div>
