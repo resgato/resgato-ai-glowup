@@ -29,15 +29,16 @@ const LocalBusinessAudit = () => {
     try {
       console.log("Submitting audit form...", formData);
 
-      // Store submission in the database
+      // Store submission in the contact_submissions table
       const { data: submissionData, error: dbError } = await supabase
-        .from('marketing_audit_leads')
+        .from('contact_submissions')
         .insert([{
-          business_name: formData.businessName,
           name: formData.name,
-          business_email: formData.email,
-          business_phone: formData.phone,
-          email_sent: false
+          email: formData.email,
+          company: formData.businessName,
+          phone: formData.phone,
+          message: `Local Business Marketing Audit Request\n\nBusiness: ${formData.businessName}\nContact: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nThis is a request for a free local business marketing audit.`,
+          service: 'Local Business Marketing Audit'
         }])
         .select()
         .single();
@@ -58,16 +59,7 @@ const LocalBusinessAudit = () => {
             'Content-Type': 'application/json',
             'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDgxMjQ5NzAsImV4cCI6MjAyMzcwMDk3MH0.2QYwXZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQ'
           },
-          body: JSON.stringify({
-            id: submissionData.id,
-            name: formData.name,
-            email: formData.email,
-            company: formData.businessName,
-            phone: formData.phone,
-            message: `New Local Business Marketing Audit Request\n\nBusiness: ${formData.businessName}\nContact: ${formData.name}\nEmail: ${formData.email}\nPhone: ${formData.phone}\n\nThis is a request for a free local business marketing audit.`,
-            service: 'Local Business Marketing Audit',
-            created_at: submissionData.created_at
-          })
+          body: JSON.stringify(submissionData)
         });
 
         if (!emailResponse.ok) {
