@@ -8,7 +8,6 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-import { executeRecaptcha } from '@/utils/recaptcha';
 import {
   Form,
   FormControl,
@@ -59,13 +58,6 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
     try {
       console.log("Submitting contact form...", data);
       
-      // Get reCAPTCHA token
-      const recaptchaToken = await executeRecaptcha('contact_form_submit');
-      
-      if (!recaptchaToken) {
-        throw new Error('CAPTCHA verification failed. Please try again.');
-      }
-      
       // Store submission in the database
       const { error } = await supabase
         .from('contact_submissions')
@@ -75,7 +67,7 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
           company: data.company || null,
           phone: data.phone || null,
           message: data.message,
-          recaptcha_token: recaptchaToken // Store the token for reference
+          service: data.service || null
         }]);
       
       if (error) {
@@ -83,32 +75,7 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
         throw new Error(`Failed to submit your message: ${error.message}`);
       }
       
-      // Send email notification directly through the edge function
-      try {
-        const response = await fetch(`https://bopzgxqujuqosdexnppj.functions.supabase.co/new-contact-email`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            name: data.name,
-            email: data.email,
-            company: data.company,
-            phone: data.phone,
-            message: data.message,
-            recaptchaToken: recaptchaToken // Include token for verification
-          }),
-        });
-        
-        if (!response.ok) {
-          const result = await response.json();
-          console.warn('Email notification issue:', result);
-          // Continue despite email error - at least the submission is stored
-        }
-      } catch (emailError) {
-        console.error('Error sending email notification:', emailError);
-        // Continue despite email error - at least the submission is stored
-      }
+      console.log('Contact form submitted successfully');
       
       toast({
         title: "Message sent!",
@@ -128,14 +95,6 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
       setIsSubmitting(false);
     }
   };
-
-  // Load reCAPTCHA script when component mounts
-  React.useEffect(() => {
-    const loadRecaptcha = async () => {
-      await executeRecaptcha('page_load');
-    };
-    loadRecaptcha();
-  }, []);
 
   return (
     <Form {...form}>
@@ -237,13 +196,6 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
-        
-        {/* Invisible reCAPTCHA badge notice */}
-        <div className="text-xs text-gray-500 text-center mt-2">
-          This site is protected by reCAPTCHA and the
-          <a href="https://policies.google.com/privacy" className="text-resgato-purple hover:underline mx-1" target="_blank" rel="noopener noreferrer">Privacy Policy</a>and
-          <a href="https://policies.google.com/terms" className="text-resgato-purple hover:underline mx-1" target="_blank" rel="noopener noreferrer">Terms of Service</a>apply.
-        </div>
       </form>
     </Form>
   );

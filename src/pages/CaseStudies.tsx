@@ -10,43 +10,30 @@ const CaseStudies = () => {
   const caseStudies = [
     {
       id: 1,
-      title: 'Electrifying Success: Axio EV\'s Digital Transformation',
-      industry: 'Automotive',
-      tags: ['Market Research', 'Website Development', 'CRM Setup', 'Local SEO'],
-      imageUrl: '/resgato-uploads/axio-ev-building.jpg',
-      summary: 'Complete digital transformation for Utah\'s premier used EV dealership, from market research to full business software implementation.',
-      results: ['85% increase in online leads', '300% growth in local search visibility', 'Streamlined operations with integrated CRM'],
-      slug: 'axio-ev-case-study'
-    },
-    {
-      id: 2,
-      title: 'Boosting Conversion Rates by 320% for Dealership Group',
+      title: 'Boosting Conversion Rates by 320% for Axio Auto',
       industry: 'Automotive',
       tags: ['SEO', 'PPC', 'Conversion Rate Optimization'],
       imageUrl: '/resgato-uploads/55557fa0-302d-476b-a9c9-d36ce29e2da5.png',
       summary: 'How we transformed a regional auto dealership into a market leader with strategic digital marketing initiatives focused on local SEO and targeted PPC campaigns.',
-      results: ['320% increase in conversion rate', '215% growth in organic traffic', '47% reduction in customer acquisition cost'],
-      slug: 'dealership-group-case-study'
+      results: ['320% increase in conversion rate', '215% growth in organic traffic', '47% reduction in customer acquisition cost']
     },
     {
-      id: 3,
-      title: 'Scaling E-commerce Revenue for Wellness App',
+      id: 2,
+      title: 'Scaling E-commerce Revenue for The Daily Shifts',
       industry: 'E-commerce',
       tags: ['Email Marketing', 'Social Media', 'Analytics'],
       imageUrl: '/resgato-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png',
       summary: 'Strategic email campaigns and targeted social media advertising helped this mindfulness brand expand nationally and increase recurring revenue.',
-      results: ['800% revenue growth', '375% increase in returning customers', '523% growth in email subscribers'],
-      slug: 'wellness-app-case-study'
+      results: ['800% revenue growth', '375% increase in returning customers', '523% growth in email subscribers']
     },
     {
-      id: 4,
-      title: 'Revitalizing Brand Perception for Retail Chain',
+      id: 3,
+      title: 'Revitalizing Brand Perception for MLD',
       industry: 'Retail',
       tags: ['Branding', 'Content Marketing', 'Social Media'],
       imageUrl: '/resgato-uploads/3f29c8f4-0489-47bd-ab86-13ed0a87031b.png',
       summary: "Transforming a traditional retail chain's digital presence to appeal to younger demographics while maintaining trust with existing customers.",
-      results: ['42% increase in millennial customers', '68% growth in social engagement', '3.2x improvement in brand sentiment'],
-      slug: 'retail-chain-case-study'
+      results: ['42% increase in millennial customers', '68% growth in social engagement', '3.2x improvement in brand sentiment']
     }
   ];
 
@@ -102,7 +89,7 @@ const CaseStudies = () => {
                       </ul>
                     </div>
                     <Button asChild variant="outline" className="w-full">
-                      <Link to={`/case-studies/${study.slug}`} className="flex items-center justify-center">
+                      <Link to="/contact" className="flex items-center justify-center">
                         Read Full Case Study <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
