@@ -59,7 +59,7 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
       console.log("Submitting contact form...", data);
       
       // Store submission in the database
-      const { error } = await supabase
+      const { data: submissionData, error: dbError } = await supabase
         .from('contact_submissions')
         .insert([{
           name: data.name,
@@ -68,14 +68,40 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
           phone: data.phone || null,
           message: data.message,
           service: data.service || null
-        }]);
+        }])
+        .select()
+        .single();
       
-      if (error) {
-        console.error('Database error:', error);
-        throw new Error(`Failed to submit your message: ${error.message}`);
+      if (dbError) {
+        console.error('Database error:', dbError);
+        throw new Error(`Failed to submit your message: ${dbError.message}`);
       }
       
-      console.log('Contact form submitted successfully');
+      console.log('Contact form submitted to database:', submissionData);
+      
+      // Send email notification via edge function
+      try {
+        console.log('Sending email notification...');
+        const emailResponse = await fetch('https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/send-contact-email', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${supabase.supabaseKey}`
+          },
+          body: JSON.stringify(submissionData)
+        });
+
+        if (!emailResponse.ok) {
+          const emailError = await emailResponse.text();
+          console.warn('Email notification failed:', emailError);
+          // Continue despite email error - at least the submission is stored
+        } else {
+          console.log('Email notification sent successfully');
+        }
+      } catch (emailError) {
+        console.error('Error sending email notification:', emailError);
+        // Continue despite email error - at least the submission is stored
+      }
       
       toast({
         title: "Message sent!",
