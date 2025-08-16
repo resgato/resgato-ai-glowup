@@ -21,22 +21,11 @@ const Contact = () => {
     script.async = true;
     head?.appendChild(script);
 
-    // Load HubSpot chat widget script
-    const hubspotScript = document.createElement('script');
-    hubspotScript.setAttribute('type', 'text/javascript');
-    hubspotScript.setAttribute('id', 'hs-script-loader');
-    hubspotScript.setAttribute('async', 'true');
-    hubspotScript.setAttribute('defer', 'true');
-    hubspotScript.setAttribute('src', 'https://js.hs-scripts.com/9144894.js');
-    head?.appendChild(hubspotScript);
+
 
     return () => {
       // Clean up scripts when component unmounts
       head?.removeChild(script);
-      const hubspotScriptElement = document.getElementById('hs-script-loader');
-      if (hubspotScriptElement && head?.contains(hubspotScriptElement)) {
-        head?.removeChild(hubspotScriptElement);
-      }
     };
   }, []);
 
@@ -181,17 +170,7 @@ const Contact = () => {
           </div>
         </section>
 
-        {/* Hidden iframe for HubSpot chat widget (fallback) */}
-        <div className="hidden">
-          <iframe 
-            src="https://app.hubspot.com/conversations-visitor/9144894/threads/utk/fe43b4c07df24f5daaf09ec16c7bcbbe?uuid=3d2d3af714fd4762b4a292f7a9bd99b9&mobile=false&mobileSafari=false&hideWelcomeMessage=false&hstc=168135358.65115e8f3ea118c0217158e139fed27a.1743014580020.1743014580020.1744086411985.2&domain=resgato.com&inApp53=false&messagesUtk=fe43b4c07df24f5daaf09ec16c7bcbbe&url=https%3A%2F%2Fresgato.com%2Fconsultation%2F&inline=false&isFullscreen=false&globalCookieOptOut=&isFirstVisitorSession=false&isAttachmentDisabled=false&isInitialInputFocusDisabled=false&enableWidgetCookieBanner=false&isInCMS=false&hideScrollToButton=true&isIOSMobile=false&hubspotUtk=65115e8f3ea118c0217158e139fed27a" 
-            id="hubspot-conversations-iframe" 
-            title="Chat Widget" 
-            allowFullScreen 
-            data-test-id="chat-widget-iframe"
-            style={{ display: 'none' }}
-          ></iframe>
-        </div>
+
       </main>
       <Footer />
     </div>
