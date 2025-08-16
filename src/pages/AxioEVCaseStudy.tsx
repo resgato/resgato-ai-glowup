@@ -116,8 +116,18 @@ const AxioEVCaseStudy = () => {
       
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-resgato-navy text-white py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="relative bg-resgato-navy text-white py-16 md:py-24 overflow-hidden">
+          {/* Background Image */}
+          <div className="absolute inset-0 z-0">
+            <img 
+              src="/resgato-uploads/axio-ev-building.jpg" 
+              alt="Axio EV Building and Electric Vehicles" 
+              className="w-full h-full object-cover opacity-20"
+            />
+            <div className="absolute inset-0 bg-resgato-navy/80"></div>
+          </div>
+          
+          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="mb-8">
               <Button asChild variant="ghost" className="text-white hover:bg-white/10 mb-6">
                 <Link to="/case-studies" className="flex items-center">
@@ -156,6 +166,27 @@ const AxioEVCaseStudy = () => {
                   <div className="text-2xl font-bold text-resgato-blue">{caseStudyData.results.length}</div>
                   <div className="text-sm text-gray-300">Key Results</div>
                 </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Featured Image Section */}
+        <section className="py-16 bg-gray-50">
+          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl md:text-4xl font-bold mb-4">Axio EV Dealership</h2>
+              <p className="text-xl text-gray-600">Utah's premier used electric vehicle dealership</p>
+            </div>
+            <div className="relative">
+              <img 
+                src="/resgato-uploads/axio-ev-building.jpg" 
+                alt="Axio EV Building with Ford Mustang Mach-E and Tesla electric vehicles" 
+                className="w-full max-w-4xl mx-auto rounded-2xl shadow-2xl"
+              />
+              <div className="absolute bottom-4 left-4 bg-white/90 backdrop-blur-sm rounded-lg p-3">
+                <p className="text-sm font-semibold text-gray-800">AXIO EV</p>
+                <p className="text-xs text-gray-600">Electric Vehicle Dealership</p>
               </div>
             </div>
           </div>
