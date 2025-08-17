@@ -11,17 +11,17 @@ export const RelatedContent = ({ currentPost, relatedPosts }: RelatedContentProp
     {
       title: 'SEO Services',
       description: 'Improve your search rankings and drive organic traffic',
-      link: '/services/seo'
+      link: '/seo'
     },
     {
       title: 'PPC Advertising',
       description: 'Maximize ROI with targeted paid campaigns',
-      link: '/services/ppc'
+      link: '/ppc'
     },
     {
       title: 'Content Strategy',
       description: 'Create engaging content that converts',
-      link: '/services/content-strategy'
+      link: '/content-strategy'
     }
   ];
 
