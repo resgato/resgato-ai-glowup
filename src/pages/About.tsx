@@ -7,6 +7,7 @@ import { Card, CardContent } from '@/components/ui/card';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const About = () => {
   const teamMembers = [
@@ -71,10 +72,13 @@ const About = () => {
             </div>
             <div className="space-y-8">
               <div className="aspect-square w-full overflow-hidden rounded-lg shadow-lg">
-                <img 
+                <OptimizedImage 
                   src="/resgato-uploads/adagency.jpg" 
                   alt="Resgato Digital Marketing Agency in Salt Lake City"
                   className="w-full h-full object-cover"
+                  priority={true}
+                  loading="eager"
+                  sizes="(max-width: 1024px) 100vw, 50vw"
                 />
               </div>
             </div>
@@ -260,10 +264,12 @@ const About = () => {
             </div>
 
             <div className="aspect-[4/3] w-full max-w-4xl mx-auto overflow-hidden rounded-xl shadow-xl">
-              <img 
+              <OptimizedImage 
                 src="/resgato-uploads/aicoding.jpg" 
                 alt="Resgato's AI and coding expertise in action"
                 className="w-full h-full object-cover"
+                loading="lazy"
+                sizes="(max-width: 768px) 100vw, (max-width: 1024px) 90vw, 80vw"
               />
             </div>
           </div>

@@ -6,19 +6,11 @@ import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import PageHelmet from '@/components/PageHelmet';
+import OptimizedImage from '@/components/OptimizedImage';
 const CaseStudies = () => {
   const caseStudies = [
     {
       id: 1,
-      title: 'Boosting Conversion Rates by 320% for Axio Auto',
-      industry: 'Automotive',
-      tags: ['SEO', 'PPC', 'Conversion Rate Optimization'],
-      imageUrl: '/resgato-uploads/55557fa0-302d-476b-a9c9-d36ce29e2da5.png',
-      summary: 'How we transformed a regional auto dealership into a market leader with strategic digital marketing initiatives focused on local SEO and targeted PPC campaigns.',
-      results: ['320% increase in conversion rate', '215% growth in organic traffic', '47% reduction in customer acquisition cost']
-    },
-    {
-      id: 2,
       title: 'Scaling E-commerce Revenue for The Daily Shifts',
       industry: 'E-commerce',
       tags: ['Email Marketing', 'Social Media', 'Analytics'],
@@ -27,7 +19,7 @@ const CaseStudies = () => {
       results: ['800% revenue growth', '375% increase in returning customers', '523% growth in email subscribers']
     },
     {
-      id: 3,
+      id: 2,
       title: 'Revitalizing Brand Perception for MLD',
       industry: 'Retail',
       tags: ['Branding', 'Content Marketing', 'Social Media'],
@@ -63,10 +55,12 @@ const CaseStudies = () => {
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <div className="h-56 bg-gray-200">
-                    <img 
+                    <OptimizedImage 
                       src={study.imageUrl} 
                       alt={study.title} 
                       className="w-full h-full object-cover"
+                      loading="lazy"
+                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
                   <div className="p-6">

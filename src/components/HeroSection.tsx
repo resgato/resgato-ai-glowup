@@ -6,13 +6,8 @@ import { ArrowRight, Search, Mail, BarChart, Link as LinkIcon } from 'lucide-rea
 const HeroSection = () => {
   return (
     <div className="relative overflow-hidden">
-      {/* Background Image */}
+      {/* Background Gradient */}
       <div className="absolute inset-0 z-0">
-        <img 
-          src="/resgato-uploads/axio-ev-building.jpg" 
-          alt="Axio EV - Electric Vehicle Dealership Success Story" 
-          className="w-full h-full object-cover opacity-10"
-        />
         <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-resgato-light-purple/40"></div>
       </div>
       

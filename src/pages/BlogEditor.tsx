@@ -121,7 +121,7 @@ const BlogEditor = () => {
       
       fetchPost();
     }
-  }, [id, isEditMode, navigate]);
+  }, [id, isEditMode, navigate, form, toast]);
 
   // Helper function to format content with proper rich text features
   const formatContentHelper = (text: string) => {

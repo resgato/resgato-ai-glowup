@@ -58,6 +58,7 @@ export type Database = {
           name: string
           phone: string | null
           recaptcha_token: string | null
+          service: string | null
         }
         Insert: {
           company?: string | null
@@ -68,6 +69,7 @@ export type Database = {
           name: string
           phone?: string | null
           recaptcha_token?: string | null
+          service?: string | null
         }
         Update: {
           company?: string | null
@@ -78,6 +80,34 @@ export type Database = {
           name?: string
           phone?: string | null
           recaptcha_token?: string | null
+          service?: string | null
+        }
+        Relationships: []
+      }
+      marketing_audit_leads: {
+        Row: {
+          business_name: string | null
+          created_at: string
+          email: string
+          id: string
+          name: string
+          phone: string | null
+        }
+        Insert: {
+          business_name?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          phone?: string | null
+        }
+        Update: {
+          business_name?: string | null
+          created_at?: string
+          email?: string
+          id?: string
+          name?: string
+          phone?: string | null
         }
         Relationships: []
       }
@@ -207,3 +237,4 @@ export const Constants = {
     Enums: {},
   },
 } as const
+

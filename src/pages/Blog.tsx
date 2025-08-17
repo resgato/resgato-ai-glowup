@@ -1,17 +1,18 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { blogService } from '@/services/blog';
-import { BlogPost } from '@/types/blog';
+import { BlogPost, mockBlogPosts } from '@/types/blog';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
 import StatsSection from '@/components/StatsSection';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Calendar, Clock, Tag, User } from 'lucide-react';
+import { Calendar, Clock, Tag, User, Search, Filter } from 'lucide-react';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import PageHelmet from '@/components/PageHelmet';
 import { StructuredData } from '@/components/seo/StructuredData';
 import { Helmet } from 'react-helmet';
+import OptimizedImage from '@/components/OptimizedImage';
 
 const Blog = () => {
   const [posts, setPosts] = useState<BlogPost[]>([]);
@@ -19,17 +20,25 @@ const Blog = () => {
   const [categories, setCategories] = useState<string[]>([]);
   const [loading, setLoading] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState<string>("All Categories");
+  const [searchQuery, setSearchQuery] = useState<string>("");
+  const [sortBy, setSortBy] = useState<string>("date");
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const data = await blogService.getAllPosts();
+        // Try to fetch from database first, fallback to mock data
+        let data = await blogService.getAllPosts();
+        
+        if (!data || data.length === 0) {
+          // Use mock data if database is empty
+          data = mockBlogPosts;
+        }
         
         if (data && data.length > 0) {
           setPosts(data);
           setFeaturedPost(data[0]);
           
-          // Extract unique categories - fixed with proper type casting
+          // Extract unique categories
           const uniqueCategories = Array.from(
             new Set(data.map(post => post.category))
           ) as string[];
@@ -37,6 +46,13 @@ const Blog = () => {
         }
       } catch (error) {
         console.error('Error fetching posts:', error);
+        // Fallback to mock data on error
+        setPosts(mockBlogPosts);
+        setFeaturedPost(mockBlogPosts[0]);
+        const uniqueCategories = Array.from(
+          new Set(mockBlogPosts.map(post => post.category))
+        ) as string[];
+        setCategories(uniqueCategories);
       } finally {
         setLoading(false);
       }
@@ -45,10 +61,26 @@ const Blog = () => {
     fetchPosts();
   }, []);
 
-  // Filter posts by category
-  const filteredPosts = selectedCategory === "All Categories" 
-    ? posts.filter(post => post.id !== featuredPost?.id) 
-    : posts.filter(post => post.category === selectedCategory && post.id !== featuredPost?.id);
+  // Filter and sort posts
+  const filteredPosts = posts
+    .filter(post => post.id !== featuredPost?.id)
+    .filter(post => selectedCategory === "All Categories" || post.category === selectedCategory)
+    .filter(post => 
+      searchQuery === "" || 
+      post.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.excerpt.toLowerCase().includes(searchQuery.toLowerCase()) ||
+      post.category.toLowerCase().includes(searchQuery.toLowerCase())
+    )
+    .sort((a, b) => {
+      if (sortBy === "date") {
+        return new Date(b.date).getTime() - new Date(a.date).getTime();
+      } else if (sortBy === "title") {
+        return a.title.localeCompare(b.title);
+      } else if (sortBy === "category") {
+        return a.category.localeCompare(b.category);
+      }
+      return 0;
+    });
 
   if (loading) {
     return (
@@ -89,10 +121,13 @@ const Blog = () => {
               <div className="bg-white rounded-lg shadow-md overflow-hidden animate-fade-in">
                 <div className="md:flex">
                   <div className="md:w-2/5">
-                    <img 
+                    <OptimizedImage 
                       src={featuredPost.cover} 
                       alt={featuredPost.title} 
                       className="w-full h-56 md:h-full object-cover"
+                      priority={true}
+                      loading="eager"
+                      sizes="(max-width: 768px) 100vw, 50vw"
                     />
                   </div>
                   <div className="md:w-3/5 p-6 md:p-8">
@@ -139,20 +174,55 @@ const Blog = () => {
         {/* Recent Posts */}
         <section className="py-12 md:py-16">
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex justify-between items-center mb-8">
+            <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
               <h2 className="text-2xl font-bold">Recent Articles</h2>
-              <div>
-                <select 
-                  className="border rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-resgato-blue"
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
-                >
-                  <option>All Categories</option>
-                  {categories.map((category, index) => (
-                    <option key={index}>{category}</option>
-                  ))}
-                </select>
+              
+              {/* Search and Filter Controls */}
+              <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
+                {/* Search Bar */}
+                <div className="relative">
+                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 h-4 w-4" />
+                  <input
+                    type="text"
+                    placeholder="Search articles..."
+                    value={searchQuery}
+                    onChange={(e) => setSearchQuery(e.target.value)}
+                    className="pl-10 pr-4 py-2 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-resgato-blue focus:border-transparent w-full sm:w-64"
+                  />
+                </div>
+                
+                {/* Category Filter */}
+                <div className="flex gap-2">
+                  <select 
+                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-resgato-blue focus:border-transparent"
+                    value={selectedCategory}
+                    onChange={(e) => setSelectedCategory(e.target.value)}
+                  >
+                    <option>All Categories</option>
+                    {categories.map((category, index) => (
+                      <option key={index}>{category}</option>
+                    ))}
+                  </select>
+                  
+                  {/* Sort Options */}
+                  <select 
+                    className="border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:ring-2 focus:ring-resgato-blue focus:border-transparent"
+                    value={sortBy}
+                    onChange={(e) => setSortBy(e.target.value)}
+                  >
+                    <option value="date">Sort by Date</option>
+                    <option value="title">Sort by Title</option>
+                    <option value="category">Sort by Category</option>
+                  </select>
+                </div>
               </div>
+            </div>
+            
+            {/* Results Counter */}
+            <div className="mb-6 text-sm text-gray-600">
+              Showing {filteredPosts.length} of {posts.length} articles
+              {searchQuery && ` for "${searchQuery}"`}
+              {selectedCategory !== "All Categories" && ` in ${selectedCategory}`}
             </div>
             
             {filteredPosts.length > 0 ? (
@@ -160,14 +230,16 @@ const Blog = () => {
                 {filteredPosts.map((post, index) => (
                   <Card 
                     key={post.id}
-                    className="overflow-hidden hover:shadow-lg transition-shadow animate-fade-in"
+                    className="overflow-hidden hover:shadow-lg transition-all duration-300 animate-fade-in group"
                     style={{ animationDelay: `${index * 100}ms` }}
                   >
                     <div className="h-48 overflow-hidden">
-                      <img 
+                      <OptimizedImage 
                         src={post.cover} 
                         alt={post.title} 
-                        className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                        className="w-full h-full object-cover transition-transform group-hover:scale-105 duration-500"
+                        loading="lazy"
+                        sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       />
                     </div>
                     <CardHeader className="pb-2">
@@ -208,8 +280,28 @@ const Blog = () => {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-10">
-                <p className="text-gray-500">No articles found in this category.</p>
+              <div className="text-center py-16">
+                <div className="max-w-md mx-auto">
+                  <Search className="h-12 w-12 text-gray-400 mx-auto mb-4" />
+                  <h3 className="text-lg font-medium text-gray-900 mb-2">No articles found</h3>
+                  <p className="text-gray-500 mb-4">
+                    {searchQuery 
+                      ? `No articles match your search for "${searchQuery}"`
+                      : selectedCategory !== "All Categories"
+                      ? `No articles found in the ${selectedCategory} category`
+                      : "No articles available at the moment."
+                    }
+                  </p>
+                  <button 
+                    onClick={() => {
+                      setSearchQuery("");
+                      setSelectedCategory("All Categories");
+                    }}
+                    className="text-resgato-blue hover:text-resgato-deep-purple font-medium"
+                  >
+                    Clear filters and try again
+                  </button>
+                </div>
               </div>
             )}
             
