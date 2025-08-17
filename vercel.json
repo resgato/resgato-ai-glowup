@@ -53,6 +53,10 @@
   ],
   "rewrites": [
     {
+      "source": "/sitemap.xml",
+      "destination": "https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/generate-sitemap"
+    },
+    {
       "source": "/(.*)",
       "destination": "/index.html"
     }
