@@ -11,6 +11,15 @@ const CaseStudies = () => {
   const caseStudies = [
     {
       id: 1,
+      title: 'Complete Digital Transformation for Yeti Plumbing',
+      industry: 'Home Services',
+      tags: ['Web Development', 'SEO', 'Branding'],
+      imageUrl: '/resgato-uploads/calltheyeti_1.jpg',
+      summary: 'Comprehensive digital transformation including marketing strategy, domain management, hosting, web development, logo design, and SEO optimization.',
+      results: ['New professional website launched', 'Custom logo and brand identity created', 'SEO optimization for local search']
+    },
+    {
+      id: 2,
       title: 'Scaling E-commerce Revenue for The Daily Shifts',
       industry: 'E-commerce',
       tags: ['Email Marketing', 'Social Media', 'Analytics'],
@@ -19,7 +28,7 @@ const CaseStudies = () => {
       results: ['800% revenue growth', '375% increase in returning customers', '523% growth in email subscribers']
     },
     {
-      id: 2,
+      id: 3,
       title: 'Revitalizing Brand Perception for MLD',
       industry: 'Retail',
       tags: ['Branding', 'Content Marketing', 'Social Media'],
@@ -83,7 +92,7 @@ const CaseStudies = () => {
                       </ul>
                     </div>
                     <Button asChild variant="outline" className="w-full">
-                      <Link to="/contact" className="flex items-center justify-center">
+                      <Link to={study.id === 1 ? "/case-studies/yeti-plumbing" : "/contact"} className="flex items-center justify-center">
                         Read Full Case Study <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
@@ -103,7 +112,7 @@ const CaseStudies = () => {
             </div>
             
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 animate-fade-in" style={{ animationDelay: "150ms" }}>
-              {['E-commerce', 'SaaS & Technology', 'Healthcare', 'Finance', 'Education', 'Professional Services', 'Real Estate', 'Hospitality'].map((industry, index) => (
+              {['E-commerce', 'SaaS & Technology', 'Healthcare', 'Finance', 'Education', 'Professional Services', 'Real Estate', 'Home Services'].map((industry, index) => (
                 <div 
                   key={index}
                   className="bg-white rounded-lg border border-gray-200 p-6 text-center transition-all hover:border-resgato-blue hover:shadow-md"
