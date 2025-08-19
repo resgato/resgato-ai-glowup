@@ -48,12 +48,9 @@ const DailyShiftsCaseStudy = () => {
   ];
 
   const results = [
-    "800% revenue growth through improved search visibility",
-    "375% increase in returning customers via remarketing",
-    "523% growth in email subscribers from targeted campaigns",
-    "Significant improvement in organic search rankings",
-    "Enhanced user experience and site performance",
-    "Expanded national reach through multi-channel advertising"
+    "Creation of a Weekly Content Strategy",
+    "Earned over 100k Organic Clicks in less than a year",
+    "Achieved app sub $5 iOS App Installs"
   ];
 
   return (
@@ -92,13 +89,15 @@ const DailyShiftsCaseStudy = () => {
                 </div>
               </div>
               <div className="relative">
-                <OptimizedImage 
-                  src="/resgato-uploads/tds1.png" 
-                  alt="The Daily Shifts Website" 
-                  className="rounded-lg shadow-2xl"
-                  loading="eager"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+                <div className="bg-white rounded-lg shadow-2xl overflow-hidden">
+                  <OptimizedImage 
+                    src="/resgato-uploads/tds1.png" 
+                    alt="The Daily Shifts Website" 
+                    className="w-full h-auto"
+                    loading="eager"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -141,7 +140,7 @@ const DailyShiftsCaseStudy = () => {
                   </ul>
                 </div>
               </div>
-              <div className="space-y-6">
+              <div className="space-y-8">
                 <div className="bg-resgato-light-purple/30 p-8 rounded-lg">
                   <h3 className="text-2xl font-semibold mb-6">Challenge</h3>
                   <p className="text-gray-700 mb-4">
@@ -166,13 +165,15 @@ const DailyShiftsCaseStudy = () => {
                     </li>
                   </ul>
                 </div>
-                <OptimizedImage 
-                  src="/resgato-uploads/tds2.png" 
-                  alt="The Daily Shifts SEO Strategy" 
-                  className="rounded-lg shadow-lg w-full"
-                  loading="lazy"
-                  sizes="(max-width: 1024px) 100vw, 50vw"
-                />
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <OptimizedImage 
+                    src="/resgato-uploads/tds2.png" 
+                    alt="The Daily Shifts SEO Strategy" 
+                    className="w-full h-auto"
+                    loading="lazy"
+                    sizes="(max-width: 1024px) 100vw, 50vw"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -209,53 +210,65 @@ const DailyShiftsCaseStudy = () => {
               </p>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              <div className="space-y-4">
-                <OptimizedImage 
-                  src="/resgato-uploads/tds2.png" 
-                  alt="The Daily Shifts SEO Optimization" 
-                  className="rounded-lg shadow-lg w-full h-64 object-cover"
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                <OptimizedImage 
-                  src="/resgato-uploads/tds3.png" 
-                  alt="The Daily Shifts Search Marketing" 
-                  className="rounded-lg shadow-lg w-full h-64 object-cover"
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
+              <div className="space-y-6">
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <OptimizedImage 
+                    src="/resgato-uploads/tds2.png" 
+                    alt="The Daily Shifts SEO Optimization" 
+                    className="w-full h-auto"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <OptimizedImage 
+                    src="/resgato-uploads/tds3.png" 
+                    alt="The Daily Shifts Search Marketing" 
+                    className="w-full h-auto"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
               </div>
-              <div className="space-y-4">
-                <OptimizedImage 
-                  src="/resgato-uploads/tds4.png" 
-                  alt="The Daily Shifts Analytics Dashboard" 
-                  className="rounded-lg shadow-lg w-full h-64 object-cover"
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                <OptimizedImage 
-                  src="/resgato-uploads/tds5.png" 
-                  alt="The Daily Shifts Campaign Performance" 
-                  className="rounded-lg shadow-lg w-full h-64 object-cover"
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
+              <div className="space-y-6">
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <OptimizedImage 
+                    src="/resgato-uploads/tds4.png" 
+                    alt="The Daily Shifts Analytics Dashboard" 
+                    className="w-full h-auto"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <OptimizedImage 
+                    src="/resgato-uploads/tds5.png" 
+                    alt="The Daily Shifts Campaign Performance" 
+                    className="w-full h-auto"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
               </div>
-              <div className="space-y-4">
-                <OptimizedImage 
-                  src="/resgato-uploads/tds6.png" 
-                  alt="The Daily Shifts Marketing Results" 
-                  className="rounded-lg shadow-lg w-full h-64 object-cover"
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
-                <OptimizedImage 
-                  src="/resgato-uploads/tds7.png" 
-                  alt="The Daily Shifts Growth Metrics" 
-                  className="rounded-lg shadow-lg w-full h-64 object-cover"
-                  loading="lazy"
-                  sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
-                />
+              <div className="space-y-6">
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <OptimizedImage 
+                    src="/resgato-uploads/tds6.png" 
+                    alt="The Daily Shifts Marketing Results" 
+                    className="w-full h-auto"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
+                <div className="bg-white rounded-lg shadow-lg overflow-hidden">
+                  <OptimizedImage 
+                    src="/resgato-uploads/tds7.png" 
+                    alt="The Daily Shifts Growth Metrics" 
+                    className="w-full h-auto"
+                    loading="lazy"
+                    sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -282,27 +295,23 @@ const DailyShiftsCaseStudy = () => {
                   ))}
                 </ul>
               </div>
-              <div className="bg-resgato-light-purple/30 p-8 rounded-lg">
-                <h3 className="text-2xl font-semibold mb-6">Strategic Impact</h3>
-                <div className="space-y-6">
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">National Expansion</h4>
-                    <p className="text-gray-600">Successfully expanded from local to national market through targeted SEO and advertising campaigns.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Revenue Growth</h4>
-                    <p className="text-gray-600">Achieved 800% revenue growth through improved search visibility and conversion optimization.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Customer Retention</h4>
-                    <p className="text-gray-600">375% increase in returning customers through effective remarketing and audience targeting.</p>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-2">Email Marketing</h4>
-                    <p className="text-gray-600">523% growth in email subscribers, building a valuable direct marketing channel.</p>
+                              <div className="bg-resgato-light-purple/30 p-8 rounded-lg">
+                  <h3 className="text-2xl font-semibold mb-6">Strategic Impact</h3>
+                  <div className="space-y-6">
+                    <div>
+                      <h4 className="font-semibold text-lg mb-2">Content Strategy Success</h4>
+                      <p className="text-gray-600">Implemented a comprehensive weekly content strategy that drove consistent organic growth and engagement.</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg mb-2">Organic Traffic Growth</h4>
+                      <p className="text-gray-600">Achieved over 100,000 organic clicks in less than a year, demonstrating exceptional SEO performance and content effectiveness.</p>
+                    </div>
+                    <div>
+                      <h4 className="font-semibold text-lg mb-2">Cost-Effective App Growth</h4>
+                      <p className="text-gray-600">Successfully achieved iOS app installs at under $5 per install, optimizing marketing spend and maximizing ROI.</p>
+                    </div>
                   </div>
                 </div>
-              </div>
             </div>
           </div>
         </section>
