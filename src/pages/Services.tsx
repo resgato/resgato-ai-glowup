@@ -14,8 +14,8 @@ const Services = () => {
   const servicesFeatures = [
     {
       icon: <Zap className="h-6 w-6 text-resgato-purple" />,
-      title: "AI-Powered Marketing Solutions",
-      description: "Leverage the latest in artificial intelligence to optimize your marketing efforts and improve ROI."
+      title: "Marketing Solutions",
+      description: "Leverage the latest marketing technologies to optimize your marketing efforts and improve ROI."
     },
     {
       icon: <BarChart3 className="h-6 w-6 text-resgato-purple" />,
@@ -38,7 +38,7 @@ const Services = () => {
     <div className="min-h-screen flex flex-col">
       <PageHelmet 
         title="Digital Marketing Services in Utah | Resgato's Complete Marketing Solutions | Salt Lake City"
-        description="Comprehensive digital marketing services in Utah: SEO, PPC, social media, content strategy, and AI solutions. Custom strategies that drive real business growth and ROI."
+        description="Comprehensive digital marketing services in Utah: SEO, PPC, social media, content strategy, and marketing solutions. Custom strategies that drive real business growth and ROI."
         keywords="salt lake city marketing agencies, digital marketing agency salt lake city, utah sem companies, salt lake city ppc agency, utah ppc consultant, digital strategy consulting salt lake city, marketing firms in utah, ad agency salt lake city"
         canonicalUrl="/services"
       />
@@ -46,8 +46,8 @@ const Services = () => {
       <main className="flex-grow">
         <h1 className="sr-only">Digital Marketing Services in Utah | Resgato</h1>
         <ServiceHero 
-          title="Salt Lake City Marketing Services"
-          description="Discover how our AI-powered marketing solutions can help your Utah business achieve exceptional results with our digital strategy consulting."
+          title="Digital Marketing Solutions"
+          description="Discover how our marketing solutions can help your Utah business achieve exceptional results with our digital strategy consulting."
           image="/resgato-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png"
           features={servicesFeatures}
         />

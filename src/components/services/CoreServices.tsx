@@ -7,12 +7,12 @@ const CoreServices = () => {
   const mainServiceData = [
     {
       icon: <Database className="h-12 w-12 text-resgato-purple" />,
-      title: 'AI Marketing Strategy',
-      description: 'Comprehensive marketing strategies powered by artificial intelligence.',
-      details: 'Our AI Marketing Strategy service provides a tailored roadmap for leveraging artificial intelligence in your marketing efforts. We analyze your business objectives, target audience, and current marketing performance to develop a comprehensive strategy that incorporates the most relevant AI technologies. Our strategies are designed to enhance customer engagement, increase conversion rates, and maximize ROI.',
+      title: 'Marketing Strategy',
+      description: 'Comprehensive marketing strategies designed to drive business growth.',
+      details: 'Our Marketing Strategy service provides a tailored roadmap for your marketing efforts. We analyze your business objectives, target audience, and current marketing performance to develop a comprehensive strategy that incorporates the most relevant marketing technologies and approaches. Our strategies are designed to enhance customer engagement, increase conversion rates, and maximize ROI.',
       link: '/ai-consulting',
       benefits: [
-        "Tailored AI strategies aligned with your business goals",
+        "Tailored strategies aligned with your business goals",
         "Competitive advantage through innovative marketing approaches",
         "Improved targeting and audience segmentation",
         "Enhanced marketing ROI through data-driven decision making"
@@ -20,9 +20,9 @@ const CoreServices = () => {
     },
     {
       icon: <FileText className="h-12 w-12 text-resgato-purple" />,
-      title: 'AI Content Creation',
+      title: 'Content Creation',
       description: 'Generate high-quality, tailored content for various marketing channels.',
-      details: 'Our AI Content Creation service utilizes advanced natural language processing and generation technologies to produce high-quality, engaging content for your marketing channels. From blog posts and social media content to email campaigns and product descriptions, our AI tools can generate content that resonates with your audience while maintaining your brand voice and style. This service helps you scale your content production efficiently while ensuring consistency and quality.',
+      details: 'Our Content Creation service utilizes advanced content creation techniques to produce high-quality, engaging content for your marketing channels. From blog posts and social media content to email campaigns and product descriptions, our content tools can generate content that resonates with your audience while maintaining your brand voice and style. This service helps you scale your content production efficiently while ensuring consistency and quality.',
       link: '/ai-consulting',
       benefits: [
         "Higher quality content that resonates with your audience",
@@ -90,7 +90,7 @@ const CoreServices = () => {
       <div className="text-center mb-16">
         <h2 className="section-title">Core Services</h2>
         <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-          Our comprehensive suite of AI marketing services designed to transform your business.
+          Our comprehensive suite of marketing services designed to transform your business.
         </p>
       </div>
 
