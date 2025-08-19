@@ -31,6 +31,7 @@ import UtahMarketingFirms from "./pages/UtahMarketingFirms";
 import ScrollToTop from "@/components/ScrollToTop";
 import LocalBusinessAudit from "./pages/LocalBusinessAudit";
 import YetiPlumbingCaseStudy from "./pages/YetiPlumbingCaseStudy";
+import DailyShiftsCaseStudy from "./pages/DailyShiftsCaseStudy";
 
 // Updated QueryClient configuration to be compatible with React Query v5
 const queryClient = new QueryClient({
@@ -82,6 +83,7 @@ const App = () => (
           <Route path="/utah-marketing-firms" element={<UtahMarketingFirms />} />
           <Route path="/local-business-audit" element={<LocalBusinessAudit />} />
           <Route path="/case-studies/yeti-plumbing" element={<YetiPlumbingCaseStudy />} />
+          <Route path="/case-studies/daily-shifts" element={<DailyShiftsCaseStudy />} />
           <Route path="/blog/utah-real-estate-marketing" element={<Navigate to="/utah-real-estate-marketing" replace />} />
           <Route path="*" element={<NotFound />} />
         </Routes>

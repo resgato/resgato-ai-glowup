@@ -20,11 +20,11 @@ const CaseStudies = () => {
     },
     {
       id: 2,
-      title: 'Scaling E-commerce Revenue for The Daily Shifts',
+      title: 'Comprehensive SEO & Digital Marketing for The Daily Shifts',
       industry: 'E-commerce',
-      tags: ['Email Marketing', 'Social Media', 'Analytics'],
+      tags: ['SEO', 'Search Marketing', 'Analytics'],
       imageUrl: '/resgato-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png',
-      summary: 'Strategic email campaigns and targeted social media advertising helped this mindfulness brand expand nationally and increase recurring revenue.',
+      summary: 'Complete SEO transformation including site optimization, search engine marketing, and targeted advertising campaigns for this mindfulness brand.',
       results: ['800% revenue growth', '375% increase in returning customers', '523% growth in email subscribers']
     },
     {
@@ -92,7 +92,11 @@ const CaseStudies = () => {
                       </ul>
                     </div>
                     <Button asChild variant="outline" className="w-full">
-                      <Link to={study.id === 1 ? "/case-studies/yeti-plumbing" : "/contact"} className="flex items-center justify-center">
+                      <Link to={
+                        study.id === 1 ? "/case-studies/yeti-plumbing" : 
+                        study.id === 2 ? "/case-studies/daily-shifts" : 
+                        "/contact"
+                      } className="flex items-center justify-center">
                         Read Full Case Study <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>

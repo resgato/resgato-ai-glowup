@@ -32,10 +32,10 @@ const Navbar = () => {
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
             <Link
-              to="/"
+              to="/case-studies"
               className="text-gray-700 hover:text-resgato-blue font-medium transition-colors"
             >
-              Home
+              Case Studies
             </Link>
             <Link
               to="/about"
@@ -85,11 +85,11 @@ const Navbar = () => {
         <div className="md:hidden bg-white px-4 pt-2 pb-4 shadow-lg">
           <nav className="flex flex-col space-y-4">
             <Link
-              to="/"
+              to="/case-studies"
               className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Home
+              Case Studies
             </Link>
             <Link
               to="/about"
