@@ -167,7 +167,7 @@ const DailyShiftsCaseStudy = () => {
                 </div>
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                   <OptimizedImage 
-                    src="/resgato-uploads/tds2.png" 
+                    src="/resgato-uploads/tds2.jpeg" 
                     alt="The Daily Shifts SEO Strategy" 
                     className="w-full h-auto"
                     loading="lazy"
@@ -213,7 +213,7 @@ const DailyShiftsCaseStudy = () => {
               <div className="space-y-6">
                 <div className="bg-white rounded-lg shadow-lg overflow-hidden">
                   <OptimizedImage 
-                    src="/resgato-uploads/tds2.png" 
+                    src="/resgato-uploads/tds2.jpeg" 
                     alt="The Daily Shifts SEO Optimization" 
                     className="w-full h-auto"
                     loading="lazy"

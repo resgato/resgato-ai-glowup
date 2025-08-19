@@ -23,7 +23,7 @@ const CaseStudies = () => {
       title: 'Comprehensive SEO & Digital Marketing for The Daily Shifts',
       industry: 'E-commerce',
       tags: ['SEO', 'Search Marketing', 'Analytics'],
-      imageUrl: '/resgato-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png',
+      imageUrl: '/resgato-uploads/tds2.jpeg',
       summary: 'Complete SEO transformation including site optimization, search engine marketing, and targeted advertising campaigns for this mindfulness brand.',
       results: ['800% revenue growth', '375% increase in returning customers', '523% growth in email subscribers']
     },
@@ -79,18 +79,7 @@ const CaseStudies = () => {
                       <span className="text-sm text-gray-600">{study.tags[0]}</span>
                     </div>
                     <h3 className="text-xl font-bold mb-3">{study.title}</h3>
-                    <p className="text-gray-600 mb-4">{study.summary}</p>
-                    <div className="mb-6">
-                      <h4 className="font-semibold mb-2">Key Results:</h4>
-                      <ul className="space-y-1">
-                        {study.results.map((result, i) => (
-                          <li key={i} className="text-gray-600 text-sm flex items-center">
-                            <div className="w-1.5 h-1.5 bg-resgato-blue rounded-full mr-2"></div>
-                            {result}
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
+                    <p className="text-gray-600 mb-6">{study.summary}</p>
                     <Button asChild variant="outline" className="w-full">
                       <Link to={
                         study.id === 1 ? "/case-studies/yeti-plumbing" : 
