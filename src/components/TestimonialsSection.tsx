@@ -58,7 +58,38 @@ const TestimonialsSection = () => {
                 </div>
                 <p className="text-gray-700 mb-5 md:mb-6 text-sm md:text-base leading-relaxed">"{testimonial.quote}"</p>
                 <div>
-                  <p className="font-semibold text-gray-900 text-base md:text-lg">{testimonial.author}</p>
+                  <p className="font-semibold text-gray-900 text-base md:text-lg">
+                    {testimonial.author === "Mersadi Olson" ? (
+                      <a 
+                        href="https://mersadiolson.com/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-resgato-purple transition-colors duration-200"
+                      >
+                        {testimonial.author}
+                      </a>
+                    ) : testimonial.author === "Doug Cartwright" ? (
+                      <a 
+                        href="https://www.alchemysalescoaching.com/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-resgato-purple transition-colors duration-200"
+                      >
+                        {testimonial.author}
+                      </a>
+                    ) : testimonial.author === "Nicole Marriner" ? (
+                      <a 
+                        href="https://sliceutah.com/" 
+                        target="_blank" 
+                        rel="noopener noreferrer"
+                        className="hover:text-resgato-purple transition-colors duration-200"
+                      >
+                        {testimonial.author}
+                      </a>
+                    ) : (
+                      testimonial.author
+                    )}
+                  </p>
                   {testimonial.position && testimonial.company && (
                     <p className="text-gray-600 text-xs md:text-sm">{testimonial.position}, {testimonial.company}</p>
                   )}

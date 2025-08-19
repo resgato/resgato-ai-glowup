@@ -24,6 +24,8 @@ import Admin from "./pages/Admin";
 import BlogAdmin from "./pages/BlogAdmin";
 import BlogEditor from "./pages/BlogEditor";
 import ContentStrategy from "./pages/ContentStrategy";
+import WebsiteDevelopment from "./pages/WebsiteDevelopment";
+import ITSupport from "./pages/ITSupport";
 import UtahRealEstateMarketing from "./pages/UtahRealEstateMarketing";
 import UtahMarketingFirms from "./pages/UtahMarketingFirms";
 import ScrollToTop from "@/components/ScrollToTop";
@@ -68,6 +70,8 @@ const App = () => (
           <Route path="/ai-consulting" element={<AIConsulting />} />
           <Route path="/social-media-marketing" element={<SocialMediaMarketing />} />
           <Route path="/content-strategy" element={<ContentStrategy />} />
+          <Route path="/website-development" element={<WebsiteDevelopment />} />
+          <Route path="/it-support" element={<ITSupport />} />
           <Route path="/login" element={<Login />} />
           <Route path="/admin" element={<Admin />} />
           <Route path="/admin/blogs" element={<BlogAdmin />} />

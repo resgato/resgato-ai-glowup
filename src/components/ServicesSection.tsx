@@ -1,7 +1,7 @@
 
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Search, Mail, BarChart, MessageSquare, Users, Calendar, Bot } from 'lucide-react';
+import { Search, Mail, BarChart, MessageSquare, Users, Calendar, Bot, Code, Wrench } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const ServicesSection = () => {
@@ -47,6 +47,18 @@ const ServicesSection = () => {
       title: 'Content Strategy',
       description: 'Comprehensive content planning and creation services that enhance your Utah business\'s digital presence, engage your local audience, and support your SEO and marketing goals.',
       link: '/content-strategy'
+    },
+    {
+      icon: <Code className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
+      title: 'Website Development',
+      description: 'Custom website development services that create modern, responsive, and high-performing websites tailored to your Utah business needs and goals.',
+      link: '/website-development'
+    },
+    {
+      icon: <Wrench className="h-7 w-7 md:h-8 md:w-8 text-resgato-purple" />,
+      title: 'Website Hosting & IT Services',
+      description: 'Professional website hosting, domain management, and managed IT services to keep your Utah business online and running smoothly.',
+      link: '/it-support'
     }
   ];
 
