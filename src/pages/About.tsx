@@ -73,8 +73,8 @@ const About = () => {
             <div className="space-y-8">
               <div className="aspect-square w-full overflow-hidden rounded-lg shadow-lg">
                 <OptimizedImage 
-                  src="/resgato-uploads/adagency.jpg" 
-                  alt="Resgato Digital Marketing Agency in Salt Lake City"
+                  src="/resgato-uploads/headshot.jpeg" 
+                  alt="Taylor Brody - Founder & CEO of Resgato Digital Marketing Agency"
                   className="w-full h-full object-cover"
                   priority={true}
                   loading="eager"

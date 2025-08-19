@@ -32,7 +32,7 @@ const CaseStudies = () => {
       title: 'Revitalizing Brand Perception for MLD',
       industry: 'Retail',
       tags: ['Branding', 'Content Marketing', 'Social Media'],
-      imageUrl: '/resgato-uploads/3f29c8f4-0489-47bd-ab86-13ed0a87031b.png',
+      imageUrl: '/resgato-uploads/mld_homepage.png',
       summary: "Transforming a traditional retail chain's digital presence to appeal to younger demographics while maintaining trust with existing customers.",
       results: ['42% increase in millennial customers', '68% growth in social engagement', '3.2x improvement in brand sentiment']
     }
@@ -84,6 +84,7 @@ const CaseStudies = () => {
                       <Link to={
                         study.id === 1 ? "/case-studies/yeti-plumbing" : 
                         study.id === 2 ? "/case-studies/daily-shifts" : 
+                        study.id === 3 ? "/case-studies/mld" :
                         "/contact"
                       } className="flex items-center justify-center">
                         Read Full Case Study <ArrowRight className="ml-2 h-4 w-4" />
