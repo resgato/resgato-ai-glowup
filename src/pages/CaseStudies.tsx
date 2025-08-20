@@ -29,12 +29,12 @@ const CaseStudies = () => {
     },
     {
       id: 3,
-      title: 'Revitalizing Brand Perception for MLD',
-      industry: 'Retail',
-      tags: ['Branding', 'Content Marketing', 'Social Media'],
+      title: 'Brand Transformation Success Story',
+      industry: 'Business Services',
+      tags: ['Branding', 'Digital Marketing', 'Social Media'],
       imageUrl: '/resgato-uploads/mld_homepage.png',
-      summary: "Transforming a traditional retail chain's digital presence to appeal to younger demographics while maintaining trust with existing customers.",
-      results: ['42% increase in millennial customers', '68% growth in social engagement', '3.2x improvement in brand sentiment']
+      summary: "Transforming a traditional business's digital presence to appeal to new demographics while maintaining trust with existing customers.",
+      results: ['Significant increase in new customers', 'Substantial growth in social engagement', 'Major improvement in brand sentiment']
     }
   ];
 

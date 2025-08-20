@@ -43,19 +43,19 @@ const MLDCaseStudy = () => {
   ];
 
   const results = [
-    "42% increase in millennial customers",
-    "68% growth in social engagement",
-    "3.2x improvement in brand sentiment",
+    "Significant increase in new demographic customers",
+    "Substantial growth in social engagement",
+    "Major improvement in brand sentiment",
     "Enhanced digital presence and brand perception",
     "Improved customer engagement across all channels",
-    "Successful transition to modern retail marketing"
+    "Successful transition to modern marketing approaches"
   ];
 
   return (
     <div className="min-h-screen flex flex-col">
       <PageHelmet 
-        title="MLD Case Study | Brand Revitalization & Digital Transformation | Resgato"
-        description="Discover how Resgato helped MLD revitalize their brand perception and achieve 42% increase in millennial customers through strategic digital marketing."
+        title="Brand Transformation Case Study | Digital Marketing Success | Resgato"
+        description="Discover how Resgato helped a traditional business achieve significant increase in new customers through strategic brand transformation and digital marketing."
         canonicalUrl="/case-studies/mld"
       />
       <Navbar />
@@ -74,15 +74,15 @@ const MLDCaseStudy = () => {
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
               <div>
                 <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-                  Revitalizing Brand Perception for MLD
+                  Brand Transformation Success Story
                 </h1>
                 <p className="text-xl md:text-2xl mb-8">
-                  A comprehensive brand transformation that successfully modernized a traditional retail chain's digital presence and expanded their customer base.
+                  A comprehensive brand transformation that successfully modernized a traditional business's digital presence and expanded their customer base.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <span className="bg-resgato-purple px-4 py-2 rounded-full text-sm font-semibold">Retail</span>
                   <span className="bg-resgato-purple px-4 py-2 rounded-full text-sm font-semibold">Branding</span>
-                  <span className="bg-resgato-purple px-4 py-2 rounded-full text-sm font-semibold">Content Marketing</span>
+                  <span className="bg-resgato-purple px-4 py-2 rounded-full text-sm font-semibold">Digital Marketing</span>
+                  <span className="bg-resgato-purple px-4 py-2 rounded-full text-sm font-semibold">Content Strategy</span>
                   <span className="bg-resgato-purple px-4 py-2 rounded-full text-sm font-semibold">Social Media</span>
                 </div>
               </div>
@@ -108,7 +108,7 @@ const MLDCaseStudy = () => {
               <div>
                 <h2 className="text-3xl md:text-4xl font-bold mb-6">Project Overview</h2>
                 <p className="text-lg text-gray-600 mb-6">
-                  MLD, a traditional retail chain, needed to modernize their digital presence to appeal to younger demographics 
+                  A traditional business needed to modernize their digital presence to appeal to new demographics 
                   while maintaining the trust and loyalty of their existing customer base. The challenge was to transform their 
                   brand perception without alienating their core audience.
                 </p>
@@ -142,12 +142,12 @@ const MLDCaseStudy = () => {
                 <div className="bg-resgato-light-purple/30 p-8 rounded-lg">
                   <h3 className="text-2xl font-semibold mb-6">Challenge</h3>
                   <p className="text-gray-700 mb-4">
-                    MLD faced several challenges in modernizing their brand:
+                    The business faced several challenges in modernizing their brand:
                   </p>
                   <ul className="space-y-3">
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-resgato-purple mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Traditional brand perception limiting appeal to younger customers</span>
+                      <span>Traditional brand perception limiting appeal to new customers</span>
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-resgato-purple mr-2 mt-0.5 flex-shrink-0" />
@@ -159,7 +159,7 @@ const MLDCaseStudy = () => {
                     </li>
                     <li className="flex items-start">
                       <CheckCircle className="h-5 w-5 text-resgato-purple mr-2 mt-0.5 flex-shrink-0" />
-                      <span>Limited engagement with millennial demographic</span>
+                      <span>Limited engagement with new demographic segments</span>
                     </li>
                   </ul>
                 </div>
@@ -268,16 +268,20 @@ const MLDCaseStudy = () => {
                 <h3 className="text-2xl font-semibold mb-6">Strategic Impact</h3>
                 <div className="space-y-6">
                   <div>
-                    <h4 className="font-semibold text-lg mb-2">Millennial Market Penetration</h4>
-                    <p className="text-gray-600">Successfully attracted 42% more millennial customers while maintaining existing customer loyalty.</p>
+                    <h4 className="font-semibold text-lg mb-2">Market Expansion</h4>
+                    <p className="text-gray-600">Successfully attracted significantly more customers from new demographics while maintaining existing customer loyalty.</p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-2">Social Media Success</h4>
-                    <p className="text-gray-600">Achieved 68% growth in social engagement, building a strong online community.</p>
+                    <p className="text-gray-600">Achieved substantial growth in social engagement, building a strong online community and brand presence.</p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-2">Brand Perception Transformation</h4>
-                    <p className="text-gray-600">3.2x improvement in brand sentiment, successfully modernizing the brand image.</p>
+                    <p className="text-gray-600">Major improvement in brand sentiment, successfully modernizing the brand image and market positioning.</p>
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-lg mb-2">Digital Presence Enhancement</h4>
+                    <p className="text-gray-600">Significantly improved digital presence and brand perception across all online channels and touchpoints.</p>
                   </div>
                 </div>
               </div>
