@@ -42,9 +42,9 @@ const GeneralizedBrandTransformationCaseStudy = () => {
   ];
 
   const results = [
-    "40%+ increase in new demographic customers",
-    "65%+ growth in social engagement",
-    "3x+ improvement in brand sentiment",
+    "Significant increase in new demographic customers",
+    "Substantial growth in social engagement",
+    "Major improvement in brand sentiment",
     "Enhanced digital presence and brand perception",
     "Improved customer engagement across all channels",
     "Successful transition to modern marketing approaches"
@@ -54,7 +54,7 @@ const GeneralizedBrandTransformationCaseStudy = () => {
     <div className="min-h-screen flex flex-col">
       <PageHelmet 
         title="Brand Transformation Case Study | Digital Marketing Success | Resgato"
-        description="Discover how Resgato helped a traditional business achieve 40%+ increase in new customers through strategic brand transformation and digital marketing."
+        description="Discover how Resgato helped a traditional business achieve significant increase in new customers through strategic brand transformation and digital marketing."
         canonicalUrl="/case-studies/brand-transformation"
       />
       <Navbar />
@@ -92,15 +92,15 @@ const GeneralizedBrandTransformationCaseStudy = () => {
                     <div className="space-y-3 text-left">
                       <div className="flex items-center">
                         <CheckCircle className="h-5 w-5 text-resgato-purple mr-3" />
-                        <span>40%+ new customer growth</span>
+                        <span>Significant new customer growth</span>
                       </div>
                       <div className="flex items-center">
                         <CheckCircle className="h-5 w-5 text-resgato-purple mr-3" />
-                        <span>65%+ social engagement increase</span>
+                        <span>Substantial social engagement increase</span>
                       </div>
                       <div className="flex items-center">
                         <CheckCircle className="h-5 w-5 text-resgato-purple mr-3" />
-                        <span>3x+ brand sentiment improvement</span>
+                        <span>Major brand sentiment improvement</span>
                       </div>
                     </div>
                   </div>
@@ -224,15 +224,15 @@ const GeneralizedBrandTransformationCaseStudy = () => {
                 <div className="space-y-6">
                   <div>
                     <h4 className="font-semibold text-lg mb-2">Market Expansion</h4>
-                    <p className="text-gray-600">Successfully attracted 40%+ more customers from new demographics while maintaining existing customer loyalty.</p>
+                    <p className="text-gray-600">Successfully attracted significantly more customers from new demographics while maintaining existing customer loyalty.</p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-2">Social Media Success</h4>
-                    <p className="text-gray-600">Achieved 65%+ growth in social engagement, building a strong online community and brand presence.</p>
+                    <p className="text-gray-600">Achieved substantial growth in social engagement, building a strong online community and brand presence.</p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-2">Brand Perception Transformation</h4>
-                    <p className="text-gray-600">3x+ improvement in brand sentiment, successfully modernizing the brand image and market positioning.</p>
+                    <p className="text-gray-600">Major improvement in brand sentiment, successfully modernizing the brand image and market positioning.</p>
                   </div>
                   <div>
                     <h4 className="font-semibold text-lg mb-2">Digital Presence Enhancement</h4>
