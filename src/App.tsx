@@ -29,6 +29,9 @@ import ITSupport from './pages/ITSupport';
 import UtahRealEstateMarketing from './pages/UtahRealEstateMarketing';
 import UtahMarketingFirms from './pages/UtahMarketingFirms';
 import UtahMarketingAgency from './pages/UtahMarketingAgency';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import TermsOfService from './pages/TermsOfService';
+import CookiePolicy from './pages/CookiePolicy';
 import ScrollToTop from '@/components/ScrollToTop';
 import LocalBusinessAudit from './pages/LocalBusinessAudit';
 import YetiPlumbingCaseStudy from './pages/YetiPlumbingCaseStudy';
@@ -112,6 +115,9 @@ const App = () => (
             element={<DailyShiftsCaseStudy />}
           />
           <Route path="/case-studies/mld" element={<MLDCaseStudy />} />
+          <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="/terms-of-service" element={<TermsOfService />} />
+          <Route path="/cookie-policy" element={<CookiePolicy />} />
           <Route
             path="/blog/utah-real-estate-marketing"
             element={<Navigate to="/utah-real-estate-marketing" replace />}

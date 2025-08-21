@@ -284,9 +284,31 @@ const Footer = () => {
               Mailchimp Agency
             </div>
           </div>
-          <p className="text-center text-sm text-gray-400">
-            &copy; {currentYear} Resgato. All rights reserved.
-          </p>
+          <div className="text-center text-sm text-gray-400">
+            <p className="mb-2">
+              &copy; {currentYear} Resgato. All rights reserved.
+            </p>
+            <div className="flex justify-center space-x-4 text-xs">
+              <a
+                href="/privacy-policy"
+                className="text-gray-400 transition-colors hover:text-white"
+              >
+                Privacy Policy
+              </a>
+              <a
+                href="/terms-of-service"
+                className="text-gray-400 transition-colors hover:text-white"
+              >
+                Terms of Service
+              </a>
+              <a
+                href="/cookie-policy"
+                className="text-gray-400 transition-colors hover:text-white"
+              >
+                Cookie Policy
+              </a>
+            </div>
+          </div>
         </div>
       </div>
     </footer>
