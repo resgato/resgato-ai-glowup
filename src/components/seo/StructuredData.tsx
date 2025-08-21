@@ -6,7 +6,11 @@ interface StructuredDataProps {
   breadcrumbs?: Array<{ name: string; item: string }>;
 }
 
-export const StructuredData = ({ type, article, breadcrumbs }: StructuredDataProps) => {
+export const StructuredData = ({
+  type,
+  article,
+  breadcrumbs,
+}: StructuredDataProps) => {
   const getStructuredData = () => {
     switch (type) {
       case 'article':
@@ -20,20 +24,20 @@ export const StructuredData = ({ type, article, breadcrumbs }: StructuredDataPro
           datePublished: article.date,
           author: {
             '@type': 'Person',
-            name: article.author
+            name: article.author,
           },
           publisher: {
             '@type': 'Organization',
             name: 'Resgato',
             logo: {
               '@type': 'ImageObject',
-              url: 'https://www.resgato.com/logo.png'
-            }
+              url: 'https://www.resgato.com/logo.png',
+            },
           },
           mainEntityOfPage: {
             '@type': 'WebPage',
-            '@id': `https://www.resgato.com/blog/${article.slug}`
-          }
+            '@id': `https://www.resgato.com/blog/${article.slug}`,
+          },
         };
 
       case 'breadcrumb':
@@ -45,8 +49,8 @@ export const StructuredData = ({ type, article, breadcrumbs }: StructuredDataPro
             '@type': 'ListItem',
             position: index + 1,
             name: item.name,
-            item: item.item
-          }))
+            item: item.item,
+          })),
         };
 
       case 'localBusiness':
@@ -54,7 +58,8 @@ export const StructuredData = ({ type, article, breadcrumbs }: StructuredDataPro
           '@context': 'https://schema.org',
           '@type': 'LocalBusiness',
           name: 'Resgato',
-          description: 'Digital Marketing Agency specializing in SEO, PPC, and Content Strategy',
+          description:
+            'Digital Marketing Agency specializing in SEO, PPC, and Content Strategy',
           url: 'https://www.resgato.com',
           logo: 'https://www.resgato.com/logo.png',
           address: {
@@ -63,19 +68,19 @@ export const StructuredData = ({ type, article, breadcrumbs }: StructuredDataPro
             addressLocality: 'San Francisco',
             addressRegion: 'CA',
             postalCode: '94105',
-            addressCountry: 'US'
+            addressCountry: 'US',
           },
           geo: {
             '@type': 'GeoCoordinates',
             latitude: '37.7749',
-            longitude: '-122.4194'
+            longitude: '-122.4194',
           },
           telephone: '+1-555-0123',
           sameAs: [
             'https://www.linkedin.com/company/resgato',
             'https://twitter.com/resgato',
-            'https://www.facebook.com/resgato'
-          ]
+            'https://www.facebook.com/resgato',
+          ],
         };
 
       default:
@@ -92,4 +97,4 @@ export const StructuredData = ({ type, article, breadcrumbs }: StructuredDataPro
       dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
     />
   );
-}; 
+};

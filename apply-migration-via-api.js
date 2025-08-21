@@ -8,7 +8,8 @@ const __dirname = path.dirname(__filename);
 
 // Supabase configuration
 const supabaseUrl = 'https://bopzgxqujuqosdexnppj.supabase.co';
-const supabaseServiceKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDA4NjA4MywiZXhwIjoyMDU5NjYyMDgzfQ.4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ';
+const supabaseServiceKey =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDA4NjA4MywiZXhwIjoyMDU5NjYyMDgzfQ.4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
@@ -67,16 +68,16 @@ async function applyMigration() {
 
       // Create indexes
       `create index if not exists idx_contact_submissions_created_at on public.contact_submissions(created_at desc);`,
-      `create index if not exists idx_contact_submissions_email on public.contact_submissions(email);`
+      `create index if not exists idx_contact_submissions_email on public.contact_submissions(email);`,
     ];
 
     // Execute each SQL command
     for (let i = 0; i < sqlCommands.length; i++) {
       const sql = sqlCommands[i];
       console.log(`Executing command ${i + 1}/${sqlCommands.length}...`);
-      
+
       const { data, error } = await supabase.rpc('exec_sql', { sql });
-      
+
       if (error) {
         console.error(`Error executing command ${i + 1}:`, error);
       } else {
@@ -88,26 +89,27 @@ async function applyMigration() {
     console.log('Testing table access...');
     const { data: testData, error: testError } = await supabase
       .from('contact_submissions')
-      .insert([{
-        name: 'Test User',
-        email: 'test@example.com',
-        message: 'Test message for RLS verification',
-        company: 'Test Company'
-      }])
+      .insert([
+        {
+          name: 'Test User',
+          email: 'test@example.com',
+          message: 'Test message for RLS verification',
+          company: 'Test Company',
+        },
+      ])
       .select();
 
     if (testError) {
       console.error('❌ RLS test failed:', testError);
     } else {
       console.log('✅ RLS test passed! Table is accessible for public inserts');
-      
+
       // Clean up test data
       await supabase
         .from('contact_submissions')
         .delete()
         .eq('email', 'test@example.com');
     }
-
   } catch (error) {
     console.error('Error applying migration:', error.message);
   }

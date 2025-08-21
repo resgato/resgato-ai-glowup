@@ -1,5 +1,9 @@
-
-import { getAllPosts, getPostBySlug, getPostById, getPostsByAuthor } from './queries';
+import {
+  getAllPosts,
+  getPostBySlug,
+  getPostById,
+  getPostsByAuthor,
+} from './queries';
 import { createPost, updatePost, deletePost } from './mutations';
 
 export const blogService = {
@@ -9,7 +13,7 @@ export const blogService = {
   getPostsByAuthor,
   createPost,
   updatePost,
-  deletePost
+  deletePost,
 };
 
 export default blogService;

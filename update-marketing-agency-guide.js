@@ -2,15 +2,17 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = 'https://bopzgxqujuqosdexnppj.supabase.co';
 // Replace this with your service_role key from Supabase dashboard
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'YOUR_SERVICE_ROLE_KEY_HERE';
+const supabaseServiceKey =
+  process.env.SUPABASE_SERVICE_ROLE_KEY || 'YOUR_SERVICE_ROLE_KEY_HERE';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 const marketingAgencyGuideData = {
-  slug: "how-to-find-marketing-agency",
-  title: "How to Find the Right Marketing Agency: Complete Guide for 2025",
-  excerpt: "Learn how to identify, evaluate, and choose the perfect marketing agency for your business needs and goals in today's competitive market.",
-  readTime: "14 min read",
+  slug: 'how-to-find-marketing-agency',
+  title: 'How to Find the Right Marketing Agency: Complete Guide for 2025',
+  excerpt:
+    "Learn how to identify, evaluate, and choose the perfect marketing agency for your business needs and goals in today's competitive market.",
+  readTime: '14 min read',
   content: `# How to Find the Right Marketing Agency: Complete Guide for 2025
 
 Finding the right marketing agency can transform your business growth, but with so many options available, the selection process can be overwhelming. The wrong choice can waste your budget and set your business back months. This comprehensive guide will help you identify, evaluate, and choose the perfect marketing partner for your business.
@@ -271,30 +273,29 @@ Finding the right marketing agency requires careful research, thorough evaluatio
 
 Remember that the best agency relationship is built on mutual trust, clear expectations, and ongoing communication. Take your time in the selection process, and don't be afraid to ask questions and request references to ensure you're making the right choice for your business.
 
-**Want to learn more about marketing strategy and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [marketing services](https://resgato.com/services) to see how we can help you achieve your marketing goals.`
+**Want to learn more about marketing strategy and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [marketing services](https://resgato.com/services) to see how we can help you achieve your marketing goals.`,
 };
 
 async function updateMarketingAgencyGuide() {
   try {
     console.log('🔄 Updating Marketing Agency Guide...');
-    
+
     const { data, error } = await supabase
       .from('blog_posts')
       .update({
         title: marketingAgencyGuideData.title,
         excerpt: marketingAgencyGuideData.excerpt,
         content: marketingAgencyGuideData.content,
-        readTime: marketingAgencyGuideData.readTime
+        readTime: marketingAgencyGuideData.readTime,
       })
       .eq('slug', marketingAgencyGuideData.slug)
       .select();
-    
+
     if (error) {
       console.error('❌ Error updating Marketing Agency Guide:', error);
     } else {
       console.log('✅ Successfully updated Marketing Agency Guide');
     }
-    
   } catch (error) {
     console.error('❌ Error in updateMarketingAgencyGuide:', error);
   }

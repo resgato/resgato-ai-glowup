@@ -2,21 +2,23 @@ import { createClient } from '@supabase/supabase-js';
 
 // Supabase configuration
 const supabaseUrl = 'https://bopzgxqujuqosdexnppj.supabase.co';
-const supabaseServiceKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDA4NjA4MywiZXhwIjoyMDU5NjYyMDgzfQ.HYD_2pj-D7x7Eh4LkqGhtw4iZ7MEBCS2NedD3jUuWqg';
+const supabaseServiceKey =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDA4NjA4MywiZXhwIjoyMDU5NjYyMDgzfQ.HYD_2pj-D7x7Eh4LkqGhtw4iZ7MEBCS2NedD3jUuWqg';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 // Additional blog posts for June, July, and August 2025
 const additionalBlogPosts = [
   {
-    slug: "auto-dealer-marketing-strategies",
-    title: "Auto Dealer Marketing Strategies That Drive Sales in 2025",
-    excerpt: "Discover proven digital marketing strategies specifically designed for auto dealerships to increase foot traffic, generate leads, and boost vehicle sales in today's competitive market.",
-    cover: "/resgato-uploads/utah-real-estate-marketing.png",
-    date: "June 15, 2025",
-    author: "Taylor Brody",
-    readTime: "10 min read",
-    category: "Automotive Marketing",
+    slug: 'auto-dealer-marketing-strategies',
+    title: 'Auto Dealer Marketing Strategies That Drive Sales in 2025',
+    excerpt:
+      "Discover proven digital marketing strategies specifically designed for auto dealerships to increase foot traffic, generate leads, and boost vehicle sales in today's competitive market.",
+    cover: '/resgato-uploads/utah-real-estate-marketing.png',
+    date: 'June 15, 2025',
+    author: 'Taylor Brody',
+    readTime: '10 min read',
+    category: 'Automotive Marketing',
     content: `# Auto Dealer Marketing Strategies That Drive Sales in 2025
 
 The automotive industry is experiencing a digital transformation unlike anything we've seen before. Dealerships that adapt their marketing strategies are seeing **300% increases in online leads** and **40% higher conversion rates**. This comprehensive guide covers the most effective marketing strategies for auto dealers in 2025.
@@ -210,17 +212,18 @@ Successful auto dealer marketing in 2025 requires a comprehensive digital approa
 
 The key is to meet customers where they are in their buying journey and provide the information and experience they expect in today's digital-first automotive market. Start implementing these strategies today, and you'll see results within the first 30 days.
 
-**Want to learn more about digital marketing for your business?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [PPC services](https://resgato.com/services) to see how we can help you dominate your local market.`
+**Want to learn more about digital marketing for your business?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [PPC services](https://resgato.com/services) to see how we can help you dominate your local market.`,
   },
   {
-    slug: "plumber-marketing-guide",
-    title: "Plumber Marketing Guide: How to Get More Customers in 2025",
-    excerpt: "Discover proven marketing strategies specifically designed for plumbing businesses to attract more customers, build trust, and grow your service area in today's competitive market.",
-    cover: "/resgato-uploads/office.jpg",
-    date: "June 28, 2025",
-    author: "Taylor Brody",
-    readTime: "9 min read",
-    category: "Service Business Marketing",
+    slug: 'plumber-marketing-guide',
+    title: 'Plumber Marketing Guide: How to Get More Customers in 2025',
+    excerpt:
+      "Discover proven marketing strategies specifically designed for plumbing businesses to attract more customers, build trust, and grow your service area in today's competitive market.",
+    cover: '/resgato-uploads/office.jpg',
+    date: 'June 28, 2025',
+    author: 'Taylor Brody',
+    readTime: '9 min read',
+    category: 'Service Business Marketing',
     content: `# Plumber Marketing Guide: How to Get More Customers in 2025
 
 Plumbing businesses face unique marketing challenges that most other industries don't understand. From emergency service needs to building trust in a service that customers often don't think about until there's a problem, plumbing marketing requires a specialized approach. This comprehensive guide covers effective marketing strategies specifically designed for plumbing companies.
@@ -594,17 +597,19 @@ Successful plumbing marketing in 2025 requires a comprehensive approach that com
 
 The key is to be there when customers need you, provide excellent service, and maintain a strong online presence that builds trust and credibility in your local market. Start implementing these strategies today, and you'll see results within the first 30 days.
 
-**Want to learn more about marketing for service businesses?** Check out our [comprehensive guide to local business marketing](https://resgato.com/services) or explore our [SEO services](https://resgato.com/services) to see how we can help you dominate your local market.`
+**Want to learn more about marketing for service businesses?** Check out our [comprehensive guide to local business marketing](https://resgato.com/services) or explore our [SEO services](https://resgato.com/services) to see how we can help you dominate your local market.`,
   },
   {
-    slug: "utah-ppc-agency-guide",
-    title: "Utah PPC Agency Guide: Choosing the Right Partner for Your Business",
-    excerpt: "Find the perfect PPC agency in Utah with this comprehensive guide covering what to look for, questions to ask, and how to evaluate performance for maximum ROI.",
-    cover: "/resgato-uploads/digitalmarketingfirmsinutah.jpg",
-    date: "July 12, 2025",
-    author: "Taylor Brody",
-    readTime: "12 min read",
-    category: "PPC",
+    slug: 'utah-ppc-agency-guide',
+    title:
+      'Utah PPC Agency Guide: Choosing the Right Partner for Your Business',
+    excerpt:
+      'Find the perfect PPC agency in Utah with this comprehensive guide covering what to look for, questions to ask, and how to evaluate performance for maximum ROI.',
+    cover: '/resgato-uploads/digitalmarketingfirmsinutah.jpg',
+    date: 'July 12, 2025',
+    author: 'Taylor Brody',
+    readTime: '12 min read',
+    category: 'PPC',
     content: `# Utah PPC Agency Guide: Choosing the Right Partner for Your Business
 
 Choosing the right PPC agency in Utah can make the difference between wasting your marketing budget and achieving significant ROI. With so many agencies claiming to be the best, how do you separate the wheat from the chaff? This comprehensive guide will help you find the perfect PPC partner for your business needs.
@@ -917,17 +922,18 @@ Choosing the right Utah PPC agency requires careful research, asking the right q
 
 Remember that the best agency for your business is one that understands your goals, communicates effectively, and delivers measurable results. Take your time in the selection process, and don't be afraid to ask for references and case studies to ensure you're making the right choice.
 
-**Want to learn more about PPC and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [PPC services](https://resgato.com/services) to see how we can help you dominate your local market.`
+**Want to learn more about PPC and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [PPC services](https://resgato.com/services) to see how we can help you dominate your local market.`,
   },
   {
-    slug: "how-to-build-a-website",
-    title: "How to Build a Website: Complete Guide for 2025",
-    excerpt: "Learn everything you need to know about building a professional website, from planning and design to development and launch in today's digital landscape.",
-    cover: "/resgato-uploads/aicoding.jpg",
-    date: "July 25, 2025",
-    author: "Taylor Brody",
-    readTime: "15 min read",
-    category: "Web Development",
+    slug: 'how-to-build-a-website',
+    title: 'How to Build a Website: Complete Guide for 2025',
+    excerpt:
+      "Learn everything you need to know about building a professional website, from planning and design to development and launch in today's digital landscape.",
+    cover: '/resgato-uploads/aicoding.jpg',
+    date: 'July 25, 2025',
+    author: 'Taylor Brody',
+    readTime: '15 min read',
+    category: 'Web Development',
     content: `# How to Build a Website: Complete Guide for 2025
 
 Building a website in 2025 requires understanding modern technologies, user expectations, and best practices that have evolved significantly over the past few years. This comprehensive guide will walk you through every step of creating a professional, effective website that not only looks great but also performs exceptionally well.
@@ -1406,17 +1412,18 @@ Building a successful website in 2025 requires careful planning, modern technolo
 
 Remember that website development is an ongoing process. Regular updates, performance monitoring, and user feedback will help you maintain a successful online presence that grows with your business.
 
-**Want to learn more about web development and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [web development services](https://resgato.com/services) to see how we can help you create a website that drives results.`
+**Want to learn more about web development and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [web development services](https://resgato.com/services) to see how we can help you create a website that drives results.`,
   },
   {
-    slug: "where-to-host-a-website",
-    title: "Where to Host a Website: Complete Hosting Guide for 2025",
-    excerpt: "Compare the best website hosting options, from shared hosting to cloud platforms, and find the perfect solution for your needs and budget.",
-    cover: "/resgato-uploads/office.jpg",
-    date: "August 8, 2025",
-    author: "Taylor Brody",
-    readTime: "13 min read",
-    category: "Web Hosting",
+    slug: 'where-to-host-a-website',
+    title: 'Where to Host a Website: Complete Hosting Guide for 2025',
+    excerpt:
+      'Compare the best website hosting options, from shared hosting to cloud platforms, and find the perfect solution for your needs and budget.',
+    cover: '/resgato-uploads/office.jpg',
+    date: 'August 8, 2025',
+    author: 'Taylor Brody',
+    readTime: '13 min read',
+    category: 'Web Hosting',
     content: `# Where to Host a Website: Complete Hosting Guide for 2025
 
 Choosing the right web hosting provider is one of the most critical decisions you'll make for your website's success. The wrong choice can lead to slow loading times, security vulnerabilities, and frustrating downtime. This comprehensive guide will help you understand the different hosting options and select the perfect solution for your specific needs.
@@ -1934,17 +1941,18 @@ Choosing the right web hosting provider requires careful consideration of your w
 
 Remember that hosting needs can change as your website grows, so choose a provider that offers scalability and can accommodate your future growth. Regular monitoring and optimization will help ensure your hosting solution continues to meet your needs effectively.
 
-**Want to learn more about website optimization and digital marketing?** Check out our [comprehensive guide to building a website](https://resgato.com/blog/how-to-build-a-website) or explore our [web development services](https://resgato.com/services) to see how we can help you create a high-performing website.`
+**Want to learn more about website optimization and digital marketing?** Check out our [comprehensive guide to building a website](https://resgato.com/blog/how-to-build-a-website) or explore our [web development services](https://resgato.com/services) to see how we can help you create a high-performing website.`,
   },
   {
-    slug: "how-to-find-marketing-agency",
-    title: "How to Find the Right Marketing Agency: Complete Guide for 2025",
-    excerpt: "Learn how to identify, evaluate, and choose the perfect marketing agency for your business needs and goals.",
-    cover: "/resgato-uploads/adagency.jpg",
-    date: "August 20, 2025",
-    author: "Taylor Brody",
-    readTime: "11 min read",
-    category: "Marketing Strategy",
+    slug: 'how-to-find-marketing-agency',
+    title: 'How to Find the Right Marketing Agency: Complete Guide for 2025',
+    excerpt:
+      'Learn how to identify, evaluate, and choose the perfect marketing agency for your business needs and goals.',
+    cover: '/resgato-uploads/adagency.jpg',
+    date: 'August 20, 2025',
+    author: 'Taylor Brody',
+    readTime: '11 min read',
+    category: 'Marketing Strategy',
     content: `# How to Find the Right Marketing Agency: Complete Guide for 2025
 
 Finding the right marketing agency can transform your business growth, but with so many options available, the selection process can be overwhelming. This comprehensive guide will help you identify, evaluate, and choose the perfect marketing partner for your business.
@@ -2254,51 +2262,59 @@ Evaluate compatibility in terms of:
 
 Finding the right marketing agency requires careful research, thorough evaluation, and clear communication. By following this comprehensive guide, you can identify a partner that understands your business, has the expertise to deliver results, and fits well with your organization's culture and values.
 
-Remember that the best agency relationship is built on mutual trust, clear expectations, and ongoing communication. Take your time in the selection process, and don't be afraid to ask questions and request references to ensure you're making the right choice for your business.`
-  }
+Remember that the best agency relationship is built on mutual trust, clear expectations, and ongoing communication. Take your time in the selection process, and don't be afraid to ask questions and request references to ensure you're making the right choice for your business.`,
+  },
 ];
 
 async function addAdditionalBlogPosts() {
   try {
     console.log('🚀 Adding additional blog posts to the database...');
-    
+
     // Add each blog post
     const results = [];
-    
+
     for (const post of additionalBlogPosts) {
       console.log(`📝 Processing: ${post.title}`);
-      
+
       // Check if post already exists
       const { data: existingPost } = await supabase
         .from('blog_posts')
         .select('slug')
         .eq('slug', post.slug)
         .single();
-      
+
       if (existingPost) {
         console.log(`⏭️  Skipping: ${post.title} (already exists)`);
-        results.push({ slug: post.slug, status: 'skipped', message: 'Post with this slug already exists' });
+        results.push({
+          slug: post.slug,
+          status: 'skipped',
+          message: 'Post with this slug already exists',
+        });
         continue;
       }
-      
+
       // Insert the new post
       const { data, error } = await supabase
         .from('blog_posts')
         .insert([post])
         .select();
-      
+
       if (error) {
         console.error(`❌ Error adding blog post "${post.title}":`, error);
-        results.push({ slug: post.slug, status: 'error', message: error.message });
+        results.push({
+          slug: post.slug,
+          status: 'error',
+          message: error.message,
+        });
       } else {
         console.log(`✅ Successfully added: ${post.title}`);
         results.push({ slug: post.slug, status: 'success' });
       }
     }
-    
+
     console.log('🎉 Additional blog posts addition completed!');
     console.log('📊 Results:', results);
-    
+
     return { success: true, results };
   } catch (error) {
     console.error('❌ Error adding additional blog posts:', error);

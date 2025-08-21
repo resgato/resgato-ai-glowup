@@ -7,9 +7,30 @@ import { addNewBlogPosts, migrateBlogPosts } from '@/utils/blogPostsData';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/FooterAdminLink';
 import { Button } from '@/components/ui/button';
-import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from '@/components/ui/table';
-import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogDescription, DialogFooter } from '@/components/ui/dialog';
-import { AlertTriangle, Edit, Plus, Trash, BookPlus, Database } from 'lucide-react';
+import {
+  Table,
+  TableBody,
+  TableCell,
+  TableHead,
+  TableHeader,
+  TableRow,
+} from '@/components/ui/table';
+import {
+  Dialog,
+  DialogContent,
+  DialogHeader,
+  DialogTitle,
+  DialogDescription,
+  DialogFooter,
+} from '@/components/ui/dialog';
+import {
+  AlertTriangle,
+  Edit,
+  Plus,
+  Trash,
+  BookPlus,
+  Database,
+} from 'lucide-react';
 import { useToast } from '@/components/ui/use-toast';
 
 const BlogAdmin = () => {
@@ -26,20 +47,20 @@ const BlogAdmin = () => {
     setLoading(true);
     try {
       const { data: sessionData } = await supabase.auth.getSession();
-      
+
       if (!sessionData.session) {
         navigate('/login');
         return;
       }
-      
+
       const data = await blogService.getAllPosts();
       setPosts(data || []);
     } catch (error) {
       console.error('Error fetching blog posts:', error);
       toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Failed to load blog posts. Please try again.",
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Failed to load blog posts. Please try again.',
       });
     } finally {
       setLoading(false);
@@ -57,24 +78,27 @@ const BlogAdmin = () => {
 
   const confirmDelete = async () => {
     if (!postToDelete) return;
-    
+
     try {
       const success = await blogService.deletePost(postToDelete.id);
-      
+
       if (success) {
         setPosts(posts.filter(post => post.id !== postToDelete.id));
         toast({
-          title: "Success",
+          title: 'Success',
           description: `Post "${postToDelete.title}" has been deleted.`,
         });
       } else {
-        throw new Error("Failed to delete post");
+        throw new Error('Failed to delete post');
       }
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : "An error occurred while deleting the post";
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : 'An error occurred while deleting the post';
       toast({
-        variant: "destructive",
-        title: "Error",
+        variant: 'destructive',
+        title: 'Error',
         description: errorMessage,
       });
     } finally {
@@ -89,18 +113,18 @@ const BlogAdmin = () => {
       const result = await addNewBlogPosts();
       if (result?.results) {
         toast({
-          title: "Success",
+          title: 'Success',
           description: `${result.results.length} sample posts added successfully`,
         });
         fetchPosts(); // Refresh the list
       } else {
-        throw new Error("Failed to add sample posts");
+        throw new Error('Failed to add sample posts');
       }
     } catch (error) {
       toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Failed to add sample posts",
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Failed to add sample posts',
       });
     } finally {
       setAddingPosts(false);
@@ -112,15 +136,15 @@ const BlogAdmin = () => {
     try {
       await migrateBlogPosts();
       toast({
-        title: "Success",
-        description: "Blog posts migrated successfully",
+        title: 'Success',
+        description: 'Blog posts migrated successfully',
       });
       fetchPosts(); // Refresh the list
     } catch (error) {
       toast({
-        variant: "destructive",
-        title: "Error",
-        description: "Failed to migrate blog posts",
+        variant: 'destructive',
+        title: 'Error',
+        description: 'Failed to migrate blog posts',
       });
     } finally {
       setMigratingPosts(false);
@@ -128,16 +152,21 @@ const BlogAdmin = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 py-10">
-        <div className="flex justify-between items-center mb-6">
+      <main className="container mx-auto flex-grow px-4 py-10">
+        <div className="mb-6 flex items-center justify-between">
           <h1 className="text-3xl font-bold">Blog Management</h1>
           <div className="flex gap-4">
-            <Button onClick={handleMigratePosts} disabled={migratingPosts} variant="outline" className="flex items-center gap-2">
+            <Button
+              onClick={handleMigratePosts}
+              disabled={migratingPosts}
+              variant="outline"
+              className="flex items-center gap-2"
+            >
               {migratingPosts ? (
                 <>
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-700"></div>
+                  <div className="h-4 w-4 animate-spin rounded-full border-b-2 border-blue-700"></div>
                   Migrating Posts...
                 </>
               ) : (
@@ -147,11 +176,16 @@ const BlogAdmin = () => {
                 </>
               )}
             </Button>
-            
-            <Button onClick={handleAddSamplePosts} disabled={addingPosts} variant="outline" className="flex items-center gap-2">
+
+            <Button
+              onClick={handleAddSamplePosts}
+              disabled={addingPosts}
+              variant="outline"
+              className="flex items-center gap-2"
+            >
               {addingPosts ? (
                 <>
-                  <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-700"></div>
+                  <div className="h-4 w-4 animate-spin rounded-full border-b-2 border-blue-700"></div>
                   Adding Posts...
                 </>
               ) : (
@@ -161,7 +195,7 @@ const BlogAdmin = () => {
                 </>
               )}
             </Button>
-            
+
             <Button asChild>
               <Link to="/admin/blogs/new" className="flex items-center gap-2">
                 <Plus className="h-4 w-4" />
@@ -170,20 +204,27 @@ const BlogAdmin = () => {
             </Button>
           </div>
         </div>
-        
+
         {loading ? (
           <div className="flex justify-center py-10">
-            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-700"></div>
+            <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-blue-700"></div>
           </div>
         ) : posts.length === 0 ? (
-          <div className="bg-gray-50 rounded-lg p-10 text-center">
-            <h3 className="text-xl mb-2">No blog posts found</h3>
-            <p className="text-gray-600 mb-4">Get started by adding your first blog post.</p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button onClick={handleAddSamplePosts} disabled={addingPosts} variant="outline" className="flex items-center gap-2">
+          <div className="rounded-lg bg-gray-50 p-10 text-center">
+            <h3 className="mb-2 text-xl">No blog posts found</h3>
+            <p className="mb-4 text-gray-600">
+              Get started by adding your first blog post.
+            </p>
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <Button
+                onClick={handleAddSamplePosts}
+                disabled={addingPosts}
+                variant="outline"
+                className="flex items-center gap-2"
+              >
                 {addingPosts ? (
                   <>
-                    <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-blue-700"></div>
+                    <div className="h-4 w-4 animate-spin rounded-full border-b-2 border-blue-700"></div>
                     Adding Posts...
                   </>
                 ) : (
@@ -214,25 +255,21 @@ const BlogAdmin = () => {
                 </TableRow>
               </TableHeader>
               <TableBody>
-                {posts.map((post) => (
+                {posts.map(post => (
                   <TableRow key={post.id}>
                     <TableCell className="font-medium">{post.title}</TableCell>
                     <TableCell>{post.category}</TableCell>
                     <TableCell>{post.date}</TableCell>
                     <TableCell>{post.author}</TableCell>
                     <TableCell className="flex space-x-2">
-                      <Button 
-                        variant="outline" 
-                        size="sm" 
-                        asChild
-                      >
+                      <Button variant="outline" size="sm" asChild>
                         <Link to={`/admin/blogs/edit/${post.id}`}>
                           <Edit className="h-4 w-4" />
                           <span className="sr-only">Edit</span>
                         </Link>
                       </Button>
-                      <Button 
-                        variant="destructive" 
+                      <Button
+                        variant="destructive"
                         size="sm"
                         onClick={() => handleDeleteClick(post)}
                       >
@@ -247,7 +284,7 @@ const BlogAdmin = () => {
           </div>
         )}
       </main>
-      
+
       <Dialog open={deleteDialogOpen} onOpenChange={setDeleteDialogOpen}>
         <DialogContent>
           <DialogHeader>
@@ -256,12 +293,15 @@ const BlogAdmin = () => {
               Confirm Deletion
             </DialogTitle>
             <DialogDescription>
-              Are you sure you want to delete "{postToDelete?.title}"? 
-              This action cannot be undone.
+              Are you sure you want to delete "{postToDelete?.title}"? This
+              action cannot be undone.
             </DialogDescription>
           </DialogHeader>
           <DialogFooter>
-            <Button variant="outline" onClick={() => setDeleteDialogOpen(false)}>
+            <Button
+              variant="outline"
+              onClick={() => setDeleteDialogOpen(false)}
+            >
               Cancel
             </Button>
             <Button variant="destructive" onClick={confirmDelete}>
@@ -270,7 +310,7 @@ const BlogAdmin = () => {
           </DialogFooter>
         </DialogContent>
       </Dialog>
-      
+
       <Footer />
     </div>
   );

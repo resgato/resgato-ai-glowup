@@ -10,18 +10,19 @@ import AboutSection from '@/components/AboutSection';
 import PlatformsWeSupport from '@/components/PlatformsWeSupport';
 import PageHelmet from '@/components/PageHelmet';
 
-const Index = () => {
+const UtahMarketingAgency = () => {
   return (
     <div className="min-h-screen bg-gray-50">
       <PageHelmet
-        title="Resgato | Local SEO & SMB Marketing Agency | AI Marketing Services & Fast Web Development"
-        description="Resgato specializes in local SEO, SMB marketing, and AI marketing services. Fast, full-service web development for retail, automotive, home services, powersports, apps and more. Get a free consultation today."
-        canonicalUrl="/"
+        title="Utah Marketing Agency | Salt Lake City Digital Marketing Experts | SEO & PPC Services"
+        description="Utah's leading marketing agency in Salt Lake City. Specialized in local business growth with proven SEO, PPC, and digital marketing strategies. Get your free marketing audit today."
+        canonicalUrl="/utahmarketingagency"
       />
       <Navbar />
       <main className="flex-grow">
         <h1 className="sr-only">
-          Resgato | Local SEO & SMB Marketing Agency | AI Marketing Services
+          Utah Marketing Agency | Salt Lake City's Premier Digital Marketing
+          Company
         </h1>
         <HeroSection />
         <StatsSection />
@@ -36,4 +37,4 @@ const Index = () => {
   );
 };
 
-export default Index;
+export default UtahMarketingAgency;

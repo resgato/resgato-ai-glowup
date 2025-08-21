@@ -4,7 +4,7 @@ import App from './App.tsx';
 import './index.css';
 
 // Add error handling
-window.addEventListener('error', (event) => {
+window.addEventListener('error', event => {
   console.error('Global error:', event.error);
   // Log additional error details
   console.error('Error details:', {
@@ -12,17 +12,17 @@ window.addEventListener('error', (event) => {
     filename: event.filename,
     lineno: event.lineno,
     colno: event.colno,
-    error: event.error
+    error: event.error,
   });
 });
 
 // Add unhandled rejection handling
-window.addEventListener('unhandledrejection', (event) => {
+window.addEventListener('unhandledrejection', event => {
   console.error('Unhandled promise rejection:', event.reason);
   // Log additional rejection details
   console.error('Rejection details:', {
     reason: event.reason,
-    promise: event.promise
+    promise: event.promise,
   });
 });
 
@@ -33,7 +33,7 @@ console.log('Starting app mount...');
 console.log('Environment:', import.meta.env.MODE);
 console.log('Base URL:', import.meta.env.BASE_URL);
 
-const rootElement = document.getElementById("root");
+const rootElement = document.getElementById('root');
 if (!rootElement) {
   console.error('Root element not found in DOM');
   throw new Error('Root element not found');
@@ -45,7 +45,7 @@ try {
   console.log('Creating root...');
   const root = createRoot(rootElement);
   console.log('Root created successfully');
-  
+
   console.log('Rendering app...');
   root.render(
     <HelmetProvider>

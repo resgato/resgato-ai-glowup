@@ -25,7 +25,13 @@ import { ArrowLeft, Save } from 'lucide-react';
 
 const blogSchema = z.object({
   title: z.string().min(5, 'Title must be at least 5 characters'),
-  slug: z.string().min(3, 'Slug must be at least 3 characters').regex(/^[a-z0-9-]+$/, 'Slug can only contain lowercase letters, numbers, and hyphens'),
+  slug: z
+    .string()
+    .min(3, 'Slug must be at least 3 characters')
+    .regex(
+      /^[a-z0-9-]+$/,
+      'Slug can only contain lowercase letters, numbers, and hyphens'
+    ),
   excerpt: z.string().min(20, 'Excerpt must be at least 20 characters'),
   category: z.string().min(2, 'Category is required'),
   cover: z.string().min(2, 'Cover image URL is required'),
@@ -70,8 +76,14 @@ const BlogEditor = () => {
   // Auto-update slug when title changes (only if slug is empty or hasn't been manually edited)
   useEffect(() => {
     const subscription = form.watch((value, { name }) => {
-      if (name === 'title' && (!form.getValues('slug') || form.getValues('slug') === generateSlug(form.getValues('title')))) {
-        form.setValue('slug', generateSlug(value.title || ''), { shouldValidate: true });
+      if (
+        name === 'title' &&
+        (!form.getValues('slug') ||
+          form.getValues('slug') === generateSlug(form.getValues('title')))
+      ) {
+        form.setValue('slug', generateSlug(value.title || ''), {
+          shouldValidate: true,
+        });
       }
     });
 
@@ -82,43 +94,43 @@ const BlogEditor = () => {
   useEffect(() => {
     const checkSession = async () => {
       const { data: sessionData } = await supabase.auth.getSession();
-      
+
       if (!sessionData.session) {
         navigate('/login');
         return;
       }
     };
-    
+
     checkSession();
-    
+
     if (isEditMode && id) {
       const fetchPost = async () => {
         setIsLoading(true);
         try {
           const data = await blogService.getPostById(parseInt(id));
-            
+
           if (data) {
             form.reset(data);
           } else {
             toast({
-              variant: "destructive",
-              title: "Error",
-              description: "Blog post not found",
+              variant: 'destructive',
+              title: 'Error',
+              description: 'Blog post not found',
             });
             navigate('/admin/blogs');
           }
         } catch (error) {
           console.error('Error fetching post:', error);
           toast({
-            variant: "destructive",
-            title: "Error",
-            description: "Failed to load blog post",
+            variant: 'destructive',
+            title: 'Error',
+            description: 'Failed to load blog post',
           });
         } finally {
           setIsLoading(false);
         }
       };
-      
+
       fetchPost();
     }
   }, [id, isEditMode, navigate, form, toast]);
@@ -131,24 +143,24 @@ const BlogEditor = () => {
 
   const onSubmit = async (values: BlogFormValues) => {
     setIsLoading(true);
-    
+
     // Set current date if creating a new post
     const currentDate = new Date().toLocaleDateString('en-US', {
       year: 'numeric',
       month: 'long',
-      day: 'numeric'
+      day: 'numeric',
     });
-    
+
     try {
       if (isEditMode && id) {
         // Update existing post
         const updated = await blogService.updatePost(parseInt(id), values);
-          
-        if (!updated) throw new Error("Failed to update blog post");
-        
+
+        if (!updated) throw new Error('Failed to update blog post');
+
         toast({
-          title: "Success",
-          description: "Blog post updated successfully",
+          title: 'Success',
+          description: 'Blog post updated successfully',
         });
       } else {
         // Create new post
@@ -156,21 +168,24 @@ const BlogEditor = () => {
           ...values,
           date: currentDate,
         } as BlogPost);
-          
-        if (!created) throw new Error("Failed to create blog post");
-        
+
+        if (!created) throw new Error('Failed to create blog post');
+
         toast({
-          title: "Success",
-          description: "Blog post created successfully",
+          title: 'Success',
+          description: 'Blog post created successfully',
         });
       }
-      
+
       navigate('/admin/blogs');
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : "An error occurred while saving the post";
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : 'An error occurred while saving the post';
       toast({
-        variant: "destructive",
-        title: "Error",
+        variant: 'destructive',
+        title: 'Error',
         description: errorMessage,
       });
     } finally {
@@ -179,31 +194,31 @@ const BlogEditor = () => {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="flex-grow container mx-auto px-4 py-10">
-        <div className="flex items-center mb-6">
-          <Button 
-            variant="outline" 
+      <main className="container mx-auto flex-grow px-4 py-10">
+        <div className="mb-6 flex items-center">
+          <Button
+            variant="outline"
             onClick={() => navigate('/admin/blogs')}
             className="mr-4"
           >
-            <ArrowLeft className="h-4 w-4 mr-2" />
+            <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Posts
           </Button>
           <h1 className="text-3xl font-bold">
             {isEditMode ? 'Edit Blog Post' : 'Create New Blog Post'}
           </h1>
         </div>
-        
+
         {isLoading && !form.formState.isSubmitting ? (
           <div className="flex justify-center py-10">
-            <div className="animate-spin rounded-full h-10 w-10 border-b-2 border-blue-700"></div>
+            <div className="h-10 w-10 animate-spin rounded-full border-b-2 border-blue-700"></div>
           </div>
         ) : (
           <Form {...form}>
             <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
                 <FormField
                   control={form.control}
                   name="title"
@@ -217,7 +232,7 @@ const BlogEditor = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="slug"
@@ -232,8 +247,8 @@ const BlogEditor = () => {
                   )}
                 />
               </div>
-              
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
                 <FormField
                   control={form.control}
                   name="author"
@@ -247,7 +262,7 @@ const BlogEditor = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="category"
@@ -261,7 +276,7 @@ const BlogEditor = () => {
                     </FormItem>
                   )}
                 />
-                
+
                 <FormField
                   control={form.control}
                   name="readTime"
@@ -276,7 +291,7 @@ const BlogEditor = () => {
                   )}
                 />
               </div>
-              
+
               <FormField
                 control={form.control}
                 name="cover"
@@ -284,16 +299,16 @@ const BlogEditor = () => {
                   <FormItem>
                     <FormLabel>Cover Image</FormLabel>
                     <FormControl>
-                      <ImageUploader 
-                        value={field.value} 
-                        onChange={field.onChange} 
+                      <ImageUploader
+                        value={field.value}
+                        onChange={field.onChange}
                       />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              
+
               <FormField
                 control={form.control}
                 name="excerpt"
@@ -301,17 +316,17 @@ const BlogEditor = () => {
                   <FormItem>
                     <FormLabel>Excerpt</FormLabel>
                     <FormControl>
-                      <Textarea 
-                        placeholder="A brief summary of the blog post" 
+                      <Textarea
+                        placeholder="A brief summary of the blog post"
                         className="h-24"
-                        {...field} 
+                        {...field}
                       />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              
+
               <FormField
                 control={form.control}
                 name="content"
@@ -320,7 +335,7 @@ const BlogEditor = () => {
                     <FormLabel>Content</FormLabel>
                     <div className="mb-2 text-sm text-gray-500">
                       <p>Supports markdown-style formatting:</p>
-                      <ul className="list-disc list-inside ml-2 mt-1">
+                      <ul className="ml-2 mt-1 list-inside list-disc">
                         <li># For H1 headings</li>
                         <li>## For H2 headings</li>
                         <li>### For H3 headings</li>
@@ -331,24 +346,26 @@ const BlogEditor = () => {
                       </ul>
                     </div>
                     <FormControl>
-                      <Textarea 
-                        placeholder="Write your blog post content here..." 
+                      <Textarea
+                        placeholder="Write your blog post content here..."
                         className="min-h-[300px] font-mono"
-                        {...field} 
+                        {...field}
                       />
                     </FormControl>
                     <FormMessage />
                   </FormItem>
                 )}
               />
-              
+
               <div className="flex justify-end pt-4">
-                <Button 
-                  type="submit" 
+                <Button
+                  type="submit"
                   disabled={isLoading}
                   className="flex items-center gap-2"
                 >
-                  {isLoading && <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white"></div>}
+                  {isLoading && (
+                    <div className="h-4 w-4 animate-spin rounded-full border-b-2 border-white"></div>
+                  )}
                   <Save className="h-4 w-4" />
                   {isEditMode ? 'Update Post' : 'Publish Post'}
                 </Button>

@@ -1,9 +1,9 @@
-
 import { supabase } from '@/integrations/supabase/client';
 import { BlogPost } from '@/types/blog';
 import { checkAuth, transformBlogPostData } from './api';
 
-const SITEMAP_ENDPOINT = "https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/generate-sitemap";
+const SITEMAP_ENDPOINT =
+  'https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/generate-sitemap';
 
 /**
  * Trigger a sitemap update by pinging the sitemap endpoint
@@ -14,15 +14,15 @@ const triggerSitemapUpdate = async () => {
     // Make sure to bypass all caching
     const uniqueParam = `?t=${new Date().getTime()}`;
     // Simply ping the endpoint to regenerate the sitemap
-    await fetch(`${SITEMAP_ENDPOINT}${uniqueParam}`, { 
+    await fetch(`${SITEMAP_ENDPOINT}${uniqueParam}`, {
       method: 'GET',
       cache: 'no-store', // Strongest no-cache setting
       headers: {
-        'Accept': 'application/xml',
+        Accept: 'application/xml',
         'Cache-Control': 'no-cache, no-store, must-revalidate',
-        'Pragma': 'no-cache',
-        'Expires': '0'
-      }
+        Pragma: 'no-cache',
+        Expires: '0',
+      },
     });
     console.log('Sitemap update triggered successfully');
   } catch (error) {
@@ -34,7 +34,9 @@ const triggerSitemapUpdate = async () => {
 /**
  * Create a new blog post
  */
-export const createPost = async (post: Omit<BlogPost, 'id'>): Promise<BlogPost | null> => {
+export const createPost = async (
+  post: Omit<BlogPost, 'id'>
+): Promise<BlogPost | null> => {
   try {
     // Check if user is authenticated
     const isAuthenticated = await checkAuth();
@@ -55,12 +57,12 @@ export const createPost = async (post: Omit<BlogPost, 'id'>): Promise<BlogPost |
           author: post.author,
           readTime: post.readTime,
           category: post.category,
-          content: post.content
-        }
+          content: post.content,
+        },
       ])
       .select()
       .single();
-    
+
     if (error) {
       console.error('Error creating blog post:', error);
       return null;
@@ -79,7 +81,10 @@ export const createPost = async (post: Omit<BlogPost, 'id'>): Promise<BlogPost |
 /**
  * Update an existing blog post
  */
-export const updatePost = async (id: number, post: Partial<BlogPost>): Promise<BlogPost | null> => {
+export const updatePost = async (
+  id: number,
+  post: Partial<BlogPost>
+): Promise<BlogPost | null> => {
   try {
     // Check if user is authenticated
     const isAuthenticated = await checkAuth();
@@ -87,7 +92,7 @@ export const updatePost = async (id: number, post: Partial<BlogPost>): Promise<B
       console.error('User not authenticated');
       return null;
     }
-    
+
     const { data, error } = await supabase
       .from('blog_posts')
       .update({
@@ -99,12 +104,12 @@ export const updatePost = async (id: number, post: Partial<BlogPost>): Promise<B
         author: post.author,
         readTime: post.readTime,
         category: post.category,
-        content: post.content
+        content: post.content,
       })
       .eq('id', id)
       .select()
       .single();
-    
+
     if (error) {
       console.error('Error updating blog post:', error);
       return null;
@@ -131,20 +136,17 @@ export const deletePost = async (id: number): Promise<boolean> => {
       console.error('User not authenticated');
       return false;
     }
-    
-    const { error } = await supabase
-      .from('blog_posts')
-      .delete()
-      .eq('id', id);
-    
+
+    const { error } = await supabase.from('blog_posts').delete().eq('id', id);
+
     if (error) {
       console.error('Error deleting blog post:', error);
       return false;
     }
-    
+
     // Trigger sitemap update after successful post deletion
     await triggerSitemapUpdate();
-    
+
     return true;
   } catch (error) {
     console.error('Error in deletePost:', error);

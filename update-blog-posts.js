@@ -3,29 +3,43 @@ import { createClient } from '@supabase/supabase-js';
 // Supabase configuration
 const supabaseUrl = 'https://bopzgxqujuqosdexnppj.supabase.co';
 // Replace this with your service_role key from Supabase dashboard
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'YOUR_SERVICE_ROLE_KEY_HERE';
+const supabaseServiceKey =
+  process.env.SUPABASE_SERVICE_ROLE_KEY || 'YOUR_SERVICE_ROLE_KEY_HERE';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 // Helper function to get current date
 function getCurrentDate() {
   const now = new Date();
-  const months = ['January', 'February', 'March', 'April', 'May', 'June', 
-                  'July', 'August', 'September', 'October', 'November', 'December'];
+  const months = [
+    'January',
+    'February',
+    'March',
+    'April',
+    'May',
+    'June',
+    'July',
+    'August',
+    'September',
+    'October',
+    'November',
+    'December',
+  ];
   return `${months[now.getMonth()]} ${now.getDate()}, ${now.getFullYear()}`;
 }
 
 // Updated blog posts with better readability and internal linking
 const updatedBlogPosts = [
   {
-    slug: "auto-dealer-marketing-strategies",
-    title: "Auto Dealer Marketing Strategies That Drive Sales in 2025",
-    excerpt: "Discover proven digital marketing strategies specifically designed for auto dealerships to increase foot traffic, generate leads, and boost vehicle sales in today's competitive market.",
-    cover: "/resgato-uploads/utah-real-estate-marketing.png",
-    date: "June 15, 2025",
-    author: "Taylor Brody",
-    readTime: "10 min read",
-    category: "Automotive Marketing",
+    slug: 'auto-dealer-marketing-strategies',
+    title: 'Auto Dealer Marketing Strategies That Drive Sales in 2025',
+    excerpt:
+      "Discover proven digital marketing strategies specifically designed for auto dealerships to increase foot traffic, generate leads, and boost vehicle sales in today's competitive market.",
+    cover: '/resgato-uploads/utah-real-estate-marketing.png',
+    date: 'June 15, 2025',
+    author: 'Taylor Brody',
+    readTime: '10 min read',
+    category: 'Automotive Marketing',
     content: `# Auto Dealer Marketing Strategies That Drive Sales in 2025
 
 The automotive industry is experiencing a digital transformation unlike anything we've seen before. Dealerships that adapt their marketing strategies are seeing **300% increases in online leads** and **40% higher conversion rates**. This comprehensive guide covers the most effective marketing strategies for auto dealers in 2025.
@@ -219,17 +233,18 @@ Successful auto dealer marketing in 2025 requires a comprehensive digital approa
 
 The key is to meet customers where they are in their buying journey and provide the information and experience they expect in today's digital-first automotive market. Start implementing these strategies today, and you'll see results within the first 30 days.
 
-**Want to learn more about digital marketing for your business?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [PPC services](https://resgato.com/services) to see how we can help you dominate your local market.`
+**Want to learn more about digital marketing for your business?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [PPC services](https://resgato.com/services) to see how we can help you dominate your local market.`,
   },
   {
-    slug: "plumber-marketing-guide",
-    title: "Plumber Marketing Guide: How to Get More Customers in 2025",
-    excerpt: "Discover proven marketing strategies specifically designed for plumbing businesses to attract more customers, build trust, and grow your service area in today's competitive market.",
-    cover: "/resgato-uploads/office.jpg",
-    date: "June 28, 2025",
-    author: "Taylor Brody",
-    readTime: "9 min read",
-    category: "Service Business Marketing",
+    slug: 'plumber-marketing-guide',
+    title: 'Plumber Marketing Guide: How to Get More Customers in 2025',
+    excerpt:
+      "Discover proven marketing strategies specifically designed for plumbing businesses to attract more customers, build trust, and grow your service area in today's competitive market.",
+    cover: '/resgato-uploads/office.jpg',
+    date: 'June 28, 2025',
+    author: 'Taylor Brody',
+    readTime: '9 min read',
+    category: 'Service Business Marketing',
     content: `# Plumber Marketing Guide: How to Get More Customers in 2025
 
 Plumbing businesses face unique marketing challenges that most other industries don't understand. From emergency service needs to building trust in a service that customers often don't think about until there's a problem, plumbing marketing requires a specialized approach. This comprehensive guide covers effective marketing strategies specifically designed for plumbing companies.
@@ -603,19 +618,19 @@ Successful plumbing marketing in 2025 requires a comprehensive approach that com
 
 The key is to be there when customers need you, provide excellent service, and maintain a strong online presence that builds trust and credibility in your local market. Start implementing these strategies today, and you'll see results within the first 30 days.
 
-**Want to learn more about marketing for service businesses?** Check out our [comprehensive guide to local business marketing](https://resgato.com/services) or explore our [SEO services](https://resgato.com/services) to see how we can help you dominate your local market.`
-  }
+**Want to learn more about marketing for service businesses?** Check out our [comprehensive guide to local business marketing](https://resgato.com/services) or explore our [SEO services](https://resgato.com/services) to see how we can help you dominate your local market.`,
+  },
 ];
 
 async function updateBlogPosts() {
   console.log('🔄 Updating blog posts with improved content...');
-  
+
   const results = [];
-  
+
   for (const post of updatedBlogPosts) {
     try {
       console.log(`📝 Updating: ${post.title}`);
-      
+
       // Update the existing blog post
       const { data, error } = await supabase
         .from('blog_posts')
@@ -623,40 +638,39 @@ async function updateBlogPosts() {
           title: post.title,
           excerpt: post.excerpt,
           content: post.content,
-          readTime: post.readTime
+          readTime: post.readTime,
         })
         .eq('slug', post.slug)
         .select();
-      
+
       if (error) {
         console.error(`❌ Error updating blog post "${post.title}":`, error);
         results.push({
           slug: post.slug,
           status: 'error',
-          message: error.message
+          message: error.message,
         });
       } else {
         console.log(`✅ Successfully updated: ${post.title}`);
         results.push({
           slug: post.slug,
           status: 'success',
-          message: 'Post updated successfully'
+          message: 'Post updated successfully',
         });
       }
-      
     } catch (error) {
       console.error(`❌ Error updating blog post "${post.title}":`, error);
       results.push({
         slug: post.slug,
         status: 'error',
-        message: error.message
+        message: error.message,
       });
     }
   }
-  
+
   console.log('🎉 Blog posts update completed!');
   console.log('📊 Results:', results);
-  
+
   return results;
 }
 

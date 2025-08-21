@@ -2,15 +2,17 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = 'https://bopzgxqujuqosdexnppj.supabase.co';
 // Replace this with your service_role key from Supabase dashboard
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'YOUR_SERVICE_ROLE_KEY_HERE';
+const supabaseServiceKey =
+  process.env.SUPABASE_SERVICE_ROLE_KEY || 'YOUR_SERVICE_ROLE_KEY_HERE';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 const websiteGuideData = {
-  slug: "how-to-build-a-website",
-  title: "How to Build a Website: Complete Guide for 2025",
-  excerpt: "Learn everything you need to know about building a professional website, from planning and design to development and launch in today's digital landscape.",
-  readTime: "15 min read",
+  slug: 'how-to-build-a-website',
+  title: 'How to Build a Website: Complete Guide for 2025',
+  excerpt:
+    "Learn everything you need to know about building a professional website, from planning and design to development and launch in today's digital landscape.",
+  readTime: '15 min read',
   content: `# How to Build a Website: Complete Guide for 2025
 
 Building a website in 2025 requires understanding modern technologies, user expectations, and best practices that have evolved significantly over the past few years. This comprehensive guide will walk you through every step of creating a professional, effective website that not only looks great but also performs exceptionally well.
@@ -235,30 +237,29 @@ Building a successful website in 2025 requires careful planning, modern technolo
 
 Remember that website development is an ongoing process. Regular updates, performance monitoring, and user feedback will help you maintain a successful online presence that grows with your business.
 
-**Want to learn more about web development and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [web development services](https://resgato.com/services) to see how we can help you create a website that drives results.`
+**Want to learn more about web development and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [web development services](https://resgato.com/services) to see how we can help you create a website that drives results.`,
 };
 
 async function updateWebsiteGuide() {
   try {
     console.log('🔄 Updating Website Building Guide...');
-    
+
     const { data, error } = await supabase
       .from('blog_posts')
       .update({
         title: websiteGuideData.title,
         excerpt: websiteGuideData.excerpt,
         content: websiteGuideData.content,
-        readTime: websiteGuideData.readTime
+        readTime: websiteGuideData.readTime,
       })
       .eq('slug', websiteGuideData.slug)
       .select();
-    
+
     if (error) {
       console.error('❌ Error updating Website Guide:', error);
     } else {
       console.log('✅ Successfully updated Website Building Guide');
     }
-    
   } catch (error) {
     console.error('❌ Error in updateWebsiteGuide:', error);
   }

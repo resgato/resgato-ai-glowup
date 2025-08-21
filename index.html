@@ -1,38 +1,51 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/resgato-favicon.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#ffffff" />
-    
+
     <!-- Preload critical resources -->
     <link rel="preload" href="/src/main.tsx" as="script" type="module" />
-    <link rel="preload" href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;500;600;700;800&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'" />
-    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;500;600;700;800&display=swap" /></noscript>
-    
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    /></noscript>
+
     <!-- DNS prefetch for external domains -->
     <link rel="dns-prefetch" href="//fonts.googleapis.com" />
     <link rel="dns-prefetch" href="//fonts.gstatic.com" />
-    
+
     <!-- Preconnect to external domains -->
     <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    
+
     <script>
       // Add error handling for failed script loading
-      window.addEventListener('error', function(e) {
-        if (e.target.tagName === 'SCRIPT') {
-          console.error('Script failed to load:', e.target.src);
-        }
-      }, true);
+      window.addEventListener(
+        'error',
+        function (e) {
+          if (e.target.tagName === 'SCRIPT') {
+            console.error('Script failed to load:', e.target.src);
+          }
+        },
+        true
+      );
     </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <noscript>
-      <div style="text-align: center; padding: 20px;">
+      <div style="text-align: center; padding: 20px">
         Please enable JavaScript to view this website.
       </div>
     </noscript>

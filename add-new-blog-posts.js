@@ -2,7 +2,8 @@ import { createClient } from '@supabase/supabase-js';
 
 // Supabase configuration
 const supabaseUrl = 'https://bopzgxqujuqosdexnppj.supabase.co';
-const supabaseAnonKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwODYwODMsImV4cCI6MjA1OTY2MjA4M30.sa4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ';
+const supabaseAnonKey =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwODYwODMsImV4cCI6MjA1OTY2MjA4M30.sa4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ';
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 
@@ -11,21 +12,22 @@ const getCurrentDate = () => {
   return new Date().toLocaleDateString('en-US', {
     year: 'numeric',
     month: 'long',
-    day: 'numeric'
+    day: 'numeric',
   });
 };
 
 // New blog posts content
 const newBlogPosts = [
   {
-    slug: "seo-in-the-age-of-ai",
-    title: "SEO in the Age of AI: Adapting to the New Digital Landscape",
-    excerpt: "Discover how artificial intelligence is reshaping SEO strategies and what marketers need to do to stay ahead in this rapidly evolving digital landscape.",
-    cover: "/resgato-uploads/3f29c8f4-0489-47bd-ab86-13ed0a87031b.png",
+    slug: 'seo-in-the-age-of-ai',
+    title: 'SEO in the Age of AI: Adapting to the New Digital Landscape',
+    excerpt:
+      'Discover how artificial intelligence is reshaping SEO strategies and what marketers need to do to stay ahead in this rapidly evolving digital landscape.',
+    cover: '/resgato-uploads/3f29c8f4-0489-47bd-ab86-13ed0a87031b.png',
     date: getCurrentDate(),
-    author: "Taylor Brody",
-    readTime: "7 min read",
-    category: "SEO",
+    author: 'Taylor Brody',
+    readTime: '7 min read',
+    category: 'SEO',
     content: `# SEO in the Age of AI: Adapting to the New Digital Landscape
 
 The digital marketing landscape is undergoing a seismic shift with the rise of artificial intelligence. As search engines become increasingly sophisticated, SEO professionals must adapt their strategies to remain effective in this new AI-driven world.
@@ -66,17 +68,18 @@ AI algorithms increasingly factor user experience metrics into rankings. Optimiz
 
 As AI continues to advance, we can expect even more sophisticated understanding of content quality, user intent, and value. The most successful SEO strategies will focus on genuinely serving user needs rather than manipulating algorithms.
 
-Remember that while AI is changing the SEO landscape, the fundamental goal remains the same: creating valuable content that serves your audience's needs. Focus on that principle, and the technical adaptations will follow naturally.`
+Remember that while AI is changing the SEO landscape, the fundamental goal remains the same: creating valuable content that serves your audience's needs. Focus on that principle, and the technical adaptations will follow naturally.`,
   },
   {
-    slug: "ppc-vs-performance-max",
-    title: "PPC vs Performance Max: Choosing the Right Google Ads Strategy",
-    excerpt: "Compare traditional PPC campaigns with Google's AI-driven Performance Max to determine which approach will deliver the best results for your business goals.",
-    cover: "/resgato-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png",
+    slug: 'ppc-vs-performance-max',
+    title: 'PPC vs Performance Max: Choosing the Right Google Ads Strategy',
+    excerpt:
+      "Compare traditional PPC campaigns with Google's AI-driven Performance Max to determine which approach will deliver the best results for your business goals.",
+    cover: '/resgato-uploads/ed070e05-2916-41ed-a436-8e0299973b40.png',
     date: getCurrentDate(),
-    author: "Taylor Brody",
-    readTime: "6 min read",
-    category: "PPC",
+    author: 'Taylor Brody',
+    readTime: '6 min read',
+    category: 'PPC',
     content: `# PPC vs Performance Max: Choosing the Right Google Ads Strategy
 
 Digital advertisers face an important choice when planning their Google Ads campaigns: should they stick with traditional manual PPC campaign management or embrace Google's AI-driven Performance Max campaigns? This comprehensive comparison will help you make an informed decision for your business.
@@ -148,17 +151,18 @@ Many businesses find that a combination of both approaches yields the best resul
 
 ## Next Steps
 
-The choice between PPC and Performance Max isn't one-size-fits-all. The best approach depends on your business goals, resources, and comfort level with automation. By staying informed about both traditional and AI-powered advertising options, you'll be well-positioned to make strategic decisions that drive results for your business.`
+The choice between PPC and Performance Max isn't one-size-fits-all. The best approach depends on your business goals, resources, and comfort level with automation. By staying informed about both traditional and AI-powered advertising options, you'll be well-positioned to make strategic decisions that drive results for your business.`,
   },
   {
-    slug: "digital-marketing-for-small-businesses",
-    title: "Digital Marketing Strategies That Work for Small Businesses",
-    excerpt: "Discover cost-effective digital marketing approaches that deliver real results for small businesses with limited budgets and resources.",
-    cover: "/resgato-uploads/c69e195b-c2c5-434c-be7b-ac3fb2ce1f7b.png",
+    slug: 'digital-marketing-for-small-businesses',
+    title: 'Digital Marketing Strategies That Work for Small Businesses',
+    excerpt:
+      'Discover cost-effective digital marketing approaches that deliver real results for small businesses with limited budgets and resources.',
+    cover: '/resgato-uploads/c69e195b-c2c5-434c-be7b-ac3fb2ce1f7b.png',
     date: getCurrentDate(),
-    author: "Taylor Brody",
-    readTime: "8 min read",
-    category: "Small Business",
+    author: 'Taylor Brody',
+    readTime: '8 min read',
+    category: 'Small Business',
     content: `# Digital Marketing Strategies That Work for Small Businesses
 
 Small businesses face unique challenges when it comes to digital marketing. Limited budgets, fierce competition, and resource constraints can make it difficult to gain traction online. However, with the right approach, small businesses can achieve impressive results without breaking the bank.
@@ -233,17 +237,18 @@ Small businesses can't afford to waste resources on ineffective marketing. Imple
 
 ## Next Steps for Your Small Business
 
-Digital marketing success for small businesses comes from strategic focus rather than trying to compete with large corporations across every channel. By prioritizing local visibility, leveraging your unique advantages, and allocating resources efficiently, you can build a digital presence that drives sustainable growth.`
+Digital marketing success for small businesses comes from strategic focus rather than trying to compete with large corporations across every channel. By prioritizing local visibility, leveraging your unique advantages, and allocating resources efficiently, you can build a digital presence that drives sustainable growth.`,
   },
   {
-    slug: "importance-of-sms-marketing",
-    title: "Why SMS Marketing Should Be Part of Your Digital Strategy",
-    excerpt: "Explore the unmatched open rates and engagement potential of SMS marketing and learn how to integrate it effectively with your other marketing channels.",
-    cover: "/resgato-uploads/144eee65-8921-416b-9249-38ea50211b6e.png",
+    slug: 'importance-of-sms-marketing',
+    title: 'Why SMS Marketing Should Be Part of Your Digital Strategy',
+    excerpt:
+      'Explore the unmatched open rates and engagement potential of SMS marketing and learn how to integrate it effectively with your other marketing channels.',
+    cover: '/resgato-uploads/144eee65-8921-416b-9249-38ea50211b6e.png',
     date: getCurrentDate(),
-    author: "Taylor Brody",
-    readTime: "5 min read",
-    category: "Mobile Marketing",
+    author: 'Taylor Brody',
+    readTime: '5 min read',
+    category: 'Mobile Marketing',
     content: `# Why SMS Marketing Should Be Part of Your Digital Strategy
 
 In a world where digital inboxes are overflowing and social media feeds are crowded with content, SMS marketing stands out with its remarkable 98% open rates and near-immediate engagement. Yet many businesses still overlook this powerful channel. Here's why SMS deserves a place in your marketing mix and how to implement it effectively.
@@ -340,17 +345,18 @@ Connect your SMS platform with your customer relationship management system to:
 
 ## Ready to Add SMS to Your Marketing Mix?
 
-SMS marketing offers unmatched open rates and engagement, making it a valuable addition to any comprehensive marketing strategy. By following compliance best practices and integrating SMS with your existing channels, you can create more immediate and personal connections with your audience.`
+SMS marketing offers unmatched open rates and engagement, making it a valuable addition to any comprehensive marketing strategy. By following compliance best practices and integrating SMS with your existing channels, you can create more immediate and personal connections with your audience.`,
   },
   {
-    slug: "email-marketing-to-local-customers",
-    title: "Email Marketing Strategies for Connecting with Local Customers",
-    excerpt: "Learn how to create email campaigns that resonate with your local customer base and drive foot traffic to your physical locations.",
-    cover: "/resgato-uploads/6f391aed-1521-493a-ab6a-b226a0de270f.png",
+    slug: 'email-marketing-to-local-customers',
+    title: 'Email Marketing Strategies for Connecting with Local Customers',
+    excerpt:
+      'Learn how to create email campaigns that resonate with your local customer base and drive foot traffic to your physical locations.',
+    cover: '/resgato-uploads/6f391aed-1521-493a-ab6a-b226a0de270f.png',
     date: getCurrentDate(),
-    author: "Taylor Brody",
-    readTime: "6 min read",
-    category: "Email Marketing",
+    author: 'Taylor Brody',
+    readTime: '6 min read',
+    category: 'Email Marketing',
     content: `# Email Marketing Strategies for Connecting with Local Customers
 
 Email marketing remains one of the most effective digital channels, delivering an average ROI of $36 for every $1 spent. For businesses serving local markets, email offers unique opportunities to drive foot traffic and build community connections. Here's how to optimize your email marketing strategy for local customers.
@@ -474,51 +480,59 @@ For local businesses, coordinating email with direct mail can be highly effectiv
 
 ## Next Steps for Local Email Marketing
 
-Effective local email marketing creates meaningful connections with your community while driving measurable business results. By understanding your local audience, creating relevant content, and integrating with your other marketing efforts, you can build a loyal local customer base.`
-  }
+Effective local email marketing creates meaningful connections with your community while driving measurable business results. By understanding your local audience, creating relevant content, and integrating with your other marketing efforts, you can build a loyal local customer base.`,
+  },
 ];
 
 async function addNewBlogPosts() {
   try {
     console.log('🚀 Adding new blog posts to the database...');
-    
+
     // Add each blog post
     const results = [];
-    
+
     for (const post of newBlogPosts) {
       console.log(`📝 Processing: ${post.title}`);
-      
+
       // Check if post already exists
       const { data: existingPost } = await supabase
         .from('blog_posts')
         .select('slug')
         .eq('slug', post.slug)
         .single();
-      
+
       if (existingPost) {
         console.log(`⏭️  Skipping: ${post.title} (already exists)`);
-        results.push({ slug: post.slug, status: 'skipped', message: 'Post with this slug already exists' });
+        results.push({
+          slug: post.slug,
+          status: 'skipped',
+          message: 'Post with this slug already exists',
+        });
         continue;
       }
-      
+
       // Insert the new post
       const { data, error } = await supabase
         .from('blog_posts')
         .insert([post])
         .select();
-      
+
       if (error) {
         console.error(`❌ Error adding blog post "${post.title}":`, error);
-        results.push({ slug: post.slug, status: 'error', message: error.message });
+        results.push({
+          slug: post.slug,
+          status: 'error',
+          message: error.message,
+        });
       } else {
         console.log(`✅ Successfully added: ${post.title}`);
         results.push({ slug: post.slug, status: 'success' });
       }
     }
-    
+
     console.log('🎉 Blog post addition completed!');
     console.log('📊 Results:', results);
-    
+
     return { success: true, results };
   } catch (error) {
     console.error('❌ Error adding new blog posts:', error);

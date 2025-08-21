@@ -23,11 +23,7 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import {
-  Alert,
-  AlertTitle,
-  AlertDescription,
-} from '@/components/ui/alert';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { AlertCircle } from 'lucide-react';
@@ -35,7 +31,9 @@ import { useAuth } from '@/hooks/use-auth';
 
 const authSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address' }),
-  password: z.string().min(6, { message: 'Password must be at least 6 characters' }),
+  password: z
+    .string()
+    .min(6, { message: 'Password must be at least 6 characters' }),
 });
 
 type AuthFormValues = z.infer<typeof authSchema>;
@@ -47,7 +45,7 @@ const Login = () => {
   const location = useLocation();
   const { toast } = useToast();
   const { isAuthenticated } = useAuth();
-  
+
   // Check for error parameters in URL
   useEffect(() => {
     const hash = location.hash;
@@ -55,9 +53,11 @@ const Login = () => {
       const errorParams = new URLSearchParams(hash.substring(1));
       const error = errorParams.get('error');
       const errorDescription = errorParams.get('error_description');
-      
+
       if (error && errorDescription) {
-        setErrorMessage(decodeURIComponent(errorDescription.replace(/\+/g, ' ')));
+        setErrorMessage(
+          decodeURIComponent(errorDescription.replace(/\+/g, ' '))
+        );
         toast({
           title: 'Authentication Error',
           description: decodeURIComponent(errorDescription.replace(/\+/g, ' ')),
@@ -66,14 +66,14 @@ const Login = () => {
       }
     }
   }, [location, toast]);
-  
+
   // Redirect if already authenticated
   useEffect(() => {
     if (isAuthenticated) {
       navigate('/admin');
     }
   }, [isAuthenticated, navigate]);
-  
+
   // Initialize form
   const form = useForm<AuthFormValues>({
     resolver: zodResolver(authSchema),
@@ -82,21 +82,21 @@ const Login = () => {
       password: '',
     },
   });
-  
+
   const onSubmit = async (data: AuthFormValues) => {
     setIsLoading(true);
     setErrorMessage(null);
-    
+
     try {
       const authResponse = await supabase.auth.signInWithPassword({
         email: data.email,
         password: data.password,
       });
-      
+
       if (authResponse.error) {
         throw authResponse.error;
       }
-      
+
       if (authResponse.data.session) {
         toast({
           title: 'Logged in successfully',
@@ -104,23 +104,26 @@ const Login = () => {
         navigate('/admin');
       }
     } catch (error: unknown) {
-      const errorMessage = error instanceof Error ? error.message : "An error occurred during sign in";
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : 'An error occurred during sign in';
       toast({
-        variant: "destructive",
-        title: "Error",
+        variant: 'destructive',
+        title: 'Error',
         description: errorMessage,
       });
     } finally {
       setIsLoading(false);
     }
   };
-  
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="flex-grow flex items-center justify-center py-12">
+      <main className="flex flex-grow items-center justify-center py-12">
         <div className="w-full max-w-md px-4">
-          <Card className="shadow-xl border-none">
+          <Card className="border-none shadow-xl">
             <CardHeader className="text-center">
               <CardTitle className="text-2xl">Admin Login</CardTitle>
               <CardDescription>
@@ -135,9 +138,12 @@ const Login = () => {
                   <AlertDescription>{errorMessage}</AlertDescription>
                 </Alert>
               )}
-              
+
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-4"
+                >
                   <FormField
                     control={form.control}
                     name="email"
@@ -145,13 +151,17 @@ const Login = () => {
                       <FormItem>
                         <FormLabel>Email</FormLabel>
                         <FormControl>
-                          <Input placeholder="your@email.com" type="email" {...field} />
+                          <Input
+                            placeholder="your@email.com"
+                            type="email"
+                            {...field}
+                          />
                         </FormControl>
                         <FormMessage />
                       </FormItem>
                     )}
                   />
-                  
+
                   <FormField
                     control={form.control}
                     name="password"
@@ -165,10 +175,10 @@ const Login = () => {
                       </FormItem>
                     )}
                   />
-                  
-                  <Button 
-                    type="submit" 
-                    className="w-full bg-resgato-purple hover:bg-resgato-deep-purple text-white" 
+
+                  <Button
+                    type="submit"
+                    className="w-full bg-resgato-purple text-white hover:bg-resgato-deep-purple"
                     disabled={isLoading}
                   >
                     {isLoading ? 'Processing...' : 'Login'}
@@ -176,7 +186,7 @@ const Login = () => {
                 </form>
               </Form>
             </CardContent>
-            <CardFooter className="text-center text-sm justify-center">
+            <CardFooter className="justify-center text-center text-sm">
               <p className="text-gray-500">
                 Contact your administrator if you need access
               </p>

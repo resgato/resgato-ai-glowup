@@ -15,8 +15,13 @@ const CaseStudies = () => {
       industry: 'Home Services',
       tags: ['Web Development', 'SEO', 'Branding'],
       imageUrl: '/resgato-uploads/calltheyeti_1.jpg',
-      summary: 'Comprehensive digital transformation including marketing strategy, domain management, hosting, web development, logo design, and SEO optimization.',
-      results: ['New professional website launched', 'Custom logo and brand identity created', 'SEO optimization for local search']
+      summary:
+        'Comprehensive digital transformation including marketing strategy, domain management, hosting, web development, logo design, and SEO optimization.',
+      results: [
+        'New professional website launched',
+        'Custom logo and brand identity created',
+        'SEO optimization for local search',
+      ],
     },
     {
       id: 2,
@@ -24,8 +29,13 @@ const CaseStudies = () => {
       industry: 'E-commerce',
       tags: ['SEO', 'Search Marketing', 'Analytics'],
       imageUrl: '/resgato-uploads/tds2.jpeg',
-      summary: 'Complete SEO transformation including site optimization, search engine marketing, and targeted advertising campaigns for this mindfulness brand.',
-      results: ['800% revenue growth', '375% increase in returning customers', '523% growth in email subscribers']
+      summary:
+        'Complete SEO transformation including site optimization, search engine marketing, and targeted advertising campaigns for this mindfulness brand.',
+      results: [
+        '800% revenue growth',
+        '375% increase in returning customers',
+        '523% growth in email subscribers',
+      ],
     },
     {
       id: 3,
@@ -33,61 +43,85 @@ const CaseStudies = () => {
       industry: 'Business Services',
       tags: ['Branding', 'Digital Marketing', 'Social Media'],
       imageUrl: '/resgato-uploads/mld_homepage.png',
-      summary: "Transforming a traditional business's digital presence to appeal to new demographics while maintaining trust with existing customers.",
-      results: ['Significant increase in new customers', 'Substantial growth in social engagement', 'Major improvement in brand sentiment']
-    }
+      summary:
+        "Transforming a traditional business's digital presence to appeal to new demographics while maintaining trust with existing customers.",
+      results: [
+        'Significant increase in new customers',
+        'Substantial growth in social engagement',
+        'Major improvement in brand sentiment',
+      ],
+    },
   ];
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <PageHelmet title="Case Studies" description="Discover how Resgato has helped businesses like yours transform their digital presence and achieve remarkable growth." />
+    <div className="flex min-h-screen flex-col">
+      <PageHelmet
+        title="Case Studies"
+        description="Discover how Resgato has helped businesses like yours transform their digital presence and achieve remarkable growth."
+      />
       <Navbar />
       <main className="flex-grow">
         {/* Hero Section */}
-        <section className="bg-resgato-navy text-white py-16 md:py-24">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <section className="bg-resgato-navy py-16 text-white md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="animate-fade-in">
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">Success Stories That Drive Results</h1>
-              <p className="text-xl md:text-2xl max-w-2xl mb-8">Discover how we've helped businesses like yours transform their digital presence and achieve remarkable growth.</p>
+              <h1 className="mb-6 text-4xl font-bold md:text-5xl lg:text-6xl">
+                Success Stories That Drive Results
+              </h1>
+              <p className="mb-8 max-w-2xl text-xl md:text-2xl">
+                Discover how we've helped businesses like yours transform their
+                digital presence and achieve remarkable growth.
+              </p>
             </div>
           </div>
         </section>
-        
+
         {/* Case Studies Grid */}
-        <section className="py-16 md:py-24 bg-resgato-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <section className="bg-resgato-white py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
               {caseStudies.map((study, index) => (
-                <div 
-                  key={study.id} 
-                  className="bg-white rounded-lg shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl animate-fade-in"
+                <div
+                  key={study.id}
+                  className="animate-fade-in overflow-hidden rounded-lg bg-white shadow-md transition-all duration-300 hover:shadow-xl"
                   style={{ animationDelay: `${index * 150}ms` }}
                 >
                   <div className="h-56 bg-gray-200">
-                    <OptimizedImage 
-                      src={study.imageUrl} 
-                      alt={study.title} 
-                      className="w-full h-full object-cover"
+                    <OptimizedImage
+                      src={study.imageUrl}
+                      alt={study.title}
+                      className="h-full w-full object-cover"
                       loading="lazy"
                       sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   </div>
                   <div className="p-6">
-                    <div className="flex items-center mb-3">
-                      <span className="text-sm font-semibold text-resgato-blue mr-3">{study.industry}</span>
-                      <div className="h-1 w-1 rounded-full bg-gray-300 mr-3"></div>
-                      <span className="text-sm text-gray-600">{study.tags[0]}</span>
+                    <div className="mb-3 flex items-center">
+                      <span className="mr-3 text-sm font-semibold text-resgato-blue">
+                        {study.industry}
+                      </span>
+                      <div className="mr-3 h-1 w-1 rounded-full bg-gray-300"></div>
+                      <span className="text-sm text-gray-600">
+                        {study.tags[0]}
+                      </span>
                     </div>
-                    <h3 className="text-xl font-bold mb-3">{study.title}</h3>
-                    <p className="text-gray-600 mb-6">{study.summary}</p>
+                    <h3 className="mb-3 text-xl font-bold">{study.title}</h3>
+                    <p className="mb-6 text-gray-600">{study.summary}</p>
                     <Button asChild variant="outline" className="w-full">
-                      <Link to={
-                        study.id === 1 ? "/case-studies/yeti-plumbing" : 
-                        study.id === 2 ? "/case-studies/daily-shifts" : 
-                        study.id === 3 ? "/case-studies/mld" :
-                        "/contact"
-                      } className="flex items-center justify-center">
-                        Read Full Case Study <ArrowRight className="ml-2 h-4 w-4" />
+                      <Link
+                        to={
+                          study.id === 1
+                            ? '/case-studies/yeti-plumbing'
+                            : study.id === 2
+                              ? '/case-studies/daily-shifts'
+                              : study.id === 3
+                                ? '/case-studies/mld'
+                                : '/contact'
+                        }
+                        className="flex items-center justify-center"
+                      >
+                        Read Full Case Study{' '}
+                        <ArrowRight className="ml-2 h-4 w-4" />
                       </Link>
                     </Button>
                   </div>
@@ -96,28 +130,45 @@ const CaseStudies = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Industries Section */}
-        <section className="py-16 md:py-24 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12 animate-fade-in">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Industries We Serve</h2>
-              <p className="text-xl text-gray-600 max-w-2xl mx-auto">Our proven strategies deliver results across a diverse range of business sectors.</p>
+        <section className="bg-gray-50 py-16 md:py-24">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 animate-fade-in text-center">
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                Industries We Serve
+              </h2>
+              <p className="mx-auto max-w-2xl text-xl text-gray-600">
+                Our proven strategies deliver results across a diverse range of
+                business sectors.
+              </p>
             </div>
-            
-            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 animate-fade-in" style={{ animationDelay: "150ms" }}>
-              {['E-commerce', 'SaaS & Technology', 'Healthcare', 'Finance', 'Education', 'Professional Services', 'Real Estate', 'Home Services'].map((industry, index) => (
-                <div 
+
+            <div
+              className="grid animate-fade-in grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-4"
+              style={{ animationDelay: '150ms' }}
+            >
+              {[
+                'E-commerce',
+                'SaaS & Technology',
+                'Healthcare',
+                'Finance',
+                'Education',
+                'Professional Services',
+                'Real Estate',
+                'Home Services',
+              ].map((industry, index) => (
+                <div
                   key={index}
-                  className="bg-white rounded-lg border border-gray-200 p-6 text-center transition-all hover:border-resgato-blue hover:shadow-md"
+                  className="rounded-lg border border-gray-200 bg-white p-6 text-center transition-all hover:border-resgato-blue hover:shadow-md"
                 >
-                  <h3 className="font-semibold text-lg">{industry}</h3>
+                  <h3 className="text-lg font-semibold">{industry}</h3>
                 </div>
               ))}
             </div>
           </div>
         </section>
-        
+
         <CTASection />
       </main>
       <Footer />

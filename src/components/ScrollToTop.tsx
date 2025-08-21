@@ -1,17 +1,16 @@
-
-import { useEffect } from "react";
-import { useLocation } from "react-router-dom";
+import { useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 
 // Utility to smoothly scroll to a specific DOM node or top of the page
 function scrollTo(selector?: string) {
   if (selector) {
     const element = document.querySelector(selector);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: 'smooth' });
       return;
     }
   }
-  window.scrollTo({ top: 0, behavior: "smooth" });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 
 export default function ScrollToTop() {

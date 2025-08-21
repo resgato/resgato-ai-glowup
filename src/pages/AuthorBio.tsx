@@ -4,7 +4,13 @@ import { blogService } from '@/services/blog';
 import { BlogPost } from '@/types/blog';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import {
+  Card,
+  CardContent,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
 import { Calendar, Clock, ArrowRight } from 'lucide-react';
 import PageHelmet from '@/components/PageHelmet';
@@ -43,7 +49,9 @@ const AuthorBio = () => {
     },
   };
 
-  const currentAuthor = authorId ? authorInfo[authorId as keyof typeof authorInfo] : null;
+  const currentAuthor = authorId
+    ? authorInfo[authorId as keyof typeof authorInfo]
+    : null;
 
   useEffect(() => {
     const fetchAuthorPosts = async () => {
@@ -71,10 +79,10 @@ const AuthorBio = () => {
 
   if (loading) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="flex min-h-screen flex-col">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center">
-          <div className="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-blue-500"></div>
+        <div className="flex flex-grow items-center justify-center">
+          <div className="h-12 w-12 animate-spin rounded-full border-b-2 border-t-2 border-blue-500"></div>
         </div>
         <Footer />
       </div>
@@ -83,15 +91,17 @@ const AuthorBio = () => {
 
   if (error || !currentAuthor) {
     return (
-      <div className="min-h-screen flex flex-col">
+      <div className="flex min-h-screen flex-col">
         <Navbar />
-        <div className="flex-grow flex items-center justify-center">
-          <div className="text-center p-8">
-            <h2 className="text-2xl font-bold mb-4">Author Not Found</h2>
-            <p className="mb-6">We couldn't find the author you're looking for.</p>
-            <Link 
-              to="/blog" 
-              className="inline-flex items-center bg-resgato-blue text-white px-6 py-3 rounded-lg"
+        <div className="flex flex-grow items-center justify-center">
+          <div className="p-8 text-center">
+            <h2 className="mb-4 text-2xl font-bold">Author Not Found</h2>
+            <p className="mb-6">
+              We couldn't find the author you're looking for.
+            </p>
+            <Link
+              to="/blog"
+              className="inline-flex items-center rounded-lg bg-resgato-blue px-6 py-3 text-white"
             >
               Return to Blog
             </Link>
@@ -103,25 +113,37 @@ const AuthorBio = () => {
   }
 
   return (
-    <div className="min-h-screen flex flex-col">
-      <PageHelmet 
-        title={`${currentAuthor.name} - Author Profile`} 
+    <div className="flex min-h-screen flex-col">
+      <PageHelmet
+        title={`${currentAuthor.name} - Author Profile`}
         description={`Learn more about ${currentAuthor.name}, ${currentAuthor.role} at Resgato Digital Marketing.`}
       />
       <Navbar />
       <main className="flex-grow">
         {/* Author Bio Section */}
-        <section className="bg-resgato-navy text-white py-16">
-          <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="flex flex-col md:flex-row items-center md:items-start gap-8">
-              <Avatar className="h-36 w-36 md:h-52 md:w-52 border-4 border-white/20">
-                <AvatarImage src={currentAuthor.avatar} alt={currentAuthor.name} />
-                <AvatarFallback>{currentAuthor.name.split(' ').map(n => n[0]).join('')}</AvatarFallback>
+        <section className="bg-resgato-navy py-16 text-white">
+          <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+            <div className="flex flex-col items-center gap-8 md:flex-row md:items-start">
+              <Avatar className="h-36 w-36 border-4 border-white/20 md:h-52 md:w-52">
+                <AvatarImage
+                  src={currentAuthor.avatar}
+                  alt={currentAuthor.name}
+                />
+                <AvatarFallback>
+                  {currentAuthor.name
+                    .split(' ')
+                    .map(n => n[0])
+                    .join('')}
+                </AvatarFallback>
               </Avatar>
-              
+
               <div className="text-center md:text-left">
-                <h1 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-2">{currentAuthor.name}</h1>
-                <p className="text-xl text-white/80 mb-6">{currentAuthor.role}</p>
+                <h1 className="mb-2 text-3xl font-bold md:text-4xl lg:text-5xl">
+                  {currentAuthor.name}
+                </h1>
+                <p className="mb-6 text-xl text-white/80">
+                  {currentAuthor.role}
+                </p>
                 <div className="max-w-2xl">
                   <p className="text-lg text-white/90">{currentAuthor.bio}</p>
                 </div>
@@ -129,53 +151,57 @@ const AuthorBio = () => {
             </div>
           </div>
         </section>
-        
+
         {/* Author's Posts */}
         <section className="py-16">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 className="text-2xl font-bold mb-10">Articles by {currentAuthor.name}</h2>
-            
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <h2 className="mb-10 text-2xl font-bold">
+              Articles by {currentAuthor.name}
+            </h2>
+
             {posts.length > 0 ? (
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                {posts.map((post) => (
-                  <Card 
+              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
+                {posts.map(post => (
+                  <Card
                     key={post.id}
-                    className="overflow-hidden hover:shadow-lg transition-shadow"
+                    className="overflow-hidden transition-shadow hover:shadow-lg"
                   >
                     <div className="h-48 overflow-hidden">
-                      <img 
-                        src={post.cover} 
-                        alt={post.title} 
-                        className="w-full h-full object-cover transition-transform hover:scale-105 duration-500"
+                      <img
+                        src={post.cover}
+                        alt={post.title}
+                        className="h-full w-full object-cover transition-transform duration-500 hover:scale-105"
                       />
                     </div>
                     <CardHeader className="pb-2">
-                      <div className="flex items-center text-xs text-gray-500 mb-1">
-                        <span className="bg-gray-100 text-gray-600 px-2 py-1 rounded-full">
+                      <div className="mb-1 flex items-center text-xs text-gray-500">
+                        <span className="rounded-full bg-gray-100 px-2 py-1 text-gray-600">
                           {post.category}
                         </span>
                         <span className="mx-2">•</span>
                         <span>{post.date}</span>
                       </div>
-                      <CardTitle className="text-lg hover:text-resgato-blue transition-colors">
+                      <CardTitle className="text-lg transition-colors hover:text-resgato-blue">
                         <Link to={`/blog/${post.slug}`}>{post.title}</Link>
                       </CardTitle>
                     </CardHeader>
                     <CardContent>
-                      <p className="text-gray-600 text-sm line-clamp-2">{post.excerpt}</p>
+                      <p className="line-clamp-2 text-sm text-gray-600">
+                        {post.excerpt}
+                      </p>
                     </CardContent>
-                    <CardFooter className="pt-0 flex items-center text-sm">
+                    <CardFooter className="flex items-center pt-0 text-sm">
                       <div className="flex items-center text-gray-500">
-                        <Clock className="h-3 w-3 mr-1" />
+                        <Clock className="mr-1 h-3 w-3" />
                         <span>{post.readTime}</span>
                       </div>
                       <div className="ml-auto">
-                        <Link 
+                        <Link
                           to={`/blog/${post.slug}`}
-                          className="text-resgato-blue flex items-center hover:underline"
+                          className="flex items-center text-resgato-blue hover:underline"
                         >
                           Read More
-                          <ArrowRight className="h-4 w-4 ml-1" />
+                          <ArrowRight className="ml-1 h-4 w-4" />
                         </Link>
                       </div>
                     </CardFooter>
@@ -183,9 +209,14 @@ const AuthorBio = () => {
                 ))}
               </div>
             ) : (
-              <div className="text-center py-10 bg-gray-50 rounded-lg">
-                <p className="text-lg text-gray-600">No articles published yet by {currentAuthor.name}.</p>
-                <Link to="/blog" className="mt-4 inline-block text-resgato-blue hover:underline">
+              <div className="rounded-lg bg-gray-50 py-10 text-center">
+                <p className="text-lg text-gray-600">
+                  No articles published yet by {currentAuthor.name}.
+                </p>
+                <Link
+                  to="/blog"
+                  className="mt-4 inline-block text-resgato-blue hover:underline"
+                >
                   Browse all blog posts
                 </Link>
               </div>

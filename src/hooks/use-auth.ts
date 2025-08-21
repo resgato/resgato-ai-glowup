@@ -14,7 +14,7 @@ export function useAuth(requireAuth: boolean = false) {
       try {
         const { data } = await supabase.auth.getSession();
         setSession(data.session);
-        
+
         if (requireAuth && !data.session) {
           navigate('/login');
         }
@@ -24,17 +24,19 @@ export function useAuth(requireAuth: boolean = false) {
         setLoading(false);
       }
     };
-    
+
     checkSession();
-    
+
     // Set up auth state listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
+    const {
+      data: { subscription },
+    } = supabase.auth.onAuthStateChange((event, session) => {
       setSession(session);
       if (requireAuth && !session) {
         navigate('/login');
       }
     });
-    
+
     return () => {
       subscription.unsubscribe();
     };
@@ -43,6 +45,6 @@ export function useAuth(requireAuth: boolean = false) {
   return {
     session,
     loading,
-    isAuthenticated: !!session
+    isAuthenticated: !!session,
   };
-} 
+}

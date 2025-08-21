@@ -15,14 +15,16 @@ export interface BlogPost {
 export const mockBlogPosts: BlogPost[] = [
   {
     id: 1,
-    slug: "digital-marketing-trends-2025",
-    title: "Digital Marketing Trends to Watch in 2025: What Utah Businesses Need to Know",
-    excerpt: "Discover the key digital marketing trends that will shape business success in 2025, with specific insights for Utah companies looking to stay ahead of the competition.",
-    cover: "/resgato-uploads/f9a3c237-dff6-4a0d-8cef-79a1946fd9f0.png",
-    date: "January 15, 2025",
-    author: "Taylor Brody",
-    readTime: "8 min read",
-    category: "Digital Marketing",
+    slug: 'digital-marketing-trends-2025',
+    title:
+      'Digital Marketing Trends to Watch in 2025: What Utah Businesses Need to Know',
+    excerpt:
+      'Discover the key digital marketing trends that will shape business success in 2025, with specific insights for Utah companies looking to stay ahead of the competition.',
+    cover: '/resgato-uploads/f9a3c237-dff6-4a0d-8cef-79a1946fd9f0.png',
+    date: 'January 15, 2025',
+    author: 'Taylor Brody',
+    readTime: '8 min read',
+    category: 'Digital Marketing',
     content: `# Digital Marketing Trends to Watch in 2025: What Utah Businesses Need to Know
 
 As we navigate through 2025, the digital marketing landscape continues to evolve at an unprecedented pace. For Utah businesses, staying ahead of these trends isn't just about maintaining a competitive edge—it's about survival in an increasingly digital-first economy.
@@ -164,18 +166,19 @@ The digital marketing landscape of 2025 presents both challenges and opportuniti
 
 Remember, the key to success isn't implementing every trend—it's choosing the ones that align with your business goals and customer needs. Focus on building genuine relationships with your audience while leveraging technology to enhance those connections.
 
-Ready to implement these trends in your marketing strategy? [Contact our team](/contact) for a personalized consultation on how these trends can benefit your specific business needs.`
+Ready to implement these trends in your marketing strategy? [Contact our team](/contact) for a personalized consultation on how these trends can benefit your specific business needs.`,
   },
   {
     id: 2,
-    slug: "seo-best-practices-guide",
-    title: "The Complete SEO Guide for Utah Businesses: 2025 Edition",
-    excerpt: "Master the essential SEO techniques that will help your Utah business rank higher in search results and attract more local customers.",
-    cover: "/resgato-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png",
-    date: "January 10, 2025",
-    author: "Taylor Brody",
-    readTime: "12 min read",
-    category: "SEO",
+    slug: 'seo-best-practices-guide',
+    title: 'The Complete SEO Guide for Utah Businesses: 2025 Edition',
+    excerpt:
+      'Master the essential SEO techniques that will help your Utah business rank higher in search results and attract more local customers.',
+    cover: '/resgato-uploads/8dcb9d84-ae1e-40bf-8990-ca27bbddd0ff.png',
+    date: 'January 10, 2025',
+    author: 'Taylor Brody',
+    readTime: '12 min read',
+    category: 'SEO',
     content: `# The Complete SEO Guide for Utah Businesses: 2025 Edition
 
 Search Engine Optimization remains the cornerstone of digital marketing success, especially for businesses targeting local markets like Utah. This comprehensive guide will walk you through the essential SEO strategies that drive results in 2025.
@@ -497,18 +500,20 @@ Successful SEO in 2025 requires a comprehensive approach that combines technical
 
 Remember that SEO is a long-term strategy that requires patience and consistent effort. The businesses that succeed are those that focus on providing genuine value to their audience while maintaining technical excellence.
 
-Ready to improve your SEO performance? [Contact our team](/contact) for a comprehensive SEO audit and strategy development tailored to your specific business needs.`
+Ready to improve your SEO performance? [Contact our team](/contact) for a comprehensive SEO audit and strategy development tailored to your specific business needs.`,
   },
   {
     id: 3,
-    slug: "social-media-strategy-blueprint",
-    title: "Social Media Strategy Blueprint: Building Your Brand in the Digital Age",
-    excerpt: "A comprehensive framework for developing and executing an effective social media marketing strategy that drives engagement and business growth.",
-    cover: "/resgato-uploads/f9397a76-13f8-46c6-9197-106aa2658db0.png",
-    date: "January 5, 2025",
-    author: "Taylor Brody",
-    readTime: "10 min read",
-    category: "Social Media",
+    slug: 'social-media-strategy-blueprint',
+    title:
+      'Social Media Strategy Blueprint: Building Your Brand in the Digital Age',
+    excerpt:
+      'A comprehensive framework for developing and executing an effective social media marketing strategy that drives engagement and business growth.',
+    cover: '/resgato-uploads/f9397a76-13f8-46c6-9197-106aa2658db0.png',
+    date: 'January 5, 2025',
+    author: 'Taylor Brody',
+    readTime: '10 min read',
+    category: 'Social Media',
     content: `# Social Media Strategy Blueprint: Building Your Brand in the Digital Age
 
 In today's digital landscape, social media has evolved from a simple communication tool to a powerful marketing platform that can make or break your brand. This comprehensive blueprint will guide you through creating a social media strategy that drives real business results.
@@ -842,18 +847,19 @@ A successful social media strategy requires careful planning, consistent executi
 
 Remember that social media success doesn't happen overnight. It requires patience, persistence, and a commitment to providing value to your audience. Focus on building genuine relationships with your followers, and the business results will follow.
 
-Ready to develop your social media strategy? [Contact our team](/contact) for a comprehensive social media audit and strategy development tailored to your business goals.`
+Ready to develop your social media strategy? [Contact our team](/contact) for a comprehensive social media audit and strategy development tailored to your business goals.`,
   },
   {
     id: 4,
-    slug: "auto-dealer-marketing-strategies",
-    title: "Auto Dealer Marketing Strategies That Drive Sales in 2025",
-    excerpt: "Discover proven digital marketing strategies specifically designed for auto dealerships to increase foot traffic, generate leads, and boost vehicle sales.",
-    cover: "/resgato-uploads/utah-real-estate-marketing.png",
-    date: "June 15, 2025",
-    author: "Taylor Brody",
-    readTime: "8 min read",
-    category: "Automotive Marketing",
+    slug: 'auto-dealer-marketing-strategies',
+    title: 'Auto Dealer Marketing Strategies That Drive Sales in 2025',
+    excerpt:
+      'Discover proven digital marketing strategies specifically designed for auto dealerships to increase foot traffic, generate leads, and boost vehicle sales.',
+    cover: '/resgato-uploads/utah-real-estate-marketing.png',
+    date: 'June 15, 2025',
+    author: 'Taylor Brody',
+    readTime: '8 min read',
+    category: 'Automotive Marketing',
     content: `# Auto Dealer Marketing Strategies That Drive Sales in 2025
 
 The automotive industry is experiencing a digital transformation, and dealerships that adapt their marketing strategies are seeing significant increases in sales and customer engagement. This comprehensive guide covers the most effective marketing strategies for auto dealers in 2025.
@@ -1008,18 +1014,19 @@ Implement AI-powered tools:
 
 Successful auto dealer marketing in 2025 requires a comprehensive digital approach that combines local SEO, paid advertising, social media, and excellent customer experience. By implementing these strategies, dealerships can increase their online visibility, generate more qualified leads, and ultimately drive more sales.
 
-The key is to meet customers where they are in their buying journey and provide the information and experience they expect in today's digital-first automotive market.`
+The key is to meet customers where they are in their buying journey and provide the information and experience they expect in today's digital-first automotive market.`,
   },
   {
     id: 5,
-    slug: "plumber-marketing-guide",
-    title: "Plumber Marketing Guide: How to Get More Customers in 2025",
-    excerpt: "Learn proven marketing strategies specifically designed for plumbing businesses to attract more customers and grow your service area.",
-    cover: "/resgato-uploads/office.jpg",
-    date: "June 28, 2025",
-    author: "Taylor Brody",
-    readTime: "7 min read",
-    category: "Service Business Marketing",
+    slug: 'plumber-marketing-guide',
+    title: 'Plumber Marketing Guide: How to Get More Customers in 2025',
+    excerpt:
+      'Learn proven marketing strategies specifically designed for plumbing businesses to attract more customers and grow your service area.',
+    cover: '/resgato-uploads/office.jpg',
+    date: 'June 28, 2025',
+    author: 'Taylor Brody',
+    readTime: '7 min read',
+    category: 'Service Business Marketing',
     content: `# Plumber Marketing Guide: How to Get More Customers in 2025
 
 Plumbing businesses face unique marketing challenges, from emergency service needs to building trust in a service that customers often don't think about until there's a problem. This comprehensive guide covers effective marketing strategies specifically designed for plumbing companies.
@@ -1224,18 +1231,20 @@ Highlight eco-friendly services:
 
 Successful plumbing marketing in 2025 requires a combination of local SEO, paid advertising, excellent customer service, and building trust in your community. By implementing these strategies, plumbing businesses can increase their visibility, generate more qualified leads, and build a loyal customer base.
 
-The key is to be there when customers need you, provide excellent service, and maintain a strong online presence that builds trust and credibility in your local market.`
+The key is to be there when customers need you, provide excellent service, and maintain a strong online presence that builds trust and credibility in your local market.`,
   },
   {
     id: 6,
-    slug: "utah-ppc-agency-guide",
-    title: "Utah PPC Agency Guide: Choosing the Right Partner for Your Business",
-    excerpt: "Find the perfect PPC agency in Utah with this comprehensive guide covering what to look for, questions to ask, and how to evaluate performance.",
-    cover: "/resgato-uploads/digitalmarketingfirmsinutah.jpg",
-    date: "July 12, 2025",
-    author: "Taylor Brody",
-    readTime: "9 min read",
-    category: "PPC",
+    slug: 'utah-ppc-agency-guide',
+    title:
+      'Utah PPC Agency Guide: Choosing the Right Partner for Your Business',
+    excerpt:
+      'Find the perfect PPC agency in Utah with this comprehensive guide covering what to look for, questions to ask, and how to evaluate performance.',
+    cover: '/resgato-uploads/digitalmarketingfirmsinutah.jpg',
+    date: 'July 12, 2025',
+    author: 'Taylor Brody',
+    readTime: '9 min read',
+    category: 'PPC',
     content: `# Utah PPC Agency Guide: Choosing the Right Partner for Your Business
 
 Choosing the right PPC agency in Utah can make the difference between wasting your marketing budget and achieving significant ROI. This comprehensive guide will help you find the perfect PPC partner for your business needs.
@@ -1440,18 +1449,19 @@ Regularly review:
 
 Choosing the right Utah PPC agency requires careful research, asking the right questions, and setting clear expectations. By following this guide, you can find a partner that will help you achieve your PPC goals and grow your business.
 
-Remember that the best agency for your business is one that understands your goals, communicates effectively, and delivers measurable results. Take your time in the selection process, and don't be afraid to ask for references and case studies to ensure you're making the right choice.`
+Remember that the best agency for your business is one that understands your goals, communicates effectively, and delivers measurable results. Take your time in the selection process, and don't be afraid to ask for references and case studies to ensure you're making the right choice.`,
   },
   {
     id: 7,
-    slug: "how-to-build-a-website",
-    title: "How to Build a Website: Complete Guide for 2025",
-    excerpt: "Learn everything you need to know about building a professional website, from planning and design to development and launch.",
-    cover: "/resgato-uploads/aicoding.jpg",
-    date: "July 25, 2025",
-    author: "Taylor Brody",
-    readTime: "12 min read",
-    category: "Web Development",
+    slug: 'how-to-build-a-website',
+    title: 'How to Build a Website: Complete Guide for 2025',
+    excerpt:
+      'Learn everything you need to know about building a professional website, from planning and design to development and launch.',
+    cover: '/resgato-uploads/aicoding.jpg',
+    date: 'July 25, 2025',
+    author: 'Taylor Brody',
+    readTime: '12 min read',
+    category: 'Web Development',
     content: `# How to Build a Website: Complete Guide for 2025
 
 Building a website in 2025 requires understanding modern technologies, user expectations, and best practices. This comprehensive guide will walk you through every step of creating a professional, effective website.
@@ -1661,18 +1671,19 @@ Create content that is:
 
 Building a successful website in 2025 requires careful planning, modern technology choices, and ongoing optimization. By following this comprehensive guide, you can create a website that not only looks great but also performs well and achieves your business goals.
 
-Remember that website development is an ongoing process. Regular updates, performance monitoring, and user feedback will help you maintain a successful online presence that grows with your business.`
+Remember that website development is an ongoing process. Regular updates, performance monitoring, and user feedback will help you maintain a successful online presence that grows with your business.`,
   },
   {
     id: 8,
-    slug: "where-to-host-a-website",
-    title: "Where to Host a Website: Complete Hosting Guide for 2025",
-    excerpt: "Compare the best website hosting options, from shared hosting to cloud platforms, and find the perfect solution for your needs.",
-    cover: "/resgato-uploads/office.jpg",
-    date: "August 8, 2025",
-    author: "Taylor Brody",
-    readTime: "10 min read",
-    category: "Web Hosting",
+    slug: 'where-to-host-a-website',
+    title: 'Where to Host a Website: Complete Hosting Guide for 2025',
+    excerpt:
+      'Compare the best website hosting options, from shared hosting to cloud platforms, and find the perfect solution for your needs.',
+    cover: '/resgato-uploads/office.jpg',
+    date: 'August 8, 2025',
+    author: 'Taylor Brody',
+    readTime: '10 min read',
+    category: 'Web Hosting',
     content: `# Where to Host a Website: Complete Hosting Guide for 2025
 
 Choosing the right web hosting provider is crucial for your website's performance, security, and success. This comprehensive guide will help you understand the different hosting options and select the best solution for your needs.
@@ -1924,18 +1935,19 @@ Consider your support needs:
 
 Choosing the right web hosting provider requires careful consideration of your website's needs, budget, and technical requirements. By understanding the different hosting types and evaluating providers based on performance, support, and features, you can select the best hosting solution for your website.
 
-Remember that hosting needs can change as your website grows, so choose a provider that offers scalability and can accommodate your future growth. Regular monitoring and optimization will help ensure your hosting solution continues to meet your needs effectively.`
+Remember that hosting needs can change as your website grows, so choose a provider that offers scalability and can accommodate your future growth. Regular monitoring and optimization will help ensure your hosting solution continues to meet your needs effectively.`,
   },
   {
     id: 9,
-    slug: "how-to-find-marketing-agency",
-    title: "How to Find the Right Marketing Agency: Complete Guide for 2025",
-    excerpt: "Learn how to identify, evaluate, and choose the perfect marketing agency for your business needs and goals.",
-    cover: "/resgato-uploads/adagency.jpg",
-    date: "August 20, 2025",
-    author: "Taylor Brody",
-    readTime: "11 min read",
-    category: "Marketing Strategy",
+    slug: 'how-to-find-marketing-agency',
+    title: 'How to Find the Right Marketing Agency: Complete Guide for 2025',
+    excerpt:
+      'Learn how to identify, evaluate, and choose the perfect marketing agency for your business needs and goals.',
+    cover: '/resgato-uploads/adagency.jpg',
+    date: 'August 20, 2025',
+    author: 'Taylor Brody',
+    readTime: '11 min read',
+    category: 'Marketing Strategy',
     content: `# How to Find the Right Marketing Agency: Complete Guide for 2025
 
 Finding the right marketing agency can transform your business growth, but with so many options available, the selection process can be overwhelming. This comprehensive guide will help you identify, evaluate, and choose the perfect marketing partner for your business.
@@ -2245,6 +2257,6 @@ Evaluate compatibility in terms of:
 
 Finding the right marketing agency requires careful research, thorough evaluation, and clear communication. By following this comprehensive guide, you can identify a partner that understands your business, has the expertise to deliver results, and fits well with your organization's culture and values.
 
-Remember that the best agency relationship is built on mutual trust, clear expectations, and ongoing communication. Take your time in the selection process, and don't be afraid to ask questions and request references to ensure you're making the right choice for your business.`
-  }
+Remember that the best agency relationship is built on mutual trust, clear expectations, and ongoing communication. Take your time in the selection process, and don't be afraid to ask questions and request references to ensure you're making the right choice for your business.`,
+  },
 ];

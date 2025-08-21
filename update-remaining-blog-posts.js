@@ -2,17 +2,20 @@ import { createClient } from '@supabase/supabase-js';
 
 // Supabase configuration
 const supabaseUrl = 'https://bopzgxqujuqosdexnppj.supabase.co';
-const supabaseServiceKey = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDA4NjA4MywiZXhwIjoyMDU5NjYyMDgzfQ.HYD_2pj-D7x7Eh4LkqGhtw4iZ7MEBCS2NedD3jUuWqg';
+const supabaseServiceKey =
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDA4NjA4MywiZXhwIjoyMDU5NjYyMDgzfQ.HYD_2pj-D7x7Eh4LkqGhtw4iZ7MEBCS2NedD3jUuWqg';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 // Updated blog posts with better readability and strategic internal linking
 const updatedBlogPosts = [
   {
-    slug: "utah-ppc-agency-guide",
-    title: "Utah PPC Agency Guide: Choosing the Right Partner for Your Business",
-    excerpt: "Find the perfect PPC agency in Utah with this comprehensive guide covering what to look for, questions to ask, and how to evaluate performance for maximum ROI.",
-    readTime: "12 min read",
+    slug: 'utah-ppc-agency-guide',
+    title:
+      'Utah PPC Agency Guide: Choosing the Right Partner for Your Business',
+    excerpt:
+      'Find the perfect PPC agency in Utah with this comprehensive guide covering what to look for, questions to ask, and how to evaluate performance for maximum ROI.',
+    readTime: '12 min read',
     content: `# Utah PPC Agency Guide: Choosing the Right Partner for Your Business
 
 Choosing the right PPC agency in Utah can make the difference between wasting your marketing budget and achieving significant ROI. With so many agencies claiming to be the best, how do you separate the wheat from the chaff? This comprehensive guide will help you find the perfect PPC partner for your business needs.
@@ -191,13 +194,14 @@ Choosing the right Utah PPC agency requires careful research, asking the right q
 
 Remember that the best agency for your business is one that understands your goals, communicates effectively, and delivers measurable results. Take your time in the selection process, and don't be afraid to ask for references and case studies to ensure you're making the right choice.
 
-**Want to learn more about PPC and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [PPC services](https://resgato.com/services) to see how we can help you dominate your local market.`
+**Want to learn more about PPC and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [PPC services](https://resgato.com/services) to see how we can help you dominate your local market.`,
   },
   {
-    slug: "how-to-build-a-website",
-    title: "How to Build a Website: Complete Guide for 2025",
-    excerpt: "Learn everything you need to know about building a professional website, from planning and design to development and launch in today's digital landscape.",
-    readTime: "15 min read",
+    slug: 'how-to-build-a-website',
+    title: 'How to Build a Website: Complete Guide for 2025',
+    excerpt:
+      "Learn everything you need to know about building a professional website, from planning and design to development and launch in today's digital landscape.",
+    readTime: '15 min read',
     content: `# How to Build a Website: Complete Guide for 2025
 
 Building a website in 2025 requires understanding modern technologies, user expectations, and best practices that have evolved significantly over the past few years. This comprehensive guide will walk you through every step of creating a professional, effective website that not only looks great but also performs exceptionally well.
@@ -422,13 +426,14 @@ Building a successful website in 2025 requires careful planning, modern technolo
 
 Remember that website development is an ongoing process. Regular updates, performance monitoring, and user feedback will help you maintain a successful online presence that grows with your business.
 
-**Want to learn more about web development and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [web development services](https://resgato.com/services) to see how we can help you create a website that drives results.`
+**Want to learn more about web development and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [web development services](https://resgato.com/services) to see how we can help you create a website that drives results.`,
   },
   {
-    slug: "where-to-host-a-website",
-    title: "Where to Host a Website: Complete Hosting Guide for 2025",
-    excerpt: "Compare the best website hosting options, from shared hosting to cloud platforms, and find the perfect solution for your needs and budget.",
-    readTime: "13 min read",
+    slug: 'where-to-host-a-website',
+    title: 'Where to Host a Website: Complete Hosting Guide for 2025',
+    excerpt:
+      'Compare the best website hosting options, from shared hosting to cloud platforms, and find the perfect solution for your needs and budget.',
+    readTime: '13 min read',
     content: `# Where to Host a Website: Complete Hosting Guide for 2025
 
 Choosing the right web hosting provider is one of the most critical decisions you'll make for your website's success. The wrong choice can lead to slow loading times, security vulnerabilities, and frustrating downtime. This comprehensive guide will help you understand the different hosting options and select the perfect solution for your specific needs.
@@ -650,13 +655,14 @@ Choosing the right web hosting provider requires careful consideration of your w
 
 Remember that hosting needs can change as your website grows, so choose a provider that offers scalability and can accommodate your future growth. Regular monitoring and optimization will help ensure your hosting solution continues to meet your needs effectively.
 
-**Want to learn more about website optimization and digital marketing?** Check out our [comprehensive guide to building a website](https://resgato.com/blog/how-to-build-a-website) or explore our [web development services](https://resgato.com/services) to see how we can help you create a high-performing website.`
+**Want to learn more about website optimization and digital marketing?** Check out our [comprehensive guide to building a website](https://resgato.com/blog/how-to-build-a-website) or explore our [web development services](https://resgato.com/services) to see how we can help you create a high-performing website.`,
   },
   {
-    slug: "how-to-find-marketing-agency",
-    title: "How to Find the Right Marketing Agency: Complete Guide for 2025",
-    excerpt: "Learn how to identify, evaluate, and choose the perfect marketing agency for your business needs and goals in today's competitive market.",
-    readTime: "14 min read",
+    slug: 'how-to-find-marketing-agency',
+    title: 'How to Find the Right Marketing Agency: Complete Guide for 2025',
+    excerpt:
+      "Learn how to identify, evaluate, and choose the perfect marketing agency for your business needs and goals in today's competitive market.",
+    readTime: '14 min read',
     content: `# How to Find the Right Marketing Agency: Complete Guide for 2025
 
 Finding the right marketing agency can transform your business growth, but with so many options available, the selection process can be overwhelming. The wrong choice can waste your budget and set your business back months. This comprehensive guide will help you identify, evaluate, and choose the perfect marketing partner for your business.
@@ -917,19 +923,19 @@ Finding the right marketing agency requires careful research, thorough evaluatio
 
 Remember that the best agency relationship is built on mutual trust, clear expectations, and ongoing communication. Take your time in the selection process, and don't be afraid to ask questions and request references to ensure you're making the right choice for your business.
 
-**Want to learn more about marketing strategy and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [marketing services](https://resgato.com/services) to see how we can help you achieve your marketing goals.`
-  }
+**Want to learn more about marketing strategy and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [marketing services](https://resgato.com/services) to see how we can help you achieve your marketing goals.`,
+  },
 ];
 
 async function updateRemainingBlogPosts() {
   console.log('🔄 Updating remaining blog posts with improved content...');
-  
+
   const results = [];
-  
+
   for (const post of updatedBlogPosts) {
     try {
       console.log(`📝 Updating: ${post.title}`);
-      
+
       // Update the existing blog post
       const { data, error } = await supabase
         .from('blog_posts')
@@ -937,40 +943,39 @@ async function updateRemainingBlogPosts() {
           title: post.title,
           excerpt: post.excerpt,
           content: post.content,
-          readTime: post.readTime
+          readTime: post.readTime,
         })
         .eq('slug', post.slug)
         .select();
-      
+
       if (error) {
         console.error(`❌ Error updating blog post "${post.title}":`, error);
         results.push({
           slug: post.slug,
           status: 'error',
-          message: error.message
+          message: error.message,
         });
       } else {
         console.log(`✅ Successfully updated: ${post.title}`);
         results.push({
           slug: post.slug,
           status: 'success',
-          message: 'Post updated successfully'
+          message: 'Post updated successfully',
         });
       }
-      
     } catch (error) {
       console.error(`❌ Error updating blog post "${post.title}":`, error);
       results.push({
         slug: post.slug,
         status: 'error',
-        message: error.message
+        message: error.message,
       });
     }
   }
-  
+
   console.log('🎉 Remaining blog posts update completed!');
   console.log('📊 Results:', results);
-  
+
   return results;
 }
 

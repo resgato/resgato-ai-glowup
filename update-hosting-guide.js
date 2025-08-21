@@ -2,15 +2,17 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = 'https://bopzgxqujuqosdexnppj.supabase.co';
 // Replace this with your service_role key from Supabase dashboard
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'YOUR_SERVICE_ROLE_KEY_HERE';
+const supabaseServiceKey =
+  process.env.SUPABASE_SERVICE_ROLE_KEY || 'YOUR_SERVICE_ROLE_KEY_HERE';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 const hostingGuideData = {
-  slug: "where-to-host-a-website",
-  title: "Where to Host a Website: Complete Hosting Guide for 2025",
-  excerpt: "Compare the best website hosting options, from shared hosting to cloud platforms, and find the perfect solution for your needs and budget.",
-  readTime: "13 min read",
+  slug: 'where-to-host-a-website',
+  title: 'Where to Host a Website: Complete Hosting Guide for 2025',
+  excerpt:
+    'Compare the best website hosting options, from shared hosting to cloud platforms, and find the perfect solution for your needs and budget.',
+  readTime: '13 min read',
   content: `# Where to Host a Website: Complete Hosting Guide for 2025
 
 Choosing the right web hosting provider is one of the most critical decisions you'll make for your website's success. The wrong choice can lead to slow loading times, security vulnerabilities, and frustrating downtime. This comprehensive guide will help you understand the different hosting options and select the perfect solution for your specific needs.
@@ -232,30 +234,29 @@ Choosing the right web hosting provider requires careful consideration of your w
 
 Remember that hosting needs can change as your website grows, so choose a provider that offers scalability and can accommodate your future growth. Regular monitoring and optimization will help ensure your hosting solution continues to meet your needs effectively.
 
-**Want to learn more about website optimization and digital marketing?** Check out our [comprehensive guide to building a website](https://resgato.com/blog/how-to-build-a-website) or explore our [web development services](https://resgato.com/services) to see how we can help you create a high-performing website.`
+**Want to learn more about website optimization and digital marketing?** Check out our [comprehensive guide to building a website](https://resgato.com/blog/how-to-build-a-website) or explore our [web development services](https://resgato.com/services) to see how we can help you create a high-performing website.`,
 };
 
 async function updateHostingGuide() {
   try {
     console.log('🔄 Updating Website Hosting Guide...');
-    
+
     const { data, error } = await supabase
       .from('blog_posts')
       .update({
         title: hostingGuideData.title,
         excerpt: hostingGuideData.excerpt,
         content: hostingGuideData.content,
-        readTime: hostingGuideData.readTime
+        readTime: hostingGuideData.readTime,
       })
       .eq('slug', hostingGuideData.slug)
       .select();
-    
+
     if (error) {
       console.error('❌ Error updating Hosting Guide:', error);
     } else {
       console.log('✅ Successfully updated Website Hosting Guide');
     }
-    
   } catch (error) {
     console.error('❌ Error in updateHostingGuide:', error);
   }

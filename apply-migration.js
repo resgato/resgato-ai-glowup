@@ -14,8 +14,8 @@ async function applyMigration() {
     user: 'postgres',
     password: 'KBksgoYEuxZakYvE',
     ssl: {
-      rejectUnauthorized: false
-    }
+      rejectUnauthorized: false,
+    },
   });
 
   try {
@@ -24,7 +24,12 @@ async function applyMigration() {
     console.log('Connected successfully!');
 
     // Read the migration file
-    const migrationPath = path.join(__dirname, 'supabase', 'migrations', '20250217000004_create_contact_submissions.sql');
+    const migrationPath = path.join(
+      __dirname,
+      'supabase',
+      'migrations',
+      '20250217000004_create_contact_submissions.sql'
+    );
     const migrationSQL = fs.readFileSync(migrationPath, 'utf8');
 
     console.log('Applying migration...');
@@ -54,9 +59,10 @@ async function applyMigration() {
 
     console.log('RLS Policies created:');
     policies.rows.forEach(policy => {
-      console.log(`- ${policy.policyname}: ${policy.cmd} for ${policy.roles.join(', ')}`);
+      console.log(
+        `- ${policy.policyname}: ${policy.cmd} for ${policy.roles.join(', ')}`
+      );
     });
-
   } catch (error) {
     console.error('Error applying migration:', error.message);
   } finally {

@@ -12,7 +12,7 @@ export const getAllPosts = async (): Promise<BlogPost[]> => {
       .from('blog_posts')
       .select('*')
       .order('id', { ascending: false });
-    
+
     if (error) {
       console.error('Error fetching blog posts:', error);
       throw error;
@@ -22,9 +22,9 @@ export const getAllPosts = async (): Promise<BlogPost[]> => {
 
     // Transform data to match BlogPost type
     const blogPosts = data.map(post => transformBlogPostData(post));
-    
+
     console.log('Transformed blog posts:', blogPosts);
-    
+
     return blogPosts;
   } catch (error) {
     console.error('Error in getAllPosts:', error);
@@ -43,7 +43,7 @@ export const getPostBySlug = async (slug: string): Promise<BlogPost | null> => {
       .select('*')
       .eq('slug', slug)
       .single();
-    
+
     if (error) {
       console.error('Error fetching blog post by slug:', error);
       return null;
@@ -66,7 +66,7 @@ export const getPostById = async (id: number): Promise<BlogPost | null> => {
       .select('*')
       .eq('id', id)
       .single();
-    
+
     if (error) {
       console.error('Error fetching blog post by id:', error);
       return null;
@@ -89,7 +89,7 @@ export const getPostsByAuthor = async (author: string): Promise<BlogPost[]> => {
       .select('*')
       .eq('author', author)
       .order('id', { ascending: false });
-    
+
     if (error) {
       console.error('Error fetching blog posts by author:', error);
       throw error;
@@ -97,7 +97,7 @@ export const getPostsByAuthor = async (author: string): Promise<BlogPost[]> => {
 
     // Transform data to match BlogPost type
     const blogPosts = data.map(post => transformBlogPostData(post));
-    
+
     return blogPosts;
   } catch (error) {
     console.error('Error in getPostsByAuthor:', error);

@@ -6,23 +6,26 @@ interface RelatedContentProps {
   relatedPosts: BlogPost[];
 }
 
-export const RelatedContent = ({ currentPost, relatedPosts }: RelatedContentProps) => {
+export const RelatedContent = ({
+  currentPost,
+  relatedPosts,
+}: RelatedContentProps) => {
   const services = [
     {
       title: 'SEO Services',
       description: 'Improve your search rankings and drive organic traffic',
-      link: '/seo'
+      link: '/seo',
     },
     {
       title: 'PPC Advertising',
       description: 'Maximize ROI with targeted paid campaigns',
-      link: '/ppc'
+      link: '/ppc',
     },
     {
       title: 'Content Strategy',
       description: 'Create engaging content that converts',
-      link: '/content-strategy'
-    }
+      link: '/content-strategy',
+    },
   ];
 
   return (
@@ -30,27 +33,25 @@ export const RelatedContent = ({ currentPost, relatedPosts }: RelatedContentProp
       {/* Related Posts */}
       {relatedPosts.length > 0 && (
         <section>
-          <h2 className="text-2xl font-bold mb-6">Related Articles</h2>
+          <h2 className="mb-6 text-2xl font-bold">Related Articles</h2>
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-            {relatedPosts.map((post) => (
-              <Link 
-                key={post.id} 
+            {relatedPosts.map(post => (
+              <Link
+                key={post.id}
                 to={`/blog/${post.slug}`}
                 className="group block"
               >
-                <div className="rounded-lg overflow-hidden shadow-md hover:shadow-lg transition-shadow">
-                  <img 
-                    src={post.cover} 
+                <div className="overflow-hidden rounded-lg shadow-md transition-shadow hover:shadow-lg">
+                  <img
+                    src={post.cover}
                     alt={post.title}
-                    className="w-full h-48 object-cover"
+                    className="h-48 w-full object-cover"
                   />
                   <div className="p-4">
-                    <h3 className="font-semibold group-hover:text-blue-600 transition-colors">
+                    <h3 className="font-semibold transition-colors group-hover:text-blue-600">
                       {post.title}
                     </h3>
-                    <p className="text-sm text-gray-600 mt-2">
-                      {post.excerpt}
-                    </p>
+                    <p className="mt-2 text-sm text-gray-600">{post.excerpt}</p>
                   </div>
                 </div>
               </Link>
@@ -61,15 +62,15 @@ export const RelatedContent = ({ currentPost, relatedPosts }: RelatedContentProp
 
       {/* Service Links */}
       <section>
-        <h2 className="text-2xl font-bold mb-6">Our Services</h2>
+        <h2 className="mb-6 text-2xl font-bold">Our Services</h2>
         <div className="grid gap-6 md:grid-cols-3">
-          {services.map((service) => (
-            <Link 
+          {services.map(service => (
+            <Link
               key={service.title}
               to={service.link}
-              className="block p-6 rounded-lg border hover:border-blue-600 transition-colors"
+              className="block rounded-lg border p-6 transition-colors hover:border-blue-600"
             >
-              <h3 className="font-semibold text-lg mb-2">{service.title}</h3>
+              <h3 className="mb-2 text-lg font-semibold">{service.title}</h3>
               <p className="text-gray-600">{service.description}</p>
             </Link>
           ))}
@@ -77,4 +78,4 @@ export const RelatedContent = ({ currentPost, relatedPosts }: RelatedContentProp
       </section>
     </div>
   );
-}; 
+};

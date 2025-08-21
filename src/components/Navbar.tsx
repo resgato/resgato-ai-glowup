@@ -10,8 +10,8 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { cn } from "@/lib/utils";
+} from '@/components/ui/navigation-menu';
+import { cn } from '@/lib/utils';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -21,49 +21,51 @@ const Navbar = () => {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md shadow-sm">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center py-4">
+    <header className="sticky top-0 z-50 bg-white/80 shadow-sm backdrop-blur-md">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
-            <span className="text-2xl font-bold bg-gradient-to-r from-resgato-navy to-resgato-blue bg-clip-text text-transparent">Resgato</span>
+            <span className="bg-gradient-to-r from-resgato-navy to-resgato-blue bg-clip-text text-2xl font-bold text-transparent">
+              Resgato
+            </span>
           </Link>
 
           {/* Desktop Navigation */}
-          <nav className="hidden md:flex items-center space-x-8">
+          <nav className="hidden items-center space-x-8 md:flex">
             <Link
               to="/case-studies"
-              className="text-gray-700 hover:text-resgato-blue font-medium transition-colors"
+              className="font-medium text-gray-700 transition-colors hover:text-resgato-blue"
             >
               Case Studies
             </Link>
             <Link
               to="/about"
-              className="text-gray-700 hover:text-resgato-blue font-medium transition-colors"
+              className="font-medium text-gray-700 transition-colors hover:text-resgato-blue"
             >
               About
             </Link>
             <Link
               to="/services"
-              className="text-gray-700 hover:text-resgato-blue font-medium transition-colors"
+              className="font-medium text-gray-700 transition-colors hover:text-resgato-blue"
             >
               Services
             </Link>
             <Link
               to="/local-business-audit"
-              className="text-gray-700 hover:text-resgato-blue font-medium transition-colors"
+              className="font-medium text-gray-700 transition-colors hover:text-resgato-blue"
             >
               Free Audit
             </Link>
             <Link
               to="/blog"
-              className="text-gray-700 hover:text-resgato-blue font-medium transition-colors"
+              className="font-medium text-gray-700 transition-colors hover:text-resgato-blue"
             >
               Blog
             </Link>
             <Link
               to="/contact"
-              className="text-gray-700 hover:text-resgato-blue font-medium transition-colors"
+              className="font-medium text-gray-700 transition-colors hover:text-resgato-blue"
             >
               Contact
             </Link>
@@ -72,7 +74,7 @@ const Navbar = () => {
           {/* Mobile Menu Button */}
           <button
             onClick={toggleMenu}
-            className="md:hidden text-gray-700"
+            className="text-gray-700 md:hidden"
             aria-label="Toggle menu"
           >
             {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -82,46 +84,46 @@ const Navbar = () => {
 
       {/* Mobile Navigation */}
       {isMenuOpen && (
-        <div className="md:hidden bg-white px-4 pt-2 pb-4 shadow-lg">
+        <div className="bg-white px-4 pb-4 pt-2 shadow-lg md:hidden">
           <nav className="flex flex-col space-y-4">
             <Link
               to="/case-studies"
-              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
+              className="py-2 font-medium text-gray-700 transition-colors hover:text-resgato-blue"
               onClick={() => setIsMenuOpen(false)}
             >
               Case Studies
             </Link>
             <Link
               to="/about"
-              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
+              className="py-2 font-medium text-gray-700 transition-colors hover:text-resgato-blue"
               onClick={() => setIsMenuOpen(false)}
             >
               About
             </Link>
             <Link
               to="/services"
-              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
+              className="py-2 font-medium text-gray-700 transition-colors hover:text-resgato-blue"
               onClick={() => setIsMenuOpen(false)}
             >
               Services
             </Link>
             <Link
               to="/local-business-audit"
-              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
+              className="py-2 font-medium text-gray-700 transition-colors hover:text-resgato-blue"
               onClick={() => setIsMenuOpen(false)}
             >
               Free Audit
             </Link>
             <Link
               to="/blog"
-              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
+              className="py-2 font-medium text-gray-700 transition-colors hover:text-resgato-blue"
               onClick={() => setIsMenuOpen(false)}
             >
               Blog
             </Link>
             <Link
               to="/contact"
-              className="text-gray-700 hover:text-resgato-blue font-medium py-2 transition-colors"
+              className="py-2 font-medium text-gray-700 transition-colors hover:text-resgato-blue"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
@@ -135,8 +137,8 @@ const Navbar = () => {
 
 // ListItem component for the dropdown menu
 const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a"> & { to: string; title: string }
+  React.ElementRef<'a'>,
+  React.ComponentPropsWithoutRef<'a'> & { to: string; title: string }
 >(({ className, title, children, to, ...props }, ref) => {
   return (
     <li>
@@ -145,7 +147,7 @@ const ListItem = React.forwardRef<
           ref={ref as React.Ref<HTMLAnchorElement>}
           to={to}
           className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
+            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
             className
           )}
           {...props}
@@ -160,6 +162,6 @@ const ListItem = React.forwardRef<
   );
 });
 
-ListItem.displayName = "ListItem";
+ListItem.displayName = 'ListItem';
 
 export default Navbar;

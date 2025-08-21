@@ -2,16 +2,18 @@ import { createClient } from '@supabase/supabase-js';
 
 const supabaseUrl = 'https://bopzgxqujuqosdexnppj.supabase.co';
 // Replace this with your service_role key from Supabase dashboard
-const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY || 'YOUR_SERVICE_ROLE_KEY_HERE';
+const supabaseServiceKey =
+  process.env.SUPABASE_SERVICE_ROLE_KEY || 'YOUR_SERVICE_ROLE_KEY_HERE';
 
 const supabase = createClient(supabaseUrl, supabaseServiceKey);
 
 // Focus on updating one post at a time for better control
 const utahPPCGuideData = {
-  slug: "utah-ppc-agency-guide",
-  title: "Utah PPC Agency Guide: Choosing the Right Partner for Your Business",
-  excerpt: "Find the perfect PPC agency in Utah with this comprehensive guide covering what to look for, questions to ask, and how to evaluate performance for maximum ROI.",
-  readTime: "12 min read",
+  slug: 'utah-ppc-agency-guide',
+  title: 'Utah PPC Agency Guide: Choosing the Right Partner for Your Business',
+  excerpt:
+    'Find the perfect PPC agency in Utah with this comprehensive guide covering what to look for, questions to ask, and how to evaluate performance for maximum ROI.',
+  readTime: '12 min read',
   content: `# Utah PPC Agency Guide: Choosing the Right Partner for Your Business
 
 Choosing the right PPC agency in Utah can make the difference between wasting your marketing budget and achieving significant ROI. With so many agencies claiming to be the best, how do you separate the wheat from the chaff? This comprehensive guide will help you find the perfect PPC partner for your business needs.
@@ -172,30 +174,29 @@ Choosing the right Utah PPC agency requires careful research, asking the right q
 
 Remember that the best agency for your business is one that understands your goals, communicates effectively, and delivers measurable results. Take your time in the selection process, and don't be afraid to ask for references and case studies to ensure you're making the right choice.
 
-**Want to learn more about PPC and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [PPC services](https://resgato.com/services) to see how we can help you dominate your local market.`
+**Want to learn more about PPC and digital marketing?** Check out our [comprehensive guide to digital marketing trends](https://resgato.com/blog/digital-marketing-trends-2025) or explore our [PPC services](https://resgato.com/services) to see how we can help you dominate your local market.`,
 };
 
 async function updateUtahPPCGuide() {
   try {
     console.log('🔄 Updating Utah PPC Agency Guide...');
-    
+
     const { data, error } = await supabase
       .from('blog_posts')
       .update({
         title: utahPPCGuideData.title,
         excerpt: utahPPCGuideData.excerpt,
         content: utahPPCGuideData.content,
-        readTime: utahPPCGuideData.readTime
+        readTime: utahPPCGuideData.readTime,
       })
       .eq('slug', utahPPCGuideData.slug)
       .select();
-    
+
     if (error) {
       console.error('❌ Error updating Utah PPC Guide:', error);
     } else {
       console.log('✅ Successfully updated Utah PPC Agency Guide');
     }
-    
   } catch (error) {
     console.error('❌ Error in updateUtahPPCGuide:', error);
   }

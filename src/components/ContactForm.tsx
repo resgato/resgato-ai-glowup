@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
@@ -15,7 +14,7 @@ import {
   FormField,
   FormItem,
   FormLabel,
-  FormMessage
+  FormMessage,
 } from '@/components/ui/form';
 
 // Define validation schema
@@ -24,8 +23,10 @@ const contactFormSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address' }),
   company: z.string().optional(),
   phone: z.string().optional(),
-  message: z.string().min(10, { message: 'Message must be at least 10 characters' }),
-  service: z.string().optional()
+  message: z
+    .string()
+    .min(10, { message: 'Message must be at least 10 characters' }),
+  service: z.string().optional(),
 });
 
 type ContactFormValues = z.infer<typeof contactFormSchema>;
@@ -37,7 +38,7 @@ interface ContactFormProps {
 const ContactForm = ({ initialService }: ContactFormProps) => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = React.useState(false);
-  
+
   // Initialize form
   const form = useForm<ContactFormValues>({
     resolver: zodResolver(contactFormSchema),
@@ -47,29 +48,29 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
       company: '',
       phone: '',
       message: '',
-      service: initialService || ''
-    }
+      service: initialService || '',
+    },
   });
 
   const onSubmit = async (data: ContactFormValues) => {
     if (isSubmitting) return; // Prevent multiple submissions
-    
+
     setIsSubmitting(true);
-    
+
     try {
-      console.log("Submitting contact form...", data);
-      
+      console.log('Submitting contact form...', data);
+
       // Get reCAPTCHA token with timeout
       let recaptchaToken = '';
       try {
         console.log('Getting reCAPTCHA token...');
         recaptchaToken = await Promise.race([
           executeRecaptcha('contact_form_submit'),
-          new Promise<string>((_, reject) => 
+          new Promise<string>((_, reject) =>
             setTimeout(() => reject(new Error('reCAPTCHA timeout')), 5000)
-          )
+          ),
         ]);
-        
+
         if (!recaptchaToken) {
           throw new Error('reCAPTCHA verification failed');
         }
@@ -79,40 +80,46 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
         // Continue without reCAPTCHA if it fails
         recaptchaToken = 'recaptcha-failed';
       }
-      
+
       // Store submission in the database
       const { data: submissionData, error: dbError } = await supabase
         .from('contact_submissions')
-        .insert([{
-          name: data.name,
-          email: data.email,
-          company: data.company || null,
-          phone: data.phone || null,
-          message: data.message,
-          service: data.service || null,
-          recaptcha_token: recaptchaToken
-        }])
+        .insert([
+          {
+            name: data.name,
+            email: data.email,
+            company: data.company || null,
+            phone: data.phone || null,
+            message: data.message,
+            service: data.service || null,
+            recaptcha_token: recaptchaToken,
+          },
+        ])
         .select()
         .single();
-      
+
       if (dbError) {
         console.error('Database error:', dbError);
         throw new Error(`Failed to submit your message: ${dbError.message}`);
       }
-      
+
       console.log('Contact form submitted to database:', submissionData);
-      
+
       // Send email notification via edge function
       try {
         console.log('Sending email notification...');
-        const emailResponse = await fetch('https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/send-contact-email', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwODYwODMsImV4cCI6MjA1OTY2MjA4M30.sa4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ'
-          },
-          body: JSON.stringify(submissionData)
-        });
+        const emailResponse = await fetch(
+          'https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/send-contact-email',
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+              Authorization:
+                'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwODYwODMsImV4cCI6MjA1OTY2MjA4M30.sa4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ',
+            },
+            body: JSON.stringify(submissionData),
+          }
+        );
 
         if (!emailResponse.ok) {
           const emailError = await emailResponse.text();
@@ -125,20 +132,23 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
         console.error('Error sending email notification:', emailError);
         // Continue despite email error - at least the submission is stored
       }
-      
+
       toast({
-        title: "Message sent!",
+        title: 'Message sent!',
         description: "We'll get back to you as soon as possible.",
       });
-      
+
       // Reset form after successful submission
       form.reset();
     } catch (error) {
       console.error('Error submitting form:', error);
       toast({
-        title: "Something went wrong",
-        description: error instanceof Error ? error.message : "Unable to send your message. Please try again later.",
-        variant: "destructive"
+        title: 'Something went wrong',
+        description:
+          error instanceof Error
+            ? error.message
+            : 'Unable to send your message. Please try again later.',
+        variant: 'destructive',
       });
     } finally {
       setIsSubmitting(false);
@@ -175,7 +185,7 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
             )}
           />
         )}
-        
+
         <FormField
           control={form.control}
           name="name"
@@ -189,8 +199,8 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
             </FormItem>
           )}
         />
-        
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-2">
           <FormField
             control={form.control}
             name="email"
@@ -198,13 +208,17 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
               <FormItem className="space-y-2">
                 <FormLabel>Email Address</FormLabel>
                 <FormControl>
-                  <Input placeholder="john@example.com" type="email" {...field} />
+                  <Input
+                    placeholder="john@example.com"
+                    type="email"
+                    {...field}
+                  />
                 </FormControl>
                 <FormMessage />
               </FormItem>
             )}
           />
-          
+
           <FormField
             control={form.control}
             name="company"
@@ -218,7 +232,7 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
               </FormItem>
             )}
           />
-          
+
           <FormField
             control={form.control}
             name="phone"
@@ -233,7 +247,7 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
             )}
           />
         </div>
-        
+
         <FormField
           control={form.control}
           name="message"
@@ -241,30 +255,46 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
             <FormItem className="space-y-2">
               <FormLabel>Message</FormLabel>
               <FormControl>
-                <Textarea 
-                  placeholder="Tell us about your project and how we can help..." 
-                  rows={5} 
-                  {...field} 
+                <Textarea
+                  placeholder="Tell us about your project and how we can help..."
+                  rows={5}
+                  {...field}
                 />
               </FormControl>
               <FormMessage />
             </FormItem>
           )}
         />
-        
+
         <Button
           type="submit"
-          className="w-full bg-resgato-purple hover:bg-resgato-deep-purple text-white"
+          className="w-full bg-resgato-purple text-white hover:bg-resgato-deep-purple"
           disabled={isSubmitting}
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
-        
+
         {/* reCAPTCHA notice */}
-        <div className="text-xs text-gray-500 text-center mt-2">
+        <div className="mt-2 text-center text-xs text-gray-500">
           This site is protected by reCAPTCHA and the
-          <a href="https://policies.google.com/privacy" className="text-resgato-purple hover:underline mx-1" target="_blank" rel="noopener noreferrer">Privacy Policy</a>and
-          <a href="https://policies.google.com/terms" className="text-resgato-purple hover:underline mx-1" target="_blank" rel="noopener noreferrer">Terms of Service</a>apply.
+          <a
+            href="https://policies.google.com/privacy"
+            className="mx-1 text-resgato-purple hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Privacy Policy
+          </a>
+          and
+          <a
+            href="https://policies.google.com/terms"
+            className="mx-1 text-resgato-purple hover:underline"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Terms of Service
+          </a>
+          apply.
         </div>
       </form>
     </Form>

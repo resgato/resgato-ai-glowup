@@ -1,4 +1,3 @@
-
 // Type definitions for Google reCAPTCHA v3
 interface Window {
   grecaptcha?: {
