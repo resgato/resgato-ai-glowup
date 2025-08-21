@@ -1,12 +1,12 @@
 import React from 'react';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
-import HeroSection from '@/components/HeroSection';
-import ServicesSection from '@/components/ServicesSection';
+import UtahHeroSection from '@/components/UtahHeroSection';
+import UtahServicesSection from '@/components/UtahServicesSection';
+import UtahAboutSection from '@/components/UtahAboutSection';
 import TestimonialsSection from '@/components/TestimonialsSection';
 import CTASection from '@/components/CTASection';
 import StatsSection from '@/components/StatsSection';
-import AboutSection from '@/components/AboutSection';
 import PlatformsWeSupport from '@/components/PlatformsWeSupport';
 import PageHelmet from '@/components/PageHelmet';
 
@@ -24,10 +24,10 @@ const UtahMarketingAgency = () => {
           Utah Marketing Agency | Salt Lake City's Premier Digital Marketing
           Company
         </h1>
-        <HeroSection />
+        <UtahHeroSection />
         <StatsSection />
-        <AboutSection />
-        <ServicesSection />
+        <UtahAboutSection />
+        <UtahServicesSection />
         <PlatformsWeSupport />
         <TestimonialsSection />
         <CTASection />
