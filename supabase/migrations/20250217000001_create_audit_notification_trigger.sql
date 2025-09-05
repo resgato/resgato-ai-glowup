@@ -6,7 +6,7 @@ drop function if exists public.handle_new_audit_submission();
 create or replace function public.handle_new_audit_submission()
 returns trigger as $$
 declare
-  service_role_key text := 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDA4NjA4MywiZXhwIjoyMDU5NjYyMDgzfQ.4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ';
+  service_role_key text := current_setting('app.settings.service_role_key', true);
   record_json jsonb;
 begin
   -- Convert the NEW record to JSON

@@ -16,7 +16,7 @@ begin
       )::text,
       'application/json',
       array[
-        array['Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MDgxMjQ5NzAsImV4cCI6MjAyMzcwMDk3MH0.2QYwXZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQZQ']
+        array['Authorization', 'Bearer ' || current_setting('app.settings.anon_key', true)]
       ]
     );
   return NEW;

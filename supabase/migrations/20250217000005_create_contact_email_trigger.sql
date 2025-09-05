@@ -11,7 +11,7 @@ begin
       url := 'https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/send-contact-email',
       headers := jsonb_build_object(
         'Content-Type', 'application/json',
-        'Authorization', 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDA4NjA4MywiZXhwIjoyMDU5NjYyMDgzfQ.4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ'
+        'Authorization', 'Bearer ' || current_setting('app.settings.service_role_key', true)
       ),
       body := to_jsonb(NEW)
     );
