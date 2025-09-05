@@ -91,10 +91,3 @@ const UtahAboutSection = () => {
 };
 
 export default UtahAboutSection;
-
-
-
-
-
-
-

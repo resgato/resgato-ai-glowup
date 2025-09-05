@@ -1,7 +1,8 @@
 // Google reCAPTCHA v3 integration utility
 // This utility provides functions to load and execute reCAPTCHA
 
-const RECAPTCHA_SITE_KEY = process.env.RECAPTCHA_SITE_KEY || '6LdrTT0rAAAAAB1V02vzkntNoxAEQnf6khPYvy6v'; // Fallback to production site key
+const RECAPTCHA_SITE_KEY =
+  process.env.RECAPTCHA_SITE_KEY || '6LdrTT0rAAAAAB1V02vzkntNoxAEQnf6khPYvy6v'; // Fallback to production site key
 
 /**
  * Dynamically loads the reCAPTCHA script if it's not already loaded

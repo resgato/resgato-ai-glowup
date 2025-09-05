@@ -130,10 +130,3 @@ const UtahServicesSection = () => {
 };
 
 export default UtahServicesSection;
-
-
-
-
-
-
-

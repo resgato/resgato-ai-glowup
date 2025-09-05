@@ -41,7 +41,7 @@ const Navbar = () => {
             >
               About
             </Link>
-            
+
             {/* Services Dropdown */}
             <DropdownMenu>
               <DropdownMenuTrigger className="flex items-center font-medium text-gray-700 transition-colors hover:text-resgato-blue">
@@ -176,10 +176,10 @@ const Navbar = () => {
             >
               About
             </Link>
-            
+
             {/* Services Section */}
             <div className="py-2">
-              <div className="font-medium text-gray-700 mb-2">Services</div>
+              <div className="mb-2 font-medium text-gray-700">Services</div>
               <div className="ml-4 space-y-2">
                 <Link
                   to="/services"
@@ -235,7 +235,7 @@ const Navbar = () => {
 
             {/* Industries Section */}
             <div className="py-2">
-              <div className="font-medium text-gray-700 mb-2">Industries</div>
+              <div className="mb-2 font-medium text-gray-700">Industries</div>
               <div className="ml-4 space-y-2">
                 <Link
                   to="/dealershipmarketing"
@@ -309,6 +309,5 @@ const Navbar = () => {
     </header>
   );
 };
-
 
 export default Navbar;
