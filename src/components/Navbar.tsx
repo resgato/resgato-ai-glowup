@@ -3,15 +3,11 @@ import { Link } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from '@/components/ui/navigation-menu';
-import { cn } from '@/lib/utils';
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from '@/components/ui/dropdown-menu';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -47,85 +43,89 @@ const Navbar = () => {
             </Link>
             
             {/* Services Dropdown */}
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="font-medium text-gray-700 hover:text-resgato-blue">
-                    Services
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                      <li className="row-span-3">
-                        <NavigationMenuLink asChild>
-                          <Link
-                            to="/services"
-                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-resgato-light-purple to-resgato-purple p-6 no-underline outline-none focus:shadow-md"
-                          >
-                            <div className="mb-2 mt-4 text-lg font-medium text-white">
-                              All Services
-                            </div>
-                            <p className="text-sm leading-tight text-white/90">
-                              Complete overview of our digital marketing solutions
-                            </p>
-                          </Link>
-                        </NavigationMenuLink>
-                      </li>
-                      <ListItem to="/seo" title="SEO Services">
-                        Search engine optimization to improve your online visibility
-                      </ListItem>
-                      <ListItem to="/ppc" title="PPC Advertising">
-                        Pay-per-click campaigns that drive qualified traffic
-                      </ListItem>
-                      <ListItem to="/social-media-marketing" title="Social Media">
-                        Strategic social media campaigns for brand growth
-                      </ListItem>
-                      <ListItem to="/email-marketing" title="Email Marketing">
-                        Targeted email campaigns that convert prospects
-                      </ListItem>
-                      <ListItem to="/website-development" title="Web Development">
-                        Custom websites that drive results
-                      </ListItem>
-                      <ListItem to="/content-strategy" title="Content Strategy">
-                        Strategic content that engages and converts
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center font-medium text-gray-700 transition-colors hover:text-resgato-blue">
+                Services
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuItem asChild>
+                  <Link to="/services" className="w-full">
+                    All Services
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/seo" className="w-full">
+                    SEO Services
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/ppc" className="w-full">
+                    PPC Advertising
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/social-media-marketing" className="w-full">
+                    Social Media
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/email-marketing" className="w-full">
+                    Email Marketing
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/website-development" className="w-full">
+                    Web Development
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/content-strategy" className="w-full">
+                    Content Strategy
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
-            {/* Industry-Specific Landing Pages */}
-            <NavigationMenu>
-              <NavigationMenuList>
-                <NavigationMenuItem>
-                  <NavigationMenuTrigger className="font-medium text-gray-700 hover:text-resgato-blue">
-                    Industries
-                  </NavigationMenuTrigger>
-                  <NavigationMenuContent>
-                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
-                      <ListItem to="/dealershipmarketing" title="Dealership Marketing">
-                        Specialized automotive marketing solutions
-                      </ListItem>
-                      <ListItem to="/utah-real-estate-marketing" title="Real Estate Marketing">
-                        Marketing strategies for real estate professionals
-                      </ListItem>
-                      <ListItem to="/utah-marketing-firms" title="Utah Marketing Firms">
-                        Why choose Resgato among Utah marketing agencies
-                      </ListItem>
-                      <ListItem to="/utahmarketingagency" title="Utah Marketing Agency">
-                        Local marketing expertise for Utah businesses
-                      </ListItem>
-                      <ListItem to="/ai-consulting" title="AI Consulting">
-                        Artificial intelligence solutions for business growth
-                      </ListItem>
-                      <ListItem to="/strategic-consulting" title="Strategic Consulting">
-                        High-level business strategy and planning
-                      </ListItem>
-                    </ul>
-                  </NavigationMenuContent>
-                </NavigationMenuItem>
-              </NavigationMenuList>
-            </NavigationMenu>
+            {/* Industries Dropdown */}
+            <DropdownMenu>
+              <DropdownMenuTrigger className="flex items-center font-medium text-gray-700 transition-colors hover:text-resgato-blue">
+                Industries
+                <ChevronDown className="ml-1 h-4 w-4" />
+              </DropdownMenuTrigger>
+              <DropdownMenuContent className="w-56">
+                <DropdownMenuItem asChild>
+                  <Link to="/dealershipmarketing" className="w-full">
+                    Dealership Marketing
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/utah-real-estate-marketing" className="w-full">
+                    Real Estate Marketing
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/utah-marketing-firms" className="w-full">
+                    Utah Marketing Firms
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/utahmarketingagency" className="w-full">
+                    Utah Marketing Agency
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/ai-consulting" className="w-full">
+                    AI Consulting
+                  </Link>
+                </DropdownMenuItem>
+                <DropdownMenuItem asChild>
+                  <Link to="/strategic-consulting" className="w-full">
+                    Strategic Consulting
+                  </Link>
+                </DropdownMenuItem>
+              </DropdownMenuContent>
+            </DropdownMenu>
 
             <Link
               to="/local-business-audit"
@@ -310,33 +310,5 @@ const Navbar = () => {
   );
 };
 
-// ListItem component for the dropdown menu
-const ListItem = React.forwardRef<
-  React.ElementRef<'a'>,
-  React.ComponentPropsWithoutRef<'a'> & { to: string; title: string }
->(({ className, title, children, to, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <Link
-          ref={ref as React.Ref<HTMLAnchorElement>}
-          to={to}
-          className={cn(
-            'block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground',
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </Link>
-      </NavigationMenuLink>
-    </li>
-  );
-});
-
-ListItem.displayName = 'ListItem';
 
 export default Navbar;
