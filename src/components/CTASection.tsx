@@ -8,11 +8,11 @@ const CTASection = () => {
     <section className="bg-gradient-to-r from-resgato-navy to-resgato-blue py-12 text-white md:py-20">
       <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <h2 className="mb-4 text-2xl font-bold md:mb-6 md:text-4xl">
-          Ready to Transform Your Utah Business with Expert PPC & Digital
+          Ready to Transform Your Business with Expert PPC & Digital
           Marketing?
         </h2>
         <p className="mx-auto mb-6 max-w-2xl text-base md:mb-8 md:text-xl">
-          Get in touch with our Salt Lake City team of digital marketing experts
+          Get in touch with our team of digital marketing experts
           today and discover how we can help you achieve your business goals.
         </p>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row md:gap-4">
@@ -30,7 +30,7 @@ const CTASection = () => {
             className="bg-resgato-purple px-6 py-4 text-base text-white hover:bg-resgato-deep-purple md:px-8 md:py-6 md:text-lg"
           >
             <Link to="/contact">
-              Talk to a Utah Ads Expert
+              Talk to an Ads Expert
               <Calendar className="ml-2 h-4 w-4 md:h-5 md:w-5" />
             </Link>
           </Button>
