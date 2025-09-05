@@ -56,8 +56,9 @@ const CaseStudies = () => {
   return (
     <div className="flex min-h-screen flex-col">
       <PageHelmet
-        title="Case Studies"
+        title="Case Studies | Digital Marketing Success Stories | Resgato"
         description="Discover how Resgato has helped businesses like yours transform their digital presence and achieve remarkable growth."
+        canonicalUrl="/case-studies"
       />
       <Navbar />
       <main className="flex-grow">

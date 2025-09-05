@@ -53,7 +53,9 @@ serve(async (req: Request) => {
       { url: '/about', priority: '0.8' },
       { url: '/services', priority: '0.9' },
       { url: '/contact', priority: '0.8' },
-      { url: '/blog', priority: '0.8', changefreq: 'weekly' }
+      { url: '/blog', priority: '0.8', changefreq: 'weekly' },
+      { url: '/case-studies', priority: '0.7' },
+      { url: '/local-business-audit', priority: '0.8' }
     ];
     
     for (const page of mainPages) {
@@ -82,15 +84,15 @@ serve(async (req: Request) => {
       { url: 'seo', priority: '0.7' },
       { url: 'ppc', priority: '0.7' },
       { url: 'email-marketing', priority: '0.7' },
-      { url: 'strategic-consulting', priority: '0.7' },
       { url: 'ai-consulting', priority: '0.7' },
       { url: 'social-media-marketing', priority: '0.7' },
       { url: 'content-strategy', priority: '0.7' },
+      { url: 'website-development', priority: '0.7' },
+      { url: 'it-support', priority: '0.6' },
+      { url: 'dealershipmarketing', priority: '0.7' },
       { url: 'utah-real-estate-marketing', priority: '0.7' },
-      { url: 'utah-marketing-firms', priority: '0.8' },
-      { url: 'digital-strategy-consulting-salt-lake-city', priority: '0.7' },
-      { url: 'salt-lake-city-ppc-agency', priority: '0.7' },
-      { url: 'utah-sem-services', priority: '0.7' }
+      { url: 'utah-marketing-firms', priority: '0.6' },
+      { url: 'utahmarketingagency', priority: '0.6' }
     ];
     
     for (const page of servicePages) {
@@ -98,6 +100,39 @@ serve(async (req: Request) => {
       xml += `    <loc>https://resgato.com/${page.url}</loc>\n`;
       xml += `    <lastmod>${currentDate}</lastmod>\n`;
       xml += `    <changefreq>monthly</changefreq>\n`;
+      xml += `    <priority>${page.priority}</priority>\n`;
+      xml += `  </url>\n`;
+    }
+
+    // Add case study pages
+    const caseStudyPages = [
+      { url: 'case-studies/yeti-plumbing', priority: '0.6' },
+      { url: 'case-studies/daily-shifts', priority: '0.6' },
+      { url: 'case-studies/mld', priority: '0.6' },
+      { url: 'case-studies/brand-transformation', priority: '0.6' }
+    ];
+    
+    for (const page of caseStudyPages) {
+      xml += `  <url>\n`;
+      xml += `    <loc>https://resgato.com/${page.url}</loc>\n`;
+      xml += `    <lastmod>${currentDate}</lastmod>\n`;
+      xml += `    <changefreq>monthly</changefreq>\n`;
+      xml += `    <priority>${page.priority}</priority>\n`;
+      xml += `  </url>\n`;
+    }
+
+    // Add legal pages
+    const legalPages = [
+      { url: 'privacy-policy', priority: '0.3' },
+      { url: 'terms-of-service', priority: '0.3' },
+      { url: 'cookie-policy', priority: '0.3' }
+    ];
+    
+    for (const page of legalPages) {
+      xml += `  <url>\n`;
+      xml += `    <loc>https://resgato.com/${page.url}</loc>\n`;
+      xml += `    <lastmod>${currentDate}</lastmod>\n`;
+      xml += `    <changefreq>yearly</changefreq>\n`;
       xml += `    <priority>${page.priority}</priority>\n`;
       xml += `  </url>\n`;
     }
