@@ -45,12 +45,88 @@ const Navbar = () => {
             >
               About
             </Link>
-            <Link
-              to="/services"
-              className="font-medium text-gray-700 transition-colors hover:text-resgato-blue"
-            >
-              Services
-            </Link>
+            
+            {/* Services Dropdown */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="font-medium text-gray-700 hover:text-resgato-blue">
+                    Services
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      <li className="row-span-3">
+                        <NavigationMenuLink asChild>
+                          <Link
+                            to="/services"
+                            className="flex h-full w-full select-none flex-col justify-end rounded-md bg-gradient-to-b from-resgato-light-purple to-resgato-purple p-6 no-underline outline-none focus:shadow-md"
+                          >
+                            <div className="mb-2 mt-4 text-lg font-medium text-white">
+                              All Services
+                            </div>
+                            <p className="text-sm leading-tight text-white/90">
+                              Complete overview of our digital marketing solutions
+                            </p>
+                          </Link>
+                        </NavigationMenuLink>
+                      </li>
+                      <ListItem to="/seo" title="SEO Services">
+                        Search engine optimization to improve your online visibility
+                      </ListItem>
+                      <ListItem to="/ppc" title="PPC Advertising">
+                        Pay-per-click campaigns that drive qualified traffic
+                      </ListItem>
+                      <ListItem to="/social-media-marketing" title="Social Media">
+                        Strategic social media campaigns for brand growth
+                      </ListItem>
+                      <ListItem to="/email-marketing" title="Email Marketing">
+                        Targeted email campaigns that convert prospects
+                      </ListItem>
+                      <ListItem to="/website-development" title="Web Development">
+                        Custom websites that drive results
+                      </ListItem>
+                      <ListItem to="/content-strategy" title="Content Strategy">
+                        Strategic content that engages and converts
+                      </ListItem>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
+            {/* Industry-Specific Landing Pages */}
+            <NavigationMenu>
+              <NavigationMenuList>
+                <NavigationMenuItem>
+                  <NavigationMenuTrigger className="font-medium text-gray-700 hover:text-resgato-blue">
+                    Industries
+                  </NavigationMenuTrigger>
+                  <NavigationMenuContent>
+                    <ul className="grid w-[400px] gap-3 p-4 md:w-[500px] md:grid-cols-2 lg:w-[600px]">
+                      <ListItem to="/dealershipmarketing" title="Dealership Marketing">
+                        Specialized automotive marketing solutions
+                      </ListItem>
+                      <ListItem to="/utah-real-estate-marketing" title="Real Estate Marketing">
+                        Marketing strategies for real estate professionals
+                      </ListItem>
+                      <ListItem to="/utah-marketing-firms" title="Utah Marketing Firms">
+                        Why choose Resgato among Utah marketing agencies
+                      </ListItem>
+                      <ListItem to="/utahmarketingagency" title="Utah Marketing Agency">
+                        Local marketing expertise for Utah businesses
+                      </ListItem>
+                      <ListItem to="/ai-consulting" title="AI Consulting">
+                        Artificial intelligence solutions for business growth
+                      </ListItem>
+                      <ListItem to="/strategic-consulting" title="Strategic Consulting">
+                        High-level business strategy and planning
+                      </ListItem>
+                    </ul>
+                  </NavigationMenuContent>
+                </NavigationMenuItem>
+              </NavigationMenuList>
+            </NavigationMenu>
+
             <Link
               to="/local-business-audit"
               className="font-medium text-gray-700 transition-colors hover:text-resgato-blue"
@@ -100,13 +176,112 @@ const Navbar = () => {
             >
               About
             </Link>
-            <Link
-              to="/services"
-              className="py-2 font-medium text-gray-700 transition-colors hover:text-resgato-blue"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Services
-            </Link>
+            
+            {/* Services Section */}
+            <div className="py-2">
+              <div className="font-medium text-gray-700 mb-2">Services</div>
+              <div className="ml-4 space-y-2">
+                <Link
+                  to="/services"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  All Services
+                </Link>
+                <Link
+                  to="/seo"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  SEO Services
+                </Link>
+                <Link
+                  to="/ppc"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  PPC Advertising
+                </Link>
+                <Link
+                  to="/social-media-marketing"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Social Media
+                </Link>
+                <Link
+                  to="/email-marketing"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Email Marketing
+                </Link>
+                <Link
+                  to="/website-development"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Web Development
+                </Link>
+                <Link
+                  to="/content-strategy"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Content Strategy
+                </Link>
+              </div>
+            </div>
+
+            {/* Industries Section */}
+            <div className="py-2">
+              <div className="font-medium text-gray-700 mb-2">Industries</div>
+              <div className="ml-4 space-y-2">
+                <Link
+                  to="/dealershipmarketing"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Dealership Marketing
+                </Link>
+                <Link
+                  to="/utah-real-estate-marketing"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Real Estate Marketing
+                </Link>
+                <Link
+                  to="/utah-marketing-firms"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Utah Marketing Firms
+                </Link>
+                <Link
+                  to="/utahmarketingagency"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Utah Marketing Agency
+                </Link>
+                <Link
+                  to="/ai-consulting"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  AI Consulting
+                </Link>
+                <Link
+                  to="/strategic-consulting"
+                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  Strategic Consulting
+                </Link>
+              </div>
+            </div>
+
             <Link
               to="/local-business-audit"
               className="py-2 font-medium text-gray-700 transition-colors hover:text-resgato-blue"
