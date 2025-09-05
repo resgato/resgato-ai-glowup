@@ -120,14 +120,46 @@ const DealershipMarketing = () => {
   ];
 
   const portfolioItems = [
-    { title: "Dealership Campaign 1", category: "Digital Marketing" },
-    { title: "Auto Sales Campaign 2", category: "Video Production" },
-    { title: "Service Department 3", category: "Social Media" },
-    { title: "Used Car Lot 4", category: "PPC Campaigns" },
-    { title: "New Vehicle Launch 5", category: "Creative Design" },
-    { title: "Service Special 6", category: "Email Marketing" },
-    { title: "Holiday Sale 7", category: "Multi-Channel" },
-    { title: "Brand Awareness 8", category: "Brand Strategy" }
+    { 
+      title: "New Car Dealer Creative Design", 
+      category: "Creative Design",
+      image: "/resgato-uploads/dealershipmarketing/newcardealer_creativedesign.png"
+    },
+    { 
+      title: "Car Dealer Group SEO", 
+      category: "SEO & Content",
+      image: "/resgato-uploads/dealershipmarketing/cardealergroup_seo.png"
+    },
+    { 
+      title: "New Car Dealer Video", 
+      category: "Video Marketing",
+      image: "/resgato-uploads/dealershipmarketing/newdealer_video.png"
+    },
+    { 
+      title: "Motorcycle Dealer Email Marketing", 
+      category: "Email Marketing",
+      image: "/resgato-uploads/dealershipmarketing/motorcycledealer_emailmarketing.png"
+    },
+    { 
+      title: "Used Car Dealer Sales Event", 
+      category: "Event Marketing",
+      image: "/resgato-uploads/dealershipmarketing/usedcardealer_salesevent.png"
+    },
+    { 
+      title: "New Car Dealer Multi-Channel", 
+      category: "Multi-Channel",
+      image: "/resgato-uploads/dealershipmarketing/newcardealer_multichannel.png"
+    },
+    { 
+      title: "Motorcycle Dealer Content Creation", 
+      category: "Content Marketing",
+      image: "/resgato-uploads/dealershipmarketing/motorcycledealers_contentcreation.png"
+    },
+    { 
+      title: "Used Car Service Marketing", 
+      category: "Service Marketing",
+      image: "/resgato-uploads/dealershipmarketing/usedcar_servicemarketing.png"
+    }
   ];
 
   return (
@@ -293,8 +325,12 @@ const DealershipMarketing = () => {
               {portfolioItems.map((item, index) => (
                 <Card key={index} className="group cursor-pointer transition-transform hover:scale-105">
                   <CardContent className="p-6">
-                    <div className="aspect-square bg-gradient-to-br from-resgato-light-purple to-resgato-purple rounded-lg mb-4 flex items-center justify-center">
-                      <Car className="h-12 w-12 text-white" />
+                    <div className="aspect-square rounded-lg mb-4 overflow-hidden bg-gray-100">
+                      <img 
+                        src={item.image} 
+                        alt={item.title}
+                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                      />
                     </div>
                     <h3 className="font-semibold text-resgato-navy mb-1">{item.title}</h3>
                     <p className="text-sm text-gray-600">{item.category}</p>
