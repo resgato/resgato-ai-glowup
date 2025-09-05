@@ -105,23 +105,8 @@ const Navbar = () => {
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem asChild>
-                  <Link to="/utah-marketing-firms" className="w-full">
-                    Utah Marketing Firms
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/utahmarketingagency" className="w-full">
-                    Utah Marketing Agency
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
                   <Link to="/ai-consulting" className="w-full">
                     AI Consulting
-                  </Link>
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <Link to="/strategic-consulting" className="w-full">
-                    Strategic Consulting
                   </Link>
                 </DropdownMenuItem>
               </DropdownMenuContent>
@@ -252,32 +237,11 @@ const Navbar = () => {
                   Real Estate Marketing
                 </Link>
                 <Link
-                  to="/utah-marketing-firms"
-                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Utah Marketing Firms
-                </Link>
-                <Link
-                  to="/utahmarketingagency"
-                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Utah Marketing Agency
-                </Link>
-                <Link
                   to="/ai-consulting"
                   className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   AI Consulting
-                </Link>
-                <Link
-                  to="/strategic-consulting"
-                  className="block py-1 text-sm text-gray-600 transition-colors hover:text-resgato-blue"
-                  onClick={() => setIsMenuOpen(false)}
-                >
-                  Strategic Consulting
                 </Link>
               </div>
             </div>
