@@ -173,9 +173,12 @@ const DealershipMarketing = () => {
                   asChild
                   variant="outline"
                   size="lg"
-                  className="border-white text-white hover:bg-white/10"
+                  className="border-white text-black bg-white hover:bg-gray-100"
                 >
-                  <Link to="/case-studies">View Our Work</Link>
+                  <Link to="/contact">
+                    <Phone className="mr-2 h-5 w-5" />
+                    Call Us Now
+                  </Link>
                 </Button>
               </div>
             </div>
@@ -336,7 +339,7 @@ const DealershipMarketing = () => {
                 asChild
                 variant="outline"
                 size="lg"
-                className="border-white text-white hover:bg-white/10"
+                className="border-white text-black bg-white hover:bg-gray-100"
               >
                 <Link to="/contact">
                   <Phone className="mr-2 h-5 w-5" />
