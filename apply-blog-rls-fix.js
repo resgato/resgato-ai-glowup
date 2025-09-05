@@ -1,11 +1,24 @@
 import { createClient } from '@supabase/supabase-js';
 import fs from 'fs';
 import path from 'path';
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
+
+// Validate required environment variables
+const requiredEnvVars = ['SUPABASE_URL', 'SUPABASE_ANON_KEY'];
+const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+if (missingVars.length > 0) {
+  console.error('Missing required environment variables:', missingVars.join(', '));
+  console.error('Please check your .env file and ensure all required variables are set.');
+  process.exit(1);
+}
 
 // Supabase configuration
-const supabaseUrl = 'https://bopzgxqujuqosdexnppj.supabase.co';
-const supabaseAnonKey =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwODYwODMsImV4cCI6MjA1OTY2MjA4M30.sa4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ';
+const supabaseUrl = process.env.SUPABASE_URL;
+const supabaseAnonKey = process.env.SUPABASE_ANON_KEY;
 
 const supabase = createClient(supabaseUrl, supabaseAnonKey);
 

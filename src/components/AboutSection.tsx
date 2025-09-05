@@ -9,19 +9,20 @@ const AboutSection = () => {
         <div>
           <h2 className="section-title">About Resgato</h2>
           <p className="mb-4 text-base text-gray-700 md:mb-6 md:text-lg">
-            Resgato is a premier digital marketing agency specializing in local
-            SEO, SMB marketing, and AI marketing services. We combine expert
-            SEO, PPC, and content marketing strategies with fast, full-service
-            web development to drive exceptional results for businesses across
-            retail, automotive, home services, powersports, apps and more.
+            As a leading marketing firm and digital marketing agency in Utah,
+            Resgato combines expert SEO, PPC, and content marketing strategies
+            with professional management services to drive exceptional results.
+            Our comprehensive approach to online marketing has helped businesses
+            across Salt Lake City achieve sustainable growth and market
+            leadership.
           </p>
           <p className="mb-4 text-base text-gray-700 md:mb-6 md:text-lg">
-            Our team specializes in creating targeted campaigns that maximize
-            ROI while our AI marketing experts leverage cutting-edge technology
-            to optimize performance. With our integrated digital marketing
-            solutions, we provide end-to-end management of your online presence,
-            ensuring consistent brand messaging and optimal performance across
-            all channels.
+            Our ad agency team specializes in creating and managing targeted
+            campaigns that maximize ROI while our content marketing experts
+            craft compelling narratives that engage your audience. With our
+            integrated digital marketing solutions, we provide end-to-end
+            management of your online presence, ensuring consistent brand
+            messaging and optimal performance across all channels.
           </p>
           <div className="flex flex-col gap-4 sm:flex-row">
             <Button
@@ -39,10 +40,10 @@ const AboutSection = () => {
                 Our Mission
               </h3>
               <p className="text-sm text-gray-700 md:text-base">
-                To be the most trusted partner for local SEO and SMB marketing,
-                delivering innovative AI-powered solutions and fast web
-                development that drive measurable business growth through expert
-                management and strategic planning.
+                To be Utah's most trusted digital marketing agency, delivering
+                innovative SEO, PPC, and content marketing solutions that drive
+                measurable business growth through expert management and
+                strategic planning.
               </p>
             </div>
             <div className="rounded-lg bg-resgato-light-purple p-4 md:p-6">
@@ -50,10 +51,9 @@ const AboutSection = () => {
                 Our Vision
               </h3>
               <p className="text-sm text-gray-700 md:text-base">
-                To revolutionize local SEO and SMB marketing by combining
-                cutting-edge AI strategies with fast, full-service web
-                development that consistently delivers exceptional ROI for
-                businesses across diverse industries.
+                To revolutionize online marketing in Utah by combining
+                cutting-edge digital strategies with expert management services
+                that consistently deliver exceptional ROI for our clients.
               </p>
             </div>
           </div>
@@ -74,10 +74,9 @@ const AboutSection = () => {
                 Our Approach
               </h3>
               <p className="text-sm text-gray-700 md:text-base">
-                Comprehensive local SEO and SMB marketing with AI-powered
-                insights, strategic content creation, and fast web development
-                that maximizes your marketing investment and drives sustainable
-                growth.
+                Comprehensive digital marketing management with a focus on SEO
+                optimization, strategic content creation, and data-driven PPC
+                campaigns that maximize your marketing investment.
               </p>
             </div>
           </div>

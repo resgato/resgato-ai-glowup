@@ -37,6 +37,7 @@ import LocalBusinessAudit from './pages/LocalBusinessAudit';
 import YetiPlumbingCaseStudy from './pages/YetiPlumbingCaseStudy';
 import DailyShiftsCaseStudy from './pages/DailyShiftsCaseStudy';
 import MLDCaseStudy from './pages/MLDCaseStudy';
+import DealershipMarketing from './pages/DealershipMarketing';
 
 // Updated QueryClient configuration to be compatible with React Query v5
 const queryClient = new QueryClient({
@@ -115,6 +116,7 @@ const App = () => (
             element={<DailyShiftsCaseStudy />}
           />
           <Route path="/case-studies/mld" element={<MLDCaseStudy />} />
+          <Route path="/dealershipmarketing" element={<DealershipMarketing />} />
           <Route path="/privacy-policy" element={<PrivacyPolicy />} />
           <Route path="/terms-of-service" element={<TermsOfService />} />
           <Route path="/cookie-policy" element={<CookiePolicy />} />

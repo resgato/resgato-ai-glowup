@@ -8,8 +8,8 @@ export default defineConfig({
   base: '/',
   server: {
     host: '::',
-    port: 8080,
-    strictPort: true,
+    port: 3000,
+    strictPort: false,
     open: true,
   },
   plugins: [

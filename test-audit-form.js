@@ -1,9 +1,22 @@
 // Test script to debug audit form submission
 import { createClient } from '@supabase/supabase-js';
+import dotenv from 'dotenv';
 
-const SUPABASE_URL = 'https://bopzgxqujuqosdexnppj.supabase.co';
-const SUPABASE_PUBLISHABLE_KEY =
-  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwODYwODMsImV4cCI6MjA1OTY2MjA4M30.sa4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ';
+// Load environment variables
+dotenv.config();
+
+// Validate required environment variables
+const requiredEnvVars = ['SUPABASE_URL', 'SUPABASE_ANON_KEY'];
+const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+if (missingVars.length > 0) {
+  console.error('Missing required environment variables:', missingVars.join(', '));
+  console.error('Please check your .env file and ensure all required variables are set.');
+  process.exit(1);
+}
+
+const SUPABASE_URL = process.env.SUPABASE_URL;
+const SUPABASE_PUBLISHABLE_KEY = process.env.SUPABASE_ANON_KEY;
 
 const supabase = createClient(SUPABASE_URL, SUPABASE_PUBLISHABLE_KEY);
 
@@ -46,13 +59,12 @@ const testAuditFormSubmission = async () => {
     // Test email sending
     console.log('📧 Testing email sending...');
     const emailResponse = await fetch(
-      'https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/send-contact-email',
+      `${process.env.SUPABASE_URL}/functions/v1/send-contact-email`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NDQwODYwODMsImV4cCI6MjA1OTY2MjA4M30.sa4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ',
+          Authorization: `Bearer ${process.env.SUPABASE_ANON_KEY}`,
         },
         body: JSON.stringify(submissionData),
       }

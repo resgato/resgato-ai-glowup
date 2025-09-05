@@ -2,17 +2,31 @@ import { Client } from 'pg';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 async function applyMigration() {
+  // Validate required environment variables
+  const requiredEnvVars = ['DB_HOST', 'DB_PORT', 'DB_NAME', 'DB_USER', 'DB_PASSWORD'];
+  const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+  
+  if (missingVars.length > 0) {
+    console.error('Missing required environment variables:', missingVars.join(', '));
+    console.error('Please check your .env file and ensure all required variables are set.');
+    process.exit(1);
+  }
+
   const client = new Client({
-    host: 'db.bopzgxqujuqosdexnppj.supabase.co',
-    port: 5432,
-    database: 'postgres',
-    user: 'postgres',
-    password: 'KBksgoYEuxZakYvE',
+    host: process.env.DB_HOST,
+    port: parseInt(process.env.DB_PORT),
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD,
     ssl: {
       rejectUnauthorized: false,
     },

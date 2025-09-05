@@ -1,3 +1,18 @@
+import dotenv from 'dotenv';
+
+// Load environment variables
+dotenv.config();
+
+// Validate required environment variables
+const requiredEnvVars = ['SUPABASE_URL', 'SUPABASE_SERVICE_ROLE_KEY'];
+const missingVars = requiredEnvVars.filter(varName => !process.env[varName]);
+
+if (missingVars.length > 0) {
+  console.error('Missing required environment variables:', missingVars.join(', '));
+  console.error('Please check your .env file and ensure all required variables are set.');
+  process.exit(1);
+}
+
 async function testEdgeFunction() {
   try {
     console.log('🧪 Testing edge function directly...');
@@ -17,13 +32,12 @@ async function testEdgeFunction() {
     console.log('Data:', testData);
 
     const response = await fetch(
-      'https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/send-contact-email',
+      `${process.env.SUPABASE_URL}/functions/v1/send-contact-email`,
       {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          Authorization:
-            'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJvcHpneHF1anVxb3NkZXhucHBqIiwicm9sZSI6InNlcnZpY2Vfcm9sZSIsImlhdCI6MTc0NDA4NjA4MywiZXhwIjoyMDU5NjYyMDgzfQ.4gGVfa2JpvlOQaouVYArBR_Urv9zh3CGzOKcFY-RQ',
+          Authorization: `Bearer ${process.env.SUPABASE_SERVICE_ROLE_KEY}`,
         },
         body: JSON.stringify(testData),
       }

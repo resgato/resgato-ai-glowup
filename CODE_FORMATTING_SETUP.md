@@ -206,3 +206,4 @@ npm run format -- --write path/to/file.tsx
 ---
 
 This setup ensures your codebase remains clean, consistent, and maintainable as it grows!
+
