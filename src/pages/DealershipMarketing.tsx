@@ -34,7 +34,7 @@ const DealershipMarketing = () => {
     {
       icon: <Target className="h-8 w-8 text-resgato-purple" />,
       title: "Search Engine Marketing",
-      description: "Target your prospects with display ads based on the searches they perform across the web, more often, and more effectively with our keyword-level search retargeting.",
+      description: "Advanced SEM strategies that capture high-intent automotive shoppers through precision targeting and intelligent bid management.",
       features: [
         "SEM Segmented Campaigns",
         "Conquest Keyword Campaigns", 
@@ -48,7 +48,7 @@ const DealershipMarketing = () => {
     {
       icon: <Video className="h-8 w-8 text-resgato-purple" />,
       title: "Digital Video Marketing",
-      description: "We create or adapt your video ads and deliver them where they matter most—YouTube, Facebook, OTT platforms, and beyond.",
+      description: "Compelling video content that showcases your inventory and drives engagement across YouTube, social platforms, and connected TV.",
       features: [
         "YouTube & Facebook Video Ads",
         "Programmatic Video Placement",
@@ -61,7 +61,7 @@ const DealershipMarketing = () => {
     {
       icon: <Share2 className="h-8 w-8 text-resgato-purple" />,
       title: "Social Media Marketing",
-      description: "Our social media marketing strategies cover all stages of the buyer's journey, with Facebook as our backbone for reaching people in micro-moments.",
+      description: "Strategic social media campaigns that build brand awareness and drive qualified leads through targeted audience engagement.",
       features: [
         "Engagement Ad Campaigns",
         "Traffic Targeting Campaigns",
@@ -74,7 +74,7 @@ const DealershipMarketing = () => {
     {
       icon: <FileText className="h-8 w-8 text-resgato-purple" />,
       title: "Creative & Design Services",
-      description: "From email blasts to billboard design, we create compelling visual content that drives engagement and conversions.",
+      description: "Professional design solutions that elevate your brand and create compelling visual experiences that convert prospects into customers.",
       features: [
         "Email Blast Design",
         "Web Slider Design",
@@ -89,33 +89,33 @@ const DealershipMarketing = () => {
   const uniqueOpportunities = [
     {
       icon: <Target className="h-6 w-6 text-resgato-purple" />,
-      title: "Better Leads, More Sales",
-      description: "We utilize an in-market target strategy to gain more leads lower in the sales funnel rather than grasping for higher funnel shoppers with a smaller chance of conversion."
+      title: "Quality Lead Generation",
+      description: "Our advanced targeting identifies and captures high-intent automotive buyers who are ready to make purchasing decisions."
     },
     {
       icon: <Award className="h-6 w-6 text-resgato-purple" />,
-      title: "Automotive Specialized",
-      description: "Our team combines advertising expertise with automotive industry insight, allowing Resgato to be like no other agency in the world."
+      title: "Industry Specialization",
+      description: "Deep automotive market knowledge combined with cutting-edge marketing expertise delivers unmatched results for dealerships."
     },
     {
       icon: <Users className="h-6 w-6 text-resgato-purple" />,
-      title: "Service With A Smile",
-      description: "We're unmatched in the industry when it comes to customer care and loyalty. Once you've hired us, your business is our business."
+      title: "Dedicated Partnership",
+      description: "We treat your dealership's success as our own, providing personalized attention and dedicated support throughout our partnership."
     },
     {
       icon: <Lightbulb className="h-6 w-6 text-resgato-purple" />,
-      title: "Creative Brain Power",
-      description: "You won't find a better creative team in the industry. We know media budgets only go so far, whereas great creative has endless reach."
+      title: "Innovative Creative Solutions",
+      description: "Our creative team develops breakthrough campaigns that maximize your marketing budget and create lasting brand impact."
     },
     {
       icon: <BarChart3 className="h-6 w-6 text-resgato-purple" />,
-      title: "Data-Driven Evidence",
-      description: "We make advertising decisions based on data, not 'a feeling.' Our analytics team spends hours each day breaking down digital market trends."
+      title: "Analytics-Driven Strategy",
+      description: "Every marketing decision is backed by comprehensive data analysis and real-time performance insights to optimize your campaigns."
     },
     {
       icon: <Car className="h-6 w-6 text-resgato-purple" />,
-      title: "We Know Cars. We Drive Sales",
-      description: "We've spent years in automotive marketing so you can focus on selling cars. Our deep expertise delivers real results."
+      title: "Automotive Market Mastery",
+      description: "Our specialized focus on automotive marketing means you can concentrate on what you do best - selling vehicles while we handle the marketing."
     }
   ];
 
@@ -151,12 +151,12 @@ const DealershipMarketing = () => {
                 Automotive Marketing Specialists
               </Badge>
               <h1 className="text-4xl font-bold leading-tight sm:text-5xl lg:text-6xl">
-                Dealership Marketing Experts
+                Automotive Marketing Specialists
               </h1>
               <p className="mt-6 text-xl text-white/90">
-                Resgato is an award-winning marketing agency specializing in automotive dealership marketing. 
-                We focus on converting in-market shoppers through targeted digital campaigns, CRM optimization, 
-                and attribution analytics.
+                Resgato delivers cutting-edge marketing solutions specifically designed for automotive dealerships. 
+                Our data-driven approach combines advanced digital strategies with deep industry expertise to 
+                accelerate your sales and maximize ROI.
               </p>
               <div className="mt-8 flex flex-col gap-4 sm:flex-row sm:justify-center">
                 <Button
@@ -189,9 +189,9 @@ const DealershipMarketing = () => {
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-resgato-navy">Key Strengths</h2>
+              <h2 className="text-3xl font-bold text-resgato-navy">Why Choose Resgato</h2>
               <p className="mt-4 text-lg text-gray-600">
-                What sets us apart in automotive marketing
+                Our proven approach to automotive dealership success
               </p>
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -199,22 +199,22 @@ const DealershipMarketing = () => {
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-resgato-light-purple">
                   <Car className="h-8 w-8 text-resgato-purple" />
                 </div>
-                <h3 className="text-xl font-semibold text-resgato-navy">Automotive Expertise</h3>
-                <p className="mt-2 text-gray-600">Deep understanding of the automotive industry and consumer behavior</p>
+                <h3 className="text-xl font-semibold text-resgato-navy">Industry Expertise</h3>
+                <p className="mt-2 text-gray-600">Specialized knowledge of automotive sales cycles and customer journey mapping</p>
               </div>
               <div className="text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-resgato-light-purple">
                   <Target className="h-8 w-8 text-resgato-purple" />
                 </div>
-                <h3 className="text-xl font-semibold text-resgato-navy">Multi-Channel Strategy</h3>
-                <p className="mt-2 text-gray-600">Integrated campaigns across digital, video, social, and traditional media</p>
+                <h3 className="text-xl font-semibold text-resgato-navy">Integrated Marketing</h3>
+                <p className="mt-2 text-gray-600">Seamless campaigns across all touchpoints to maximize customer engagement</p>
               </div>
               <div className="text-center">
                 <div className="mx-auto mb-4 flex h-16 w-16 items-center justify-center rounded-full bg-resgato-light-purple">
                   <TrendingUp className="h-8 w-8 text-resgato-purple" />
                 </div>
-                <h3 className="text-xl font-semibold text-resgato-navy">ROI-Focused Solutions</h3>
-                <p className="mt-2 text-gray-600">Creative solutions tailored to dealerships that deliver measurable results</p>
+                <h3 className="text-xl font-semibold text-resgato-navy">Performance-Driven Results</h3>
+                <p className="mt-2 text-gray-600">Custom strategies that deliver measurable growth and increased profitability</p>
               </div>
             </div>
           </div>
@@ -224,9 +224,9 @@ const DealershipMarketing = () => {
         <section className="py-16 bg-gray-50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-resgato-navy">Our Services</h2>
+              <h2 className="text-3xl font-bold text-resgato-navy">Marketing Solutions</h2>
               <p className="mt-4 text-lg text-gray-600">
-                Comprehensive marketing solutions for automotive dealerships
+                Complete digital marketing ecosystem for automotive success
               </p>
             </div>
             <div className="grid grid-cols-1 gap-8 lg:grid-cols-2">
@@ -261,9 +261,9 @@ const DealershipMarketing = () => {
         <section className="py-16 bg-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-resgato-navy">Why Choose Resgato?</h2>
+              <h2 className="text-3xl font-bold text-resgato-navy">Our Competitive Edge</h2>
               <p className="mt-4 text-lg text-gray-600">
-                We've spent years in automotive marketing so you can focus on selling cars
+                What makes Resgato the preferred choice for automotive dealerships
               </p>
             </div>
             <div className="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-3">
@@ -284,9 +284,9 @@ const DealershipMarketing = () => {
         <section className="py-16 bg-gray-50">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="text-center mb-12">
-              <h2 className="text-3xl font-bold text-resgato-navy">Our Portfolio</h2>
+              <h2 className="text-3xl font-bold text-resgato-navy">Success Stories</h2>
               <p className="mt-4 text-lg text-gray-600">
-                Check out our custom campaigns that combine eye-catching visuals and strategic messaging
+                Real results from our automotive marketing campaigns
               </p>
             </div>
             <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -317,12 +317,12 @@ const DealershipMarketing = () => {
         <section className="py-16 bg-resgato-purple">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
             <h2 className="text-3xl font-bold text-white mb-4">
-              Let's Drive Results Together
+              Ready to Accelerate Your Sales?
             </h2>
             <p className="text-xl text-white/90 mb-8 max-w-3xl mx-auto">
-              At Resgato, we don't just create campaigns—we deliver measurable outcomes. 
-              With a proven track record in automotive marketing, we're here to help your 
-              dealership sell more cars, generate quality leads, and maximize your advertising ROI.
+              Partner with Resgato to transform your dealership's marketing performance. 
+              Our proven automotive marketing strategies deliver measurable results that 
+              drive more sales, higher quality leads, and maximum return on your marketing investment.
             </p>
             <div className="flex flex-col gap-4 sm:flex-row sm:justify-center">
               <Button
