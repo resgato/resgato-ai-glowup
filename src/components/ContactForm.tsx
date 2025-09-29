@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
 import { supabase } from '@/integrations/supabase/client';
-import { executeRecaptcha } from '@/utils/recaptcha';
+import { executeRecaptcha, verifyRecaptchaToken } from '@/utils/recaptcha';
 import {
   Form,
   FormControl,
@@ -62,6 +62,7 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
 
       // Get reCAPTCHA token with timeout
       let recaptchaToken = '';
+      let recaptchaVerified = false;
       try {
         console.log('Getting reCAPTCHA token...');
         recaptchaToken = await Promise.race([
@@ -75,10 +76,25 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
           throw new Error('reCAPTCHA verification failed');
         }
         console.log('reCAPTCHA token received');
+
+        // Verify the token with the server
+        console.log('Verifying reCAPTCHA token...');
+        const verificationResult = await verifyRecaptchaToken(recaptchaToken, 'contact_form_submit');
+        
+        if (!verificationResult.success) {
+          throw new Error(`reCAPTCHA verification failed: ${verificationResult.error}`);
+        }
+        
+        console.log('reCAPTCHA token verified successfully', {
+          score: verificationResult.score,
+          action: verificationResult.action
+        });
+        recaptchaVerified = true;
       } catch (recaptchaError) {
         console.warn('reCAPTCHA error:', recaptchaError);
         // Continue without reCAPTCHA if it fails
         recaptchaToken = 'recaptcha-failed';
+        recaptchaVerified = false;
       }
 
       // Store submission in the database
@@ -93,6 +109,7 @@ const ContactForm = ({ initialService }: ContactFormProps) => {
             message: data.message,
             service: data.service || null,
             recaptcha_token: recaptchaToken,
+            recaptcha_verified: recaptchaVerified,
           },
         ])
         .select()

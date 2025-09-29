@@ -8,12 +8,11 @@ const CTASection = () => {
     <section className="bg-gradient-to-r from-resgato-navy to-resgato-blue py-12 text-white md:py-20">
       <div className="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
         <h2 className="mb-4 text-2xl font-bold md:mb-6 md:text-4xl">
-          Ready to Transform Your Business with Expert PPC & Digital
-          Marketing?
+          Ready to Transform Your Business with Expert PPC & Digital Marketing?
         </h2>
         <p className="mx-auto mb-6 max-w-2xl text-base md:mb-8 md:text-xl">
-          Get in touch with our team of digital marketing experts
-          today and discover how we can help you achieve your business goals.
+          Get in touch with our team of digital marketing experts today and
+          discover how we can help you achieve your business goals.
         </p>
         <div className="flex flex-col items-center justify-center gap-3 sm:flex-row md:gap-4">
           <Button

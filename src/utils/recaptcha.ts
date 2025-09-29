@@ -2,7 +2,7 @@
 // This utility provides functions to load and execute reCAPTCHA
 
 const RECAPTCHA_SITE_KEY =
-  process.env.RECAPTCHA_SITE_KEY || '6LdrTT0rAAAAAB1V02vzkntNoxAEQnf6khPYvy6v'; // Fallback to production site key
+  import.meta.env.VITE_RECAPTCHA_SITE_KEY || '6LdrTT0rAAAAAB1V02vzkntNoxAEQnf6khPYvy6v'; // Fallback to production site key
 
 /**
  * Dynamically loads the reCAPTCHA script if it's not already loaded
@@ -50,4 +50,36 @@ export const executeRecaptcha = async (action: string): Promise<string> => {
         });
     });
   });
+};
+
+/**
+ * Verifies a reCAPTCHA token with the server
+ * @param token - The reCAPTCHA token to verify
+ * @param action - The action name for reCAPTCHA v3 (optional)
+ * @returns A Promise that resolves with the verification result
+ */
+export const verifyRecaptchaToken = async (token: string, action?: string): Promise<{
+  success: boolean;
+  score?: number;
+  action?: string;
+  error?: string;
+}> => {
+  try {
+    const response = await fetch('/api/verify-recaptcha', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ token, action }),
+    });
+
+    const result = await response.json();
+    return result;
+  } catch (error) {
+    console.error('reCAPTCHA verification error:', error);
+    return {
+      success: false,
+      error: 'Failed to verify reCAPTCHA token'
+    };
+  }
 };

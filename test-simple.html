@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .test-container {
+            max-width: 600px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        .success {
+            color: #22c55e;
+            font-weight: bold;
+        }
+        .error {
+            color: #ef4444;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1>🔧 Resgato Development Server Test</h1>
+        <p><span class="success">✅ Server is running!</span></p>
+        <p>If you can see this page, the basic server is working.</p>
+        <p>Time: <span id="time"></span></p>
+        <p>Port: 3004</p>
+        
+        <h2>Next Steps:</h2>
+        <ol>
+            <li>Check browser console for JavaScript errors</li>
+            <li>Test if React components are loading</li>
+            <li>Verify all dependencies are working</li>
+        </ol>
+    </div>
+
+    <script>
+        document.getElementById('time').textContent = new Date().toLocaleTimeString();
+        console.log('✅ Basic HTML test page loaded successfully');
+        console.log('Time:', new Date().toLocaleTimeString());
+    </script>
+</body>
+</html>

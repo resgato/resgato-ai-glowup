@@ -7,8 +7,9 @@ This document outlines the security fixes applied to address exposed secrets in 
 ## Security Issues Fixed
 
 ### 1. Supabase Service Role JWT Tokens
+
 - **Issue**: Multiple files contained hardcoded Supabase service role JWT tokens
-- **Files Affected**: 
+- **Files Affected**:
   - `update-remaining-blog-posts.js`
   - `deploy-resend-setup.js`
   - `apply-migration-via-api.js`
@@ -22,6 +23,7 @@ This document outlines the security fixes applied to address exposed secrets in 
 - **Fix**: Replaced with `SUPABASE_SERVICE_ROLE_KEY` environment variable
 
 ### 2. Supabase Anon Keys
+
 - **Issue**: Some files contained hardcoded Supabase anon keys
 - **Files Affected**:
   - `apply-blog-rls-fix.js`
@@ -31,6 +33,7 @@ This document outlines the security fixes applied to address exposed secrets in 
 - **Fix**: Replaced with `SUPABASE_ANON_KEY` environment variable
 
 ### 3. Database Credentials
+
 - **Issue**: `apply-migration.js` contained hardcoded database password
 - **Fix**: Replaced with environment variables:
   - `DB_HOST`
@@ -40,6 +43,7 @@ This document outlines the security fixes applied to address exposed secrets in 
   - `DB_PASSWORD`
 
 ### 4. reCAPTCHA Site Key
+
 - **Issue**: `src/utils/recaptcha.ts` contained hardcoded reCAPTCHA site key
 - **Fix**: Replaced with `RECAPTCHA_SITE_KEY` environment variable
 
@@ -71,11 +75,13 @@ RESEND_API_KEY=your_resend_api_key_here
 ## Setup Instructions
 
 1. **Install Dependencies**: The `dotenv` package has been added to handle environment variables
+
    ```bash
    npm install
    ```
 
 2. **Create Environment File**: Copy the example environment file and fill in your actual values
+
    ```bash
    cp env.example .env
    ```
@@ -97,11 +103,13 @@ RESEND_API_KEY=your_resend_api_key_here
 ## Files Modified
 
 ### Configuration Files
+
 - `.gitignore` - Added environment file exclusions
 - `package.json` - Added dotenv dependency
 - `env.example` - Created example environment file
 
 ### JavaScript Files (All Updated)
+
 - `apply-migration.js`
 - `update-remaining-blog-posts.js`
 - `deploy-resend-setup.js`
@@ -117,6 +125,7 @@ RESEND_API_KEY=your_resend_api_key_here
 - `add-more-blog-posts.js`
 
 ### TypeScript Files
+
 - `src/utils/recaptcha.ts`
 
 ## Validation
@@ -137,10 +146,8 @@ All scripts now include validation to ensure required environment variables are 
 ## Support
 
 If you encounter any issues with the environment variable setup, check:
+
 1. The `.env` file exists in the root directory
 2. All required variables are set with correct values
 3. The `dotenv` package is properly installed
 4. The script is being run from the correct directory
-
-
-

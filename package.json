@@ -11,7 +11,9 @@
     "lint:fix": "eslint . --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "check-deps": "node check-dependencies.js",
+    "setup": "npm install --legacy-peer-deps && node check-dependencies.js"
   },
   "dependencies": {
     "@emotion/react": "^11.11.3",
@@ -61,9 +63,9 @@
     "lucide-react": "^0.330.0",
     "next-themes": "^0.2.1",
     "pg": "^8.16.3",
-    "react": "^18.2.0",
+    "react": "^18.3.1",
     "react-day-picker": "^8.10.0",
-    "react-dom": "^18.2.0",
+    "react-dom": "^18.3.1",
     "react-helmet": "^6.1.0",
     "react-helmet-async": "^2.0.4",
     "react-hook-form": "^7.50.1",
