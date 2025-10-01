@@ -7,6 +7,7 @@ import ContactForm from '@/components/ContactForm';
 import { Card, CardContent } from '@/components/ui/card';
 import { Instagram } from 'lucide-react';
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { trackClickToCall, trackClickToEmail } from '@/utils/gtm';
 
 const Contact = () => {
   const [searchParams] = useSearchParams();
@@ -111,7 +112,13 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="mb-1 text-xl font-semibold">Phone</h3>
-                    <p className="text-gray-700">(801) 742-1540</p>
+                    <a
+                      href="tel:+18017421540"
+                      onClick={() => trackClickToCall('(801) 742-1540', 'contact_page')}
+                      className="text-gray-700 transition-colors hover:text-resgato-purple hover:underline"
+                    >
+                      (801) 742-1540
+                    </a>
                   </div>
                 </div>
 
@@ -134,7 +141,13 @@ const Contact = () => {
                   </div>
                   <div>
                     <h3 className="mb-1 text-xl font-semibold">Email</h3>
-                    <p className="text-gray-700">help@resgato.com</p>
+                    <a
+                      href="mailto:help@resgato.com"
+                      onClick={() => trackClickToEmail('help@resgato.com', 'contact_page')}
+                      className="text-gray-700 transition-colors hover:text-resgato-purple hover:underline"
+                    >
+                      help@resgato.com
+                    </a>
                   </div>
                 </div>
 
