@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useLocation } from 'react-router-dom';
 import { useForm } from 'react-hook-form';
@@ -24,31 +23,29 @@ import {
   CardHeader,
   CardTitle,
 } from '@/components/ui/card';
-import {
-  Alert,
-  AlertTitle,
-  AlertDescription,
-} from '@/components/ui/alert';
-import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Alert, AlertTitle, AlertDescription } from '@/components/ui/alert';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import { AlertCircle } from 'lucide-react';
+import { useAuth } from '@/hooks/use-auth';
 
 const authSchema = z.object({
   email: z.string().email({ message: 'Please enter a valid email address' }),
-  password: z.string().min(6, { message: 'Password must be at least 6 characters' }),
+  password: z
+    .string()
+    .min(6, { message: 'Password must be at least 6 characters' }),
 });
 
 type AuthFormValues = z.infer<typeof authSchema>;
 
 const Login = () => {
   const [isLoading, setIsLoading] = useState(false);
-  const [mode, setMode] = useState<'login' | 'signup'>('login');
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
   const { toast } = useToast();
-  
+  const { isAuthenticated } = useAuth();
+
   // Check for error parameters in URL
   useEffect(() => {
     const hash = location.hash;
@@ -56,9 +53,11 @@ const Login = () => {
       const errorParams = new URLSearchParams(hash.substring(1));
       const error = errorParams.get('error');
       const errorDescription = errorParams.get('error_description');
-      
+
       if (error && errorDescription) {
-        setErrorMessage(decodeURIComponent(errorDescription.replace(/\+/g, ' ')));
+        setErrorMessage(
+          decodeURIComponent(errorDescription.replace(/\+/g, ' '))
+        );
         toast({
           title: 'Authentication Error',
           description: decodeURIComponent(errorDescription.replace(/\+/g, ' ')),
@@ -67,30 +66,14 @@ const Login = () => {
       }
     }
   }, [location, toast]);
-  
+
+  // Redirect if already authenticated
   useEffect(() => {
-    // Check if user is already logged in
-    const checkSession = async () => {
-      const { data } = await supabase.auth.getSession();
-      if (data.session) {
-        navigate('/admin');
-      }
-    };
-    
-    checkSession();
-    
-    // Set up auth state listener
-    const { data: { subscription } } = supabase.auth.onAuthStateChange((event, session) => {
-      if (session) {
-        navigate('/admin');
-      }
-    });
-    
-    return () => {
-      subscription.unsubscribe();
-    };
-  }, [navigate]);
-  
+    if (isAuthenticated) {
+      navigate('/admin');
+    }
+  }, [isAuthenticated, navigate]);
+
   // Initialize form
   const form = useForm<AuthFormValues>({
     resolver: zodResolver(authSchema),
@@ -99,72 +82,52 @@ const Login = () => {
       password: '',
     },
   });
-  
+
   const onSubmit = async (data: AuthFormValues) => {
     setIsLoading(true);
     setErrorMessage(null);
-    
+
     try {
-      let authResponse;
-      
-      if (mode === 'login') {
-        authResponse = await supabase.auth.signInWithPassword({
-          email: data.email,
-          password: data.password,
-        });
-      } else {
-        authResponse = await supabase.auth.signUp({
-          email: data.email,
-          password: data.password,
-          options: {
-            emailRedirectTo: window.location.origin + '/login',
-          }
-        });
-      }
-      
+      const authResponse = await supabase.auth.signInWithPassword({
+        email: data.email,
+        password: data.password,
+      });
+
       if (authResponse.error) {
         throw authResponse.error;
       }
-      
-      if (mode === 'signup' && authResponse.data.user && !authResponse.data.session) {
+
+      if (authResponse.data.session) {
         toast({
-          title: 'Verification email sent',
-          description: 'Please check your email to verify your account',
-        });
-        setMode('login');
-      } else if (authResponse.data.session) {
-        toast({
-          title: mode === 'login' ? 'Logged in successfully' : 'Account created successfully',
+          title: 'Logged in successfully',
         });
         navigate('/admin');
       }
-    } catch (error: any) {
-      console.error('Auth error:', error);
-      setErrorMessage(error.message || 'An error occurred during authentication');
+    } catch (error: unknown) {
+      const errorMessage =
+        error instanceof Error
+          ? error.message
+          : 'An error occurred during sign in';
       toast({
-        title: 'Authentication error',
-        description: error.message || 'An error occurred during authentication',
         variant: 'destructive',
+        title: 'Error',
+        description: errorMessage,
       });
     } finally {
       setIsLoading(false);
     }
   };
-  
+
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="flex min-h-screen flex-col">
       <Navbar />
-      <main className="flex-grow flex items-center justify-center py-12">
+      <main className="flex flex-grow items-center justify-center py-12">
         <div className="w-full max-w-md px-4">
-          <Card className="shadow-xl border-none">
+          <Card className="border-none shadow-xl">
             <CardHeader className="text-center">
-              <CardTitle className="text-2xl">
-                {mode === 'login' ? 'Admin Login' : 'Create Admin Account'}
-              </CardTitle>
+              <CardTitle className="text-2xl">Admin Login</CardTitle>
               <CardDescription>
-                {mode === 'login' 
-                  ? 'Enter your credentials to access the admin dashboard' 
-                  : 'Create an account to access the admin dashboard'}
+                Enter your credentials to access the admin dashboard
               </CardDescription>
             </CardHeader>
             <CardContent>
@@ -175,70 +138,58 @@ const Login = () => {
                   <AlertDescription>{errorMessage}</AlertDescription>
                 </Alert>
               )}
-              
-              <Tabs value={mode} onValueChange={(value) => setMode(value as 'login' | 'signup')} className="w-full">
-                <TabsList className="grid w-full grid-cols-2 mb-6">
-                  <TabsTrigger value="login">Login</TabsTrigger>
-                  <TabsTrigger value="signup">Sign Up</TabsTrigger>
-                </TabsList>
-                
-                <Form {...form}>
-                  <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
-                    <FormField
-                      control={form.control}
-                      name="email"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Email</FormLabel>
-                          <FormControl>
-                            <Input placeholder="your@email.com" type="email" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <FormField
-                      control={form.control}
-                      name="password"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Password</FormLabel>
-                          <FormControl>
-                            <Input type="password" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    
-                    <Button 
-                      type="submit" 
-                      className="w-full bg-resgato-purple hover:bg-resgato-deep-purple text-white" 
-                      disabled={isLoading}
-                    >
-                      {isLoading ? 'Processing...' : mode === 'login' ? 'Login' : 'Sign Up'}
-                    </Button>
-                  </form>
-                </Form>
-              </Tabs>
+
+              <Form {...form}>
+                <form
+                  onSubmit={form.handleSubmit(onSubmit)}
+                  className="space-y-4"
+                >
+                  <FormField
+                    control={form.control}
+                    name="email"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Email</FormLabel>
+                        <FormControl>
+                          <Input
+                            placeholder="your@email.com"
+                            type="email"
+                            {...field}
+                          />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <FormField
+                    control={form.control}
+                    name="password"
+                    render={({ field }) => (
+                      <FormItem>
+                        <FormLabel>Password</FormLabel>
+                        <FormControl>
+                          <Input type="password" {...field} />
+                        </FormControl>
+                        <FormMessage />
+                      </FormItem>
+                    )}
+                  />
+
+                  <Button
+                    type="submit"
+                    className="w-full bg-resgato-purple text-white hover:bg-resgato-deep-purple"
+                    disabled={isLoading}
+                  >
+                    {isLoading ? 'Processing...' : 'Login'}
+                  </Button>
+                </form>
+              </Form>
             </CardContent>
-            <CardFooter className="text-center text-sm justify-center">
-              {mode === 'login' ? (
-                <span>
-                  Don't have an account?{' '}
-                  <Button variant="link" className="p-0 h-auto" onClick={() => setMode('signup')}>
-                    Sign up
-                  </Button>
-                </span>
-              ) : (
-                <span>
-                  Already have an account?{' '}
-                  <Button variant="link" className="p-0 h-auto" onClick={() => setMode('login')}>
-                    Login
-                  </Button>
-                </span>
-              )}
+            <CardFooter className="justify-center text-center text-sm">
+              <p className="text-gray-500">
+                Contact your administrator if you need access
+              </p>
             </CardFooter>
           </Card>
         </div>

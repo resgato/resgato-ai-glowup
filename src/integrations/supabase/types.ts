@@ -9,6 +9,45 @@ export type Json =
 export type Database = {
   public: {
     Tables: {
+      blog_posts: {
+        Row: {
+          author: string | null
+          category: string | null
+          content: string | null
+          cover: string | null
+          date: string | null
+          excerpt: string | null
+          id: number
+          readTime: string | null
+          slug: string
+          title: string | null
+        }
+        Insert: {
+          author?: string | null
+          category?: string | null
+          content?: string | null
+          cover?: string | null
+          date?: string | null
+          excerpt?: string | null
+          id?: number
+          readTime?: string | null
+          slug: string
+          title?: string | null
+        }
+        Update: {
+          author?: string | null
+          category?: string | null
+          content?: string | null
+          cover?: string | null
+          date?: string | null
+          excerpt?: string | null
+          id?: number
+          readTime?: string | null
+          slug?: string
+          title?: string | null
+        }
+        Relationships: []
+      }
       contact_submissions: {
         Row: {
           company: string | null
@@ -18,6 +57,8 @@ export type Database = {
           message: string
           name: string
           phone: string | null
+          recaptcha_token: string | null
+          service: string | null
         }
         Insert: {
           company?: string | null
@@ -27,6 +68,8 @@ export type Database = {
           message: string
           name: string
           phone?: string | null
+          recaptcha_token?: string | null
+          service?: string | null
         }
         Update: {
           company?: string | null
@@ -34,6 +77,35 @@ export type Database = {
           email?: string
           id?: string
           message?: string
+          name?: string
+          phone?: string | null
+          recaptcha_token?: string | null
+          service?: string | null
+        }
+        Relationships: []
+      }
+      marketing_audit_leads: {
+        Row: {
+          business_name: string | null
+          created_at: string
+          email: string
+          id: string
+          name: string
+          phone: string | null
+        }
+        Insert: {
+          business_name?: string | null
+          created_at?: string
+          email: string
+          id?: string
+          name: string
+          phone?: string | null
+        }
+        Update: {
+          business_name?: string | null
+          created_at?: string
+          email?: string
+          id?: string
           name?: string
           phone?: string | null
         }
@@ -165,3 +237,4 @@ export const Constants = {
     Enums: {},
   },
 } as const
+

@@ -1,118 +1,300 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 import CTASection from '@/components/CTASection';
-import { BarChart, ArrowRight, LineChart, Target, TrendingUp, DollarSign, Calendar, Settings, Rocket } from 'lucide-react';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent } from '@/components/ui/card';
 import StatsSection from '@/components/StatsSection';
-import { Link } from 'react-router-dom';
+import PageHelmet from '@/components/PageHelmet';
+import { Button } from '@/components/ui/button';
+import {
+  ArrowRight,
+  BarChart,
+  Target,
+  LineChart,
+  Calendar,
+  Settings,
+  Rocket,
+  TrendingUp,
+  DollarSign,
+} from 'lucide-react';
+import PlatformsWeSupport from '@/components/PlatformsWeSupport';
+import FAQSection from '@/components/FAQSection';
 
 const PPC = () => {
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen bg-gray-50">
+      <PageHelmet
+        title="Utah PPC Services | Expert Google Ads Management | Salt Lake City's Top PPC Agency"
+        description="Expert PPC management services in Utah. Drive targeted traffic and maximize ROI with our data-driven Google Ads and PPC marketing strategies."
+        canonicalUrl="/ppc"
+      />
       <Navbar />
       <main className="flex-grow">
+        <h1 className="sr-only">
+          Utah PPC Services | Salt Lake City PPC Agency
+        </h1>
         {/* Hero Section */}
         <section className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30 py-20">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
               <div className="space-y-8">
-                <h1 className="text-4xl md:text-5xl font-bold">
-                  <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">The PPC company</span> for you.
+                <h1 className="text-4xl font-bold md:text-5xl">
+                  <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">
+                    Utah's Premier PPC Agency
+                  </span>{' '}
+                  for Results-Driven Campaigns
                 </h1>
-                <p className="text-xl text-gray-700 max-w-lg">
-                  When it comes to digital advertising, there are a lot of options to pick from. Our approach is simple: create campaigns that will engage your ideal audience and help them convert into future customers, for the lowest CPA possible.
+                <p className="max-w-lg text-xl text-gray-700">
+                  Based in Salt Lake City, our Google Ads certified experts
+                  create high-performance PPC campaigns that deliver measurable
+                  ROI for Utah businesses.
                 </p>
-                <p className="text-xl text-gray-700 max-w-lg">
-                  We've accomplished this many times and guarantee that we'll lower your costs and boost your conversions.
+                <p className="max-w-lg text-xl text-gray-700">
+                  We've helped local Utah companies reduce their
+                  cost-per-acquisition by an average of 37% while increasing
+                  conversions through strategic PPC management.
                 </p>
-                <Button asChild className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
-                  <Link to="/contact">
-                    Get a Free PPC Analysis
-                    <ArrowRight className="ml-2 h-5 w-5" />
-                  </Link>
-                </Button>
-              </div>
-              <div className="bg-white rounded-xl shadow-lg p-8 animate-fade-in">
-                <div className="bg-resgato-light-purple w-16 h-16 rounded-full flex items-center justify-center mb-6">
-                  <BarChart className="text-resgato-deep-purple h-8 w-8" />
+                <div className="flex flex-wrap gap-4">
+                  <Button
+                    asChild
+                    className="bg-resgato-purple text-white hover:bg-resgato-deep-purple"
+                  >
+                    <Link to="/contact">
+                      Get a Free PPC Audit
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                  <Button
+                    asChild
+                    variant="outline"
+                    className="border-resgato-purple text-resgato-purple hover:bg-resgato-light-purple"
+                  >
+                    <Link to="/contact">Talk to a Utah Ads Expert</Link>
+                  </Button>
                 </div>
-                <h2 className="text-2xl font-bold mb-4">Results-Driven PPC Management</h2>
-                <p className="text-gray-600 mb-6">Our data-focused approach ensures your ad spend delivers maximum returns and qualified leads.</p>
+              </div>
+              <div className="animate-fade-in rounded-xl bg-white p-8 shadow-lg">
+                <div className="mb-6 flex h-16 w-16 items-center justify-center rounded-full bg-resgato-light-purple">
+                  <BarChart className="h-8 w-8 text-resgato-deep-purple" />
+                </div>
+                <h2 className="mb-4 text-2xl font-bold">
+                  Utah PPC Management Specialists
+                </h2>
+                <p className="mb-6 text-gray-600">
+                  Our data-focused approach ensures your ad spend delivers
+                  maximum returns and qualified leads within the Utah market.
+                </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <div className="mr-3 mt-1 rounded-full bg-resgato-purple p-1 text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                     </div>
-                    <p className="text-gray-700">Google Ads & Microsoft Advertising</p>
+                    <p className="text-gray-700">
+                      Google Ads & Microsoft Advertising
+                    </p>
                   </li>
                   <li className="flex items-start">
-                    <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <div className="mr-3 mt-1 rounded-full bg-resgato-purple p-1 text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                     </div>
                     <p className="text-gray-700">Landing Page Optimization</p>
                   </li>
                   <li className="flex items-start">
-                    <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <div className="mr-3 mt-1 rounded-full bg-resgato-purple p-1 text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                     </div>
-                    <p className="text-gray-700">Conversion Tracking & Optimization</p>
+                    <p className="text-gray-700">
+                      Conversion Tracking & Optimization
+                    </p>
                   </li>
                   <li className="flex items-start">
-                    <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <div className="mr-3 mt-1 rounded-full bg-resgato-purple p-1 text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                     </div>
-                    <p className="text-gray-700">Remarketing & Audience Targeting</p>
+                    <p className="text-gray-700">
+                      Remarketing & Audience Targeting
+                    </p>
                   </li>
                 </ul>
               </div>
             </div>
           </div>
         </section>
-        
+
         {/* Benefits Section */}
-        <section className="py-16 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">What can a PPC Agency do for me?</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                We create and manage campaigns that generate results without wasting your ad spend.
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                Utah PPC Services That Drive Business Growth
+              </h2>
+              <p className="mx-auto max-w-3xl text-xl text-gray-600">
+                We create and manage targeted campaigns that generate measurable
+                results for businesses throughout Salt Lake City and all of
+                Utah.
               </p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-stretch">
-              <div className="bg-gradient-to-br from-white to-resgato-light-purple/20 rounded-lg p-8 shadow-md flex flex-col">
+
+            <div className="grid grid-cols-1 items-stretch gap-8 md:grid-cols-2">
+              <div className="flex flex-col rounded-lg bg-gradient-to-br from-white to-resgato-light-purple/20 p-8 shadow-md">
                 <div className="mb-6">
                   <Target className="h-12 w-12 text-resgato-purple" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">More Customers</h3>
-                <p className="text-gray-700 mb-4">
-                  Instead of just driving traffic to your website, our PPC services are based on conversion data.
+                <h3 className="mb-4 text-2xl font-bold">
+                  Conversion-Focused PPC Management
+                </h3>
+                <p className="mb-4 text-gray-700">
+                  Our Utah PPC campaigns are meticulously designed to maximize
+                  conversions, not just clicks.
                 </p>
-                <p className="text-gray-700 flex-grow">
-                  We optimize our clients' PPC campaigns so they focus on conversions, not just impressions or clicks. Our goal is to find your ideal audience, then influence them to convert on your site. The data focused approach at Resgato means you will not only grow awareness of your brand but also find new customers.
+                <p className="flex-grow text-gray-700">
+                  We optimize every campaign element—from keyword selection to
+                  ad copy and landing pages—to ensure your ad spend generates
+                  qualified leads and sales. Our Utah-based PPC specialists
+                  understand the local market dynamics and consumer behavior,
+                  helping your business achieve optimal results.
                 </p>
               </div>
-              
-              <div className="bg-gradient-to-br from-white to-resgato-light-purple/20 rounded-lg p-8 shadow-md flex flex-col">
+
+              <div className="flex flex-col rounded-lg bg-gradient-to-br from-white to-resgato-light-purple/20 p-8 shadow-md">
                 <div className="mb-6">
                   <LineChart className="h-12 w-12 text-resgato-purple" />
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Custom Campaigns</h3>
-                <p className="text-gray-700 mb-4">
-                  We know you're different than your competitors, that's why our PPC campaigns are customized for each client.
+                <h3 className="mb-4 text-2xl font-bold">
+                  Data-Driven Strategy & Optimization
+                </h3>
+                <p className="mb-4 text-gray-700">
+                  We leverage advanced analytics to continuously refine your PPC
+                  campaigns for maximum ROI.
                 </p>
-                <p className="text-gray-700 flex-grow">
-                  Our PPC team develops unique and engaging content so your traffic converts. With our conversion-first approach, there won't be any waste in your PPC campaigns. With our experience in keyword research, competitor research and advanced expertise, we guarantee to provide you with PPC campaigns that will lower your CPA and increase your ROI.
+                <p className="flex-grow text-gray-700">
+                  Our PPC team conducts regular performance analyses, A/B
+                  testing of ad creatives, and strategic bid adjustments to
+                  improve campaign effectiveness over time. By continuously
+                  optimizing based on data insights, we ensure your Utah
+                  business achieves the lowest possible cost per acquisition
+                  while maximizing conversion rates.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Process Section */}
+        <section className="bg-gray-50 py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                Our Utah PPC Management Process
+              </h2>
+              <p className="mx-auto max-w-3xl text-xl text-gray-600">
+                A systematic approach to creating successful paid advertising
+                campaigns for Utah businesses.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-4">
+              <div className="rounded-lg bg-white p-6 shadow-md">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-resgato-light-purple">
+                  <span className="font-bold text-resgato-deep-purple">1</span>
+                </div>
+                <h3 className="mb-2 text-xl font-bold">
+                  Campaign Audit & Strategy
+                </h3>
+                <p className="text-gray-700">
+                  We analyze your existing campaigns or develop a new strategy
+                  based on your Utah market, competitors, and business goals.
+                </p>
+              </div>
+
+              <div className="rounded-lg bg-white p-6 shadow-md">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-resgato-light-purple">
+                  <span className="font-bold text-resgato-deep-purple">2</span>
+                </div>
+                <h3 className="mb-2 text-xl font-bold">
+                  Ad Creative Development
+                </h3>
+                <p className="text-gray-700">
+                  Our team creates compelling ad copy and designs that resonate
+                  with your Utah audience and drive high-quality clicks.
+                </p>
+              </div>
+
+              <div className="rounded-lg bg-white p-6 shadow-md">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-resgato-light-purple">
+                  <span className="font-bold text-resgato-deep-purple">3</span>
+                </div>
+                <h3 className="mb-2 text-xl font-bold">
+                  A/B Testing & Optimization
+                </h3>
+                <p className="text-gray-700">
+                  We continuously test different ad variations, landing pages,
+                  and targeting options to improve campaign performance.
+                </p>
+              </div>
+
+              <div className="rounded-lg bg-white p-6 shadow-md">
+                <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-full bg-resgato-light-purple">
+                  <span className="font-bold text-resgato-deep-purple">4</span>
+                </div>
+                <h3 className="mb-2 text-xl font-bold">
+                  Reporting & Strategic Refinement
+                </h3>
+                <p className="text-gray-700">
+                  Regular performance reports and strategy sessions ensure your
+                  PPC campaigns continue to evolve and improve over time.
                 </p>
               </div>
             </div>
@@ -120,143 +302,225 @@ const PPC = () => {
         </section>
 
         {/* Team Image Section */}
-        <section className="py-16 bg-gray-50">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <section className="bg-white py-16">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="grid grid-cols-1 items-center gap-12 lg:grid-cols-2">
               <div className="space-y-6">
-                <h2 className="text-3xl md:text-4xl font-bold">A team of specialists working for your success</h2>
+                <h2 className="text-3xl font-bold md:text-4xl">
+                  Utah's Most Trusted PPC Specialists
+                </h2>
                 <p className="text-lg text-gray-700">
-                  Our PPC experts have years of experience crafting successful campaigns across multiple industries. We work collaboratively to ensure every aspect of your campaign is optimized for maximum performance.
+                  Our team of Google Ads certified PPC experts in Salt Lake City
+                  has years of experience delivering successful campaigns for
+                  Utah businesses across multiple industries.
                 </p>
                 <ul className="space-y-3">
                   <li className="flex items-start">
-                    <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <div className="mr-3 mt-1 rounded-full bg-resgato-purple p-1 text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                     </div>
-                    <p className="text-gray-700">Campaign strategists with industry-specific knowledge</p>
+                    <p className="text-gray-700">
+                      Google Ads & Microsoft Advertising certified strategists
+                    </p>
                   </li>
                   <li className="flex items-start">
-                    <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <div className="mr-3 mt-1 rounded-full bg-resgato-purple p-1 text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                     </div>
-                    <p className="text-gray-700">Copywriters who understand conversion psychology</p>
+                    <p className="text-gray-700">
+                      Specialized knowledge of the Utah market and consumer
+                      behavior
+                    </p>
                   </li>
                   <li className="flex items-start">
-                    <div className="bg-resgato-purple text-white rounded-full p-1 mr-3 mt-1">
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                    <div className="mr-3 mt-1 rounded-full bg-resgato-purple p-1 text-white">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M5 13l4 4L19 7"
+                        />
                       </svg>
                     </div>
-                    <p className="text-gray-700">Data analysts monitoring and optimizing your campaigns</p>
+                    <p className="text-gray-700">
+                      Experienced in campaign management across diverse
+                      industries
+                    </p>
                   </li>
                 </ul>
               </div>
-              <div className="rounded-lg overflow-hidden shadow-lg">
-                <img 
-                  src="/lovable-uploads/6f391aed-1521-493a-ab6a-b226a0de270f.png" 
-                  alt="Team working on PPC campaigns" 
-                  className="w-full h-auto"
+              <div className="overflow-hidden rounded-lg shadow-lg">
+                <img
+                  src="/resgato-uploads/6f391aed-1521-493a-ab6a-b226a0de270f.png"
+                  alt="Utah PPC experts at Resgato"
+                  className="h-auto w-full"
                 />
               </div>
             </div>
           </div>
         </section>
-        
+
         {/* Process Section */}
-        <section className="py-16 bg-[#7D9872]">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-white">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">Our PPC Process</h2>
-              <p className="text-xl max-w-3xl mx-auto">
-                A proven approach that delivers results at every stage.
+        <section className="bg-[#7D9872] py-16">
+          <div className="mx-auto max-w-7xl px-4 text-white sm:px-6 lg:px-8">
+            <div className="mb-12 text-center">
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                Our Utah PPC Management Process
+              </h2>
+              <p className="mx-auto max-w-3xl text-xl">
+                A proven approach that delivers results for businesses
+                throughout Utah.
               </p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-10">
+
+            <div className="grid grid-cols-1 gap-10 md:grid-cols-3">
               <div className="text-center">
-                <div className="flex justify-center mb-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                <div className="mb-6 flex justify-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
                     <Calendar className="h-8 w-8 text-white" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Step 1: Consultation & Planning</h3>
-                <p className="mb-4 text-lg">First, we need to talk...</p>
+                <h3 className="mb-4 text-2xl font-bold">
+                  Step 1: Consultation & Planning
+                </h3>
+                <p className="mb-4 text-lg">
+                  Understanding your Utah business needs
+                </p>
                 <p className="text-md">
-                  Our client relationships start with in-depth research and a consultation to analyze your business and choose which strategies will work best. Together we can plan the best approach for your PPC campaign.
+                  We begin with a comprehensive analysis of your business,
+                  competitors, and the Utah market to develop a tailored PPC
+                  strategy aligned with your specific goals and target audience.
                 </p>
               </div>
-              
+
               <div className="text-center">
-                <div className="flex justify-center mb-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                <div className="mb-6 flex justify-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
                     <Settings className="h-8 w-8 text-white" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Step 2: Campaign Creation</h3>
-                <p className="mb-4 text-lg">Then we take action.</p>
+                <h3 className="mb-4 text-2xl font-bold">
+                  Step 2: Campaign Creation
+                </h3>
+                <p className="mb-4 text-lg">
+                  Building your Utah-focused campaigns
+                </p>
                 <p className="text-md">
-                  Our team of experts put in the hours to set up and implement our digital strategies in your PPC account to achieve your goals. We'll build your campaigns from scratch and make sure you're positioned to receive the new traffic and leads.
+                  Our team expertly builds your campaigns with meticulous
+                  attention to keyword research, ad copy development, and
+                  landing page optimization designed to convert Utah customers.
                 </p>
               </div>
-              
+
               <div className="text-center">
-                <div className="flex justify-center mb-6">
-                  <div className="w-16 h-16 bg-white/20 rounded-full flex items-center justify-center">
+                <div className="mb-6 flex justify-center">
+                  <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20">
                     <Rocket className="h-8 w-8 text-white" />
                   </div>
                 </div>
-                <h3 className="text-2xl font-bold mb-4">Step 3: Launch, Optimize, Scale</h3>
-                <p className="mb-4 text-lg">Finally, the best part.</p>
+                <h3 className="mb-4 text-2xl font-bold">
+                  Step 3: Optimization & Scaling
+                </h3>
+                <p className="mb-4 text-lg">
+                  Continuous improvement and growth
+                </p>
                 <p className="text-md">
-                  We'll walk you through your campaigns, one by one. With your approval, we'll launch and watch the leads roll in. You can expect regular updates of our optimizations and your results as our team works to optimize and scale.
+                  We continuously monitor, analyze, and refine your campaigns
+                  based on performance data, implementing strategic adjustments
+                  to maximize ROI and scale your success in the Utah market.
                 </p>
               </div>
             </div>
           </div>
         </section>
-        
+
         {/* Results Section */}
-        <section className="py-20 bg-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4">PPC Performance Metrics</h2>
-              <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Our campaigns consistently deliver impressive results that impact your bottom line.
+        <section className="bg-white py-20">
+          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+            <div className="mb-16 text-center">
+              <h2 className="mb-4 text-3xl font-bold md:text-4xl">
+                Utah PPC Performance Results
+              </h2>
+              <p className="mx-auto max-w-3xl text-xl text-gray-600">
+                Our campaigns consistently deliver impressive results for Utah
+                businesses across various industries.
               </p>
             </div>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-              <div className="bg-white rounded-lg p-8 shadow-md">
-                <div className="flex items-center justify-center mb-6">
+
+            <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
+              <div className="rounded-lg bg-white p-8 shadow-md">
+                <div className="mb-6 flex items-center justify-center">
                   <Target className="h-12 w-12 text-resgato-purple" />
                 </div>
-                <h3 className="text-3xl font-bold text-center mb-2">37%</h3>
-                <p className="text-center text-gray-600">Average reduction in cost per acquisition for our clients</p>
+                <h3 className="mb-2 text-center text-3xl font-bold">37%</h3>
+                <p className="text-center text-gray-600">
+                  Average reduction in cost per acquisition for our Utah clients
+                </p>
               </div>
-              
-              <div className="bg-white rounded-lg p-8 shadow-md">
-                <div className="flex items-center justify-center mb-6">
+
+              <div className="rounded-lg bg-white p-8 shadow-md">
+                <div className="mb-6 flex items-center justify-center">
                   <TrendingUp className="h-12 w-12 text-resgato-purple" />
                 </div>
-                <h3 className="text-3xl font-bold text-center mb-2">64%</h3>
-                <p className="text-center text-gray-600">Increase in conversion rate through ongoing optimization</p>
+                <h3 className="mb-2 text-center text-3xl font-bold">64%</h3>
+                <p className="text-center text-gray-600">
+                  Increase in conversion rate for Utah businesses through our
+                  optimization
+                </p>
               </div>
-              
-              <div className="bg-white rounded-lg p-8 shadow-md">
-                <div className="flex items-center justify-center mb-6">
+
+              <div className="rounded-lg bg-white p-8 shadow-md">
+                <div className="mb-6 flex items-center justify-center">
                   <DollarSign className="h-12 w-12 text-resgato-purple" />
                 </div>
-                <h3 className="text-3xl font-bold text-center mb-2">185%</h3>
-                <p className="text-center text-gray-600">Average return on ad spend (ROAS) across client campaigns</p>
+                <h3 className="mb-2 text-center text-3xl font-bold">185%</h3>
+                <p className="text-center text-gray-600">
+                  Average return on ad spend (ROAS) for Utah PPC campaigns
+                </p>
               </div>
             </div>
           </div>
         </section>
-        
+
+        {/* FAQ Section */}
+        <FAQSection />
+
+        {/* Platforms We Support */}
+        <PlatformsWeSupport />
+
         <StatsSection />
         <CTASection />
       </main>

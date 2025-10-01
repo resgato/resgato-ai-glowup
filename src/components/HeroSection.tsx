@@ -1,74 +1,55 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
-import { ArrowRight, Search, Mail, BarChart, Link as LinkIcon } from 'lucide-react';
+import {
+  ArrowRight,
+  Search,
+  Mail,
+  BarChart,
+  Link as LinkIcon,
+} from 'lucide-react';
 
 const HeroSection = () => {
   return (
-    <div className="bg-gradient-to-br from-white via-white to-resgato-light-purple/30">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12 md:py-28">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12 items-center">
-          <div className="space-y-4 md:space-y-8 animate-fade-in">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              Utah's Premier <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">Digital Marketing & AI Agency</span>
+    <div className="relative overflow-hidden">
+      {/* Background Gradient */}
+      <div className="absolute inset-0 z-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-white/95 via-white/90 to-resgato-light-purple/40"></div>
+      </div>
+
+      <div className="relative z-10 mx-auto max-w-7xl px-4 py-12 sm:px-6 md:py-28 lg:px-8">
+        <div className="mx-auto max-w-4xl text-center">
+          <div className="animate-fade-in space-y-4 md:space-y-8">
+            <h1 className="text-4xl font-bold leading-tight md:text-5xl lg:text-6xl">
+              Resgato: Your Partner for{' '}
+              <span className="bg-gradient-to-r from-resgato-deep-purple to-resgato-purple bg-clip-text text-transparent">
+                Local SEO & SMB Marketing Success
+              </span>
             </h1>
-            <p className="text-xl text-gray-700 max-w-lg">
-              Since 2012, Resgato has helped Utah businesses optimize their digital presence through SEO, PPC, AI solutions, and strategic marketing that delivers measurable results.
+            <p className="mx-auto max-w-3xl text-xl text-gray-700">
+              Specializing in local SEO, AI marketing services, and fast,
+              full-service web development. We serve retail, automotive, home
+              services, powersports, apps and more with proven strategies that
+              drive measurable growth for small and medium businesses.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild className="bg-resgato-purple hover:bg-resgato-deep-purple text-white px-8 py-6 text-lg">
+            <div className="flex flex-col justify-center gap-4 sm:flex-row">
+              <Button
+                asChild
+                className="bg-resgato-purple px-8 py-6 text-lg text-white hover:bg-resgato-deep-purple"
+              >
                 <Link to="/contact">
                   Get Started
                   <ArrowRight className="ml-2 h-5 w-5" />
                 </Link>
               </Button>
-              <Button asChild variant="outline" className="border-resgato-purple text-resgato-purple hover:bg-resgato-light-purple px-8 py-6 text-lg">
-                <Link to="/services">Our Services</Link>
+              <Button
+                asChild
+                variant="outline"
+                className="border-resgato-purple px-8 py-6 text-lg text-resgato-purple hover:bg-resgato-light-purple"
+              >
+                <Link to="/services">View Services</Link>
               </Button>
             </div>
-          </div>
-          <div className="grid grid-cols-2 gap-3 sm:gap-6 animate-fade-in">
-            <Link 
-              to="/seo" 
-              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-100 transition-transform hover:scale-105"
-            >
-              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                <Search className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Utah SEO Services</h3>
-              <p className="text-sm sm:text-base text-gray-600">Essential optimization for Utah brands with an online presence.</p>
-            </Link>
-            <Link 
-              to="/ppc" 
-              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-200 transition-transform hover:scale-105"
-            >
-              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                <BarChart className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">PPC Campaigns</h3>
-              <p className="text-sm sm:text-base text-gray-600">Custom campaigns focused on conversions for Utah businesses.</p>
-            </Link>
-            <Link 
-              to="/email-marketing" 
-              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-300 transition-transform hover:scale-105"
-            >
-              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                <Mail className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Email Marketing</h3>
-              <p className="text-sm sm:text-base text-gray-600">Personalized campaigns that engage Utah customers.</p>
-            </Link>
-            <Link 
-              to="/ai-consulting" 
-              className="bg-white rounded-xl shadow-lg p-4 sm:p-6 animate-slide-up animate-delay-400 transition-transform hover:scale-105"
-            >
-              <div className="bg-resgato-light-purple w-10 h-10 sm:w-12 sm:h-12 rounded-full flex items-center justify-center mb-3 sm:mb-4">
-                <LinkIcon className="text-resgato-deep-purple h-5 w-5 sm:h-6 sm:w-6" />
-              </div>
-              <h3 className="text-base sm:text-lg font-semibold mb-1 sm:mb-2">Utah AI Agency</h3>
-              <p className="text-sm sm:text-base text-gray-600">Innovative AI solutions for Utah businesses seeking a competitive edge.</p>
-            </Link>
           </div>
         </div>
       </div>

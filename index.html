@@ -1,22 +1,6 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Resgato Digital Marketing</title>
-    <meta name="description" content="Resgato delivers innovative digital marketing solutions with creative strategy, cutting-edge technology, and a passion for brand growth." />
-    <meta name="author" content="Lovable" />
-
-    <meta property="og:title" content="Resgato Digital Marketing" />
-    <meta property="og:description" content="Utah's premier digital marketing and AI agency specializing in SEO, PPC, and AI solutions." />
-    <meta property="og:type" content="website" />
-    <meta property="og:image" content="/lovable-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@lovable_dev" />
-    <meta name="twitter:image" content="/lovable-uploads/243ead37-eeb7-48b8-a28e-4ebac066badb.png" />
-    
-    <link rel="icon" href="/favicon.png" type="image/png">
     <!-- Google Tag Manager -->
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -24,16 +8,59 @@
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-548TR3K8');</script>
     <!-- End Google Tag Manager -->
-  </head>
+    
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#ffffff" />
 
+    <!-- Preload critical resources -->
+    <link
+      rel="preload"
+      href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="https://fonts.googleapis.com/css?family=Inter:wght@300;400;500;600;700;800&display=swap"
+    /></noscript>
+
+    <!-- DNS prefetch for external domains -->
+    <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+    <link rel="dns-prefetch" href="//fonts.gstatic.com" />
+
+    <!-- Preconnect to external domains -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <script>
+      // Add error handling for failed script loading
+      window.addEventListener(
+        'error',
+        function (e) {
+          if (e.target.tagName === 'SCRIPT') {
+            console.error('Script failed to load:', e.target.src);
+          }
+        },
+        true
+      );
+    </script>
+  </head>
   <body>
     <!-- Google Tag Manager (noscript) -->
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-548TR3K8"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
     <!-- End Google Tag Manager (noscript) -->
+    
     <div id="root"></div>
-    <!-- IMPORTANT: DO NOT REMOVE THIS SCRIPT TAG OR THIS VERY COMMENT! -->
-    <script src="https://cdn.gpteng.co/gptengineer.js" type="module"></script>
     <script type="module" src="/src/main.tsx"></script>
+    <noscript>
+      <div style="text-align: center; padding: 20px">
+        Please enable JavaScript to view this website.
+      </div>
+    </noscript>
   </body>
 </html>

@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Link } from 'react-router-dom';
@@ -6,50 +5,78 @@ import { Link } from 'react-router-dom';
 const AboutSection = () => {
   return (
     <section className="section-container">
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-12 items-center">
+      <div className="grid grid-cols-1 items-center gap-6 lg:grid-cols-2 lg:gap-12">
         <div>
           <h2 className="section-title">About Resgato</h2>
-          <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">
-            Resgato is a leading digital marketing agency with over 13 years of experience helping businesses achieve meaningful growth through data-driven strategies. We specialize in SEO, PPC, email marketing, and strategic consulting services customized to meet your unique business objectives.
+          <p className="mb-4 text-base text-gray-700 md:mb-6 md:text-lg">
+            As a leading marketing firm and digital marketing agency in Utah,
+            Resgato combines expert SEO, PPC, and content marketing strategies
+            with professional management services to drive exceptional results.
+            Our comprehensive approach to online marketing has helped businesses
+            across Salt Lake City achieve sustainable growth and market
+            leadership.
           </p>
-          <p className="text-base md:text-lg text-gray-700 mb-4 md:mb-6">
-            Our team of seasoned digital marketing experts works closely with each client to develop tailored solutions that generate leads, increase conversions, and maximize return on investment. With millions of ad impressions managed and thousands of leads generated for our clients, we have a proven track record of delivering exceptional results.
+          <p className="mb-4 text-base text-gray-700 md:mb-6 md:text-lg">
+            Our ad agency team specializes in creating and managing targeted
+            campaigns that maximize ROI while our content marketing experts
+            craft compelling narratives that engage your audience. With our
+            integrated digital marketing solutions, we provide end-to-end
+            management of your online presence, ensuring consistent brand
+            messaging and optimal performance across all channels.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4">
-            <Button asChild className="bg-resgato-purple hover:bg-resgato-deep-purple text-white">
+          <div className="flex flex-col gap-4 sm:flex-row">
+            <Button
+              asChild
+              className="bg-resgato-purple text-white hover:bg-resgato-deep-purple"
+            >
               <Link to="/about">Learn More About Us</Link>
             </Button>
           </div>
         </div>
         <div className="grid grid-cols-2 gap-3 md:gap-6">
           <div className="space-y-3 md:space-y-6">
-            <div className="bg-resgato-light-purple rounded-lg p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Our Mission</h3>
-              <p className="text-sm md:text-base text-gray-700">
-                To empower businesses with effective digital marketing strategies that drive measurable results, increase online visibility, and create sustainable growth opportunities.
+            <div className="rounded-lg bg-resgato-light-purple p-4 md:p-6">
+              <h3 className="mb-1 text-lg font-semibold md:mb-2 md:text-xl">
+                Our Mission
+              </h3>
+              <p className="text-sm text-gray-700 md:text-base">
+                To be Utah's most trusted digital marketing agency, delivering
+                innovative SEO, PPC, and content marketing solutions that drive
+                measurable business growth through expert management and
+                strategic planning.
               </p>
             </div>
-            <div className="bg-resgato-light-purple rounded-lg p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Our Vision</h3>
-              <p className="text-sm md:text-base text-gray-700">
-                To be the most trusted digital marketing partner for businesses seeking exceptional ROI and long-term success in an increasingly competitive online landscape.
+            <div className="rounded-lg bg-resgato-light-purple p-4 md:p-6">
+              <h3 className="mb-1 text-lg font-semibold md:mb-2 md:text-xl">
+                Our Vision
+              </h3>
+              <p className="text-sm text-gray-700 md:text-base">
+                To revolutionize online marketing in Utah by combining
+                cutting-edge digital strategies with expert management services
+                that consistently deliver exceptional ROI for our clients.
               </p>
             </div>
           </div>
-          <div className="space-y-3 md:space-y-6 mt-3 sm:mt-6 md:mt-12">
-            <div className="bg-resgato-light-purple rounded-lg p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Our Values</h3>
-              <ul className="text-sm md:text-base text-gray-700 list-disc list-inside space-y-1 md:space-y-2">
+          <div className="mt-3 space-y-3 sm:mt-6 md:mt-12 md:space-y-6">
+            <div className="rounded-lg bg-resgato-light-purple p-4 md:p-6">
+              <h3 className="mb-1 text-lg font-semibold md:mb-2 md:text-xl">
+                Our Values
+              </h3>
+              <ul className="list-inside list-disc space-y-1 text-sm text-gray-700 md:space-y-2 md:text-base">
                 <li>Results-Driven</li>
                 <li>Transparency</li>
                 <li>Innovation</li>
                 <li>Partnership</li>
               </ul>
             </div>
-            <div className="bg-resgato-light-purple rounded-lg p-4 md:p-6">
-              <h3 className="text-lg md:text-xl font-semibold mb-1 md:mb-2">Our Approach</h3>
-              <p className="text-sm md:text-base text-gray-700">
-                Data-driven, customized strategies with clear metrics and regular reporting to maximize your marketing ROI.
+            <div className="rounded-lg bg-resgato-light-purple p-4 md:p-6">
+              <h3 className="mb-1 text-lg font-semibold md:mb-2 md:text-xl">
+                Our Approach
+              </h3>
+              <p className="text-sm text-gray-700 md:text-base">
+                Comprehensive digital marketing management with a focus on SEO
+                optimization, strategic content creation, and data-driven PPC
+                campaigns that maximize your marketing investment.
               </p>
             </div>
           </div>

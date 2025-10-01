@@ -1,62 +1,86 @@
-# Resgato Digital Marketing
-## Project info
+# Resgato AI Glowup
 
+A modern React application built with Vite, TypeScript, and Tailwind CSS.
 
+## 🚀 Quick Start
 
-**Use your preferred IDE**
-
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
-
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-
-Follow these steps:
-
-```sh
-# Step 1: Clone the repository using the project's Git URL.
-git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
-
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
+```bash
+npm install
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+## 📝 Code Formatting
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+This project uses **Prettier** for consistent code formatting and **ESLint** for code quality. The configuration ensures:
 
-**Use GitHub Codespaces**
+- **Consistent formatting** across all files
+- **Automatic Tailwind CSS class sorting** with `prettier-plugin-tailwindcss`
+- **TypeScript and React best practices** enforcement
+- **Integration** between Prettier and ESLint
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+### Available Scripts
 
-## What technologies are used for this project?
+```bash
+# Format all files
+npm run format
 
-This project is built with:
+# Check formatting without making changes
+npm run format:check
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+# Lint code for issues
+npm run lint
 
-## How can I deploy this project?
+# Lint and automatically fix issues
+npm run lint:fix
+```
 
-Simply open [Lovable](https://lovable.dev/projects/76ec5aeb-b18f-48b6-a215-efcd0432aaff) and click on Share -> Publish.
+### Formatting Rules
 
-## Can I connect a custom domain to my Lovable project?
+- **Single quotes** for strings
+- **Semicolons** required
+- **80 character** line width
+- **2 spaces** for indentation
+- **Trailing commas** in objects and arrays
+- **Automatic Tailwind class sorting**
 
-Yes it is!
+### Editor Setup
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+For the best development experience, configure your editor to:
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
+1. **Format on save** with Prettier
+2. **Show ESLint errors** in real-time
+3. **Use the project's Prettier config**
+
+#### VS Code Setup
+
+Install these extensions:
+
+- Prettier - Code formatter
+- ESLint
+
+Add to your VS Code settings:
+
+```json
+{
+  "editor.formatOnSave": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": true
+  }
+}
+```
+
+## 🛠️ Development
+
+The site is deployed on Vercel. Each push to the main branch triggers a new deployment.
+
+## Contributing
+
+1. Create a new branch for your feature
+2. Make your changes
+3. Submit a pull request
+
+## License
+
+Proprietary - All rights reserved by T Brody LLC
+# Vercel deployment test

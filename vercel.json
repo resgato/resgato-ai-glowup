@@ -1,8 +1,64 @@
 {
+  "redirects": [
+    {
+      "source": "/category/marketing-tips/",
+      "destination": "https://www.resgato.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/7-effective-market-strategy-ideas-for-small-businesses/",
+      "destination": "https://www.resgato.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/connect/",
+      "destination": "https://www.resgato.com/contact",
+      "permanent": true
+    },
+    {
+      "source": "/consultation/",
+      "destination": "https://www.resgato.com/contact",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing-agency/ppc/",
+      "destination": "https://www.resgato.com/ppc",
+      "permanent": true
+    },
+    {
+      "source": "/digital-marketing-agency/seo/",
+      "destination": "https://www.resgato.com/seo",
+      "permanent": true
+    },
+    {
+      "source": "/driving-more-traffic-to-your-website/",
+      "destination": "https://www.resgato.com/services",
+      "permanent": true
+    },
+    {
+      "source": "/category/blog",
+      "destination": "https://www.resgato.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/links/",
+      "destination": "https://www.resgato.com/blog",
+      "permanent": true
+    },
+    {
+      "source": "/privacy-policy/",
+      "destination": "https://www.resgato.com/",
+      "permanent": true
+    }
+  ],
   "rewrites": [
+    {
+      "source": "/sitemap.xml",
+      "destination": "https://bopzgxqujuqosdexnppj.supabase.co/functions/v1/generate-sitemap"
+    },
     {
       "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
-} 
+}
